@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AppTheme {
   AppTheme._();
 
-  static const Color primaryColor = Color(0xFF0F144B);
+  static const Color primaryColor = Color(0xff1C229C);
   static const Color backgroundColor = Color(0xff2F80ED);
   static const Color backgroundColorLight = Color(0xff56CCF2);
   static const Color scaffoldBackgroundColor = Color(0xFFffffff);
