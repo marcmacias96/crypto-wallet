@@ -33,8 +33,13 @@ Al igual que la  presentación , esta capa también se encuentra en el límite d
 
 ## Modelo C4
 
+**Diagrama Contexto**
+
+![image](https://github.com/marcmacias96/crypto-wallet/blob/master/Modelo%20C4%20myCryptoWallet-Contexto.png)
+
+**Diagrama Contenedor**
 
 ![image](https://github.com/marcmacias96/crypto-wallet/blob/master/Modelo%20C4%20myCryptoWallet-Contenedor.png)
 
-![image](https://github.com/marcmacias96/crypto-wallet/blob/master/Modelo%20C4%20myCryptoWallet-Contexto.png)
+
 
