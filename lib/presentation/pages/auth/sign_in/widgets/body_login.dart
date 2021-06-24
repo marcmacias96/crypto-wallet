@@ -1,6 +1,6 @@
-import 'package:crypto_wallet/presentation/pages/auth/widgets/circle_image_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../widgets/circle_image_buttom.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/divider_line.dart';
 import '../../widgets/login_title.dart';

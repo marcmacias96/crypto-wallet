@@ -1,8 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'core/theme_data.dart';
 import 'pages/splash/splash.dart';
-import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);

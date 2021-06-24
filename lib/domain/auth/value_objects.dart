@@ -1,7 +1,7 @@
+import 'package:dartz/dartz.dart';
 import '../core/value_failures.dart';
 import '../core/value_objects.dart';
 import '../core/value_validators.dart';
-import 'package:dartz/dartz.dart';
 
 class EmailAddress extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
