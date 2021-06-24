@@ -1,0 +1,18 @@
+include: package:effective_dart/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.gr.dart"
+    - "**/*.iconfig.dart"
+    - "**/*.config.dart"
+
+  errors:
+    missing_return: error
+    avoid_print: warning
+    public_member_api_docs: ignore
+    lines_longer_than_80_chars: ignore
+    one_member_abstracts: ignore
+    todo: ignore
+    constant_identifier_names: ignore
