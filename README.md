@@ -1,4 +1,6 @@
-                                                                         My CryptoWallet
+**My CryptoWallet**
+
+
 **Visión**
 
 My CryptoWallet será una aplicación móvil que permite a los usuarios realizar  transacciones (almacenar, enviar, recibir y rastrear) con monedas digitales,permitiendo el movimiento de las criptomonedas hacia y desde las carteras controlado por claves públicas y privadas.
