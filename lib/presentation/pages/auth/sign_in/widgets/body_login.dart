@@ -11,11 +11,13 @@ class BodyLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
+    return SingleChildScrollView(
       child: Container(
         height: 0.7.sh,
         width: 1.sw,
+        margin: EdgeInsets.only(
+            top: 0.3.sh
+        ),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(30),
@@ -25,24 +27,6 @@ class BodyLogin extends StatelessWidget {
           children: [
             LoginTitle(title: 'Bienvenido'),
             SignInForm(),
-            CustomButton(
-              text: 'Iniciar Sesión',
-              onTap: () {}
-            ),
-            DividerLine(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-               CircleImageButton(
-                 imageSrc: 'assets/img/facebook.png',
-                 onTap: () {}
-               ),
-                CircleImageButton(
-                    imageSrc: 'assets/img/google.png',
-                    onTap: () {}
-                )
-              ],
-            )
           ],
         ),
       ),

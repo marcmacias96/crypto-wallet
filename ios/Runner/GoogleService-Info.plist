@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>603346543171-s4bf0d1pkd201oregvu8vhlds8l8rv5f.apps.googleusercontent.com</string>
+	<string>603346543171-08spmqjlctt5221230ck0jaa26ilj0k0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.603346543171-s4bf0d1pkd201oregvu8vhlds8l8rv5f</string>
+	<string>com.googleusercontent.apps.603346543171-08spmqjlctt5221230ck0jaa26ilj0k0</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>603346543171-re86avvdhmk1oktdug2b51n7bv9sko3f.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.espe.cryptoWalletFlutter</string>
+	<string>com.espe.cryptoWallet</string>
 	<key>PROJECT_ID</key>
 	<string>crypto-wallet-84244</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:603346543171:ios:f34751db4ba704af7d2af6</string>
+	<string>1:603346543171:ios:5f11299d7f4e95917d2af6</string>
 </dict>
 </plist>
