@@ -29,6 +29,8 @@ class SignUpForm extends StatelessWidget {
                           invalidEmailAndPasswordCombination: (_) =>
                           "Email o contraseña invalida",
                           emailAlreadyInUse: (_) => "Email ya en uso",
+                          accountAlreadyExists: (_) =>
+                          "Correo utilizado en otra cuenta",
                           orElse: () => "Error inesperado",
                         ),
                         context,
@@ -146,7 +148,7 @@ class SignUpForm extends StatelessWidget {
                     CircleImageButton(
                         imageSrc: 'assets/img/facebook.png',
                         onTap: () => context.read<SignInFormBloc>().add(
-                            SignInFormEvent.signInWithGooglePressed()
+                            SignInFormEvent.signInWithFacebookPressed()
                         )
                     ),
                     CircleImageButton(

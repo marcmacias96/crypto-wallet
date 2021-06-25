@@ -54,16 +54,27 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           authFailureOrSuccessOption: some(failureOrSuccess)
         );
       },
+      signInWithFacebookPressed: (e) async* {
+        yield state.copyWith(
+            isSubmitting: true,
+            authFailureOrSuccessOption: none()
+        );
+        final failureOrSuccess = await _authFacade.signInWithFacebook();
+        yield state.copyWith(
+            isSubmitting: false,
+            authFailureOrSuccessOption: some(failureOrSuccess)
+        );
+      },
     );
   }
   Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
-  Future<Either<AuthFailure, Unit>> Function({
+  Future<Either<AuthFailure, AccountType>> Function({
     required EmailAddress emailAddress,
     required Password password,
   })
   forwardedCall,
   ) async* {
-  Either<AuthFailure, Unit>? failureOrSuccess;
+  Either<AuthFailure, AccountType>? failureOrSuccess;
 
   final isEmailValid = state.emailAddress.isValid();
   final isPasswordValid = state.password.isValid();
