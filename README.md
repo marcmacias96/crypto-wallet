@@ -31,4 +31,15 @@ La capa de dominio es el  centro prístino  de una aplicación. Es completamente
 
 Al igual que la  presentación , esta capa también se encuentra en el límite de nuestra aplicación. Se ocupa de las API, las bibliotecas de Firebase, las bases de datos y los sensores de dispositivos.
 
+## Modelo C4
+
+**Diagrama Contexto**
+
+![image](https://github.com/marcmacias96/crypto-wallet/blob/master/Modelo%20C4%20myCryptoWallet-Contexto.png)
+
+**Diagrama Contenedor**
+
+![image](https://github.com/marcmacias96/crypto-wallet/blob/master/Modelo%20C4%20myCryptoWallet-Contenedor.png)
+
+
 
