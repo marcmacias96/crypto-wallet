@@ -1,12 +1,16 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:crypto_wallet/aplication/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../aplication/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../../core/utils.dart';
+import '../../../../routes/router.gr.dart';
 import '../../widgets/circle_image_buttom.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/divider_line.dart';
+
 class SignUpForm extends StatelessWidget {
   const SignUpForm({Key? key}) : super(key: key);
 
@@ -36,19 +40,10 @@ class SignUpForm extends StatelessWidget {
                         context,
                         color: Colors.red);
                   }, (type) {
-                    //TODO: navigation
-                    ScaffoldMessenger.of(context).clearSnackBars();
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 100.h,
-                              child: Text('Registrado exitoso 🔥')),
-                          );
-                        }
-                    );
+                    context
+                        .read<AuthBloc>()
+                        .add(const AuthEvent.authCheckRequested());
+                    context.router.navigate(SplashRoute());
                   });
             }
         );
@@ -126,10 +121,13 @@ class SignUpForm extends StatelessWidget {
                 Row(
                   children: [
                     Text("Ya tienes una cuenta  "),
-                    Text("Inicia sesión Ahora",
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w500
+                    InkWell(
+                      onTap: () => context.router.replace(SignInRoute()),
+                      child: Text("Inicia sesión Ahora",
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.w500
+                        ),
                       ),
                     )
                   ],

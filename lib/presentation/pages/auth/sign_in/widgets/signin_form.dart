@@ -1,11 +1,16 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:crypto_wallet/aplication/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../aplication/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../../core/utils.dart';
+import '../../../../routes/router.gr.dart';
 import '../../widgets/circle_image_buttom.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/divider_line.dart';
+import '../../../../routes/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({Key? key}) : super(key: key);
@@ -34,8 +39,19 @@ class SignInForm extends StatelessWidget {
                       color: Colors.red);
                 },
                 (type) {
-                  //navigarion
+                  context
+                      .read<AuthBloc>()
+                      .add(const AuthEvent.authCheckRequested());
+                  context.router.navigate(
+                    SplashRoute(),
+                  );
+                  //ScaffoldMessenger.of(context).clearSnackBars();
                 });
+              if (state.isSubmitting) {
+                Utils.showSnackBar(
+                    "Cargando..",
+                    context, progress: true);
+              }
             }
         );
       },
@@ -61,6 +77,9 @@ class SignInForm extends StatelessWidget {
                       .read<SignInFormBloc>().add(
                     SignInFormEvent.emailChanged(value),
                   ),
+                  style: TextStyle(
+                      color: Colors.black
+                  ),
                   validator: (_) => context
                       .read<SignInFormBloc>().state.emailAddress
                       .value.fold(
@@ -74,6 +93,9 @@ class SignInForm extends StatelessWidget {
                 ),
                 SizedBox(height: 50.h,),
                 TextFormField(
+                  style: TextStyle(
+                      color: Colors.black
+                  ),
                   decoration: InputDecoration(
                       hintText: 'Contraseña'
                   ),
@@ -97,14 +119,18 @@ class SignInForm extends StatelessWidget {
                 Row(
                   children: [
                     Text("Si no tienes una cuenta  "),
-                    Text("Registrate Ahora",
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w500
+                    InkWell(
+                      onTap: () => context.router.replace(SignUpRoute()),
+                      child: Text("Registrate Ahora",
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.w500
+                        ),
                       ),
                     )
                   ],
                 ),
+                SizedBox(height: 50.h,),
                 CustomButton(
                     text: 'Iniciar Sesión',
                     onTap: () => context.read<SignInFormBloc>().add(

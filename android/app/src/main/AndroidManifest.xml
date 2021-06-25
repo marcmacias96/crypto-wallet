@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.espe.crypto_wallet">
-   <application
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
         android:label="crypto_wallet"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -50,7 +53,5 @@
        </activity>
 
    </application>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
