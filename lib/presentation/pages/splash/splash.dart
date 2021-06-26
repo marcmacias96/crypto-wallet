@@ -15,21 +15,26 @@ class SplashPage extends StatelessWidget {
         listener: (context, state) {
           state.map(
               initial: (_) => {},
-              authenticated: (_) => context.router.replace(HomeRoute()),
-              unauthenticated: (_) => context.router.replace(SignInRoute()),
+              authenticated: (_) => context.router.pushAndPopUntil(
+                HomeRoute(), predicate: (e) => false,
+
+              ),
+              unauthenticated: (_) => context.router.pushAndPopUntil(
+                  SignInRoute(), predicate: (e) => true,),
           );
         },
       builder: (context, state) {
-          return Scaffold(
-            body: Center(
-              child: Lottie.asset(
-                'assets/animations/loading.json',
-                repeat: true,
-                height: 500.h,
-                width: 500.w
-              )
+        return state.maybeMap(
+            orElse: () => Container(
+                child: Center(
+                child: Lottie.asset(
+                    'assets/animations/loading.json',
+                    repeat: true,
+                    height: 500.h,
+                    width: 500.w
+                )
             ),
-          );
+        ));
       },
     );
   }

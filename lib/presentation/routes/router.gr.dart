@@ -12,8 +12,8 @@ import '../pages/auth/sign_up/sign_up.dart' as _i5;
 import '../pages/home/home_page.dart' as _i6;
 import '../pages/splash/splash.dart' as _i3;
 
-class RouterNav extends _i1.RootStackRouter {
-  RouterNav([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
+class AppRouter extends _i1.RootStackRouter {
+  AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override

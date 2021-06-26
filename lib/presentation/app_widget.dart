@@ -5,11 +5,10 @@ import '../aplication/auth/auth_bloc.dart';
 import '../injection.dart';
 import './routes/router.gr.dart';
 import 'core/theme_data.dart';
-import 'pages/splash/splash.dart';
 
 class AppWidget extends StatelessWidget {
   AppWidget({Key? key}) : super(key: key);
-  final _appRouter = RouterNav();
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

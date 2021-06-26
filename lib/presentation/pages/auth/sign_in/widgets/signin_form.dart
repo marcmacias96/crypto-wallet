@@ -9,8 +9,6 @@ import '../../../../routes/router.gr.dart';
 import '../../widgets/circle_image_buttom.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/divider_line.dart';
-import '../../../../routes/router.gr.dart';
-import 'package:auto_route/auto_route.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({Key? key}) : super(key: key);
@@ -42,8 +40,8 @@ class SignInForm extends StatelessWidget {
                   context
                       .read<AuthBloc>()
                       .add(const AuthEvent.authCheckRequested());
-                  context.router.navigate(
-                    SplashRoute(),
+                  context.router.pushAndPopUntil(
+                    SplashRoute(), predicate: (e) => true,
                   );
                   //ScaffoldMessenger.of(context).clearSnackBars();
                 });

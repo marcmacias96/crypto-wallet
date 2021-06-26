@@ -9,7 +9,7 @@ import '../pages/splash/splash.dart';
   MaterialRoute(page: SplashPage, initial: true),
   MaterialRoute(page: SignInPage, fullscreenDialog: true),
   MaterialRoute(page: SignUpPage, fullscreenDialog: true),
-  MaterialRoute(page: HomePage,  fullscreenDialog: true),
+  MaterialRoute(page: HomePage,fullscreenDialog: true),
 ])
 
-class $RouterNav {}
+class $AppRouter {}
