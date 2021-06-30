@@ -1,6 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
-
 import '../core/firestore_failure.dart';
 import 'wallet.dart';
 
