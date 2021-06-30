@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/auth/user.dart';
 import '../../domain/auth/value_objects.dart';
 import '../../domain/core/value_objects.dart';
-import '../../domain/wallet/value_objects.dart';
 
 part 'user_dto.freezed.dart';
 part 'user_dto.g.dart';

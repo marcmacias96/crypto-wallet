@@ -19,6 +19,18 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
 
   @override
   Stream<WalletFormState> mapEventToState(WalletFormEvent event) async* {
-    yield* event.map(initialized: (e) async* {}, saved: (e) async* {});
+    yield* event.map(initialized: (e) async* {
+      yield state.copyWith(
+          isLoading: false, saveFailureOrSuccessOption: none());
+    }, saved: (e) async* {
+      Either<FirestoreFailure, Unit> failureOrSuccess;
+      yield state.copyWith(isSaving: true, saveFailureOrSuccessOption: none());
+
+      failureOrSuccess = await _walletRepository.create(state.wallet);
+
+      yield state.copyWith(
+          isSaving: false,
+          saveFailureOrSuccessOption: optionOf(failureOrSuccess));
+    });
   }
 }

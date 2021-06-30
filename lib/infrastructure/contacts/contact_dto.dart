@@ -1,6 +1,7 @@
-import 'package:crypto_wallet/domain/contacts/contact.dart';
-import 'package:crypto_wallet/domain/core/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../domain/contacts/contact.dart';
+import '../../domain/core/value_objects.dart';
 import '../../domain/wallet/value_objects.dart';
 
 part 'contact_dto.freezed.dart';

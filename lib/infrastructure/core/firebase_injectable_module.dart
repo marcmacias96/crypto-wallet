@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -11,6 +12,6 @@ abstract class FirebaseInjectableModule {
   FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
   @lazySingleton
   FacebookLogin get facebookLogin => FacebookLogin();
-  //@lazySingleton
-  //FirebaseFirestore get firestore => FirebaseFirestore.instance;
+  @lazySingleton
+  FirebaseFirestore get firestore => FirebaseFirestore.instance;
 }

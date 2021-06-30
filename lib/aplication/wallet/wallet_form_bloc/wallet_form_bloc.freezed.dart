@@ -16,10 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$WalletFormEventTearOff {
   const _$WalletFormEventTearOff();
 
-  Initialized initialized(Option<Wallet> wallet) {
-    return Initialized(
-      wallet,
-    );
+  Initialized initialized() {
+    return const Initialized();
   }
 
   Saved saved() {
@@ -34,13 +32,13 @@ const $WalletFormEvent = _$WalletFormEventTearOff();
 mixin _$WalletFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Wallet> wallet) initialized,
+    required TResult Function() initialized,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Wallet> wallet)? initialized,
+    TResult Function()? initialized,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -82,7 +80,6 @@ abstract class $InitializedCopyWith<$Res> {
   factory $InitializedCopyWith(
           Initialized value, $Res Function(Initialized) then) =
       _$InitializedCopyWithImpl<$Res>;
-  $Res call({Option<Wallet> wallet});
 }
 
 /// @nodoc
@@ -95,68 +92,44 @@ class _$InitializedCopyWithImpl<$Res>
 
   @override
   Initialized get _value => super._value as Initialized;
-
-  @override
-  $Res call({
-    Object? wallet = freezed,
-  }) {
-    return _then(Initialized(
-      wallet == freezed
-          ? _value.wallet
-          : wallet // ignore: cast_nullable_to_non_nullable
-              as Option<Wallet>,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$Initialized implements Initialized {
-  const _$Initialized(this.wallet);
-
-  @override
-  final Option<Wallet> wallet;
+  const _$Initialized();
 
   @override
   String toString() {
-    return 'WalletFormEvent.initialized(wallet: $wallet)';
+    return 'WalletFormEvent.initialized()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is Initialized &&
-            (identical(other.wallet, wallet) ||
-                const DeepCollectionEquality().equals(other.wallet, wallet)));
+    return identical(this, other) || (other is Initialized);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(wallet);
-
-  @JsonKey(ignore: true)
-  @override
-  $InitializedCopyWith<Initialized> get copyWith =>
-      _$InitializedCopyWithImpl<Initialized>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Wallet> wallet) initialized,
+    required TResult Function() initialized,
     required TResult Function() saved,
   }) {
-    return initialized(wallet);
+    return initialized();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Wallet> wallet)? initialized,
+    TResult Function()? initialized,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized(wallet);
+      return initialized();
     }
     return orElse();
   }
@@ -185,12 +158,7 @@ class _$Initialized implements Initialized {
 }
 
 abstract class Initialized implements WalletFormEvent {
-  const factory Initialized(Option<Wallet> wallet) = _$Initialized;
-
-  Option<Wallet> get wallet => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $InitializedCopyWith<Initialized> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory Initialized() = _$Initialized;
 }
 
 /// @nodoc
@@ -230,7 +198,7 @@ class _$Saved implements Saved {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<Wallet> wallet) initialized,
+    required TResult Function() initialized,
     required TResult Function() saved,
   }) {
     return saved();
@@ -239,7 +207,7 @@ class _$Saved implements Saved {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<Wallet> wallet)? initialized,
+    TResult Function()? initialized,
     TResult Function()? saved,
     required TResult orElse(),
   }) {

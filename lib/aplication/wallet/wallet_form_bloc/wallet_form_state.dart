@@ -13,7 +13,7 @@ class WalletFormState with _$WalletFormState {
   factory WalletFormState.initial() => WalletFormState(
       wallet: Wallet.empty(),
       isEditing: false,
-      isLoading: false,
+      isLoading: true,
       isSaving: false,
       saveFailureOrSuccessOption: none());
 }

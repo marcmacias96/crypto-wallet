@@ -15,6 +15,13 @@ class WalletDto with _$WalletDto {
       String? apiCode,
       String? walletId}) = _WalletDto;
 
+  factory WalletDto.fromDomain(Wallet wallet) {
+    return WalletDto(
+        id: wallet.id.getOrCrash(),
+        walletId: wallet.walletId.getOrCrash(),
+        apiCode: wallet.apiCode);
+  }
+
   factory WalletDto.fromJson(Map<String, dynamic> json) =>
       _$WalletDtoFromJson(json);
 
