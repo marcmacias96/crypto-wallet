@@ -44,6 +44,7 @@ class SignUpForm extends StatelessWidget {
                         .read<AuthBloc>()
                         .add(const AuthEvent.authCheckRequested());
                     context.router.navigate(SplashRoute());
+                    ScaffoldMessenger.of(context).clearSnackBars();
                   });
             }
         );

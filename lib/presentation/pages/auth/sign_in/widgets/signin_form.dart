@@ -43,15 +43,15 @@ class SignInForm extends StatelessWidget {
                   context.router.pushAndPopUntil(
                     SplashRoute(), predicate: (e) => true,
                   );
-                  //ScaffoldMessenger.of(context).clearSnackBars();
+                  ScaffoldMessenger.of(context).clearSnackBars();
                 });
-              if (state.isSubmitting) {
-                Utils.showSnackBar(
-                    "Cargando..",
-                    context, progress: true);
-              }
             }
         );
+        if (state.isSubmitting) {
+          Utils.showSnackBar(
+              "Cargando..",
+              context, progress: true);
+        }
       },
       builder: (context, state) {
         return Form(
