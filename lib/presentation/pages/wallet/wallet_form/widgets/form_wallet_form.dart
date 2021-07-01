@@ -32,6 +32,7 @@ class FormWalletForm extends StatelessWidget {
                     decoration: InputDecoration(
                         hintText: 'Nombre'
                     ),
+                    style: TextStyle(color: Colors.black),
 
                   ),
                   SizedBox(height: 50.h,),
@@ -43,6 +44,7 @@ class FormWalletForm extends StatelessWidget {
                     decoration: InputDecoration(
                         hintText: 'ID Wallet'
                     ),
+                    style: TextStyle(color: Colors.black),
                     keyboardType: TextInputType.text,
                     validator: (_) => context
                         .read<WalletFormBloc>()
