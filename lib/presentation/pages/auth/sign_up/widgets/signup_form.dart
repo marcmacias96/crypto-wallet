@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:crypto_wallet/domain/auth/i_auth_facade.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,11 +37,23 @@ class SignUpForm extends StatelessWidget {
                 context,
                 color: Colors.red);
           }, (type) {
-            context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
-            context.router.pushAndPopUntil(
-              SplashRoute(),
-              predicate: (e) => true,
-            );
+            switch (type) {
+              case AccountType.fresh:
+                context.router.pushAndPopUntil(
+                  WalletFormRoute(),
+                  predicate: (e) => true,
+                );
+                break;
+              case AccountType.old:
+                context
+                    .read<AuthBloc>()
+                    .add(const AuthEvent.authCheckRequested());
+                context.router.pushAndPopUntil(
+                  SplashRoute(),
+                  predicate: (e) => true,
+                );
+                break;
+            }
             ScaffoldMessenger.of(context).clearSnackBars();
           });
         });
@@ -123,6 +136,8 @@ class SignUpForm extends StatelessWidget {
                 ),
                 CustomButton(
                     text: 'Regístrarte ahora',
+                    textcolor: Colors.white,
+                    buttoncolor: Theme.of(context).primaryColor,
                     onTap: () => context.read<SignInFormBloc>().add(
                         SignInFormEvent.registerWithEmailAndPasswordPressed())),
                 DividerLine(),

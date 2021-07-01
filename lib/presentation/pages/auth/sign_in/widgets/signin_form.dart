@@ -115,6 +115,8 @@ class SignInForm extends StatelessWidget {
                 ),
                 CustomButton(
                     text: 'Iniciar Sesión',
+                    textcolor: Colors.white,
+                    buttoncolor: Theme.of(context).primaryColor,
                     onTap: () => context.read<SignInFormBloc>().add(
                         SignInFormEvent.registerWithEmailAndPasswordPressed())),
                 DividerLine(),

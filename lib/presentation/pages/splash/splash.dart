@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:crypto_wallet/presentation/pages/home/home_page.dart';
+import 'package:crypto_wallet/presentation/pages/welcome/welcome1_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,11 +18,11 @@ class SplashPage extends StatelessWidget {
           state.map(
               initial: (_) => {},
               authenticated: (_) => context.router.pushAndPopUntil(
-                HomeRoute(), predicate: (e) => false,
+                 HomeRoute(), predicate: (e) => false,
 
               ),
               unauthenticated: (_) => context.router.pushAndPopUntil(
-                  SignInRoute(), predicate: (e) => true,),
+                Welcome1Route(), predicate: (e) => true,),
           );
         },
       builder: (context, state) {
