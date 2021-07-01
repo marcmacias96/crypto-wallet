@@ -9,15 +9,15 @@ class SubtitleWelcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-          top: 50.h
+          left:50.w,
       ),
-      alignment: Alignment.center,
       child: Text(
         subtitle,
+        textAlign:  TextAlign.center,
         style: Theme.of(context).textTheme.headline4!.copyWith(
             color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 30.sp
+            fontWeight: FontWeight.normal,
+            fontSize: 40.sp
         ),
       ),
     );

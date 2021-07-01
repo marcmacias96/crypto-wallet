@@ -24,37 +24,50 @@ class Welcome1Page extends StatelessWidget {
         body: Stack(
           alignment: Alignment.topCenter,
           children: [
-            Container(
-              width: 1.sw,
-              margin: EdgeInsets.only(
-                  top: 0.35.sh
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  WelcomeLogo(imageSrc: 'assets/img/splash.png'),
-                  TitleWelcome(title: 'My CryptoWallet'),
-                  SubtitleWelcome(subtitle: 'Tu billetera criptografica personal '),
-                  SizedBox(height: 50.h,),
-                  ButtonWelcome(
-                      text: 'Empezar',
-                      textcolor: Colors.white,
-                      buttoncolor: Colors.black,
+            SingleChildScrollView(
+              child: Container(
+                width: 1.sw,
+                margin: EdgeInsets.only(
+                    top: 0.15.sh,
 
-                  ),
-                  SizedBox(height: 50.h,),
-                  Row(
-                    children: [
-                      Text("Si no tienes una cuenta  "),
-                      Text("Registrate Ahora",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    WelcomeLogo(imageSrc: 'assets/img/splash.png'),
+                    TitleWelcome(title: 'My CryptoWallet'),
+                    SizedBox(height: 50.h,),
+                    SubtitleWelcome(subtitle: 'Tu billetera criptográfica personal '),
+                    SizedBox(height: 400.h,),
+                    ButtonWelcome(
+                        text: 'Empezar',
+                        textcolor: Theme.of(context).primaryColor,
+                        buttoncolor: Colors.white,
+
+                    ),
+                    SizedBox(height: 50.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("Si tienes una cuenta  ",
+                          style: TextStyle(
+                              color: Colors.white54,
+                              fontSize: 40.sp
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        Text("Iniciar Ahora",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 40.sp
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             )
           ],

@@ -18,7 +18,7 @@ class WalletSubtitle extends StatelessWidget {
         style: Theme.of(context).textTheme.headline4!.copyWith(
             color: Colors.black,
             fontWeight: FontWeight.bold,
-            fontSize: 30.sp
+            fontSize: 40.sp
         ),
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:crypto_wallet/presentation/pages/wallet/widgets/button_welcome.dart';
+import 'package:crypto_wallet/presentation/pages/welcome/widgets/body_welcome2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/subtitle_welcome.dart';
@@ -16,87 +18,52 @@ class Welcome2Page extends StatelessWidget {
         )
       ),
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         body: Stack(
           alignment: Alignment.topCenter,
           children: [
-            Container(
-              width: 1.sw,
-              margin: EdgeInsets.only(
-                  top: 0.35.sh
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TitleWelcome(title: 'Te permite realizar transacciones'),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        Icons.account_balance_wallet,
-                        color: Colors.white,
-                        size: 36.0,
-                      ),
-                      Icon(
-                        Icons.input,
-                        color: Colors.white,
-                        size: 36.0,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SubtitleWelcome(subtitle: 'Almacenar'),
-                      SubtitleWelcome(subtitle: 'Enviar')
-                      
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        Icons.monetization_on,
-                        color: Colors.white,
-                        size: 36.0,
-                      ),
-                      Icon(
-                        Icons.track_changes,
-                        color: Colors.white,
-                        size: 36.0,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SubtitleWelcome(subtitle: 'Recibir'),
-                      SubtitleWelcome(subtitle: 'Rastrear')
-                    ],
-                  ),
-                  SubtitleWelcome(subtitle: 'Tu billetera criptografica personal '),
-                  SizedBox(height: 50.h,),
-                  /*CustomButton(
-                      text: 'Registrarse',
+            SingleChildScrollView(
+              child: Container(
+                width: 1.sw,
+                margin: EdgeInsets.only(
+                    top: 0.05.sh,
+
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    TitleWelcome(title: 'Te permite realizar transacciones'),
+                    BodyWelcome2(),
+                    SizedBox(height: 100.h,),
+                    ButtonWelcome(
+                      text: 'Empezar',
                       textcolor: Theme.of(context).primaryColor,
                       buttoncolor: Colors.white,
-                      onTap: ;
-                  ),
-                  SizedBox(height: 50.h,),
-                  Row(
-                    children: [
-                      Text("Si no tienes una cuenta  "),
-                      InkWell(
-                        onTap: () => context.router.replace(SignUpRoute()),
-                        child: Text("Registrate Ahora",
+
+                    ),
+                    SizedBox(height: 50.h,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("Si tienes una cuenta  ",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500
+                              color: Colors.white54,
+                              fontSize: 40.sp
                           ),
                         ),
-                      )
-                    ],
-                  ),*/
-                ],
+                        Text("Iniciar Ahora",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 40.sp
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             )
           ],

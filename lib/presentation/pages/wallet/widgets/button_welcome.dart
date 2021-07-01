@@ -30,6 +30,7 @@ class ButtonWelcome extends StatelessWidget {
         ),
         child: Text(
           text,
+          textAlign:  TextAlign.center,
           style: Theme.of(context).textTheme.headline5!.copyWith(
               color: textcolor,
               fontSize:40.sp

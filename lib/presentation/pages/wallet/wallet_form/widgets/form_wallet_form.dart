@@ -12,7 +12,7 @@ class FormWalletForm extends StatelessWidget {
       child: Padding(
         padding:  EdgeInsets.symmetric(
         horizontal: 60.w,
-        vertical: 50.h
+        vertical: 40.h
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,19 +28,18 @@ class FormWalletForm extends StatelessWidget {
                   hintText: 'ID Wallet'
               ),
             ),
-            SizedBox(height: 50.h,),
+            SizedBox(height: 60.h,),
             ButtonWelcome(
                 text: 'Finalizar',
                 textcolor: Colors.white,
                 buttoncolor: Theme.of(context).primaryColor,
 
             ),
-            SizedBox(height: 50.h,),
+
             ButtonWelcome(
                 text: 'Cancelar',
                 textcolor: Colors.black,
                 buttoncolor: Colors.white,
-
             )
           ],
         ),

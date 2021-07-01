@@ -9,8 +9,9 @@ class WelcomeLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70.h,
-      width: 70.w,
+      height: 160.h,
+      width: 160.w,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         image: DecorationImage(
             image: ExactAssetImage(imageSrc)
