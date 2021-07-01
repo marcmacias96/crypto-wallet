@@ -38,7 +38,6 @@ class SignInForm extends StatelessWidget {
               SplashRoute(),
               predicate: (e) => true,
             );
-            ScaffoldMessenger.of(context).clearSnackBars();
           });
         });
         if (state.isSubmitting) {

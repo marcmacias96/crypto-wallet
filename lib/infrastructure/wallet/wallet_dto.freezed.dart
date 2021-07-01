@@ -132,7 +132,8 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$_WalletDto implements _WalletDto {
   const _$_WalletDto(
       {@JsonKey(ignore: true) this.id, this.apiCode, this.walletId});

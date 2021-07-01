@@ -10,10 +10,14 @@ part 'wallet_dto.g.dart';
 
 @freezed
 class WalletDto with _$WalletDto {
+  @JsonSerializable(explicitToJson: true)
   const factory WalletDto(
-      {@JsonKey(ignore: true) String? id,
-      String? apiCode,
-      String? walletId}) = _WalletDto;
+      {@JsonKey(ignore: true)
+          String? id,
+      @JsonKey(includeIfNull: false, name: 'api_code')
+          required String apiCode,
+      @JsonKey(includeIfNull: false, name: 'wallet_id')
+          required String walletId}) = _WalletDto;
 
   factory WalletDto.fromDomain(Wallet wallet) {
     return WalletDto(
@@ -22,18 +26,18 @@ class WalletDto with _$WalletDto {
         apiCode: wallet.apiCode);
   }
 
+  // Wallet toDomain() {
+  //   return Wallet(
+  //     id: UniqueId.fromUniqueString(id!),
+  //     walletId: WalletId(walletId!),
+  //     apiCode: apiCode!,
+  //   );
+  // }
+
   factory WalletDto.fromJson(Map<String, dynamic> json) =>
       _$WalletDtoFromJson(json);
 
-  factory WalletDto.fromFirestore(DocumentSnapshot? doc) =>
-      WalletDto.fromJson(doc!.data() as Map<String, dynamic>)
+  factory WalletDto.fromFirestore(DocumentSnapshot doc) =>
+      WalletDto.fromJson(doc.data() as Map<String, dynamic>)
           .copyWith(id: doc.id);
-
-  Wallet toDomain() {
-    return Wallet(
-      id: UniqueId.fromUniqueString(id!),
-      walletId: WalletId(walletId ?? '975a1475-3074-44dc-90a5-243defd3b43b'),
-      apiCode: apiCode ?? '12345',
-    );
-  }
 }
