@@ -1,10 +1,9 @@
-import 'package:crypto_wallet/domain/auth/user.dart';
 import 'package:dartz/dartz.dart';
 import 'auth_failure.dart';
 import 'value_objects.dart';
 
 abstract class IAuthFacade {
-  Future<Option<User>> getSingedInUser();
+  Option<String> getSingedInUser();
   Future<Either<AuthFailure, AccountType>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
@@ -18,4 +17,5 @@ abstract class IAuthFacade {
 
   Future<void> signOut();
 }
+
 enum AccountType { old, fresh }
