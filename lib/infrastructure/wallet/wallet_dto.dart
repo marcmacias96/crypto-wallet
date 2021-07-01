@@ -26,18 +26,20 @@ class WalletDto with _$WalletDto {
         apiCode: wallet.apiCode);
   }
 
-  // Wallet toDomain() {
-  //   return Wallet(
-  //     id: UniqueId.fromUniqueString(id!),
-  //     walletId: WalletId(walletId!),
-  //     apiCode: apiCode!,
-  //   );
-  // }
-
   factory WalletDto.fromJson(Map<String, dynamic> json) =>
       _$WalletDtoFromJson(json);
 
   factory WalletDto.fromFirestore(DocumentSnapshot doc) =>
       WalletDto.fromJson(doc.data() as Map<String, dynamic>)
           .copyWith(id: doc.id);
+}
+
+extension WalletDtoX on WalletDto {
+  Wallet toDomain() {
+    return Wallet(
+      id: UniqueId.fromUniqueString(id!),
+      walletId: WalletId(walletId),
+      apiCode: apiCode,
+    );
+  }
 }

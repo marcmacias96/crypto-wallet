@@ -5,8 +5,6 @@ import '../../../../injection.dart';
 import '../widgets/background_start.dart';
 import 'widgets/body_signup.dart';
 
-
-
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
@@ -16,12 +14,11 @@ class SignUpPage extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       body: BlocProvider(
         create: (context) => getIt<SignInFormBloc>(),
-        child: Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            BackgroundStart(),
-            BodySignUp()
-          ],
+        child: SingleChildScrollView(
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [BackgroundStart(), BodySignUp()],
+          ),
         ),
       ),
     );

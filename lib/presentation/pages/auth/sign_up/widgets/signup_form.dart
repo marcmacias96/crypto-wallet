@@ -37,7 +37,10 @@ class SignUpForm extends StatelessWidget {
                 color: Colors.red);
           }, (type) {
             context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
-            context.router.navigate(SplashRoute());
+            context.router.pushAndPopUntil(
+              SplashRoute(),
+              predicate: (e) => true,
+            );
             ScaffoldMessenger.of(context).clearSnackBars();
           });
         });
@@ -137,6 +140,9 @@ class SignUpForm extends StatelessWidget {
                             .read<SignInFormBloc>()
                             .add(SignInFormEvent.signInWithGooglePressed()))
                   ],
+                ),
+                SizedBox(
+                  height: 20.h,
                 )
               ],
             ),

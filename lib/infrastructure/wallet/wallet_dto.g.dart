@@ -8,13 +8,13 @@ part of 'wallet_dto.dart';
 
 _$_WalletDto _$_$_WalletDtoFromJson(Map<String, dynamic> json) {
   return _$_WalletDto(
-    apiCode: json['apiCode'] as String?,
-    walletId: json['walletId'] as String?,
+    apiCode: json['api_code'] as String,
+    walletId: json['wallet_id'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_WalletDtoToJson(_$_WalletDto instance) =>
     <String, dynamic>{
-      'apiCode': instance.apiCode,
-      'walletId': instance.walletId,
+      'api_code': instance.apiCode,
+      'wallet_id': instance.walletId,
     };

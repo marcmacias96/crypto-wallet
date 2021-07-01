@@ -9,8 +9,6 @@ part 'contact_dto.g.dart';
 
 @freezed
 class ContactDto with _$ContactDto {
-  const ContactDto._();
-
   @JsonSerializable(explicitToJson: true)
   const factory ContactDto({required String name, required String walletId}) =
       _ContactDto;

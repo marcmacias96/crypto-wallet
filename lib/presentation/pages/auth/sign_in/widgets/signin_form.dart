@@ -38,6 +38,7 @@ class SignInForm extends StatelessWidget {
               SplashRoute(),
               predicate: (e) => true,
             );
+            ScaffoldMessenger.of(context).clearSnackBars();
           });
         });
         if (state.isSubmitting) {
@@ -131,6 +132,9 @@ class SignInForm extends StatelessWidget {
                             .read<SignInFormBloc>()
                             .add(SignInFormEvent.signInWithGooglePressed()))
                   ],
+                ),
+                SizedBox(
+                  height: 20.h,
                 )
               ],
             ),

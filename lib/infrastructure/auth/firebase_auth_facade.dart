@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as _auth;
 import 'package:flutter/services.dart';
-import 'package:flutter_login_facebook/flutter_login_facebook.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import '../../domain/auth/auth_failure.dart';
@@ -12,7 +13,7 @@ import '../../domain/auth/value_objects.dart';
 class FirebaseAuthFacade implements IAuthFacade {
   final _auth.FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
-  final FacebookLogin _facebookLogin;
+  final FacebookAuth _facebookLogin;
 
   FirebaseAuthFacade(
       this._firebaseAuth, this._googleSignIn, this._facebookLogin);
@@ -85,11 +86,11 @@ class FirebaseAuthFacade implements IAuthFacade {
   @override
   Future<Either<AuthFailure, AccountType>> signInWithFacebook() async {
     try {
-      var facebookUser = await _facebookLogin.logIn(permissions: [
-        FacebookPermission.publicProfile,
-        FacebookPermission.email,
+      var facebookUser = await _facebookLogin.login(permissions: [
+        'public_profile',
+        'email',
       ]);
-      if (facebookUser.status != FacebookLoginStatus.success) {
+      if (facebookUser.accessToken != null) {
         return left(const AuthFailure.cancelledByUser());
       }
       final accessToken = facebookUser.accessToken!.token;

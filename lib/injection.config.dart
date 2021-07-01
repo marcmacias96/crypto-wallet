@@ -6,7 +6,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart' as _i5;
 import 'package:firebase_auth/firebase_auth.dart' as _i4;
-import 'package:flutter_login_facebook/flutter_login_facebook.dart' as _i3;
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i6;
 import 'package:injectable/injectable.dart' as _i2;
@@ -27,7 +27,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
     {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final firebaseInjectableModule = _$FirebaseInjectableModule();
-  gh.lazySingleton<_i3.FacebookLogin>(
+  gh.lazySingleton<_i3.FacebookAuth>(
       () => firebaseInjectableModule.facebookLogin);
   gh.lazySingleton<_i4.FirebaseAuth>(
       () => firebaseInjectableModule.firebaseAuth);
@@ -38,7 +38,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i7.IAuthFacade>(() => _i8.FirebaseAuthFacade(
       get<_i4.FirebaseAuth>(),
       get<_i6.GoogleSignIn>(),
-      get<_i3.FacebookLogin>()));
+      get<_i3.FacebookAuth>()));
   gh.lazySingleton<_i9.IWalletRepository>(
       () => _i10.WalletRepository(get<_i5.FirebaseFirestore>()));
   gh.factory<_i11.SignInFormBloc>(

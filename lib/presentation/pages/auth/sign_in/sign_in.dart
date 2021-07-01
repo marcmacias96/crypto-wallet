@@ -14,12 +14,11 @@ class SignInPage extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       body: BlocProvider(
         create: (context) => getIt<SignInFormBloc>(),
-        child: Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            BackgroundStart(),
-            BodyLogin()
-          ],
+        child: SingleChildScrollView(
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [BackgroundStart(), BodyLogin()],
+          ),
         ),
       ),
     );
