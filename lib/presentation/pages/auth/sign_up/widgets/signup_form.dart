@@ -136,6 +136,8 @@ class SignUpForm extends StatelessWidget {
                 SizedBox(height: 50.h,),
                 CustomButton(
                     text: 'Regístrarte ahora',
+                    textcolor: Colors.white,
+                    buttoncolor: Theme.of(context).primaryColor,
                     onTap: () => context.read<SignInFormBloc>().add(
                         SignInFormEvent.registerWithEmailAndPasswordPressed()
                     )

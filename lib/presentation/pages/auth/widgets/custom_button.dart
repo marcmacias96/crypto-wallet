@@ -3,11 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final Color textcolor;
+  final Color buttoncolor;
   final VoidCallback onTap;
 
   const CustomButton({Key? key,
     required this.text,
-    required this.onTap
+    required this.onTap,
+    required this.textcolor,
+    required this.buttoncolor
   }) : super(key: key);
 
   @override
@@ -27,12 +31,12 @@ class CustomButton extends StatelessWidget {
           ),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              color: Theme.of(context).primaryColor
+              color: buttoncolor
           ),
           child: Text(
             text,
             style: Theme.of(context).textTheme.headline5!.copyWith(
-                color: Colors.white,
+                color: textcolor,
                 fontSize:40.sp
             ),
           ),
