@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:crypto_wallet/domain/wallet/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -24,13 +25,24 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
           isLoading: false, saveFailureOrSuccessOption: none());
     }, saved: (e) async* {
       Either<FirestoreFailure, Unit> failureOrSuccess;
-      yield state.copyWith(isSaving: true, saveFailureOrSuccessOption: none());
+      yield state.copyWith(isSaving: true, saveFailureOrSuccessOption: none(),
+      wallet: state.wallet.copyWith(
+        apiCode: '12345'
+      )
+      );
 
       failureOrSuccess = await _walletRepository.create(state.wallet);
 
       yield state.copyWith(
           isSaving: false,
           saveFailureOrSuccessOption: optionOf(failureOrSuccess));
-    });
+    },
+    idWalletChanged: (e) async*{
+      yield state.copyWith(
+          wallet: state.wallet.copyWith(
+              walletId: WalletId(e.walletId)
+          )
+      );
+    }, nameChanged: (e) async*{  });
   }
 }

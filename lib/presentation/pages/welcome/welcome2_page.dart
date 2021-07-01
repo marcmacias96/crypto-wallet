@@ -1,9 +1,12 @@
+import 'package:crypto_wallet/presentation/pages/auth/widgets/custom_button.dart';
 import 'package:crypto_wallet/presentation/pages/wallet/widgets/button_welcome.dart';
 import 'package:crypto_wallet/presentation/pages/welcome/widgets/body_welcome2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/subtitle_welcome.dart';
 import 'widgets/title_welcome.dart';
+import '../../routes/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 class Welcome2Page extends StatelessWidget {
   const Welcome2Page({Key? key}) : super(key: key);
@@ -36,10 +39,11 @@ class Welcome2Page extends StatelessWidget {
                     TitleWelcome(title: 'Te permite realizar transacciones'),
                     BodyWelcome2(),
                     SizedBox(height: 100.h,),
-                    ButtonWelcome(
-                      text: 'Empezar',
+                    CustomButton(
+                      text: 'Registrarse',
                       textcolor: Theme.of(context).primaryColor,
-                      buttoncolor: Colors.white,
+                      buttoncolor: Colors.white, 
+                      onTap: ()=> context.router.navigate(SignUpRoute()),
 
                     ),
                     SizedBox(height: 50.h,),
@@ -53,13 +57,16 @@ class Welcome2Page extends StatelessWidget {
                               fontSize: 40.sp
                           ),
                         ),
-                        Text("Iniciar Ahora",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 40.sp
+                        InkWell(
+                          onTap:()=> context.router.navigate(SignInRoute()) ,
+                          child: Text("Iniciar Ahora",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 40.sp
+                            ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                   ],

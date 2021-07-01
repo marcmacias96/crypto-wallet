@@ -5,6 +5,8 @@ import 'package:crypto_wallet/presentation/pages/auth/widgets/custom_button.dart
 import 'widgets/subtitle_welcome.dart';
 import 'widgets/title_welcome.dart';
 import 'widgets/welcome_logo.dart';
+import '../../routes/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 
 class Welcome1Page extends StatelessWidget {
@@ -40,10 +42,11 @@ class Welcome1Page extends StatelessWidget {
                     SizedBox(height: 50.h,),
                     SubtitleWelcome(subtitle: 'Tu billetera criptográfica personal '),
                     SizedBox(height: 400.h,),
-                    ButtonWelcome(
+                    CustomButton(
                         text: 'Empezar',
                         textcolor: Theme.of(context).primaryColor,
                         buttoncolor: Colors.white,
+                        onTap: () => context.router.navigate(Welcome2Route()),
 
                     ),
                     SizedBox(height: 50.h,),
@@ -57,11 +60,14 @@ class Welcome1Page extends StatelessWidget {
                               fontSize: 40.sp
                           ),
                         ),
-                        Text("Iniciar Ahora",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 40.sp
+                        InkWell(
+                          onTap: ()=> context.router.navigate(SignInRoute()),
+                          child: Text("Iniciar Ahora",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 40.sp
+                            ),
                           ),
                         ),
                       ],
