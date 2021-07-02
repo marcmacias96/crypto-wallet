@@ -8,8 +8,8 @@ class BackgroundStart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
         'assets/img/brackground.png',
-      height: 0.6.sh,
-      width: 1.sw,
+      height: 0.9.sh,
+      width: 3.sw,
       fit: BoxFit.cover,
     );
   }

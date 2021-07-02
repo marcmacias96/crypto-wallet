@@ -26,7 +26,7 @@ class Welcome2Page extends StatelessWidget {
           children: [
             SingleChildScrollView(
               child: Container(
-                width: 1.sw,
+                //width: 1.sw,
                 margin: EdgeInsets.only(
                     top: 0.05.sh,
 

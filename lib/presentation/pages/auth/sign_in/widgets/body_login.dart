@@ -10,7 +10,6 @@ class BodyLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 1.sw,
       margin: EdgeInsets.only(top: 0.29.sh),
       decoration: BoxDecoration(
         color: Colors.white,

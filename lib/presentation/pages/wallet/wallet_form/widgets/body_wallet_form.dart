@@ -15,10 +15,7 @@ class BodyWalletForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        width: 1.sw ,
-        margin: EdgeInsets.only(
-            top: 0.35.sh
-        ),
+        margin: EdgeInsets.only(top: 0.29.sh),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(30),
