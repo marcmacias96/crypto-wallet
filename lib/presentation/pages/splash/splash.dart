@@ -14,13 +14,18 @@ class SplashPage extends StatelessWidget {
     return BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           state.map(
-              initial: (_) => {},
-              authenticated: (_) => context.router.pushAndPopUntil(
+            initial: (_) => {},
+            authenticated: (_) => context.router.pushAndPopUntil(
                  HomeRoute(), predicate: (e) => false,
+            ),
+            unauthenticated: (_) => context.router.pushAndPopUntil(
+                Welcome1Route(), predicate: (e) => true,
+            ),
+            withOutWallet: (_) => context.router.pushAndPopUntil(
+              WalletFormRoute(), predicate: (e) => true,
+            ),
+            modeFailure: (ModeFailure value) {  },
 
-              ),
-              unauthenticated: (_) => context.router.pushAndPopUntil(
-                Welcome1Route(), predicate: (e) => true,),
           );
         },
       builder: (context, state) {

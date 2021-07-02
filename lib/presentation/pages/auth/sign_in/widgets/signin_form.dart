@@ -81,6 +81,7 @@ class SignInForm extends StatelessWidget {
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(hintText: 'Contraseña'),
                   autocorrect: false,
+                  obscureText: true,
                   onChanged: (value) => context.read<SignInFormBloc>().add(
                         SignInFormEvent.passwordChanged(value),
                       ),
@@ -118,7 +119,7 @@ class SignInForm extends StatelessWidget {
                     textcolor: Colors.white,
                     buttoncolor: Theme.of(context).primaryColor,
                     onTap: () => context.read<SignInFormBloc>().add(
-                        SignInFormEvent.registerWithEmailAndPasswordPressed())),
+                        SignInFormEvent.signInWithEmailAndPasswordPressed())),
                 DividerLine(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

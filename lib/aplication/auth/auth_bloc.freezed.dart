@@ -254,6 +254,14 @@ class _$AuthStateTearOff {
     return const Authenticated();
   }
 
+  ModeFailure modeFailure() {
+    return const ModeFailure();
+  }
+
+  WithOutWallet withOutWallet() {
+    return const WithOutWallet();
+  }
+
   Unauthenticated unauthenticated() {
     return const Unauthenticated();
   }
@@ -268,6 +276,8 @@ mixin _$AuthState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() authenticated,
+    required TResult Function() modeFailure,
+    required TResult Function() withOutWallet,
     required TResult Function() unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
@@ -275,6 +285,8 @@ mixin _$AuthState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? authenticated,
+    TResult Function()? modeFailure,
+    TResult Function()? withOutWallet,
     TResult Function()? unauthenticated,
     required TResult orElse(),
   }) =>
@@ -283,6 +295,8 @@ mixin _$AuthState {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
+    required TResult Function(ModeFailure value) modeFailure,
+    required TResult Function(WithOutWallet value) withOutWallet,
     required TResult Function(Unauthenticated value) unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
@@ -290,6 +304,8 @@ mixin _$AuthState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
+    TResult Function(ModeFailure value)? modeFailure,
+    TResult Function(WithOutWallet value)? withOutWallet,
     TResult Function(Unauthenticated value)? unauthenticated,
     required TResult orElse(),
   }) =>
@@ -350,6 +366,8 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() authenticated,
+    required TResult Function() modeFailure,
+    required TResult Function() withOutWallet,
     required TResult Function() unauthenticated,
   }) {
     return initial();
@@ -360,6 +378,8 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? authenticated,
+    TResult Function()? modeFailure,
+    TResult Function()? withOutWallet,
     TResult Function()? unauthenticated,
     required TResult orElse(),
   }) {
@@ -374,6 +394,8 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
+    required TResult Function(ModeFailure value) modeFailure,
+    required TResult Function(WithOutWallet value) withOutWallet,
     required TResult Function(Unauthenticated value) unauthenticated,
   }) {
     return initial(this);
@@ -384,6 +406,8 @@ class _$Initial implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
+    TResult Function(ModeFailure value)? modeFailure,
+    TResult Function(WithOutWallet value)? withOutWallet,
     TResult Function(Unauthenticated value)? unauthenticated,
     required TResult orElse(),
   }) {
@@ -439,6 +463,8 @@ class _$Authenticated implements Authenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() authenticated,
+    required TResult Function() modeFailure,
+    required TResult Function() withOutWallet,
     required TResult Function() unauthenticated,
   }) {
     return authenticated();
@@ -449,6 +475,8 @@ class _$Authenticated implements Authenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? authenticated,
+    TResult Function()? modeFailure,
+    TResult Function()? withOutWallet,
     TResult Function()? unauthenticated,
     required TResult orElse(),
   }) {
@@ -463,6 +491,8 @@ class _$Authenticated implements Authenticated {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
+    required TResult Function(ModeFailure value) modeFailure,
+    required TResult Function(WithOutWallet value) withOutWallet,
     required TResult Function(Unauthenticated value) unauthenticated,
   }) {
     return authenticated(this);
@@ -473,6 +503,8 @@ class _$Authenticated implements Authenticated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
+    TResult Function(ModeFailure value)? modeFailure,
+    TResult Function(WithOutWallet value)? withOutWallet,
     TResult Function(Unauthenticated value)? unauthenticated,
     required TResult orElse(),
   }) {
@@ -485,6 +517,200 @@ class _$Authenticated implements Authenticated {
 
 abstract class Authenticated implements AuthState {
   const factory Authenticated() = _$Authenticated;
+}
+
+/// @nodoc
+abstract class $ModeFailureCopyWith<$Res> {
+  factory $ModeFailureCopyWith(
+          ModeFailure value, $Res Function(ModeFailure) then) =
+      _$ModeFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ModeFailureCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+    implements $ModeFailureCopyWith<$Res> {
+  _$ModeFailureCopyWithImpl(
+      ModeFailure _value, $Res Function(ModeFailure) _then)
+      : super(_value, (v) => _then(v as ModeFailure));
+
+  @override
+  ModeFailure get _value => super._value as ModeFailure;
+}
+
+/// @nodoc
+
+class _$ModeFailure implements ModeFailure {
+  const _$ModeFailure();
+
+  @override
+  String toString() {
+    return 'AuthState.modeFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ModeFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() authenticated,
+    required TResult Function() modeFailure,
+    required TResult Function() withOutWallet,
+    required TResult Function() unauthenticated,
+  }) {
+    return modeFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? authenticated,
+    TResult Function()? modeFailure,
+    TResult Function()? withOutWallet,
+    TResult Function()? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (modeFailure != null) {
+      return modeFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authenticated value) authenticated,
+    required TResult Function(ModeFailure value) modeFailure,
+    required TResult Function(WithOutWallet value) withOutWallet,
+    required TResult Function(Unauthenticated value) unauthenticated,
+  }) {
+    return modeFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authenticated value)? authenticated,
+    TResult Function(ModeFailure value)? modeFailure,
+    TResult Function(WithOutWallet value)? withOutWallet,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (modeFailure != null) {
+      return modeFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ModeFailure implements AuthState {
+  const factory ModeFailure() = _$ModeFailure;
+}
+
+/// @nodoc
+abstract class $WithOutWalletCopyWith<$Res> {
+  factory $WithOutWalletCopyWith(
+          WithOutWallet value, $Res Function(WithOutWallet) then) =
+      _$WithOutWalletCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$WithOutWalletCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+    implements $WithOutWalletCopyWith<$Res> {
+  _$WithOutWalletCopyWithImpl(
+      WithOutWallet _value, $Res Function(WithOutWallet) _then)
+      : super(_value, (v) => _then(v as WithOutWallet));
+
+  @override
+  WithOutWallet get _value => super._value as WithOutWallet;
+}
+
+/// @nodoc
+
+class _$WithOutWallet implements WithOutWallet {
+  const _$WithOutWallet();
+
+  @override
+  String toString() {
+    return 'AuthState.withOutWallet()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is WithOutWallet);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() authenticated,
+    required TResult Function() modeFailure,
+    required TResult Function() withOutWallet,
+    required TResult Function() unauthenticated,
+  }) {
+    return withOutWallet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? authenticated,
+    TResult Function()? modeFailure,
+    TResult Function()? withOutWallet,
+    TResult Function()? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (withOutWallet != null) {
+      return withOutWallet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authenticated value) authenticated,
+    required TResult Function(ModeFailure value) modeFailure,
+    required TResult Function(WithOutWallet value) withOutWallet,
+    required TResult Function(Unauthenticated value) unauthenticated,
+  }) {
+    return withOutWallet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authenticated value)? authenticated,
+    TResult Function(ModeFailure value)? modeFailure,
+    TResult Function(WithOutWallet value)? withOutWallet,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (withOutWallet != null) {
+      return withOutWallet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WithOutWallet implements AuthState {
+  const factory WithOutWallet() = _$WithOutWallet;
 }
 
 /// @nodoc
@@ -528,6 +754,8 @@ class _$Unauthenticated implements Unauthenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() authenticated,
+    required TResult Function() modeFailure,
+    required TResult Function() withOutWallet,
     required TResult Function() unauthenticated,
   }) {
     return unauthenticated();
@@ -538,6 +766,8 @@ class _$Unauthenticated implements Unauthenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? authenticated,
+    TResult Function()? modeFailure,
+    TResult Function()? withOutWallet,
     TResult Function()? unauthenticated,
     required TResult orElse(),
   }) {
@@ -552,6 +782,8 @@ class _$Unauthenticated implements Unauthenticated {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
+    required TResult Function(ModeFailure value) modeFailure,
+    required TResult Function(WithOutWallet value) withOutWallet,
     required TResult Function(Unauthenticated value) unauthenticated,
   }) {
     return unauthenticated(this);
@@ -562,6 +794,8 @@ class _$Unauthenticated implements Unauthenticated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
+    TResult Function(ModeFailure value)? modeFailure,
+    TResult Function(WithOutWallet value)? withOutWallet,
     TResult Function(Unauthenticated value)? unauthenticated,
     required TResult orElse(),
   }) {

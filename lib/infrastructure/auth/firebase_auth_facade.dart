@@ -151,4 +151,14 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
     }
   }
+
+  @override
+  bool isSignedInUser() {
+    final user = _firebaseAuth.currentUser;
+    if (user != null) {
+      return true;
+    }
+    return false;
+  }
+
 }
