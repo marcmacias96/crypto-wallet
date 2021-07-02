@@ -32,6 +32,12 @@ class _$WalletFormEventTearOff {
     );
   }
 
+  PasswordChanged passwordChanged(String password) {
+    return PasswordChanged(
+      password,
+    );
+  }
+
   Saved saved() {
     return const Saved();
   }
@@ -47,6 +53,7 @@ mixin _$WalletFormEvent {
     required TResult Function() initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +62,7 @@ mixin _$WalletFormEvent {
     TResult Function()? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -64,6 +72,7 @@ mixin _$WalletFormEvent {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +81,7 @@ mixin _$WalletFormEvent {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) =>
@@ -138,6 +148,7 @@ class _$Initialized implements Initialized {
     required TResult Function() initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() saved,
   }) {
     return initialized();
@@ -149,6 +160,7 @@ class _$Initialized implements Initialized {
     TResult Function()? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -164,6 +176,7 @@ class _$Initialized implements Initialized {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(Saved value) saved,
   }) {
     return initialized(this);
@@ -175,6 +188,7 @@ class _$Initialized implements Initialized {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -257,6 +271,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function() initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() saved,
   }) {
     return nameChanged(name);
@@ -268,6 +283,7 @@ class _$NameChanged implements NameChanged {
     TResult Function()? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -283,6 +299,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(Saved value) saved,
   }) {
     return nameChanged(this);
@@ -294,6 +311,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -382,6 +400,7 @@ class _$IdWalletChanged implements IdWalletChanged {
     required TResult Function() initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() saved,
   }) {
     return idWalletChanged(walletId);
@@ -393,6 +412,7 @@ class _$IdWalletChanged implements IdWalletChanged {
     TResult Function()? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -408,6 +428,7 @@ class _$IdWalletChanged implements IdWalletChanged {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(Saved value) saved,
   }) {
     return idWalletChanged(this);
@@ -419,6 +440,7 @@ class _$IdWalletChanged implements IdWalletChanged {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -435,6 +457,135 @@ abstract class IdWalletChanged implements WalletFormEvent {
   String get walletId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $IdWalletChangedCopyWith<IdWalletChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PasswordChangedCopyWith<$Res> {
+  factory $PasswordChangedCopyWith(
+          PasswordChanged value, $Res Function(PasswordChanged) then) =
+      _$PasswordChangedCopyWithImpl<$Res>;
+  $Res call({String password});
+}
+
+/// @nodoc
+class _$PasswordChangedCopyWithImpl<$Res>
+    extends _$WalletFormEventCopyWithImpl<$Res>
+    implements $PasswordChangedCopyWith<$Res> {
+  _$PasswordChangedCopyWithImpl(
+      PasswordChanged _value, $Res Function(PasswordChanged) _then)
+      : super(_value, (v) => _then(v as PasswordChanged));
+
+  @override
+  PasswordChanged get _value => super._value as PasswordChanged;
+
+  @override
+  $Res call({
+    Object? password = freezed,
+  }) {
+    return _then(PasswordChanged(
+      password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PasswordChanged implements PasswordChanged {
+  const _$PasswordChanged(this.password);
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'WalletFormEvent.passwordChanged(password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is PasswordChanged &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(password);
+
+  @JsonKey(ignore: true)
+  @override
+  $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
+      _$PasswordChangedCopyWithImpl<PasswordChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() saved,
+  }) {
+    return passwordChanged(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (passwordChanged != null) {
+      return passwordChanged(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(IdWalletChanged value) idWalletChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(Saved value) saved,
+  }) {
+    return passwordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(IdWalletChanged value)? idWalletChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (passwordChanged != null) {
+      return passwordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasswordChanged implements WalletFormEvent {
+  const factory PasswordChanged(String password) = _$PasswordChanged;
+
+  String get password => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -478,6 +629,7 @@ class _$Saved implements Saved {
     required TResult Function() initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() saved,
   }) {
     return saved();
@@ -489,6 +641,7 @@ class _$Saved implements Saved {
     TResult Function()? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -504,6 +657,7 @@ class _$Saved implements Saved {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(Saved value) saved,
   }) {
     return saved(this);
@@ -515,6 +669,7 @@ class _$Saved implements Saved {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {

@@ -24,13 +24,13 @@ class WalletRepository implements IWalletRepository {
       final userDoc = await _firestore.userDocument();
       final walletDto = WalletDto.fromDomain(wallet);
       final walletRef = await userDoc.walletCollection.doc(walletDto.id);
-      batch.set(walletRef,walletDto.toJson());
+      batch.set(walletRef, walletDto.toJson());
 
       final userOption = await getIt<IAuthFacade>().getSignedInUser();
       final user = userOption.getOrElse(() => throw FirebaseException(
           plugin: 'auth', code: 'no-auth', message: 'no autenticated'));
 
-      final userDto = UserDto.fromDomain(user.copyWith(name: wallet.name));
+      final userDto = UserDto.fromDomain(user.copyWith(name: wallet.name!));
       batch.set(userDoc, userDto.toJson());
       batch.commit();
       return right(unit);

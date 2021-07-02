@@ -9,14 +9,25 @@ part of 'wallet_dto.dart';
 _$_WalletDto _$_$_WalletDtoFromJson(Map<String, dynamic> json) {
   return _$_WalletDto(
     apiCode: json['api_code'] as String,
-    name: json['name'] as String,
+    name: json['name'] as String?,
+    password: json['password'] as String,
     walletId: json['wallet_id'] as String,
   );
 }
 
-Map<String, dynamic> _$_$_WalletDtoToJson(_$_WalletDto instance) =>
-    <String, dynamic>{
-      'api_code': instance.apiCode,
-      'name': instance.name,
-      'wallet_id': instance.walletId,
-    };
+Map<String, dynamic> _$_$_WalletDtoToJson(_$_WalletDto instance) {
+  final val = <String, dynamic>{
+    'api_code': instance.apiCode,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  val['password'] = instance.password;
+  val['wallet_id'] = instance.walletId;
+  return val;
+}

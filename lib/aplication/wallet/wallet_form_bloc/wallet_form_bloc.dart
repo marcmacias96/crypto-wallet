@@ -26,14 +26,15 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
           isLoading: false, saveFailureOrSuccessOption: none());
     }, saved: (e) async* {
       Either<FirestoreFailure, Unit>? failureOrSuccess;
-      final isNameValid = state.wallet.name.isValid();
+      final isNameValid = state.wallet.name!.isValid();
       final isWalletIdValid = state.wallet.walletId.isValid();
+      final isPasswordValid = state.wallet.password.isValid();
 
-      if (isNameValid && isWalletIdValid) {
+      if (isNameValid && isWalletIdValid && isPasswordValid) {
         yield state.copyWith(
-            isSaving: true,
-            saveFailureOrSuccessOption: none(),
-            wallet: state.wallet.copyWith(apiCode: '12345'));
+          isSaving: true,
+          saveFailureOrSuccessOption: none(),
+        );
 
         failureOrSuccess = await _walletRepository.create(state.wallet);
         yield state.copyWith(
@@ -44,7 +45,6 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
           isSaving: false,
           showErrorMessages: true,
           saveFailureOrSuccessOption: optionOf(failureOrSuccess));
-
     }, idWalletChanged: (e) async* {
       yield state.copyWith(
           wallet: state.wallet.copyWith(walletId: WalletId(e.walletId)),
@@ -52,6 +52,10 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
     }, nameChanged: (e) async* {
       yield state.copyWith(
           wallet: state.wallet.copyWith(name: Name(e.name)),
+          saveFailureOrSuccessOption: none());
+    }, passwordChanged: (e) async* {
+      yield state.copyWith(
+          wallet: state.wallet.copyWith(password: Password(e.password)),
           saveFailureOrSuccessOption: none());
     });
   }
