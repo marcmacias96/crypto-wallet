@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart' as _auth;
 import '../core/firestore_failure.dart';
 import 'auth_failure.dart';
 import 'user.dart';
