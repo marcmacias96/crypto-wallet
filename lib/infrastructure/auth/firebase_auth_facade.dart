@@ -1,22 +1,29 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as _auth;
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
+import '../../domain/auth/user.dart';
 import '../../domain/auth/value_objects.dart';
+import '../../domain/core/firestore_failure.dart';
+import '../core/firestore_helpers.dart';
+import 'firebase_user_mapper.dart';
+import 'user_dto.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final _auth.FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
   final FacebookAuth _facebookLogin;
+  final FirebaseFirestore _firestore;
 
   FirebaseAuthFacade(
-      this._firebaseAuth, this._googleSignIn, this._facebookLogin);
+      this._firebaseAuth, this._googleSignIn, this._facebookLogin, this._firestore);
 
   @override
   Future<Either<AuthFailure, AccountType>> registerWithEmailAndPassword(
@@ -120,5 +127,28 @@ class FirebaseAuthFacade implements IAuthFacade {
       ]);
 
   @override
-  Option<String> getSingedInUser() => optionOf(_firebaseAuth.currentUser?.uid);
+  Future<Option<User>> getSignedInUser() async =>
+      optionOf(_firebaseAuth.currentUser?.toDomain());
+
+  @override
+  Future<Either<FirestoreFailure, User>> getUser() async {
+    try {
+      final userDoc = await _firestore.userDocument();
+      final userSnapShot = await userDoc.get();
+
+      if (userSnapShot.exists) {
+        return right(UserDto.fromFirestore(userSnapShot).toDomain());
+      } else {
+        return left(userSnapShot.metadata.isFromCache
+            ? FirestoreFailure.noInternet()
+            : FirestoreFailure.doesNotExist());
+      }
+    } on FirebaseException catch (e) {
+      if (e.code == 'permission-denied') {
+        return left(const FirestoreFailure.insufficientPermissions());
+      } else {
+        return left(const FirestoreFailure.unexpected());
+      }
+    }
+  }
 }

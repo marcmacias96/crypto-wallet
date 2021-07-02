@@ -17,9 +17,7 @@ class _$UserTearOff {
   const _$UserTearOff();
 
   _User call(
-      {required UniqueId id,
-      required StringSingleLine name,
-      required EmailAddress email}) {
+      {required UniqueId id, required Name name, required EmailAddress email}) {
     return _User(
       id: id,
       name: name,
@@ -34,7 +32,7 @@ const $User = _$UserTearOff();
 /// @nodoc
 mixin _$User {
   UniqueId get id => throw _privateConstructorUsedError;
-  StringSingleLine get name => throw _privateConstructorUsedError;
+  Name get name => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -45,7 +43,7 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({UniqueId id, StringSingleLine name, EmailAddress email});
+  $Res call({UniqueId id, Name name, EmailAddress email});
 }
 
 /// @nodoc
@@ -70,7 +68,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as StringSingleLine,
+              as Name,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -84,7 +82,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, StringSingleLine name, EmailAddress email});
+  $Res call({UniqueId id, Name name, EmailAddress email});
 }
 
 /// @nodoc
@@ -110,7 +108,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as StringSingleLine,
+              as Name,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -127,7 +125,7 @@ class _$_User implements _User {
   @override
   final UniqueId id;
   @override
-  final StringSingleLine name;
+  final Name name;
   @override
   final EmailAddress email;
 
@@ -164,13 +162,13 @@ class _$_User implements _User {
 abstract class _User implements User {
   const factory _User(
       {required UniqueId id,
-      required StringSingleLine name,
+      required Name name,
       required EmailAddress email}) = _$_User;
 
   @override
   UniqueId get id => throw _privateConstructorUsedError;
   @override
-  StringSingleLine get name => throw _privateConstructorUsedError;
+  Name get name => throw _privateConstructorUsedError;
   @override
   EmailAddress get email => throw _privateConstructorUsedError;
   @override

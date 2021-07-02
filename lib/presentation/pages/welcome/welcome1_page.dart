@@ -1,12 +1,12 @@
-import 'package:crypto_wallet/presentation/pages/wallet/widgets/button_welcome.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:crypto_wallet/presentation/pages/auth/widgets/custom_button.dart';
+
+import '../../routes/router.gr.dart';
+import '../auth/widgets/custom_button.dart';
 import 'widgets/subtitle_welcome.dart';
 import 'widgets/title_welcome.dart';
 import 'widgets/welcome_logo.dart';
-import '../../routes/router.gr.dart';
-import 'package:auto_route/auto_route.dart';
 
 
 class Welcome1Page extends StatelessWidget {

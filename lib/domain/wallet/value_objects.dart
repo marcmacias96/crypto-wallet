@@ -10,6 +10,7 @@ class WalletId extends ValueObject<String> {
     return WalletId._(validateMaxStringLength(input, maxLength)
         .flatMap(validateSingleLine)
         .flatMap(validateSpaces)
+        .flatMap(validateStringNotEmpty)
         .flatMap(validateStringNotEmpty));
   }
   const WalletId._(this.value);

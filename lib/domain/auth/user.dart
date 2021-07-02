@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../core/entity.dart';
 import '../core/value_failures.dart';
 import '../core/value_objects.dart';
 import 'value_objects.dart';
@@ -7,10 +9,10 @@ import 'value_objects.dart';
 part 'user.freezed.dart';
 
 @freezed
-abstract class User with _$User {
+class User with _$User implements IEntity{
   const factory User(
       {required UniqueId id,
-      required StringSingleLine name,
+      required Name name,
       required EmailAddress email}) = _User;
 }
 

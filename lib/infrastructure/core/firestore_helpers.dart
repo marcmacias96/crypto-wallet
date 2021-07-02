@@ -4,15 +4,16 @@ import '../../injection.dart';
 
 extension FirestoreX on FirebaseFirestore {
   Future<DocumentReference> userDocument() async {
-    final userOption = await getIt<IAuthFacade>().getSingedInUser();
+    final userOption = await getIt<IAuthFacade>().getSignedInUser();
     final user = userOption.getOrElse(() => throw FirebaseException(
         plugin: 'auth', code: 'no-auth', message: 'no autenticated'));
-    return FirebaseFirestore.instance.collection('users').doc(user);
+    return FirebaseFirestore.instance.collection('users').doc(user.id.getOrCrash());
   }
 }
 
+
 extension DocumentReferenceX on DocumentReference {
-  CollectionReference get walletCollerction => collection('wallets');
-  CollectionReference get contactCollerction => collection('contacts');
-  CollectionReference get transaccionCollerction => collection('transactions');
+  CollectionReference get walletCollection => collection('wallets');
+  CollectionReference get contactCollection => collection('contacts');
+  CollectionReference get transactionCollection => collection('transactions');
 }

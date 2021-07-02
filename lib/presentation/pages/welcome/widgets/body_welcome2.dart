@@ -1,6 +1,7 @@
-import 'package:crypto_wallet/presentation/pages/welcome/widgets/subtitle_welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'subtitle_welcome.dart';
 
 class BodyWelcome2 extends StatelessWidget {
   const BodyWelcome2({Key? key}) : super(key: key);

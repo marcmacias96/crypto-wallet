@@ -5,5 +5,5 @@ import 'wallet.dart';
 abstract class IWalletRepository {
   Future<Either<FirestoreFailure, Unit>> create(Wallet wallet);
   Future<Either<FirestoreFailure, Unit>> update(Wallet wallet);
-  Future<Either<FirestoreFailure, Unit>> dalete(Wallet wallet);
+  Future<Either<FirestoreFailure, Unit>> delete(Wallet wallet);
 }

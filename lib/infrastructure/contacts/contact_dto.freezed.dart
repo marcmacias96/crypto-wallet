@@ -120,8 +120,8 @@ class __$ContactDtoCopyWithImpl<$Res> extends _$ContactDtoCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_ContactDto extends _ContactDto {
-  const _$_ContactDto({required this.name, required this.walletId}) : super._();
+class _$_ContactDto implements _ContactDto {
+  const _$_ContactDto({required this.name, required this.walletId});
 
   factory _$_ContactDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ContactDtoFromJson(json);
@@ -164,10 +164,9 @@ class _$_ContactDto extends _ContactDto {
   }
 }
 
-abstract class _ContactDto extends ContactDto {
+abstract class _ContactDto implements ContactDto {
   const factory _ContactDto({required String name, required String walletId}) =
       _$_ContactDto;
-  const _ContactDto._() : super._();
 
   factory _ContactDto.fromJson(Map<String, dynamic> json) =
       _$_ContactDto.fromJson;

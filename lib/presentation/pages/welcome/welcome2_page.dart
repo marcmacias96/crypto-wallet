@@ -1,12 +1,11 @@
-import 'package:crypto_wallet/presentation/pages/auth/widgets/custom_button.dart';
-import 'package:crypto_wallet/presentation/pages/wallet/widgets/button_welcome.dart';
-import 'package:crypto_wallet/presentation/pages/welcome/widgets/body_welcome2.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'widgets/subtitle_welcome.dart';
-import 'widgets/title_welcome.dart';
+
 import '../../routes/router.gr.dart';
-import 'package:auto_route/auto_route.dart';
+import '../auth/widgets/custom_button.dart';
+import 'widgets/body_welcome2.dart';
+import 'widgets/title_welcome.dart';
 
 class Welcome2Page extends StatelessWidget {
   const Welcome2Page({Key? key}) : super(key: key);

@@ -23,9 +23,19 @@ class UserDto with _$UserDto {
       UserDto.fromJson(doc!.data() as Map<String, dynamic>)
           .copyWith(id: doc.id);
 
+  factory UserDto.fromDomain(User user) {
+    return UserDto(
+      name: user.name.getOrCrash(),
+      email: user.email.getOrCrash()
+    );
+  }
+
+}
+
+extension UserX on UserDto {
   User toDomain() {
     return User(
-      name: StringSingleLine(name ?? 'no-name'),
+      name: Name(name ?? 'no-name'),
       id: UniqueId.fromUniqueString(id!),
       email: EmailAddress(email ?? 'user@startfit.tech'),
     );

@@ -2,9 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/core/firestore_failure.dart';
 import '../../domain/wallet/i_wallet_repository.dart';
 import '../../domain/wallet/wallet.dart';
+import '../../injection.dart';
+import '../auth/user_dto.dart';
 import '../core/firestore_helpers.dart';
 import 'wallet_dto.dart';
 
@@ -17,9 +20,19 @@ class WalletRepository implements IWalletRepository {
   @override
   Future<Either<FirestoreFailure, Unit>> create(Wallet wallet) async {
     try {
+      final batch = _firestore.batch();
       final userDoc = await _firestore.userDocument();
       final walletDto = WalletDto.fromDomain(wallet);
-      await userDoc.walletCollerction.doc(walletDto.id).set(walletDto.toJson());
+      final walletRef = await userDoc.walletCollection.doc(walletDto.id);
+      batch.set(walletRef,walletDto.toJson());
+
+      final userOption = await getIt<IAuthFacade>().getSignedInUser();
+      final user = userOption.getOrElse(() => throw FirebaseException(
+          plugin: 'auth', code: 'no-auth', message: 'no autenticated'));
+
+      final userDto = UserDto.fromDomain(user.copyWith(name: wallet.name));
+      batch.set(userDoc, userDto.toJson());
+      batch.commit();
       return right(unit);
     } on FirebaseException catch (e) {
       if (e.code == 'permission-denied') {
@@ -35,11 +48,11 @@ class WalletRepository implements IWalletRepository {
   }
 
   @override
-  Future<Either<FirestoreFailure, Unit>> dalete(Wallet wallet) async {
+  Future<Either<FirestoreFailure, Unit>> delete(Wallet wallet) async {
     try {
       final userDoc = await _firestore.userDocument();
       final walletDto = WalletDto.fromDomain(wallet);
-      await userDoc.walletCollerction.doc(walletDto.id).delete();
+      await userDoc.walletCollection.doc(walletDto.id).delete();
       return right(unit);
     } on FirebaseException catch (e) {
       if (e.code == 'permission-denied') {
@@ -59,7 +72,7 @@ class WalletRepository implements IWalletRepository {
     try {
       final userDoc = await _firestore.userDocument();
       final walletDto = WalletDto.fromDomain(wallet);
-      await userDoc.walletCollerction
+      await userDoc.walletCollection
           .doc(walletDto.id)
           .update(walletDto.toJson());
       return right(unit);

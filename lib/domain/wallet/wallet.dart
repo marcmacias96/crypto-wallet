@@ -12,10 +12,11 @@ class Wallet with _$Wallet {
   const factory Wallet(
       {required UniqueId id,
       required WalletId walletId,
+        required Name name,
       required String apiCode}) = _Wallet;
 
   factory Wallet.empty() =>
-      Wallet(id: UniqueId(), walletId: WalletId(''), apiCode: '');
+      Wallet(id: UniqueId(), walletId: WalletId(''), apiCode: '', name: Name(''));
 }
 
 extension UserX on Wallet {

@@ -38,7 +38,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i7.IAuthFacade>(() => _i8.FirebaseAuthFacade(
       get<_i4.FirebaseAuth>(),
       get<_i6.GoogleSignIn>(),
-      get<_i3.FacebookAuth>()));
+      get<_i3.FacebookAuth>(),
+      get<_i5.FirebaseFirestore>()));
   gh.lazySingleton<_i9.IWalletRepository>(
       () => _i10.WalletRepository(get<_i5.FirebaseFirestore>()));
   gh.factory<_i11.SignInFormBloc>(

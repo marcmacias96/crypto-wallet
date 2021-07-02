@@ -61,7 +61,7 @@ class UniqueId extends ValueObject<String> {
 class Name extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
-  static const maxLength = 30;
+  static const maxLength = 20;
 
   factory Name(String input) {
     return Name._(validateMaxStringLength(input, maxLength)
