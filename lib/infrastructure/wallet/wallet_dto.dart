@@ -16,8 +16,14 @@ class WalletDto with _$WalletDto {
           String? id,
       @JsonKey(includeIfNull: false, name: 'api_code')
           required String apiCode,
-        @JsonKey(includeIfNull: false)
-        required String name,
+      @JsonKey(
+        includeIfNull: false,
+      )
+          required String address,
+      @JsonKey(includeIfNull: false)
+          String? name,
+      @JsonKey(includeIfNull: false)
+          required String password,
       @JsonKey(includeIfNull: false, name: 'wallet_id')
           required String walletId}) = _WalletDto;
 
@@ -25,7 +31,9 @@ class WalletDto with _$WalletDto {
     return WalletDto(
         id: wallet.id.getOrCrash(),
         walletId: wallet.walletId.getOrCrash(),
-        name: wallet.name.getOrCrash(),
+        name: wallet.name!.getOrCrash(),
+        password: wallet.password.encrypt().getOrCrash(),
+        address: wallet.address,
         apiCode: wallet.apiCode);
   }
 
@@ -40,10 +48,11 @@ class WalletDto with _$WalletDto {
 extension WalletDtoX on WalletDto {
   Wallet toDomain() {
     return Wallet(
-      id: UniqueId.fromUniqueString(id!),
-      walletId: WalletId(walletId),
-      name: Name(name),
-      apiCode: apiCode,
-    );
+        id: UniqueId.fromUniqueString(id!),
+        walletId: WalletId(walletId),
+        name: Name(name!),
+        password: Password(password).decrypt(),
+        apiCode: apiCode,
+        address: address);
   }
 }

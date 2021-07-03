@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$WalletFormEventTearOff {
   const _$WalletFormEventTearOff();
 
-  Initialized initialized() {
-    return const Initialized();
+  Initialized initialized({bool? isNew}) {
+    return Initialized(
+      isNew: isNew,
+    );
   }
 
   NameChanged nameChanged(String name) {
@@ -32,8 +34,18 @@ class _$WalletFormEventTearOff {
     );
   }
 
-  Saved saved() {
-    return const Saved();
+  PasswordChanged passwordChanged(String password) {
+    return PasswordChanged(
+      password,
+    );
+  }
+
+  CreateWallet createWallet() {
+    return const CreateWallet();
+  }
+
+  _Saved saved() {
+    return const _Saved();
   }
 }
 
@@ -44,17 +56,21 @@ const $WalletFormEvent = _$WalletFormEventTearOff();
 mixin _$WalletFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialized,
+    required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() createWallet,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialized,
+    TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? createWallet,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -64,7 +80,9 @@ mixin _$WalletFormEvent {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateWallet value) createWallet,
+    required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,7 +90,9 @@ mixin _$WalletFormEvent {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateWallet value)? createWallet,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -100,6 +120,7 @@ abstract class $InitializedCopyWith<$Res> {
   factory $InitializedCopyWith(
           Initialized value, $Res Function(Initialized) then) =
       _$InitializedCopyWithImpl<$Res>;
+  $Res call({bool? isNew});
 }
 
 /// @nodoc
@@ -112,48 +133,84 @@ class _$InitializedCopyWithImpl<$Res>
 
   @override
   Initialized get _value => super._value as Initialized;
+
+  @override
+  $Res call({
+    Object? isNew = freezed,
+  }) {
+    return _then(Initialized(
+      isNew: isNew == freezed
+          ? _value.isNew
+          : isNew // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$Initialized implements Initialized {
-  const _$Initialized();
+class _$Initialized with DiagnosticableTreeMixin implements Initialized {
+  const _$Initialized({this.isNew});
 
   @override
-  String toString() {
-    return 'WalletFormEvent.initialized()';
+  final bool? isNew;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WalletFormEvent.initialized(isNew: $isNew)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'WalletFormEvent.initialized'))
+      ..add(DiagnosticsProperty('isNew', isNew));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initialized);
+    return identical(this, other) ||
+        (other is Initialized &&
+            (identical(other.isNew, isNew) ||
+                const DeepCollectionEquality().equals(other.isNew, isNew)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(isNew);
+
+  @JsonKey(ignore: true)
+  @override
+  $InitializedCopyWith<Initialized> get copyWith =>
+      _$InitializedCopyWithImpl<Initialized>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialized,
+    required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() createWallet,
     required TResult Function() saved,
   }) {
-    return initialized();
+    return initialized(isNew);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialized,
+    TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? createWallet,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized();
+      return initialized(isNew);
     }
     return orElse();
   }
@@ -164,7 +221,9 @@ class _$Initialized implements Initialized {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateWallet value) createWallet,
+    required TResult Function(_Saved value) saved,
   }) {
     return initialized(this);
   }
@@ -175,7 +234,9 @@ class _$Initialized implements Initialized {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateWallet value)? createWallet,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -186,7 +247,12 @@ class _$Initialized implements Initialized {
 }
 
 abstract class Initialized implements WalletFormEvent {
-  const factory Initialized() = _$Initialized;
+  const factory Initialized({bool? isNew}) = _$Initialized;
+
+  bool? get isNew => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InitializedCopyWith<Initialized> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -223,15 +289,23 @@ class _$NameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NameChanged implements NameChanged {
+class _$NameChanged with DiagnosticableTreeMixin implements NameChanged {
   const _$NameChanged(this.name);
 
   @override
   final String name;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'WalletFormEvent.nameChanged(name: $name)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'WalletFormEvent.nameChanged'))
+      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -254,9 +328,11 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialized,
+    required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() createWallet,
     required TResult Function() saved,
   }) {
     return nameChanged(name);
@@ -265,9 +341,11 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialized,
+    TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? createWallet,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -283,7 +361,9 @@ class _$NameChanged implements NameChanged {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateWallet value) createWallet,
+    required TResult Function(_Saved value) saved,
   }) {
     return nameChanged(this);
   }
@@ -294,7 +374,9 @@ class _$NameChanged implements NameChanged {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateWallet value)? createWallet,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -347,15 +429,25 @@ class _$IdWalletChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IdWalletChanged implements IdWalletChanged {
+class _$IdWalletChanged
+    with DiagnosticableTreeMixin
+    implements IdWalletChanged {
   const _$IdWalletChanged(this.walletId);
 
   @override
   final String walletId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'WalletFormEvent.idWalletChanged(walletId: $walletId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'WalletFormEvent.idWalletChanged'))
+      ..add(DiagnosticsProperty('walletId', walletId));
   }
 
   @override
@@ -379,9 +471,11 @@ class _$IdWalletChanged implements IdWalletChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialized,
+    required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() createWallet,
     required TResult Function() saved,
   }) {
     return idWalletChanged(walletId);
@@ -390,9 +484,11 @@ class _$IdWalletChanged implements IdWalletChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialized,
+    TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? createWallet,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -408,7 +504,9 @@ class _$IdWalletChanged implements IdWalletChanged {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateWallet value) createWallet,
+    required TResult Function(_Saved value) saved,
   }) {
     return idWalletChanged(this);
   }
@@ -419,7 +517,9 @@ class _$IdWalletChanged implements IdWalletChanged {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateWallet value)? createWallet,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (idWalletChanged != null) {
@@ -439,34 +539,187 @@ abstract class IdWalletChanged implements WalletFormEvent {
 }
 
 /// @nodoc
-abstract class $SavedCopyWith<$Res> {
-  factory $SavedCopyWith(Saved value, $Res Function(Saved) then) =
-      _$SavedCopyWithImpl<$Res>;
+abstract class $PasswordChangedCopyWith<$Res> {
+  factory $PasswordChangedCopyWith(
+          PasswordChanged value, $Res Function(PasswordChanged) then) =
+      _$PasswordChangedCopyWithImpl<$Res>;
+  $Res call({String password});
 }
 
 /// @nodoc
-class _$SavedCopyWithImpl<$Res> extends _$WalletFormEventCopyWithImpl<$Res>
-    implements $SavedCopyWith<$Res> {
-  _$SavedCopyWithImpl(Saved _value, $Res Function(Saved) _then)
-      : super(_value, (v) => _then(v as Saved));
+class _$PasswordChangedCopyWithImpl<$Res>
+    extends _$WalletFormEventCopyWithImpl<$Res>
+    implements $PasswordChangedCopyWith<$Res> {
+  _$PasswordChangedCopyWithImpl(
+      PasswordChanged _value, $Res Function(PasswordChanged) _then)
+      : super(_value, (v) => _then(v as PasswordChanged));
 
   @override
-  Saved get _value => super._value as Saved;
+  PasswordChanged get _value => super._value as PasswordChanged;
+
+  @override
+  $Res call({
+    Object? password = freezed,
+  }) {
+    return _then(PasswordChanged(
+      password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$Saved implements Saved {
-  const _$Saved();
+class _$PasswordChanged
+    with DiagnosticableTreeMixin
+    implements PasswordChanged {
+  const _$PasswordChanged(this.password);
 
   @override
-  String toString() {
-    return 'WalletFormEvent.saved()';
+  final String password;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WalletFormEvent.passwordChanged(password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'WalletFormEvent.passwordChanged'))
+      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Saved);
+    return identical(this, other) ||
+        (other is PasswordChanged &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(password);
+
+  @JsonKey(ignore: true)
+  @override
+  $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
+      _$PasswordChangedCopyWithImpl<PasswordChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool? isNew) initialized,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() createWallet,
+    required TResult Function() saved,
+  }) {
+    return passwordChanged(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool? isNew)? initialized,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? createWallet,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (passwordChanged != null) {
+      return passwordChanged(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(IdWalletChanged value) idWalletChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateWallet value) createWallet,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return passwordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(IdWalletChanged value)? idWalletChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateWallet value)? createWallet,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (passwordChanged != null) {
+      return passwordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasswordChanged implements WalletFormEvent {
+  const factory PasswordChanged(String password) = _$PasswordChanged;
+
+  String get password => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CreateWalletCopyWith<$Res> {
+  factory $CreateWalletCopyWith(
+          CreateWallet value, $Res Function(CreateWallet) then) =
+      _$CreateWalletCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CreateWalletCopyWithImpl<$Res>
+    extends _$WalletFormEventCopyWithImpl<$Res>
+    implements $CreateWalletCopyWith<$Res> {
+  _$CreateWalletCopyWithImpl(
+      CreateWallet _value, $Res Function(CreateWallet) _then)
+      : super(_value, (v) => _then(v as CreateWallet));
+
+  @override
+  CreateWallet get _value => super._value as CreateWallet;
+}
+
+/// @nodoc
+
+class _$CreateWallet with DiagnosticableTreeMixin implements CreateWallet {
+  const _$CreateWallet();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WalletFormEvent.createWallet()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'WalletFormEvent.createWallet'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is CreateWallet);
   }
 
   @override
@@ -475,9 +728,116 @@ class _$Saved implements Saved {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialized,
+    required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() createWallet,
+    required TResult Function() saved,
+  }) {
+    return createWallet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool? isNew)? initialized,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? createWallet,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (createWallet != null) {
+      return createWallet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(IdWalletChanged value) idWalletChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateWallet value) createWallet,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return createWallet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(IdWalletChanged value)? idWalletChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateWallet value)? createWallet,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (createWallet != null) {
+      return createWallet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateWallet implements WalletFormEvent {
+  const factory CreateWallet() = _$CreateWallet;
+}
+
+/// @nodoc
+abstract class _$SavedCopyWith<$Res> {
+  factory _$SavedCopyWith(_Saved value, $Res Function(_Saved) then) =
+      __$SavedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SavedCopyWithImpl<$Res> extends _$WalletFormEventCopyWithImpl<$Res>
+    implements _$SavedCopyWith<$Res> {
+  __$SavedCopyWithImpl(_Saved _value, $Res Function(_Saved) _then)
+      : super(_value, (v) => _then(v as _Saved));
+
+  @override
+  _Saved get _value => super._value as _Saved;
+}
+
+/// @nodoc
+
+class _$_Saved with DiagnosticableTreeMixin implements _Saved {
+  const _$_Saved();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WalletFormEvent.saved()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'WalletFormEvent.saved'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Saved);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool? isNew) initialized,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String walletId) idWalletChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() createWallet,
     required TResult Function() saved,
   }) {
     return saved();
@@ -486,9 +846,11 @@ class _$Saved implements Saved {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialized,
+    TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String walletId)? idWalletChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? createWallet,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -504,7 +866,9 @@ class _$Saved implements Saved {
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(Saved value) saved,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateWallet value) createWallet,
+    required TResult Function(_Saved value) saved,
   }) {
     return saved(this);
   }
@@ -515,7 +879,9 @@ class _$Saved implements Saved {
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(Saved value)? saved,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateWallet value)? createWallet,
+    TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
     if (saved != null) {
@@ -525,8 +891,8 @@ class _$Saved implements Saved {
   }
 }
 
-abstract class Saved implements WalletFormEvent {
-  const factory Saved() = _$Saved;
+abstract class _Saved implements WalletFormEvent {
+  const factory _Saved() = _$_Saved;
 }
 
 /// @nodoc
@@ -538,6 +904,7 @@ class _$WalletFormStateTearOff {
       required bool isEditing,
       required bool isLoading,
       required bool isSaving,
+      required bool isNew,
       required bool showErrorMessages,
       required Option<Either<FirestoreFailure, Unit>>
           saveFailureOrSuccessOption}) {
@@ -546,6 +913,7 @@ class _$WalletFormStateTearOff {
       isEditing: isEditing,
       isLoading: isLoading,
       isSaving: isSaving,
+      isNew: isNew,
       showErrorMessages: showErrorMessages,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption,
     );
@@ -561,6 +929,7 @@ mixin _$WalletFormState {
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
+  bool get isNew => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   Option<Either<FirestoreFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -580,6 +949,7 @@ abstract class $WalletFormStateCopyWith<$Res> {
       bool isEditing,
       bool isLoading,
       bool isSaving,
+      bool isNew,
       bool showErrorMessages,
       Option<Either<FirestoreFailure, Unit>> saveFailureOrSuccessOption});
 
@@ -601,6 +971,7 @@ class _$WalletFormStateCopyWithImpl<$Res>
     Object? isEditing = freezed,
     Object? isLoading = freezed,
     Object? isSaving = freezed,
+    Object? isNew = freezed,
     Object? showErrorMessages = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
@@ -620,6 +991,10 @@ class _$WalletFormStateCopyWithImpl<$Res>
       isSaving: isSaving == freezed
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNew: isNew == freezed
+          ? _value.isNew
+          : isNew // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
@@ -652,6 +1027,7 @@ abstract class _$WalletFormStateCopyWith<$Res>
       bool isEditing,
       bool isLoading,
       bool isSaving,
+      bool isNew,
       bool showErrorMessages,
       Option<Either<FirestoreFailure, Unit>> saveFailureOrSuccessOption});
 
@@ -676,6 +1052,7 @@ class __$WalletFormStateCopyWithImpl<$Res>
     Object? isEditing = freezed,
     Object? isLoading = freezed,
     Object? isSaving = freezed,
+    Object? isNew = freezed,
     Object? showErrorMessages = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
@@ -696,6 +1073,10 @@ class __$WalletFormStateCopyWithImpl<$Res>
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
               as bool,
+      isNew: isNew == freezed
+          ? _value.isNew
+          : isNew // ignore: cast_nullable_to_non_nullable
+              as bool,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -710,12 +1091,15 @@ class __$WalletFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WalletFormState implements _WalletFormState {
+class _$_WalletFormState
+    with DiagnosticableTreeMixin
+    implements _WalletFormState {
   const _$_WalletFormState(
       {required this.wallet,
       required this.isEditing,
       required this.isLoading,
       required this.isSaving,
+      required this.isNew,
       required this.showErrorMessages,
       required this.saveFailureOrSuccessOption});
 
@@ -728,13 +1112,30 @@ class _$_WalletFormState implements _WalletFormState {
   @override
   final bool isSaving;
   @override
+  final bool isNew;
+  @override
   final bool showErrorMessages;
   @override
   final Option<Either<FirestoreFailure, Unit>> saveFailureOrSuccessOption;
 
   @override
-  String toString() {
-    return 'WalletFormState(wallet: $wallet, isEditing: $isEditing, isLoading: $isLoading, isSaving: $isSaving, showErrorMessages: $showErrorMessages, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WalletFormState(wallet: $wallet, isEditing: $isEditing, isLoading: $isLoading, isSaving: $isSaving, isNew: $isNew, showErrorMessages: $showErrorMessages, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'WalletFormState'))
+      ..add(DiagnosticsProperty('wallet', wallet))
+      ..add(DiagnosticsProperty('isEditing', isEditing))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('isSaving', isSaving))
+      ..add(DiagnosticsProperty('isNew', isNew))
+      ..add(DiagnosticsProperty('showErrorMessages', showErrorMessages))
+      ..add(DiagnosticsProperty(
+          'saveFailureOrSuccessOption', saveFailureOrSuccessOption));
   }
 
   @override
@@ -752,6 +1153,8 @@ class _$_WalletFormState implements _WalletFormState {
             (identical(other.isSaving, isSaving) ||
                 const DeepCollectionEquality()
                     .equals(other.isSaving, isSaving)) &&
+            (identical(other.isNew, isNew) ||
+                const DeepCollectionEquality().equals(other.isNew, isNew)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
@@ -769,6 +1172,7 @@ class _$_WalletFormState implements _WalletFormState {
       const DeepCollectionEquality().hash(isEditing) ^
       const DeepCollectionEquality().hash(isLoading) ^
       const DeepCollectionEquality().hash(isSaving) ^
+      const DeepCollectionEquality().hash(isNew) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
@@ -784,6 +1188,7 @@ abstract class _WalletFormState implements WalletFormState {
       required bool isEditing,
       required bool isLoading,
       required bool isSaving,
+      required bool isNew,
       required bool showErrorMessages,
       required Option<Either<FirestoreFailure, Unit>>
           saveFailureOrSuccessOption}) = _$_WalletFormState;
@@ -796,6 +1201,8 @@ abstract class _WalletFormState implements WalletFormState {
   bool get isLoading => throw _privateConstructorUsedError;
   @override
   bool get isSaving => throw _privateConstructorUsedError;
+  @override
+  bool get isNew => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override

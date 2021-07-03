@@ -1,10 +1,10 @@
+import 'package:crypto_wallet/domain/wallet/value_converter.dart';
 import 'package:dartz/dartz.dart';
 import 'value_failures.dart';
 
-
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   const emailRegex =
-  r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
+      r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
   if (RegExp(emailRegex).hasMatch(input)) {
     return right(input);
   } else {
@@ -20,10 +20,24 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
   }
 }
 
+Either<ValueFailure<String>, String> validateCryptoPassword(String input) {
+  var password;
+  if (input.length >= 6) {
+    if (input.length > 20) {
+      password = decriptPassword(input);
+    } else {
+      password = encryptPassword(input);
+    }
+    return right(password);
+  } else {
+    return left(ValueFailure.shortPassword(failedValue: input));
+  }
+}
+
 Either<ValueFailure<String>, String> validateMaxStringLength(
-    String input,
-    int maxLength,
-    ) {
+  String input,
+  int maxLength,
+) {
   if (input.length <= maxLength) {
     return right(input);
   } else {

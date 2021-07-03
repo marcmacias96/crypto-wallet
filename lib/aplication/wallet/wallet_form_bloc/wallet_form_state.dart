@@ -7,7 +7,8 @@ class WalletFormState with _$WalletFormState {
       required bool isEditing,
       required bool isLoading,
       required bool isSaving,
-      required bool  showErrorMessages,
+      required bool isNew,
+      required bool showErrorMessages,
       required Option<Either<FirestoreFailure, Unit>>
           saveFailureOrSuccessOption}) = _WalletFormState;
 
@@ -16,6 +17,7 @@ class WalletFormState with _$WalletFormState {
       isEditing: false,
       isLoading: true,
       isSaving: false,
+      isNew: true,
       showErrorMessages: false,
       saveFailureOrSuccessOption: none());
 }
