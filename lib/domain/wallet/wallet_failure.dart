@@ -8,4 +8,5 @@ abstract class WalletFailure with _$WalletFailure {
   const factory WalletFailure.insufficientPermission() =
       _InsufficientPermission;
   const factory WalletFailure.unableToUpdate() = _UnableToUpdate;
+  factory WalletFailure.timeLimitExceeded() = TimeLimitExceeded;
 }

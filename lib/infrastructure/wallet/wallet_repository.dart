@@ -1,4 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crypto_wallet/domain/wallet/wallet_failure.dart';
+import 'package:crypto_wallet/domain/wallet_response/wallet_response.dart';
+import 'package:crypto_wallet/infrastructure/wallet/blockchain_api/blockchain_api.dart';
+import 'package:crypto_wallet/infrastructure/wallet_response/walletresponsedto.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -18,7 +22,7 @@ class WalletRepository implements IWalletRepository {
   WalletRepository(this._firestore);
 
   @override
-  Future<Either<FirestoreFailure, Unit>> create(Wallet wallet) async {
+  Future<Either<FirestoreFailure, Unit>> saveOnFirestore(Wallet wallet) async {
     try {
       final batch = _firestore.batch();
       final userDoc = await _firestore.userDocument();
@@ -33,6 +37,7 @@ class WalletRepository implements IWalletRepository {
       final userDto = UserDto.fromDomain(user.copyWith(name: wallet.name!));
       batch.set(userDoc, userDto.toJson());
       batch.commit();
+
       return right(unit);
     } on FirebaseException catch (e) {
       if (e.code == 'permission-denied') {
@@ -44,6 +49,8 @@ class WalletRepository implements IWalletRepository {
       } else {
         return left(const FirestoreFailure.unexpected());
       }
+    } on Exception catch (_) {
+      return left(const FirestoreFailure.unexpected());
     }
   }
 
@@ -84,6 +91,17 @@ class WalletRepository implements IWalletRepository {
       } else {
         return left(const FirestoreFailure.unexpected());
       }
+    }
+  }
+
+  @override
+  Future<Either<WalletFailure, WalletResponse>> create(Wallet wallet) async {
+    try {
+      final response = await BlockchainApi.createWallet(wallet);
+      final walletRes = WalletResponseDto.fromJson(response).toDomain();
+      return right(walletRes);
+    } on WalletFailure catch (_) {
+      return left(const WalletFailure.unexpected());
     }
   }
 }

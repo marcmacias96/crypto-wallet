@@ -1,5 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:crypto_wallet/domain/wallet/wallet_failure.dart';
+import 'package:crypto_wallet/domain/wallet_response/wallet_response.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -23,7 +26,9 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
   Stream<WalletFormState> mapEventToState(WalletFormEvent event) async* {
     yield* event.map(initialized: (e) async* {
       yield state.copyWith(
-          isLoading: false, saveFailureOrSuccessOption: none());
+          isLoading: false,
+          saveFailureOrSuccessOption: none(),
+          isNew: e.isNew!);
     }, saved: (e) async* {
       Either<FirestoreFailure, Unit>? failureOrSuccess;
       final isNameValid = state.wallet.name!.isValid();
@@ -31,12 +36,8 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
       final isPasswordValid = state.wallet.password.isValid();
 
       if (isNameValid && isWalletIdValid && isPasswordValid) {
-        yield state.copyWith(
-          isSaving: true,
-          saveFailureOrSuccessOption: none(),
-        );
-
-        failureOrSuccess = await _walletRepository.create(state.wallet);
+        failureOrSuccess =
+            await _walletRepository.saveOnFirestore(state.wallet);
         yield state.copyWith(
             isSaving: false,
             saveFailureOrSuccessOption: optionOf(failureOrSuccess));
@@ -57,6 +58,24 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
       yield state.copyWith(
           wallet: state.wallet.copyWith(password: Password(e.password)),
           saveFailureOrSuccessOption: none());
+    }, createWallet: (e) async* {
+      Either<WalletFailure, WalletResponse>? failureOrSuccess;
+      yield state.copyWith(
+        isSaving: true,
+        saveFailureOrSuccessOption: none(),
+      );
+
+      failureOrSuccess = await _walletRepository.create(state.wallet);
+      final walletResponse =
+          failureOrSuccess.getOrElse(() => throw Exception());
+
+      yield state.copyWith(
+        wallet: state.wallet.copyWith(
+          address: walletResponse.address,
+          walletId: WalletId(walletResponse.guid),
+        ),
+      );
+      add(_Saved());
     });
   }
 }

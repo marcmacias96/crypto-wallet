@@ -13,6 +13,7 @@ class Wallet with _$Wallet {
       {required UniqueId id,
       required WalletId walletId,
       Name? name,
+      required String address,
       required Password password,
       required String apiCode}) = _Wallet;
 
@@ -21,6 +22,7 @@ class Wallet with _$Wallet {
       walletId: WalletId(''),
       apiCode: '12345',
       name: Name(''),
+      address: '',
       password: Password(''));
 }
 

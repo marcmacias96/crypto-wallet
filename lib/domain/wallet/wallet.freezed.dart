@@ -20,12 +20,14 @@ class _$WalletTearOff {
       {required UniqueId id,
       required WalletId walletId,
       Name? name,
+      required String address,
       required Password password,
       required String apiCode}) {
     return _Wallet(
       id: id,
       walletId: walletId,
       name: name,
+      address: address,
       password: password,
       apiCode: apiCode,
     );
@@ -40,6 +42,7 @@ mixin _$Wallet {
   UniqueId get id => throw _privateConstructorUsedError;
   WalletId get walletId => throw _privateConstructorUsedError;
   Name? get name => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   String get apiCode => throw _privateConstructorUsedError;
 
@@ -55,6 +58,7 @@ abstract class $WalletCopyWith<$Res> {
       {UniqueId id,
       WalletId walletId,
       Name? name,
+      String address,
       Password password,
       String apiCode});
 }
@@ -72,6 +76,7 @@ class _$WalletCopyWithImpl<$Res> implements $WalletCopyWith<$Res> {
     Object? id = freezed,
     Object? walletId = freezed,
     Object? name = freezed,
+    Object? address = freezed,
     Object? password = freezed,
     Object? apiCode = freezed,
   }) {
@@ -88,6 +93,10 @@ class _$WalletCopyWithImpl<$Res> implements $WalletCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Name?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -109,6 +118,7 @@ abstract class _$WalletCopyWith<$Res> implements $WalletCopyWith<$Res> {
       {UniqueId id,
       WalletId walletId,
       Name? name,
+      String address,
       Password password,
       String apiCode});
 }
@@ -127,6 +137,7 @@ class __$WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
     Object? id = freezed,
     Object? walletId = freezed,
     Object? name = freezed,
+    Object? address = freezed,
     Object? password = freezed,
     Object? apiCode = freezed,
   }) {
@@ -143,6 +154,10 @@ class __$WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Name?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -162,6 +177,7 @@ class _$_Wallet implements _Wallet {
       {required this.id,
       required this.walletId,
       this.name,
+      required this.address,
       required this.password,
       required this.apiCode});
 
@@ -172,13 +188,15 @@ class _$_Wallet implements _Wallet {
   @override
   final Name? name;
   @override
+  final String address;
+  @override
   final Password password;
   @override
   final String apiCode;
 
   @override
   String toString() {
-    return 'Wallet(id: $id, walletId: $walletId, name: $name, password: $password, apiCode: $apiCode)';
+    return 'Wallet(id: $id, walletId: $walletId, name: $name, address: $address, password: $password, apiCode: $apiCode)';
   }
 
   @override
@@ -192,6 +210,9 @@ class _$_Wallet implements _Wallet {
                     .equals(other.walletId, walletId)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality()
+                    .equals(other.address, address)) &&
             (identical(other.password, password) ||
                 const DeepCollectionEquality()
                     .equals(other.password, password)) &&
@@ -205,6 +226,7 @@ class _$_Wallet implements _Wallet {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(walletId) ^
       const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(address) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(apiCode);
 
@@ -219,6 +241,7 @@ abstract class _Wallet implements Wallet {
       {required UniqueId id,
       required WalletId walletId,
       Name? name,
+      required String address,
       required Password password,
       required String apiCode}) = _$_Wallet;
 
@@ -228,6 +251,8 @@ abstract class _Wallet implements Wallet {
   WalletId get walletId => throw _privateConstructorUsedError;
   @override
   Name? get name => throw _privateConstructorUsedError;
+  @override
+  String get address => throw _privateConstructorUsedError;
   @override
   Password get password => throw _privateConstructorUsedError;
   @override

@@ -26,6 +26,8 @@ class _$WalletDtoTearOff {
       @JsonKey(includeIfNull: false, name: 'api_code')
           required String apiCode,
       @JsonKey(includeIfNull: false)
+          required String address,
+      @JsonKey(includeIfNull: false)
           String? name,
       @JsonKey(includeIfNull: false)
           required String password,
@@ -34,6 +36,7 @@ class _$WalletDtoTearOff {
     return _WalletDto(
       id: id,
       apiCode: apiCode,
+      address: address,
       name: name,
       password: password,
       walletId: walletId,
@@ -55,6 +58,8 @@ mixin _$WalletDto {
   @JsonKey(includeIfNull: false, name: 'api_code')
   String get apiCode => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
+  String get address => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   String get password => throw _privateConstructorUsedError;
@@ -74,6 +79,7 @@ abstract class $WalletDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String? id,
       @JsonKey(includeIfNull: false, name: 'api_code') String apiCode,
+      @JsonKey(includeIfNull: false) String address,
       @JsonKey(includeIfNull: false) String? name,
       @JsonKey(includeIfNull: false) String password,
       @JsonKey(includeIfNull: false, name: 'wallet_id') String walletId});
@@ -91,6 +97,7 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? apiCode = freezed,
+    Object? address = freezed,
     Object? name = freezed,
     Object? password = freezed,
     Object? walletId = freezed,
@@ -103,6 +110,10 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
       apiCode: apiCode == freezed
           ? _value.apiCode
           : apiCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String,
       name: name == freezed
           ? _value.name
@@ -129,6 +140,7 @@ abstract class _$WalletDtoCopyWith<$Res> implements $WalletDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String? id,
       @JsonKey(includeIfNull: false, name: 'api_code') String apiCode,
+      @JsonKey(includeIfNull: false) String address,
       @JsonKey(includeIfNull: false) String? name,
       @JsonKey(includeIfNull: false) String password,
       @JsonKey(includeIfNull: false, name: 'wallet_id') String walletId});
@@ -147,6 +159,7 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? apiCode = freezed,
+    Object? address = freezed,
     Object? name = freezed,
     Object? password = freezed,
     Object? walletId = freezed,
@@ -159,6 +172,10 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
       apiCode: apiCode == freezed
           ? _value.apiCode
           : apiCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String,
       name: name == freezed
           ? _value.name
@@ -186,6 +203,8 @@ class _$_WalletDto implements _WalletDto {
       @JsonKey(includeIfNull: false, name: 'api_code')
           required this.apiCode,
       @JsonKey(includeIfNull: false)
+          required this.address,
+      @JsonKey(includeIfNull: false)
           this.name,
       @JsonKey(includeIfNull: false)
           required this.password,
@@ -203,6 +222,9 @@ class _$_WalletDto implements _WalletDto {
   final String apiCode;
   @override
   @JsonKey(includeIfNull: false)
+  final String address;
+  @override
+  @JsonKey(includeIfNull: false)
   final String? name;
   @override
   @JsonKey(includeIfNull: false)
@@ -213,7 +235,7 @@ class _$_WalletDto implements _WalletDto {
 
   @override
   String toString() {
-    return 'WalletDto(id: $id, apiCode: $apiCode, name: $name, password: $password, walletId: $walletId)';
+    return 'WalletDto(id: $id, apiCode: $apiCode, address: $address, name: $name, password: $password, walletId: $walletId)';
   }
 
   @override
@@ -225,6 +247,9 @@ class _$_WalletDto implements _WalletDto {
             (identical(other.apiCode, apiCode) ||
                 const DeepCollectionEquality()
                     .equals(other.apiCode, apiCode)) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality()
+                    .equals(other.address, address)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.password, password) ||
@@ -240,6 +265,7 @@ class _$_WalletDto implements _WalletDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(apiCode) ^
+      const DeepCollectionEquality().hash(address) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(walletId);
@@ -262,6 +288,8 @@ abstract class _WalletDto implements WalletDto {
       @JsonKey(includeIfNull: false, name: 'api_code')
           required String apiCode,
       @JsonKey(includeIfNull: false)
+          required String address,
+      @JsonKey(includeIfNull: false)
           String? name,
       @JsonKey(includeIfNull: false)
           required String password,
@@ -277,6 +305,9 @@ abstract class _WalletDto implements WalletDto {
   @override
   @JsonKey(includeIfNull: false, name: 'api_code')
   String get apiCode => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(includeIfNull: false)
+  String get address => throw _privateConstructorUsedError;
   @override
   @JsonKey(includeIfNull: false)
   String? get name => throw _privateConstructorUsedError;

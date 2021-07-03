@@ -27,6 +27,10 @@ class _$WalletFailureTearOff {
   _UnableToUpdate unableToUpdate() {
     return const _UnableToUpdate();
   }
+
+  TimeLimitExceeded timeLimitExceeded() {
+    return TimeLimitExceeded();
+  }
 }
 
 /// @nodoc
@@ -39,6 +43,7 @@ mixin _$WalletFailure {
     required TResult Function() unexpected,
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
+    required TResult Function() timeLimitExceeded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,6 +51,7 @@ mixin _$WalletFailure {
     TResult Function()? unexpected,
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
+    TResult Function()? timeLimitExceeded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +61,7 @@ mixin _$WalletFailure {
     required TResult Function(_InsufficientPermission value)
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
+    required TResult Function(TimeLimitExceeded value) timeLimitExceeded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +69,7 @@ mixin _$WalletFailure {
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
+    TResult Function(TimeLimitExceeded value)? timeLimitExceeded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,6 +134,7 @@ class _$_Unexpected implements _Unexpected {
     required TResult Function() unexpected,
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
+    required TResult Function() timeLimitExceeded,
   }) {
     return unexpected();
   }
@@ -136,6 +145,7 @@ class _$_Unexpected implements _Unexpected {
     TResult Function()? unexpected,
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
+    TResult Function()? timeLimitExceeded,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -151,6 +161,7 @@ class _$_Unexpected implements _Unexpected {
     required TResult Function(_InsufficientPermission value)
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
+    required TResult Function(TimeLimitExceeded value) timeLimitExceeded,
   }) {
     return unexpected(this);
   }
@@ -161,6 +172,7 @@ class _$_Unexpected implements _Unexpected {
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
+    TResult Function(TimeLimitExceeded value)? timeLimitExceeded,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -217,6 +229,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     required TResult Function() unexpected,
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
+    required TResult Function() timeLimitExceeded,
   }) {
     return insufficientPermission();
   }
@@ -227,6 +240,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     TResult Function()? unexpected,
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
+    TResult Function()? timeLimitExceeded,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -242,6 +256,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     required TResult Function(_InsufficientPermission value)
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
+    required TResult Function(TimeLimitExceeded value) timeLimitExceeded,
   }) {
     return insufficientPermission(this);
   }
@@ -252,6 +267,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
+    TResult Function(TimeLimitExceeded value)? timeLimitExceeded,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -308,6 +324,7 @@ class _$_UnableToUpdate implements _UnableToUpdate {
     required TResult Function() unexpected,
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
+    required TResult Function() timeLimitExceeded,
   }) {
     return unableToUpdate();
   }
@@ -318,6 +335,7 @@ class _$_UnableToUpdate implements _UnableToUpdate {
     TResult Function()? unexpected,
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
+    TResult Function()? timeLimitExceeded,
     required TResult orElse(),
   }) {
     if (unableToUpdate != null) {
@@ -333,6 +351,7 @@ class _$_UnableToUpdate implements _UnableToUpdate {
     required TResult Function(_InsufficientPermission value)
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
+    required TResult Function(TimeLimitExceeded value) timeLimitExceeded,
   }) {
     return unableToUpdate(this);
   }
@@ -343,6 +362,7 @@ class _$_UnableToUpdate implements _UnableToUpdate {
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
+    TResult Function(TimeLimitExceeded value)? timeLimitExceeded,
     required TResult orElse(),
   }) {
     if (unableToUpdate != null) {
@@ -354,4 +374,99 @@ class _$_UnableToUpdate implements _UnableToUpdate {
 
 abstract class _UnableToUpdate implements WalletFailure {
   const factory _UnableToUpdate() = _$_UnableToUpdate;
+}
+
+/// @nodoc
+abstract class $TimeLimitExceededCopyWith<$Res> {
+  factory $TimeLimitExceededCopyWith(
+          TimeLimitExceeded value, $Res Function(TimeLimitExceeded) then) =
+      _$TimeLimitExceededCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$TimeLimitExceededCopyWithImpl<$Res>
+    extends _$WalletFailureCopyWithImpl<$Res>
+    implements $TimeLimitExceededCopyWith<$Res> {
+  _$TimeLimitExceededCopyWithImpl(
+      TimeLimitExceeded _value, $Res Function(TimeLimitExceeded) _then)
+      : super(_value, (v) => _then(v as TimeLimitExceeded));
+
+  @override
+  TimeLimitExceeded get _value => super._value as TimeLimitExceeded;
+}
+
+/// @nodoc
+
+class _$TimeLimitExceeded implements TimeLimitExceeded {
+  _$TimeLimitExceeded();
+
+  @override
+  String toString() {
+    return 'WalletFailure.timeLimitExceeded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is TimeLimitExceeded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
+    required TResult Function() timeLimitExceeded,
+  }) {
+    return timeLimitExceeded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    TResult Function()? timeLimitExceeded,
+    required TResult orElse(),
+  }) {
+    if (timeLimitExceeded != null) {
+      return timeLimitExceeded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate value) unableToUpdate,
+    required TResult Function(TimeLimitExceeded value) timeLimitExceeded,
+  }) {
+    return timeLimitExceeded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_InsufficientPermission value)? insufficientPermission,
+    TResult Function(_UnableToUpdate value)? unableToUpdate,
+    TResult Function(TimeLimitExceeded value)? timeLimitExceeded,
+    required TResult orElse(),
+  }) {
+    if (timeLimitExceeded != null) {
+      return timeLimitExceeded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TimeLimitExceeded implements WalletFailure {
+  factory TimeLimitExceeded() = _$TimeLimitExceeded;
 }
