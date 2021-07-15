@@ -1,39 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DescriptionTable extends StatelessWidget {
-  final String currency;
-  final String value;
+class DescriptionContact extends StatelessWidget {
+  final String name;
+  final String address;
+  const DescriptionContact({
+    Key? key,
+    required this.name,
+    required this.address
 
-  const DescriptionTable({Key? key,
-    required this.currency,
-    required this.value,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       child: Column(
-        crossAxisAlignment:CrossAxisAlignment.start ,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 10.h,
+          height: 10.h,
           ),
           Text(
-            currency,
+            name,
             textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: 40.sp
+                fontSize: 50.sp
             ),
           ),
+
           Text(
-            r'$'+ value,
+            address,
             textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: Colors.black26,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 fontSize: 30.sp
             ),
           ),
@@ -42,3 +44,4 @@ class DescriptionTable extends StatelessWidget {
     );
   }
 }
+

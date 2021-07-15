@@ -2,6 +2,8 @@ import 'package:auto_route/annotations.dart';
 
 import '../pages/auth/sign_in/sign_in_page.dart';
 import '../pages/auth/sign_up/sign_up_page.dart';
+import '../pages/contacts/contact_create/contact_create_page.dart';
+import '../pages/contacts/contact_list/contact_list_page.dart';
 import '../pages/home/home_page.dart';
 import '../pages/splash/splash.dart';
 import '../pages/wallet/wallet_form/wallet_form_page.dart';
@@ -17,6 +19,8 @@ import '../pages/welcome/welcome2_page.dart';
   MaterialRoute(page: Welcome1Page,fullscreenDialog: true),
   MaterialRoute(page: Welcome2Page,fullscreenDialog: true),
   MaterialRoute(page: WalletFormPage,fullscreenDialog: true),
+  MaterialRoute(page: ContactCreatePage,fullscreenDialog: true),
+  MaterialRoute(page: ContactListPage,fullscreenDialog: true),
 ])
 
 class $AppRouter {}

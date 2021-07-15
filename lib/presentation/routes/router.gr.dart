@@ -9,6 +9,8 @@ import 'package:flutter/material.dart' as _i2;
 
 import '../pages/auth/sign_in/sign_in_page.dart' as _i4;
 import '../pages/auth/sign_up/sign_up_page.dart' as _i5;
+import '../pages/contacts/contact_create/contact_create_page.dart' as _i10;
+import '../pages/contacts/contact_list/contact_list_page.dart' as _i11;
 import '../pages/home/home_page.dart' as _i6;
 import '../pages/splash/splash.dart' as _i3;
 import '../pages/wallet/wallet_form/wallet_form_page.dart' as _i9;
@@ -61,6 +63,18 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return const _i9.WalletFormPage();
         },
+        fullscreenDialog: true),
+    ContactCreateRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i10.ContactCreatePage();
+        },
+        fullscreenDialog: true),
+    ContactListRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i11.ContactListPage();
+        },
         fullscreenDialog: true)
   };
 
@@ -72,7 +86,9 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
         _i1.RouteConfig(Welcome1Route.name, path: '/welcome1-page'),
         _i1.RouteConfig(Welcome2Route.name, path: '/welcome2-page'),
-        _i1.RouteConfig(WalletFormRoute.name, path: '/wallet-form-page')
+        _i1.RouteConfig(WalletFormRoute.name, path: '/wallet-form-page'),
+        _i1.RouteConfig(ContactCreateRoute.name, path: '/contact-create-page'),
+        _i1.RouteConfig(ContactListRoute.name, path: '/contact-list-page')
       ];
 }
 
@@ -116,4 +132,16 @@ class WalletFormRoute extends _i1.PageRouteInfo {
   const WalletFormRoute() : super(name, path: '/wallet-form-page');
 
   static const String name = 'WalletFormRoute';
+}
+
+class ContactCreateRoute extends _i1.PageRouteInfo {
+  const ContactCreateRoute() : super(name, path: '/contact-create-page');
+
+  static const String name = 'ContactCreateRoute';
+}
+
+class ContactListRoute extends _i1.PageRouteInfo {
+  const ContactListRoute() : super(name, path: '/contact-list-page');
+
+  static const String name = 'ContactListRoute';
 }
