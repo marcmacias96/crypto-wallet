@@ -1,6 +1,9 @@
-import 'package:crypto_wallet/presentation/pages/contacts/contact_list/widgets/title_contact.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../routes/router.gr.dart';
+import 'title_contact.dart';
 
 class AddContacts extends StatelessWidget {
   const AddContacts({Key? key}) : super(key: key);
@@ -22,7 +25,8 @@ class AddContacts extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           TitleContact(title: 'Contactos'),
-          Icon(Icons.add_circle,color: Colors.white,size: 60)
+          IconButton(onPressed: () => context.router.navigate(ContactCreateRoute()), icon: Icon(Icons.add_circle,color: Colors.white,size: 60))
+
         ],
 
       ),

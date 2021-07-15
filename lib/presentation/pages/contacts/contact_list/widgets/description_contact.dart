@@ -14,10 +14,12 @@ class DescriptionContact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+          height: 10.h,
+          ),
           Text(
             name,
             textAlign: TextAlign.left,
@@ -27,6 +29,7 @@ class DescriptionContact extends StatelessWidget {
                 fontSize: 50.sp
             ),
           ),
+
           Text(
             address,
             textAlign: TextAlign.left,

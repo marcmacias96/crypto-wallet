@@ -19,32 +19,44 @@ class ListContacts extends StatelessWidget {
       child: Container(
         margin:EdgeInsets.only(
         top: 0.03.sh,
-        left: 50.w,
+        left: 10.w,
         ),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Table(
-                columnWidths: {0: FractionColumnWidth(0.1)},
+                columnWidths: {0: FractionColumnWidth(0.25)},
               children: [
                 TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
                   DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
                 ]),
                 TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
                   DescriptionContact(address: '12993333333', name: 'ODALIS VALENCIA',),
                 ]),
                 TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
                   DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
                 ]),
                 TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
                   DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
                 ]),
                 TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
+                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
+                ]),
+                TableRow( children: [
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
+                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
+                ]),
+                TableRow( children: [
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
+                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
+                ]),
+                TableRow( children: [
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
                   DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
                 ]),
               ],

@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../routes/router.gr.dart';
 import '../../../auth/widgets/custom_button.dart';
 
 class ContactCreateForm extends StatelessWidget {
@@ -40,7 +42,7 @@ class ContactCreateForm extends StatelessWidget {
                 text: 'Cancelar',
                 textcolor: Colors.black,
                 buttoncolor: Colors.white,
-                onTap: () {  },
+                onTap:  () => context.router.navigate(ContactListRoute()),
               )
             ],
           ),

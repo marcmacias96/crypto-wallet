@@ -12,11 +12,13 @@ class DescriptionTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
+    return  Container(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment:CrossAxisAlignment.start ,
         children: [
+          SizedBox(
+            height: 10.h,
+          ),
           Text(
             currency,
             textAlign: TextAlign.left,

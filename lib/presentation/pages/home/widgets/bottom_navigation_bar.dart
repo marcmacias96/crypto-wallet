@@ -25,7 +25,7 @@ class BottonNavigationBar extends StatelessWidget {
                   title: Text(
                     "",
                     style: TextStyle(fontSize: 0),
-                  )
+                  ),
               ),
               BottomNavigationBarItem(
                   icon: Icon(Icons.account_balance_wallet),
@@ -36,6 +36,7 @@ class BottonNavigationBar extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                   icon: Icon(Icons.contacts),
+
                   title: Text(
                     "",
                     style: TextStyle(fontSize: 0),
@@ -45,7 +46,6 @@ class BottonNavigationBar extends StatelessWidget {
             selectedItemColor: Colors.black,
             unselectedItemColor: Colors.black,
             iconSize: 30,
-
           )
       ),
     );
