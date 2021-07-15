@@ -22,16 +22,34 @@ class ListContacts extends StatelessWidget {
         left: 50.w,
         ),
         child: Column(
-
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
+              Table(
+                columnWidths: {0: FractionColumnWidth(0.1)},
+              children: [
+                TableRow( children: [
                   Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
-                  SizedBox(width: 50.w),
                   DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
-                ],
-              ),
+                ]),
+                TableRow( children: [
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  DescriptionContact(address: '12993333333', name: 'ODALIS VALENCIA',),
+                ]),
+                TableRow( children: [
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
+                ]),
+                TableRow( children: [
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
+                ]),
+                TableRow( children: [
+                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 60,),
+                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
+                ]),
+              ],
+              )
+
 
             ]
         ),

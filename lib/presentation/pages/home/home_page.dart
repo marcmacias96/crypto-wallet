@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:crypto_wallet/presentation/pages/home/widgets/cryptocurrency.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +9,7 @@ import '../../routes/router.gr.dart';
 import 'widgets/balance_home.dart';
 import 'widgets/bottom_navigation_bar.dart';
 import 'widgets/circle_image_home.dart';
+import 'widgets/cryptocurrency_home.dart';
 import 'widgets/title_home.dart';
 
 
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
           alignment: Alignment.topLeft,
           children: [
             BalanceHome(),
-            Cryptocurrency()
+            CryptocurrencyHome()
           ],
 
         ),
