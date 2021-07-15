@@ -9,7 +9,7 @@ class AddContacts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 0.35.sh,
-      width: 3.sw,
+      //width: 3.sw,
       decoration: BoxDecoration(
         gradient: LinearGradient(
             begin: Alignment.topLeft,

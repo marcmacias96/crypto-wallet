@@ -32,7 +32,7 @@ class CryptocurrencyHome extends StatelessWidget {
               columnWidths: {0: FractionColumnWidth(0.2)},
               children: [
                 TableRow( children: [
-                  ImageTable(imageSrc: "assets/img/bitcoin.png"),
+                  Column(crossAxisAlignment: CrossAxisAlignment.start,children:[ImageTable(imageSrc: "assets/img/bitcoin.png"),]),
                   DescriptionTable(currency: 'Bitcoin', value: '35,00'),
                   ValueTable(value: '5,3', signo: '+', valuecolor: Colors.green),
                 ]),
