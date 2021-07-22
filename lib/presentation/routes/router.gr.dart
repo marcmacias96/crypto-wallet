@@ -13,6 +13,9 @@ import '../pages/contacts/contact_create/contact_create_page.dart' as _i10;
 import '../pages/contacts/contact_list/contact_list_page.dart' as _i11;
 import '../pages/home/home_page.dart' as _i6;
 import '../pages/splash/splash.dart' as _i3;
+import '../pages/transactions/history/history_page.dart' as _i12;
+import '../pages/transactions/recieve/recieve_page.dart' as _i13;
+import '../pages/transactions/send/send_page.dart' as _i14;
 import '../pages/wallet/wallet_form/wallet_form_page.dart' as _i9;
 import '../pages/welcome/welcome1_page.dart' as _i7;
 import '../pages/welcome/welcome2_page.dart' as _i8;
@@ -75,6 +78,24 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return const _i11.ContactListPage();
         },
+        fullscreenDialog: true),
+    HistoryRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i12.HistoryPage();
+        },
+        fullscreenDialog: true),
+    RecieveRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i13.RecievePage();
+        },
+        fullscreenDialog: true),
+    SendRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i14.SendPage();
+        },
         fullscreenDialog: true)
   };
 
@@ -88,7 +109,10 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(Welcome2Route.name, path: '/welcome2-page'),
         _i1.RouteConfig(WalletFormRoute.name, path: '/wallet-form-page'),
         _i1.RouteConfig(ContactCreateRoute.name, path: '/contact-create-page'),
-        _i1.RouteConfig(ContactListRoute.name, path: '/contact-list-page')
+        _i1.RouteConfig(ContactListRoute.name, path: '/contact-list-page'),
+        _i1.RouteConfig(HistoryRoute.name, path: '/history-page'),
+        _i1.RouteConfig(RecieveRoute.name, path: '/recieve-page'),
+        _i1.RouteConfig(SendRoute.name, path: '/send-page')
       ];
 }
 
@@ -144,4 +168,22 @@ class ContactListRoute extends _i1.PageRouteInfo {
   const ContactListRoute() : super(name, path: '/contact-list-page');
 
   static const String name = 'ContactListRoute';
+}
+
+class HistoryRoute extends _i1.PageRouteInfo {
+  const HistoryRoute() : super(name, path: '/history-page');
+
+  static const String name = 'HistoryRoute';
+}
+
+class RecieveRoute extends _i1.PageRouteInfo {
+  const RecieveRoute() : super(name, path: '/recieve-page');
+
+  static const String name = 'RecieveRoute';
+}
+
+class SendRoute extends _i1.PageRouteInfo {
+  const SendRoute() : super(name, path: '/send-page');
+
+  static const String name = 'SendRoute';
 }

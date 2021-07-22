@@ -6,6 +6,9 @@ import '../pages/contacts/contact_create/contact_create_page.dart';
 import '../pages/contacts/contact_list/contact_list_page.dart';
 import '../pages/home/home_page.dart';
 import '../pages/splash/splash.dart';
+import '../pages/transactions/history/history_page.dart';
+import '../pages/transactions/recieve/recieve_page.dart';
+import '../pages/transactions/send/send_page.dart';
 import '../pages/wallet/wallet_form/wallet_form_page.dart';
 import '../pages/welcome/welcome1_page.dart';
 import '../pages/welcome/welcome2_page.dart';
@@ -21,6 +24,9 @@ import '../pages/welcome/welcome2_page.dart';
   MaterialRoute(page: WalletFormPage,fullscreenDialog: true),
   MaterialRoute(page: ContactCreatePage,fullscreenDialog: true),
   MaterialRoute(page: ContactListPage,fullscreenDialog: true),
+  MaterialRoute(page: HistoryPage,fullscreenDialog: true),
+  MaterialRoute(page: RecievePage,fullscreenDialog: true),
+  MaterialRoute(page: SendPage,fullscreenDialog: true),
 ])
 
 class $AppRouter {}
