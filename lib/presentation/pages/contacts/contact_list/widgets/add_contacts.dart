@@ -1,8 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../routes/router.gr.dart';
 import 'title_contact.dart';
 
 class AddContacts extends StatelessWidget {
@@ -21,14 +19,12 @@ class AddContacts extends StatelessWidget {
               Theme.of(context).primaryColor,
               Color.fromRGBO(9, 126, 234, 100)]),
       ),
+
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TitleContact(title: 'Contactos'),
-          IconButton(onPressed: () => context.router.navigate(ContactCreateRoute()), icon: Icon(Icons.add_circle,color: Colors.white,size: 60))
-
         ],
-
       ),
     );
   }

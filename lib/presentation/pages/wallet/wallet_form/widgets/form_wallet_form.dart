@@ -102,11 +102,10 @@ class FormWalletForm extends StatelessWidget {
                 ),
                 TextFormField(
                   autocorrect: false,
-                  obscureText: true,
                   onChanged: (value) => context
                       .read<WalletFormBloc>()
                       .add(WalletFormEvent.passwordChanged(value)),
-                  decoration: InputDecoration(hintText: 'Password'),
+                  decoration: InputDecoration(hintText: 'ID Wallet'),
                   style: TextStyle(color: Colors.black),
                   keyboardType: TextInputType.text,
                   validator: (_) => context
@@ -120,8 +119,8 @@ class FormWalletForm extends StatelessWidget {
                                 multiline: (_) =>
                                     'No se permiten saltos de linea',
                                 shortPassword: (_) =>
-                                    'La contraseña debe tener mas de 6 digitos',
-                                empty: (_) => 'Ingrese una contraseña',
+                                    'El ID Wallet debe tener mas de 6 digitos',
+                                empty: (_) => 'Ingrese un ID Wallet',
                                 orElse: () => null,
                               ),
                           (_) => null),

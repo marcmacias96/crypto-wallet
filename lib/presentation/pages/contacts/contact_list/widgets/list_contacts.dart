@@ -1,6 +1,7 @@
-import 'package:crypto_wallet/presentation/pages/contacts/contact_list/widgets/description_contact.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'description_contact.dart';
 
 class ListContacts extends StatelessWidget {
   const ListContacts({Key? key}) : super(key: key);

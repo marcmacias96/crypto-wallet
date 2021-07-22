@@ -1,10 +1,10 @@
-import 'package:crypto_wallet/presentation/pages/contacts/contact_list/widgets/add_contacts.dart';
-import 'package:crypto_wallet/presentation/pages/contacts/contact_list/widgets/list_contacts.dart';
-import 'package:crypto_wallet/presentation/pages/contacts/contact_list/widgets/title_contact.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../routes/router.gr.dart';
 import '../../home/widgets/bottom_navigation_bar.dart';
+import 'widgets/add_contacts.dart';
+import 'widgets/list_contacts.dart';
 
 class ContactListPage extends StatelessWidget {
   const ContactListPage({Key? key}) : super(key: key);
@@ -24,7 +24,9 @@ class ContactListPage extends StatelessWidget {
 
       ),
       bottomNavigationBar:BottonNavigationBar() ,
-
+      floatingActionButton: FloatingActionButton(onPressed: () => context.router.navigate(ContactCreateRoute()),
+          child: const Icon(Icons.add),
+          backgroundColor:  Theme.of(context).primaryColor),
     );
   }
 }
