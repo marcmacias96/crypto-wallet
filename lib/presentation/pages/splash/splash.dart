@@ -25,7 +25,7 @@ class SplashPage extends StatelessWidget {
               HomeRoute(), predicate: (e) => true,
             ),
             withOutWallet: (_) => context.router.pushAndPopUntil(
-              HomeRoute(), predicate: (e) => true,
+              WalletFormRoute(), predicate: (e) => true,
             ),
             modeFailure: (_) {  },
 
