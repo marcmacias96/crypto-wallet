@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../../routes/router.gr.dart';
 import '../../../auth/widgets/custom_button.dart';
@@ -14,6 +16,8 @@ class FormRecieve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String qrData =
+        "https://github.com/marcmacias96/crypto-wallet";
     return Form(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 50.h),
@@ -41,9 +45,35 @@ class FormRecieve extends StatelessWidget {
                 //value: dropdownValue,
 
               ),
-
+              QrImage(
+                //plce where the QR Image will be shown
+                data: qrData,
+              ),
               SizedBox(
-                height: 670.h,
+                height: 50.h,
+              ),
+              Row(
+                children: [
+                Container(
+                  width: 270,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Text(qrData,style:Theme.of(context).textTheme.headline4!.copyWith(
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 40.sp
+                    ),),
+                  ),
+                ),
+                IconButton(onPressed:() {
+                  Clipboard.setData(new ClipboardData(text: qrData));
+                  Scaffold.of(context).showSnackBar(
+                      new SnackBar(content: new Text("Copiado en portapapeles"),));
+                }, icon: Icon (Icons.copy))
+                ],
+              ),
+              SizedBox(
+                height: 30.h,
               ),
               CustomButton(
                 text: 'Hecho',
@@ -52,7 +82,6 @@ class FormRecieve extends StatelessWidget {
                 onTap: () {  },
 
               ),
-
               CustomButton(
                 text: 'Cancelar',
                 textcolor: Colors.black,
