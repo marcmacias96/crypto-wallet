@@ -10,13 +10,12 @@ part 'contact_dto.g.dart';
 @freezed
 class ContactDto with _$ContactDto {
   @JsonSerializable(explicitToJson: true)
-  const factory ContactDto({required String name, required String walletId}) =
+  const factory ContactDto({required String name, required String address}) =
       _ContactDto;
 
   factory ContactDto.fromDomain(Contact contact) {
     return ContactDto(
-        name: contact.name.getOrCrash(),
-        walletId: contact.walletId.getOrCrash());
+        name: contact.name.getOrCrash(), address: contact.address);
   }
   factory ContactDto.fromJson(Map<String, dynamic> json) =>
       _$ContactDtoFromJson(json);
@@ -24,6 +23,6 @@ class ContactDto with _$ContactDto {
 
 extension ContactDtoX on ContactDto {
   Contact toDomain() {
-    return Contact(name: Name(name), walletId: WalletId(walletId));
+    return Contact(name: Name(name), address: address);
   }
 }

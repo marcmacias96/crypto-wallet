@@ -20,10 +20,10 @@ ContactDto _$ContactDtoFromJson(Map<String, dynamic> json) {
 class _$ContactDtoTearOff {
   const _$ContactDtoTearOff();
 
-  _ContactDto call({required String name, required String walletId}) {
+  _ContactDto call({required String name, required String address}) {
     return _ContactDto(
       name: name,
-      walletId: walletId,
+      address: address,
     );
   }
 
@@ -38,7 +38,7 @@ const $ContactDto = _$ContactDtoTearOff();
 /// @nodoc
 mixin _$ContactDto {
   String get name => throw _privateConstructorUsedError;
-  String get walletId => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +51,7 @@ abstract class $ContactDtoCopyWith<$Res> {
   factory $ContactDtoCopyWith(
           ContactDto value, $Res Function(ContactDto) then) =
       _$ContactDtoCopyWithImpl<$Res>;
-  $Res call({String name, String walletId});
+  $Res call({String name, String address});
 }
 
 /// @nodoc
@@ -65,16 +65,16 @@ class _$ContactDtoCopyWithImpl<$Res> implements $ContactDtoCopyWith<$Res> {
   @override
   $Res call({
     Object? name = freezed,
-    Object? walletId = freezed,
+    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      walletId: walletId == freezed
-          ? _value.walletId
-          : walletId // ignore: cast_nullable_to_non_nullable
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -86,7 +86,7 @@ abstract class _$ContactDtoCopyWith<$Res> implements $ContactDtoCopyWith<$Res> {
           _ContactDto value, $Res Function(_ContactDto) then) =
       __$ContactDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String walletId});
+  $Res call({String name, String address});
 }
 
 /// @nodoc
@@ -102,16 +102,16 @@ class __$ContactDtoCopyWithImpl<$Res> extends _$ContactDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
-    Object? walletId = freezed,
+    Object? address = freezed,
   }) {
     return _then(_ContactDto(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      walletId: walletId == freezed
-          ? _value.walletId
-          : walletId // ignore: cast_nullable_to_non_nullable
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -121,7 +121,7 @@ class __$ContactDtoCopyWithImpl<$Res> extends _$ContactDtoCopyWithImpl<$Res>
 
 @JsonSerializable(explicitToJson: true)
 class _$_ContactDto implements _ContactDto {
-  const _$_ContactDto({required this.name, required this.walletId});
+  const _$_ContactDto({required this.name, required this.address});
 
   factory _$_ContactDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ContactDtoFromJson(json);
@@ -129,11 +129,11 @@ class _$_ContactDto implements _ContactDto {
   @override
   final String name;
   @override
-  final String walletId;
+  final String address;
 
   @override
   String toString() {
-    return 'ContactDto(name: $name, walletId: $walletId)';
+    return 'ContactDto(name: $name, address: $address)';
   }
 
   @override
@@ -142,16 +142,15 @@ class _$_ContactDto implements _ContactDto {
         (other is _ContactDto &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.walletId, walletId) ||
-                const DeepCollectionEquality()
-                    .equals(other.walletId, walletId)));
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(other.address, address)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(walletId);
+      const DeepCollectionEquality().hash(address);
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +164,7 @@ class _$_ContactDto implements _ContactDto {
 }
 
 abstract class _ContactDto implements ContactDto {
-  const factory _ContactDto({required String name, required String walletId}) =
+  const factory _ContactDto({required String name, required String address}) =
       _$_ContactDto;
 
   factory _ContactDto.fromJson(Map<String, dynamic> json) =
@@ -174,7 +173,7 @@ abstract class _ContactDto implements ContactDto {
   @override
   String get name => throw _privateConstructorUsedError;
   @override
-  String get walletId => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ContactDtoCopyWith<_ContactDto> get copyWith =>

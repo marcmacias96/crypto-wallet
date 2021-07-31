@@ -1,7 +1,8 @@
 import 'package:crypto_wallet/domain/wallet/wallet_failure.dart';
-import 'package:crypto_wallet/domain/wallet_response/wallet_response.dart';
 import 'package:dartz/dartz.dart';
+
 import '../core/firestore_failure.dart';
+import '../wallet_response/wallet_response.dart';
 import 'wallet.dart';
 
 abstract class IWalletRepository {

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crypto_wallet/utils/user_preference.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as _auth;
 import 'package:flutter/services.dart';
@@ -22,8 +23,8 @@ class FirebaseAuthFacade implements IAuthFacade {
   final FacebookAuth _facebookLogin;
   final FirebaseFirestore _firestore;
 
-  FirebaseAuthFacade(
-      this._firebaseAuth, this._googleSignIn, this._facebookLogin, this._firestore);
+  FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn,
+      this._facebookLogin, this._firestore);
 
   @override
   Future<Either<AuthFailure, AccountType>> registerWithEmailAndPassword(
@@ -156,9 +157,9 @@ class FirebaseAuthFacade implements IAuthFacade {
   bool isSignedInUser() {
     final user = _firebaseAuth.currentUser;
     if (user != null) {
+      UserPreference.setUserId(user.uid);
       return true;
     }
     return false;
   }
-
 }
