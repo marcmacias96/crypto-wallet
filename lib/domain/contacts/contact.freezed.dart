@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ContactTearOff {
   const _$ContactTearOff();
 
-  _Contact call({required Name name, required WalletId walletId}) {
+  _Contact call({required Name name, required String address}) {
     return _Contact(
       name: name,
-      walletId: walletId,
+      address: address,
     );
   }
 }
@@ -30,7 +30,7 @@ const $Contact = _$ContactTearOff();
 /// @nodoc
 mixin _$Contact {
   Name get name => throw _privateConstructorUsedError;
-  WalletId get walletId => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ContactCopyWith<Contact> get copyWith => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ mixin _$Contact {
 abstract class $ContactCopyWith<$Res> {
   factory $ContactCopyWith(Contact value, $Res Function(Contact) then) =
       _$ContactCopyWithImpl<$Res>;
-  $Res call({Name name, WalletId walletId});
+  $Res call({Name name, String address});
 }
 
 /// @nodoc
@@ -54,17 +54,17 @@ class _$ContactCopyWithImpl<$Res> implements $ContactCopyWith<$Res> {
   @override
   $Res call({
     Object? name = freezed,
-    Object? walletId = freezed,
+    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Name,
-      walletId: walletId == freezed
-          ? _value.walletId
-          : walletId // ignore: cast_nullable_to_non_nullable
-              as WalletId,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -74,7 +74,7 @@ abstract class _$ContactCopyWith<$Res> implements $ContactCopyWith<$Res> {
   factory _$ContactCopyWith(_Contact value, $Res Function(_Contact) then) =
       __$ContactCopyWithImpl<$Res>;
   @override
-  $Res call({Name name, WalletId walletId});
+  $Res call({Name name, String address});
 }
 
 /// @nodoc
@@ -89,17 +89,17 @@ class __$ContactCopyWithImpl<$Res> extends _$ContactCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
-    Object? walletId = freezed,
+    Object? address = freezed,
   }) {
     return _then(_Contact(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Name,
-      walletId: walletId == freezed
-          ? _value.walletId
-          : walletId // ignore: cast_nullable_to_non_nullable
-              as WalletId,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -107,16 +107,16 @@ class __$ContactCopyWithImpl<$Res> extends _$ContactCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Contact implements _Contact {
-  const _$_Contact({required this.name, required this.walletId});
+  const _$_Contact({required this.name, required this.address});
 
   @override
   final Name name;
   @override
-  final WalletId walletId;
+  final String address;
 
   @override
   String toString() {
-    return 'Contact(name: $name, walletId: $walletId)';
+    return 'Contact(name: $name, address: $address)';
   }
 
   @override
@@ -125,16 +125,15 @@ class _$_Contact implements _Contact {
         (other is _Contact &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.walletId, walletId) ||
-                const DeepCollectionEquality()
-                    .equals(other.walletId, walletId)));
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(other.address, address)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(walletId);
+      const DeepCollectionEquality().hash(address);
 
   @JsonKey(ignore: true)
   @override
@@ -143,13 +142,13 @@ class _$_Contact implements _Contact {
 }
 
 abstract class _Contact implements Contact {
-  const factory _Contact({required Name name, required WalletId walletId}) =
+  const factory _Contact({required Name name, required String address}) =
       _$_Contact;
 
   @override
   Name get name => throw _privateConstructorUsedError;
   @override
-  WalletId get walletId => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ContactCopyWith<_Contact> get copyWith =>

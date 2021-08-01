@@ -9,12 +9,12 @@ part of 'contact_dto.dart';
 _$_ContactDto _$_$_ContactDtoFromJson(Map<String, dynamic> json) {
   return _$_ContactDto(
     name: json['name'] as String,
-    walletId: json['walletId'] as String,
+    address: json['address'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_ContactDtoToJson(_$_ContactDto instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'walletId': instance.walletId,
+      'address': instance.address,
     };
