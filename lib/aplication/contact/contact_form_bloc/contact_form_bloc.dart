@@ -39,6 +39,11 @@ class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
           saveFailureOrSuccessOption: none(),
         );
       },
+      addressChanged: (e) async* {
+        yield state.copyWith(
+          contact: state.contact.copyWith(address: e.address),
+        );
+      },
       save: (e) async* {
         Either<FirestoreFailure, Unit>? failureOrSuccess;
         yield state.copyWith(isSaving: true);
