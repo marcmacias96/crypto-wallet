@@ -25,15 +25,18 @@ class DescriptionContact extends StatelessWidget {
               fontSize: 45.sp),
         ),
         Container(
-          width: 0.7.sw,
-          child: Text(
-            address,
-            textAlign: TextAlign.left,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
-                color: Colors.black26,
-                fontWeight: FontWeight.normal,
-                fontSize: 30.sp),
+          width: 0.6.sw,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Text(
+              address,
+              textAlign: TextAlign.left,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.headline4!.copyWith(
+                  color: Colors.black26,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 30.sp),
+            ),
           ),
         ),
       ],
