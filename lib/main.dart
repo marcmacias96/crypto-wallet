@@ -9,8 +9,7 @@ import 'injection.dart';
 import 'my_bloc_observer.dart';
 import 'presentation/app_widget.dart';
 
-
-Future<void>  main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection(Environment.prod);
   //Inicializo el watcher de los bloc
@@ -38,5 +37,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
