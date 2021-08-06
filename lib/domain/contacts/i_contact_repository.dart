@@ -5,7 +5,7 @@ import '../core/firestore_failure.dart';
 import 'contact.dart';
 
 abstract class IContactRepository {
-  Future<Either<FirestoreFailure, KtList<Contact>>> watchAll(int limit);
+  Stream<Either<FirestoreFailure, KtList<Contact>>> watchAll(int limit);
 
   Future<Either<FirestoreFailure, Unit>> create(Contact contact);
   Future<Either<FirestoreFailure, Unit>> update(Contact contact);

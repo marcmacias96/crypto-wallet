@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:crypto_wallet/aplication/contact/contact_list_bloc/contact_list_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../aplication/contact/contact_list_bloc/contact_list_bloc.dart';
 import '../../../../injection.dart';
 import '../../../routes/router.gr.dart';
 import '../../home/widgets/bottom_navigation_bar.dart';
 import 'widgets/add_contacts.dart';
 import 'widgets/list_contacts.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ContactListPage extends StatelessWidget {
   const ContactListPage({Key? key}) : super(key: key);
@@ -22,13 +22,15 @@ class ContactListPage extends StatelessWidget {
           ..add(
             ContactListEvent.watchStarted(),
           ),
-        child: Container(
-          height: 1.sh,
-          child: Stack(
-            children: [
-              AddContacts(),
-              ListContacts(),
-            ],
+        child: SingleChildScrollView(
+          child: Container(
+            height: 0.8.sh,
+            child: Stack(
+              children: [
+                AddContacts(),
+                ListContacts(),
+              ],
+            ),
           ),
         ),
       ),

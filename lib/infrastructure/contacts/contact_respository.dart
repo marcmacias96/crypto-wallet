@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
+import 'package:rxdart/rxdart.dart';
 
 import '../../domain/contacts/contact.dart';
 import '../../domain/contacts/i_contact_repository.dart';
@@ -49,25 +50,41 @@ class ContactRepository implements IContactRepository {
   }
 
   @override
-  Future<Either<FirestoreFailure, KtList<Contact>>> watchAll(int limit) async {
+  Stream<Either<FirestoreFailure, KtList<Contact>>> watchAll(int limit) async* {
     try {
       final userDoc = await _firestore.userDocument();
       final reference = userDoc.walletCollection
           .doc(UserPreference.getWalletId())
-          .contactCollection;
-      final query = reference.orderBy('name').limit(limit);
-      final snapshot = await query.get();
+          .contactCollection
+          .orderBy('name')
+          .limit(limit);
 
-      return right(snapshot.docs
-          .map((doc) => ContactDto.fromJson(doc.data() as Map<String, dynamic>)
-              .toDomain())
-          .toImmutableList());
-    } on FirebaseException catch (e) {
-      if (e.code == 'permission-denied') {
-        return left(const FirestoreFailure.insufficientPermissions());
-      } else {
-        return left(const FirestoreFailure.unexpected());
-      }
+      yield* reference.snapshots().map((snapShot) {
+        if (snapShot.size > 0) {
+          final contacts = snapShot.docs
+              .map((doc) => ContactDto.fromFirestore(doc).toDomain())
+              .toImmutableList();
+          return right<FirestoreFailure, KtList<Contact>>(contacts);
+        } else {
+          if (snapShot.metadata.isFromCache) {
+            return left<FirestoreFailure, KtList<Contact>>(
+                FirestoreFailure.noInternet());
+          }
+          return left<FirestoreFailure, KtList<Contact>>(
+              FirestoreFailure.doesNotExist());
+        }
+      }).onErrorReturnWith((e, _) {
+        if (e is FirebaseException && e.code == 'permission-denied') {
+          return left<FirestoreFailure, KtList<Contact>>(
+              FirestoreFailure.insufficientPermissions());
+        } else {
+          return left<FirestoreFailure, KtList<Contact>>(
+              const FirestoreFailure.unexpected());
+        }
+      });
+    } on FirebaseException catch (_) {
+      yield left<FirestoreFailure, KtList<Contact>>(
+          FirestoreFailure.unexpected());
     }
   }
 }
