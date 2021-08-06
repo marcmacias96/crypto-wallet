@@ -27,21 +27,16 @@ class ListContacts extends StatelessWidget {
             top: 0.03.sh,
             left: 10.w,
           ),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ListView.separated(
-                    itemBuilder: (context,index){
-                      return ContactItem(
-                          name: state.contacts[index].name.getOrCrash(),
-                          address: state.contacts[index].address,);
-                    },
-                    separatorBuilder:(context,index) {
-                      return SizedBox(height: 10,);
-                    } ,
-                    itemCount: state.contacts.size,)
-              ]
-          ),
+          child: ListView.separated(
+              itemBuilder: (context,index){
+                return ContactItem(
+                    name: state.contacts[index].name.getOrCrash(),
+                    address: state.contacts[index].address,);
+              },
+              separatorBuilder:(context,index) {
+                return SizedBox(height: 10,);
+              } ,
+              itemCount: state.contacts.size,),
         ),
       );
     } ,

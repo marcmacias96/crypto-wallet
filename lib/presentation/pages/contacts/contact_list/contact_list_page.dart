@@ -18,8 +18,7 @@ class ContactListPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: BlocProvider(
           create: (context) => getIt<ContactListBloc>()..add( ContactListEvent.watchStarted(),),
-          child: Stack(
-            alignment: Alignment.topLeft,
+          child: Column(
             children: [
               AddContacts(),
               ListContacts()
