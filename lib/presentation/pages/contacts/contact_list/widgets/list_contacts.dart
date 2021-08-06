@@ -1,8 +1,6 @@
 import 'package:crypto_wallet/aplication/contact/contact_list_bloc/contact_list_bloc.dart';
-import 'package:crypto_wallet/domain/contacts/contact.dart';
 import 'package:crypto_wallet/presentation/pages/contacts/contact_list/widgets/contact_item.dart';
-import 'package:crypto_wallet/presentation/pages/home/widgets/title_home.dart';
-import 'package:dartz/dartz_streaming.dart';
+import 'package:crypto_wallet/presentation/pages/contacts/contact_list/widgets/text_contact_zero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,20 +14,21 @@ class ListContacts extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ContactListBloc, ContactListState>(builder: (context,state){
       return Container(
+        margin: EdgeInsets.only(
+          top: 0.29.sh,
+        ),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30)),
         ),
-        margin: EdgeInsets.only(
-          top: 0.30.sh,
-        ),
+        width: double.infinity,
         child: Container(
           margin:EdgeInsets.only(
             top: 0.03.sh,
             left: 10.w,
+            right: 10.w,
           ),
-          //height: 0.9.h,
           child: Column(
             children: [
               if (state.contacts.size >0) Visibility(
@@ -45,12 +44,15 @@ class ListContacts extends StatelessWidget {
                     itemCount: state.contacts.size,),
               )
               else  Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                margin: EdgeInsets.only(
+                  top: 0.20.sh,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(Icons.info,color: Colors.red,size: 30,),
-                    TitleHome(title: 'No tiene',),
+                    Icon(Icons.contacts,color: Colors.black12,size: 90,),
+                    TextContactZero(title: 'No tiene contactos')
                   ],
                 ),
               ),

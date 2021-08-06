@@ -8,6 +8,7 @@ import '../../../routes/router.gr.dart';
 import '../../home/widgets/bottom_navigation_bar.dart';
 import 'widgets/add_contacts.dart';
 import 'widgets/list_contacts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ContactListPage extends StatelessWidget {
   const ContactListPage({Key? key}) : super(key: key);
@@ -15,13 +16,15 @@ class ContactListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: BlocProvider(
-          create: (context) => getIt<ContactListBloc>()..add( ContactListEvent.watchStarted(),),
-          child: Column(
+      resizeToAvoidBottomInset: true,
+      body: BlocProvider(
+        create: (context) => getIt<ContactListBloc>()..add( ContactListEvent.watchStarted(),),
+        child: SingleChildScrollView(
+          child: Stack(
+            alignment: Alignment.topCenter,
             children: [
               AddContacts(),
-              ListContacts()
+              ListContacts(),
             ],
           ),
         ),
