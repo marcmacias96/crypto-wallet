@@ -24,7 +24,6 @@ class ContactListPage extends StatelessWidget {
           ),
         child: SingleChildScrollView(
           child: Container(
-            height: 0.8.sh,
             child: Stack(
               children: [
                 AddContacts(),
