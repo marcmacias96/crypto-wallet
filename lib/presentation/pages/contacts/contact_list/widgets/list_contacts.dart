@@ -17,6 +17,7 @@ class ListContacts extends StatelessWidget {
     return BlocConsumer<ContactListBloc, ContactListState>(
         builder: (context, state) {
           return Container(
+              height: 0.745.sh,
               margin: EdgeInsets.only(top: 0.2.sh),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -34,7 +35,7 @@ class ListContacts extends StatelessWidget {
                     if (state.contacts.size > 0)
                       Visibility(
                         child: Container(
-                          height: 0.6.sh,
+                          height: 0.745.sh,
                           child: ListView.separated(
                             itemBuilder: (context, index) {
                               return ContactItem(
