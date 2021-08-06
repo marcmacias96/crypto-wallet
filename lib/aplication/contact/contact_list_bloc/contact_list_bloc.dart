@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -17,6 +19,8 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
   final IContactRepository _contactRepository;
   final _limit = 20;
   ContactListBloc(this._contactRepository) : super(ContactListState.initial());
+  StreamSubscription<Either<FirestoreFailure, KtList<Contact>>>?
+      _contactStreamSubscription;
 
   @override
   Stream<ContactListState> mapEventToState(ContactListEvent gEvent) async* {
@@ -26,8 +30,12 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
           isLoading: true,
           loadFailureOrSuccessOption: none(),
         );
+        await _contactStreamSubscription?.cancel();
+        _contactStreamSubscription =
+            _contactRepository.watchAll(_limit).listen((faliureOrContacts) {
+          add(_ContactsRecived(faliureOrContacts));
+        });
         if (state.hasMore) {
-          add(_ContactsRecived(await _contactRepository.watchAll(_limit)));
         } else {
           yield state.copyWith(
             isLoading: false,
@@ -57,5 +65,11 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
       },
       delete: (e) async* {},
     );
+  }
+
+  @override
+  Future<void> close() async {
+    await _contactStreamSubscription?.cancel();
+    return super.close();
   }
 }
