@@ -21,7 +21,8 @@ class ContactRepository implements IContactRepository {
       final batch = _firestore.batch();
       final userDoc = await _firestore.userDocument();
       final contactDto = ContactDto.fromDomain(contact);
-      final contactRef = userDoc.contactCollection.doc(contactDto.address);
+      final walletRef = userDoc.walletCollection.doc(contactDto.address);
+      final contactRef = walletRef.contactCollection.doc(contactDto.name);
       batch.set(contactRef, contactDto.toJson());
       batch.commit();
       return right(unit);
