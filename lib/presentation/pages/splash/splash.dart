@@ -21,10 +21,10 @@ class SplashPage extends StatelessWidget {
             authenticated: (_) => context.router.pushAndPopUntil(
               Welcome1Route(), predicate: (e) => false,
             ),
-            unauthenticated: (_) => context.router.pushAndPopUntil(
-              HomeRoute(), predicate: (e) => true,
-            ),
             withOutWallet: (_) => context.router.pushAndPopUntil(
+              HomeRoute(), predicate: (e) => false,
+            ),
+            unauthenticated: (_) => context.router.pushAndPopUntil(
               WalletFormRoute(), predicate: (e) => true,
             ),
             modeFailure: (_) {  },
