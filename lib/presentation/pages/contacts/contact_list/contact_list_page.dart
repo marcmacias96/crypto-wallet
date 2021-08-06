@@ -18,22 +18,25 @@ class ContactListPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: BlocProvider(
-        create: (context) => getIt<ContactListBloc>()..add( ContactListEvent.watchStarted(),),
-        child: SingleChildScrollView(
+        create: (context) => getIt<ContactListBloc>()
+          ..add(
+            ContactListEvent.watchStarted(),
+          ),
+        child: Container(
+          height: 1.sh,
           child: Stack(
-            alignment: Alignment.topCenter,
             children: [
               AddContacts(),
               ListContacts(),
             ],
           ),
         ),
-
       ),
-      bottomNavigationBar:BottonNavigationBar() ,
-      floatingActionButton: FloatingActionButton(onPressed: () => context.router.navigate(ContactCreateRoute()),
+      bottomNavigationBar: BottonNavigationBar(),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () => context.router.navigate(ContactCreateRoute()),
           child: const Icon(Icons.add),
-          backgroundColor:  Theme.of(context).primaryColor),
+          backgroundColor: Theme.of(context).primaryColor),
     );
   }
 }

@@ -137,7 +137,6 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$Initialized implements Initialized {
   const _$Initialized(this.address, this.contact);
 
@@ -271,7 +270,6 @@ class _$NameChangedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$NameChanged implements NameChanged {
   const _$NameChanged(this.name);
 
@@ -396,7 +394,6 @@ class _$AddressChangedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$AddressChanged implements AddressChanged {
   const _$AddressChanged(this.address);
 
@@ -505,7 +502,6 @@ class _$SaveCopyWithImpl<$Res> extends _$ContactFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$Save implements Save {
   const _$Save();
 
@@ -745,7 +741,6 @@ class __$ContactFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_ContactFormState implements _ContactFormState {
   const _$_ContactFormState(
       {required this.contact,

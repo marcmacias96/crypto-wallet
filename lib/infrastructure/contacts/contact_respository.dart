@@ -21,8 +21,9 @@ class ContactRepository implements IContactRepository {
       final batch = _firestore.batch();
       final userDoc = await _firestore.userDocument();
       final contactDto = ContactDto.fromDomain(contact);
-      final walletRef = userDoc.walletCollection.doc(contactDto.address);
-      final contactRef = walletRef.contactCollection.doc(contactDto.name);
+      final walletRef =
+          userDoc.walletCollection.doc(UserPreference.getWalletId());
+      final contactRef = walletRef.contactCollection.doc(contactDto.id);
       batch.set(contactRef, contactDto.toJson());
       batch.commit();
       return right(unit);
@@ -52,7 +53,7 @@ class ContactRepository implements IContactRepository {
     try {
       final userDoc = await _firestore.userDocument();
       final reference = userDoc.walletCollection
-          .doc(UserPreference.getUserId())
+          .doc(UserPreference.getWalletId())
           .contactCollection;
       final query = reference.orderBy('name').limit(limit);
       final snapshot = await query.get();

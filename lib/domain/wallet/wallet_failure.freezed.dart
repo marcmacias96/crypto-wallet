@@ -111,7 +111,6 @@ class __$UnexpectedCopyWithImpl<$Res> extends _$WalletFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_Unexpected implements _Unexpected {
   const _$_Unexpected();
 
@@ -206,7 +205,6 @@ class __$InsufficientPermissionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_InsufficientPermission implements _InsufficientPermission {
   const _$_InsufficientPermission();
 
@@ -301,7 +299,6 @@ class __$UnableToUpdateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_UnableToUpdate implements _UnableToUpdate {
   const _$_UnableToUpdate();
 
@@ -396,7 +393,6 @@ class _$TimeLimitExceededCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$TimeLimitExceeded implements TimeLimitExceeded {
   _$TimeLimitExceeded();
 

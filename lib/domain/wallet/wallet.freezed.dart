@@ -171,7 +171,6 @@ class __$WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_Wallet implements _Wallet {
   const _$_Wallet(
       {required this.id,

@@ -148,7 +148,6 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$Initialized with DiagnosticableTreeMixin implements Initialized {
   const _$Initialized({this.isNew});
 
@@ -288,7 +287,6 @@ class _$NameChangedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$NameChanged with DiagnosticableTreeMixin implements NameChanged {
   const _$NameChanged(this.name);
 
@@ -428,7 +426,6 @@ class _$IdWalletChangedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$IdWalletChanged
     with DiagnosticableTreeMixin
     implements IdWalletChanged {
@@ -571,7 +568,6 @@ class _$PasswordChangedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$PasswordChanged
     with DiagnosticableTreeMixin
     implements PasswordChanged {
@@ -701,7 +697,6 @@ class _$CreateWalletCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$CreateWallet with DiagnosticableTreeMixin implements CreateWallet {
   const _$CreateWallet();
 
@@ -807,7 +802,6 @@ class __$SavedCopyWithImpl<$Res> extends _$WalletFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_Saved with DiagnosticableTreeMixin implements _Saved {
   const _$_Saved();
 
@@ -1090,7 +1084,6 @@ class __$WalletFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_WalletFormState
     with DiagnosticableTreeMixin
     implements _WalletFormState {

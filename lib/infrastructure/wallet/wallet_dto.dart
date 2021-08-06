@@ -12,7 +12,7 @@ part 'wallet_dto.g.dart';
 class WalletDto with _$WalletDto {
   @JsonSerializable(explicitToJson: true)
   const factory WalletDto(
-      {@JsonKey(ignore: true)
+      {@JsonKey(ignore: false)
           String? id,
       @JsonKey(includeIfNull: false, name: 'api_code')
           required String apiCode,
@@ -24,11 +24,14 @@ class WalletDto with _$WalletDto {
           String? name,
       @JsonKey(includeIfNull: false)
           required String password,
+      @JsonKey(name: 'is_default')
+          required bool isDefault,
       @JsonKey(includeIfNull: false, name: 'wallet_id')
           required String walletId}) = _WalletDto;
 
   factory WalletDto.fromDomain(Wallet wallet) {
     return WalletDto(
+        isDefault: true,
         id: wallet.id.getOrCrash(),
         walletId: wallet.walletId.getOrCrash(),
         name: wallet.name!.getOrCrash(),
@@ -48,7 +51,7 @@ class WalletDto with _$WalletDto {
 extension WalletDtoX on WalletDto {
   Wallet toDomain() {
     return Wallet(
-        id: UniqueId.fromUniqueString(id!),
+        id: UniqueId.fromUniqueString(id ?? ''),
         walletId: WalletId(walletId),
         name: Name(name!),
         password: Password(password).decrypt(),

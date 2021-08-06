@@ -20,8 +20,10 @@ ContactDto _$ContactDtoFromJson(Map<String, dynamic> json) {
 class _$ContactDtoTearOff {
   const _$ContactDtoTearOff();
 
-  _ContactDto call({required String name, required String address}) {
+  _ContactDto call(
+      {required String id, required String name, required String address}) {
     return _ContactDto(
+      id: id,
       name: name,
       address: address,
     );
@@ -37,6 +39,7 @@ const $ContactDto = _$ContactDtoTearOff();
 
 /// @nodoc
 mixin _$ContactDto {
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
 
@@ -51,7 +54,7 @@ abstract class $ContactDtoCopyWith<$Res> {
   factory $ContactDtoCopyWith(
           ContactDto value, $Res Function(ContactDto) then) =
       _$ContactDtoCopyWithImpl<$Res>;
-  $Res call({String name, String address});
+  $Res call({String id, String name, String address});
 }
 
 /// @nodoc
@@ -64,10 +67,15 @@ class _$ContactDtoCopyWithImpl<$Res> implements $ContactDtoCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? address = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -86,7 +94,7 @@ abstract class _$ContactDtoCopyWith<$Res> implements $ContactDtoCopyWith<$Res> {
           _ContactDto value, $Res Function(_ContactDto) then) =
       __$ContactDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String address});
+  $Res call({String id, String name, String address});
 }
 
 /// @nodoc
@@ -101,10 +109,15 @@ class __$ContactDtoCopyWithImpl<$Res> extends _$ContactDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? address = freezed,
   }) {
     return _then(_ContactDto(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -117,15 +130,18 @@ class __$ContactDtoCopyWithImpl<$Res> extends _$ContactDtoCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
-
 @JsonSerializable(explicitToJson: true)
+
+/// @nodoc
 class _$_ContactDto implements _ContactDto {
-  const _$_ContactDto({required this.name, required this.address});
+  const _$_ContactDto(
+      {required this.id, required this.name, required this.address});
 
   factory _$_ContactDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ContactDtoFromJson(json);
 
+  @override
+  final String id;
   @override
   final String name;
   @override
@@ -133,13 +149,15 @@ class _$_ContactDto implements _ContactDto {
 
   @override
   String toString() {
-    return 'ContactDto(name: $name, address: $address)';
+    return 'ContactDto(id: $id, name: $name, address: $address)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ContactDto &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.address, address) ||
@@ -149,6 +167,7 @@ class _$_ContactDto implements _ContactDto {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(address);
 
@@ -164,12 +183,16 @@ class _$_ContactDto implements _ContactDto {
 }
 
 abstract class _ContactDto implements ContactDto {
-  const factory _ContactDto({required String name, required String address}) =
-      _$_ContactDto;
+  const factory _ContactDto(
+      {required String id,
+      required String name,
+      required String address}) = _$_ContactDto;
 
   factory _ContactDto.fromJson(Map<String, dynamic> json) =
       _$_ContactDto.fromJson;
 
+  @override
+  String get id => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override

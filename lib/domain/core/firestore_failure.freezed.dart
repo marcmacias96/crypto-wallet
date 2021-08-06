@@ -135,7 +135,6 @@ class _$UnexpectedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$Unexpected implements Unexpected {
   const _$Unexpected();
 
@@ -242,7 +241,6 @@ class _$UserNameAlreadyExitsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$UserNameAlreadyExits implements UserNameAlreadyExits {
   const _$UserNameAlreadyExits();
 
@@ -349,7 +347,6 @@ class _$InsufficientPermissionsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$InsufficientPermissions implements InsufficientPermissions {
   const _$InsufficientPermissions();
 
@@ -456,7 +453,6 @@ class _$UnableToUpdateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$UnableToUpdate implements UnableToUpdate {
   const _$UnableToUpdate();
 
@@ -563,7 +559,6 @@ class _$DoesNotExistCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$DoesNotExist implements DoesNotExist {
   const _$DoesNotExist();
 
@@ -669,7 +664,6 @@ class _$NoInternetCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$NoInternet implements NoInternet {
   const _$NoInternet();
 
@@ -773,7 +767,6 @@ class _$NoPhotosCopyWithImpl<$Res> extends _$FirestoreFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$NoPhotos implements NoPhotos {
   const _$NoPhotos();
 

@@ -1,3 +1,4 @@
+import 'package:crypto_wallet/domain/contacts/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../core/value_failures.dart';
@@ -7,10 +8,17 @@ part 'contact.freezed.dart';
 
 @freezed
 class Contact with _$Contact {
-  const factory Contact({required Name name, required String address}) =
-      _Contact;
+  const factory Contact({
+    required UniqueId id,
+    required Name name,
+    required Address address,
+  }) = _Contact;
 
-  factory Contact.empty() => Contact(name: Name(''), address: '');
+  factory Contact.empty() => Contact(
+        id: UniqueId(),
+        name: Name(''),
+        address: Address(''),
+      );
 }
 
 extension ContactX on Contact {

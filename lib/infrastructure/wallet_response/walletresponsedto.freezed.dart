@@ -144,8 +144,9 @@ class __$WalletResponseDtoCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
 @JsonSerializable()
+
+/// @nodoc
 class _$_WalletResponseDto implements _WalletResponseDto {
   _$_WalletResponseDto(
       {@JsonKey(includeIfNull: false) required this.guid,

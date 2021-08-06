@@ -34,7 +34,7 @@ class SignInForm extends StatelessWidget {
                 color: Colors.red);
           }, (type) {
             context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
-            context.router.pushAndPopUntil(
+            context.router.pushAndRemoveUntil(
               SplashRoute(),
               predicate: (e) => true,
             );

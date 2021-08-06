@@ -40,7 +40,7 @@ class SignUpForm extends StatelessWidget {
           }, (type) {
             switch (type) {
               case AccountType.fresh:
-                context.router.pushAndPopUntil(
+                context.router.pushAndRemoveUntil(
                   WalletFormRoute(),
                   predicate: (e) => true,
                 );
@@ -49,7 +49,7 @@ class SignUpForm extends StatelessWidget {
                 context
                     .read<AuthBloc>()
                     .add(const AuthEvent.authCheckRequested());
-                context.router.pushAndPopUntil(
+                context.router.pushAndRemoveUntil(
                   SplashRoute(),
                   predicate: (e) => true,
                 );

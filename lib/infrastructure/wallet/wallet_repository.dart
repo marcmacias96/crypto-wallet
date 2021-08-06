@@ -3,7 +3,9 @@ import 'package:crypto_wallet/domain/wallet/wallet_failure.dart';
 import 'package:crypto_wallet/domain/wallet_response/wallet_response.dart';
 import 'package:crypto_wallet/infrastructure/wallet/blockchain_api/blockchain_api.dart';
 import 'package:crypto_wallet/infrastructure/wallet_response/walletresponsedto.dart';
+import 'package:crypto_wallet/utils/user_preference.dart';
 import 'package:dartz/dartz.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/auth/i_auth_facade.dart';
@@ -102,6 +104,28 @@ class WalletRepository implements IWalletRepository {
       return right(walletRes);
     } on WalletFailure catch (_) {
       return left(const WalletFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<FirestoreFailure, Wallet>> watch() async {
+    try {
+      final userDoc = await _firestore.userDocument();
+      final query = userDoc.walletCollection
+          .where("is_default", isEqualTo: true)
+          .limit(1);
+
+      final snapshot = await query.get();
+      final walletDto = WalletDto.fromFirestore(snapshot.docs[0]);
+
+      UserPreference.setWalletId(walletDto.id!);
+      return right(walletDto.toDomain());
+    } on FirebaseException catch (e) {
+      if (e.code == 'permission-denied') {
+        return left(const FirestoreFailure.insufficientPermissions());
+      } else {
+        return left(const FirestoreFailure.unexpected());
+      }
     }
   }
 }

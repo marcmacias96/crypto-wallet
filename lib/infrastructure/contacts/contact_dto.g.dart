@@ -8,6 +8,7 @@ part of 'contact_dto.dart';
 
 _$_ContactDto _$_$_ContactDtoFromJson(Map<String, dynamic> json) {
   return _$_ContactDto(
+    id: json['id'] as String,
     name: json['name'] as String,
     address: json['address'] as String,
   );
@@ -15,6 +16,7 @@ _$_ContactDto _$_$_ContactDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_ContactDtoToJson(_$_ContactDto instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'address': instance.address,
     };

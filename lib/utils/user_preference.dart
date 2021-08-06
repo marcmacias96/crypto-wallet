@@ -10,4 +10,14 @@ class UserPreference {
     final box = Hive.box('preferences');
     return box.get('user_id');
   }
+
+  static void setWalletId(String walletId) {
+    final box = Hive.box('preferences');
+    box.put('wallet_id', walletId);
+  }
+
+  static String getWalletId() {
+    final box = Hive.box('preferences');
+    return box.get('wallet_id');
+  }
 }

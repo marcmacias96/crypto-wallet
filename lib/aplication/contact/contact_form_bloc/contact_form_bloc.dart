@@ -1,12 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:crypto_wallet/domain/contacts/i_contact_repository.dart';
-import 'package:crypto_wallet/domain/core/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/contacts/contact.dart';
+import '../../../domain/contacts/i_contact_repository.dart';
+import '../../../domain/contacts/value_objects.dart';
 import '../../../domain/core/firestore_failure.dart';
+import '../../../domain/core/value_objects.dart';
 
 part 'contact_form_bloc.freezed.dart';
 part 'contact_form_event.dart';
@@ -24,7 +25,7 @@ class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
       initialized: (e) async* {
         yield e.contact.fold(
           () => state.copyWith(
-            contact: state.contact.copyWith(address: e.address),
+            contact: state.contact.copyWith(address: Address(e.address)),
             saveFailureOrSuccessOption: none(),
           ),
           (contact) => state.copyWith(
@@ -41,15 +42,16 @@ class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
       },
       addressChanged: (e) async* {
         yield state.copyWith(
-          contact: state.contact.copyWith(address: e.address),
+          contact: state.contact.copyWith(address: Address(e.address)),
         );
       },
       save: (e) async* {
         Either<FirestoreFailure, Unit>? failureOrSuccess;
         yield state.copyWith(isSaving: true);
         final isNameValid = state.contact.name.isValid();
+        final isAddressValid = state.contact.address.isValid();
 
-        if (isNameValid) {
+        if (isNameValid && isAddressValid) {
           if (state.isEditing) {
             failureOrSuccess = await _contactRepository.update(state.contact);
           } else {

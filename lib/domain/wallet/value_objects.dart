@@ -1,8 +1,9 @@
-import 'package:crypto_wallet/domain/wallet/value_converter.dart';
 import 'package:dartz/dartz.dart';
+
 import '../core/value_failures.dart';
 import '../core/value_objects.dart';
 import '../core/value_validators.dart';
+import 'value_converter.dart';
 
 class WalletId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;

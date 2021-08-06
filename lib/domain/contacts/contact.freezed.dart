@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ContactTearOff {
   const _$ContactTearOff();
 
-  _Contact call({required Name name, required String address}) {
+  _Contact call(
+      {required UniqueId id, required Name name, required Address address}) {
     return _Contact(
+      id: id,
       name: name,
       address: address,
     );
@@ -29,8 +31,9 @@ const $Contact = _$ContactTearOff();
 
 /// @nodoc
 mixin _$Contact {
+  UniqueId get id => throw _privateConstructorUsedError;
   Name get name => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
+  Address get address => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ContactCopyWith<Contact> get copyWith => throw _privateConstructorUsedError;
@@ -40,7 +43,7 @@ mixin _$Contact {
 abstract class $ContactCopyWith<$Res> {
   factory $ContactCopyWith(Contact value, $Res Function(Contact) then) =
       _$ContactCopyWithImpl<$Res>;
-  $Res call({Name name, String address});
+  $Res call({UniqueId id, Name name, Address address});
 }
 
 /// @nodoc
@@ -53,10 +56,15 @@ class _$ContactCopyWithImpl<$Res> implements $ContactCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? address = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -64,7 +72,7 @@ class _$ContactCopyWithImpl<$Res> implements $ContactCopyWith<$Res> {
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ));
   }
 }
@@ -74,7 +82,7 @@ abstract class _$ContactCopyWith<$Res> implements $ContactCopyWith<$Res> {
   factory _$ContactCopyWith(_Contact value, $Res Function(_Contact) then) =
       __$ContactCopyWithImpl<$Res>;
   @override
-  $Res call({Name name, String address});
+  $Res call({UniqueId id, Name name, Address address});
 }
 
 /// @nodoc
@@ -88,10 +96,15 @@ class __$ContactCopyWithImpl<$Res> extends _$ContactCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? address = freezed,
   }) {
     return _then(_Contact(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -99,30 +112,34 @@ class __$ContactCopyWithImpl<$Res> extends _$ContactCopyWithImpl<$Res>
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
     ));
   }
 }
 
 /// @nodoc
-
 class _$_Contact implements _Contact {
-  const _$_Contact({required this.name, required this.address});
+  const _$_Contact(
+      {required this.id, required this.name, required this.address});
 
+  @override
+  final UniqueId id;
   @override
   final Name name;
   @override
-  final String address;
+  final Address address;
 
   @override
   String toString() {
-    return 'Contact(name: $name, address: $address)';
+    return 'Contact(id: $id, name: $name, address: $address)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Contact &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.address, address) ||
@@ -132,6 +149,7 @@ class _$_Contact implements _Contact {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(address);
 
@@ -142,13 +160,17 @@ class _$_Contact implements _Contact {
 }
 
 abstract class _Contact implements Contact {
-  const factory _Contact({required Name name, required String address}) =
-      _$_Contact;
+  const factory _Contact(
+      {required UniqueId id,
+      required Name name,
+      required Address address}) = _$_Contact;
 
+  @override
+  UniqueId get id => throw _privateConstructorUsedError;
   @override
   Name get name => throw _privateConstructorUsedError;
   @override
-  String get address => throw _privateConstructorUsedError;
+  Address get address => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ContactCopyWith<_Contact> get copyWith =>

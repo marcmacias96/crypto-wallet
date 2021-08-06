@@ -15,27 +15,28 @@ class ContactCreateForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String qrCodeResult = "";
-    TextEditingController controlador = TextEditingController();
+    var controlador = TextEditingController();
     return BlocConsumer<ContactFormBloc, ContactFormState>(
-      listener:(context, state) {
+      listener: (context, state) {
         state.saveFailureOrSuccessOption.fold(() {}, (either) {
-            either.fold((failure) {
-              Utils.showSnackBar(
-                  failure.maybeMap(
-                    userNameAlreadyExits:(_) => "Nombre de usuario ya en uso" ,
-                    doesNotExist: (_) => "No existe dirección" ,
-                    insufficientPermissions: (_) => "Permisos insuficientes",
-                    unableToUpdate: (_) => "No se puede actualizar" ,
-                    noInternet:(_) => "No tiene conexión" ,
-                    orElse: () => "Error inesperado",
-                  ),
-                  context,
-                  color: Colors.red);
-            },(type) {});
+          either.fold((failure) {
+            Utils.showSnackBar(
+                failure.maybeMap(
+                  userNameAlreadyExits: (_) => "Nombre de usuario ya en uso",
+                  doesNotExist: (_) => "No existe dirección",
+                  insufficientPermissions: (_) => "Permisos insuficientes",
+                  unableToUpdate: (_) => "No se puede actualizar",
+                  noInternet: (_) => "No tiene conexión",
+                  orElse: () => "Error inesperado",
+                ),
+                context,
+                color: Colors.red);
+          }, (_) {
+            context.router.navigate(ContactListRoute());
+          });
         });
-      } ,
-      builder:(context, state) {
+      },
+      builder: (context, state) {
         return Form(
           autovalidateMode: state.showErrorMessages
               ? AutovalidateMode.always
@@ -50,9 +51,26 @@ class ContactCreateForm extends StatelessWidget {
                     decoration: InputDecoration(hintText: 'Nombre'),
                     style: TextStyle(color: Colors.black),
                     autocorrect: false,
-                    onChanged: (value) => context.read<ContactFormBloc>().add(
-                        ContactFormEvent.nameChanged(value)),
-
+                    onChanged: (value) => context
+                        .read<ContactFormBloc>()
+                        .add(ContactFormEvent.nameChanged(value)),
+                    maxLength: 20,
+                    validator: (_) => context
+                        .read<ContactFormBloc>()
+                        .state
+                        .contact
+                        .name
+                        .value
+                        .fold(
+                          (failure) => failure.maybeMap(
+                            empty: (_) => 'Ingrese un Nombre',
+                            invalidValue: (_) =>
+                                'No se permite saltos de linea',
+                            exceedingLength: (_) => 'Maximo 20 caracteres',
+                            orElse: () => null,
+                          ),
+                          (_) => null,
+                        ),
                   ),
                   SizedBox(
                     height: 50.h,
@@ -64,23 +82,48 @@ class ContactCreateForm extends StatelessWidget {
                         width: 270,
                         child: TextFormField(
                           controller: controlador,
-                          decoration: InputDecoration(hintText: 'Wallet address'),
+                          decoration:
+                              InputDecoration(hintText: 'Wallet address'),
                           style: TextStyle(color: Colors.black),
                           autocorrect: false,
-                          onChanged: (value) => context.read<ContactFormBloc>().add(
-                              ContactFormEvent.addressChanged(value)),
+                          onChanged: (value) => context
+                              .read<ContactFormBloc>()
+                              .add(ContactFormEvent.addressChanged(value)),
+                          maxLength: 42,
+                          validator: (_) => context
+                              .read<ContactFormBloc>()
+                              .state
+                              .contact
+                              .address
+                              .value
+                              .fold(
+                                (failure) => failure.maybeMap(
+                                  empty: (_) => 'Ingrese una dirección',
+                                  invalidValue: (_) =>
+                                      'No se permite saltos de linea',
+                                  minLength: (_) => 'Minimo 42 caracteres',
+                                  orElse: () => null,
+                                ),
+                                (_) => null,
+                              ),
                         ),
                       ),
-                      IconButton(onPressed:() async {
-                        String codeSanner;
-                        try {
-                          codeSanner = await FlutterBarcodeScanner.scanBarcode(
-                              "#ff6666", "Cancel", false, ScanMode.DEFAULT);
-                        }on PlatformException {
-                          codeSanner = 'Failed to get platform version.';
-                        }
-                        controlador.text = codeSanner;
-                      } , icon: Icon (Icons.qr_code))
+                      IconButton(
+                          onPressed: () async {
+                            String codeSanner;
+                            try {
+                              codeSanner =
+                                  await FlutterBarcodeScanner.scanBarcode(
+                                      "#ff6666",
+                                      "Cancel",
+                                      false,
+                                      ScanMode.DEFAULT);
+                            } on PlatformException {
+                              codeSanner = 'Failed to get platform version.';
+                            }
+                            controlador.text = codeSanner;
+                          },
+                          icon: Icon(Icons.qr_code))
                     ],
                   ),
                   SizedBox(
@@ -90,23 +133,21 @@ class ContactCreateForm extends StatelessWidget {
                       text: 'Guardar',
                       textcolor: Colors.white,
                       buttoncolor: Theme.of(context).primaryColor,
-                      onTap: () => context.read<ContactFormBloc>().add(
-                        ContactFormEvent.save()
-                      )
-                  ),
+                      onTap: () => context
+                          .read<ContactFormBloc>()
+                          .add(ContactFormEvent.save())),
                   CustomButton(
                     text: 'Cancelar',
                     textcolor: Colors.black,
                     buttoncolor: Colors.white,
-                    onTap:  () => context.router.navigate(ContactListRoute()),
+                    onTap: () => context.router.navigate(ContactListRoute()),
                   )
                 ],
               ),
             ),
           ),
         );
-      } ,
-      
+      },
     );
   }
 }

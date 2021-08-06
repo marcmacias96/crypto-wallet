@@ -18,36 +18,36 @@ class HistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0.10.sh), // here the desired height
-        child: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
-          title: TitleHome(title: 'My Crypto Wallet'),
-          elevation: 0.0,
-          actions: [
-            CircleImageHome(imageSrc: 'assets/img/splash.png', onTap:() {
-              context.read<AuthBloc>().add(AuthEvent.signedOut());
-              context.router
-                  .navigate(
-                SplashRoute(), );
-            } )
-          ],
+        backgroundColor: Colors.white,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0.10.sh), // here the desired height
+          child: AppBar(
+            automaticallyImplyLeading: false,
+            backgroundColor: Colors.white,
+            title: TitleHome(title: 'My Crypto Wallet'),
+            elevation: 0.0,
+            actions: [
+              CircleImageHome(
+                  imageSrc: 'assets/img/splash.png',
+                  onTap: () {
+                    context.read<AuthBloc>().add(AuthEvent.signedOut());
+                    context.router.navigate(
+                      SplashRoute(),
+                    );
+                  })
+            ],
+          ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Stack (
-          alignment: Alignment.topLeft,
-          children: [
-            BalanceHome(),
-            ActionsTransactions(),
-            HistoryList()
-          ],
-
+        body: SingleChildScrollView(
+          child: Stack(
+            alignment: Alignment.topLeft,
+            children: [
+              //BalanceHome(),
+              ActionsTransactions(),
+              HistoryList()
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: BottonNavigationBar()
-    );
+        bottomNavigationBar: BottonNavigationBar());
   }
 }

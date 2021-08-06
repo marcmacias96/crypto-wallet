@@ -110,7 +110,6 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -217,7 +216,6 @@ class __$ContactsRecivedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_ContactsRecived implements _ContactsRecived {
   const _$_ContactsRecived(this.failureOrContacts);
 
@@ -330,7 +328,6 @@ class _$DeleteCopyWithImpl<$Res> extends _$ContactListEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$Delete implements Delete {
   const _$Delete();
 
@@ -541,7 +538,6 @@ class __$ContactListStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_ContactListState implements _ContactListState {
   const _$_ContactListState(
       {required this.contacts,

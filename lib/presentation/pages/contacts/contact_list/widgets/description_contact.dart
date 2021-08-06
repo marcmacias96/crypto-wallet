@@ -4,44 +4,39 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class DescriptionContact extends StatelessWidget {
   final String name;
   final String address;
-  const DescriptionContact({
-    Key? key,
-    required this.name,
-    required this.address
-
-  }) : super(key: key);
+  const DescriptionContact(
+      {Key? key, required this.name, required this.address})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
           height: 10.h,
-          ),
-          Text(
-            name,
-            textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 50.sp
-            ),
-          ),
-
-          Text(
+        ),
+        Text(
+          name,
+          textAlign: TextAlign.left,
+          style: Theme.of(context).textTheme.headline4!.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 45.sp),
+        ),
+        Container(
+          width: 0.7.sw,
+          child: Text(
             address,
             textAlign: TextAlign.left,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: Colors.black26,
                 fontWeight: FontWeight.normal,
-                fontSize: 30.sp
-            ),
+                fontSize: 30.sp),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
-

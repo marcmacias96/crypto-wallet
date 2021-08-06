@@ -48,6 +48,21 @@ Either<ValueFailure<String>, String> validateMaxStringLength(
   }
 }
 
+Either<ValueFailure<String>, String> validateMinStringLength(
+  String input,
+  int minLength,
+) {
+  var leg = input.length;
+  if (input.length == minLength) {
+    return right(input);
+  } else {
+    return left(ValueFailure.minLength(
+      failedValue: input,
+      max: minLength,
+    ));
+  }
+}
+
 Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   if (input.isEmpty) {
     return left(ValueFailure.empty(failedValue: input));

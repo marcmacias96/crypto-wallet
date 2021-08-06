@@ -127,9 +127,9 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
-
 @JsonSerializable(explicitToJson: true)
+
+/// @nodoc
 class _$_UserDto extends _UserDto {
   _$_UserDto({@JsonKey(ignore: true) this.id, this.name, this.email})
       : super._();

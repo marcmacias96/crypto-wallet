@@ -19,16 +19,12 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) => {},
-          authenticated: (_) => context.router.pushAndPopUntil(
-            HomeRoute(),
-            predicate: (e) => true,
-          ),
-          withOutWallet: (_) => context.router.navigate(
-            HomeRoute(),
-          ),
-          unauthenticated: (_) => context.router.pushAndPopUntil(
+          authenticated: (_) => context.router
+              .pushAndRemoveUntil(HomeRoute(), predicate: (e) => false),
+          withOutWallet: (_) => context.router
+              .pushAndRemoveUntil(HomeRoute(), predicate: (e) => false),
+          unauthenticated: (_) => context.router.replace(
             WalletFormRoute(),
-            predicate: (e) => true,
           ),
           modeFailure: (_) {},
         );

@@ -125,7 +125,6 @@ class __$WalletResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 class _$_WalletResponse implements _WalletResponse {
   _$_WalletResponse(
       {required this.guid, required this.address, required this.label});

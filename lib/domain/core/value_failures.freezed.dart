@@ -36,6 +36,13 @@ class _$ValueFailureTearOff {
     );
   }
 
+  MinLength<T> minLength<T>({required String failedValue, required int max}) {
+    return MinLength<T>(
+      failedValue: failedValue,
+      max: max,
+    );
+  }
+
   Multiline<T> multiline<T>({required String failedValue}) {
     return Multiline<T>(
       failedValue: failedValue,
@@ -71,6 +78,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(String failedValue) empty,
     required TResult Function(String failedValue) spaces,
     required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
     required TResult Function(String failedValue) multiline,
     required TResult Function(double failedValue) invalidValue,
     required TResult Function(String failedValue) invalidEmail,
@@ -82,6 +90,7 @@ mixin _$ValueFailure<T> {
     TResult Function(String failedValue)? empty,
     TResult Function(String failedValue)? spaces,
     TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
     TResult Function(String failedValue)? multiline,
     TResult Function(double failedValue)? invalidValue,
     TResult Function(String failedValue)? invalidEmail,
@@ -94,6 +103,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(Spaces<T> value) spaces,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidValue<T> value) invalidValue,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
@@ -105,6 +115,7 @@ mixin _$ValueFailure<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(Spaces<T> value)? spaces,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidValue<T> value)? invalidValue,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
@@ -161,7 +172,6 @@ class _$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-
 class _$Empty<T> implements Empty<T> {
   const _$Empty({required this.failedValue});
 
@@ -197,6 +207,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(String failedValue) empty,
     required TResult Function(String failedValue) spaces,
     required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
     required TResult Function(String failedValue) multiline,
     required TResult Function(double failedValue) invalidValue,
     required TResult Function(String failedValue) invalidEmail,
@@ -211,6 +222,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(String failedValue)? empty,
     TResult Function(String failedValue)? spaces,
     TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
     TResult Function(String failedValue)? multiline,
     TResult Function(double failedValue)? invalidValue,
     TResult Function(String failedValue)? invalidEmail,
@@ -229,6 +241,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(Spaces<T> value) spaces,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidValue<T> value) invalidValue,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
@@ -243,6 +256,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(Spaces<T> value)? spaces,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidValue<T> value)? invalidValue,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
@@ -295,7 +309,6 @@ class _$SpacesCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-
 class _$Spaces<T> implements Spaces<T> {
   const _$Spaces({required this.failedValue});
 
@@ -331,6 +344,7 @@ class _$Spaces<T> implements Spaces<T> {
     required TResult Function(String failedValue) empty,
     required TResult Function(String failedValue) spaces,
     required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
     required TResult Function(String failedValue) multiline,
     required TResult Function(double failedValue) invalidValue,
     required TResult Function(String failedValue) invalidEmail,
@@ -345,6 +359,7 @@ class _$Spaces<T> implements Spaces<T> {
     TResult Function(String failedValue)? empty,
     TResult Function(String failedValue)? spaces,
     TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
     TResult Function(String failedValue)? multiline,
     TResult Function(double failedValue)? invalidValue,
     TResult Function(String failedValue)? invalidEmail,
@@ -363,6 +378,7 @@ class _$Spaces<T> implements Spaces<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(Spaces<T> value) spaces,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidValue<T> value) invalidValue,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
@@ -377,6 +393,7 @@ class _$Spaces<T> implements Spaces<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(Spaces<T> value)? spaces,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidValue<T> value)? invalidValue,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
@@ -437,7 +454,6 @@ class _$ExceedingLengthCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-
 class _$ExceedingLength<T> implements ExceedingLength<T> {
   const _$ExceedingLength({required this.failedValue, required this.max});
 
@@ -479,6 +495,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(String failedValue) empty,
     required TResult Function(String failedValue) spaces,
     required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
     required TResult Function(String failedValue) multiline,
     required TResult Function(double failedValue) invalidValue,
     required TResult Function(String failedValue) invalidEmail,
@@ -493,6 +510,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(String failedValue)? empty,
     TResult Function(String failedValue)? spaces,
     TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
     TResult Function(String failedValue)? multiline,
     TResult Function(double failedValue)? invalidValue,
     TResult Function(String failedValue)? invalidEmail,
@@ -511,6 +529,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(Spaces<T> value) spaces,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidValue<T> value) invalidValue,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
@@ -525,6 +544,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(Spaces<T> value)? spaces,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidValue<T> value)? invalidValue,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
@@ -546,6 +566,159 @@ abstract class ExceedingLength<T> implements ValueFailure<T> {
   int get max => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MinLengthCopyWith<T, $Res> {
+  factory $MinLengthCopyWith(
+          MinLength<T> value, $Res Function(MinLength<T>) then) =
+      _$MinLengthCopyWithImpl<T, $Res>;
+  $Res call({String failedValue, int max});
+}
+
+/// @nodoc
+class _$MinLengthCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $MinLengthCopyWith<T, $Res> {
+  _$MinLengthCopyWithImpl(
+      MinLength<T> _value, $Res Function(MinLength<T>) _then)
+      : super(_value, (v) => _then(v as MinLength<T>));
+
+  @override
+  MinLength<T> get _value => super._value as MinLength<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+    Object? max = freezed,
+  }) {
+    return _then(MinLength<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as String,
+      max: max == freezed
+          ? _value.max
+          : max // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$MinLength<T> implements MinLength<T> {
+  const _$MinLength({required this.failedValue, required this.max});
+
+  @override
+  final String failedValue;
+  @override
+  final int max;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.minLength(failedValue: $failedValue, max: $max)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is MinLength<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)) &&
+            (identical(other.max, max) ||
+                const DeepCollectionEquality().equals(other.max, max)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failedValue) ^
+      const DeepCollectionEquality().hash(max);
+
+  @JsonKey(ignore: true)
+  @override
+  $MinLengthCopyWith<T, MinLength<T>> get copyWith =>
+      _$MinLengthCopyWithImpl<T, MinLength<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) empty,
+    required TResult Function(String failedValue) spaces,
+    required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
+    required TResult Function(String failedValue) multiline,
+    required TResult Function(double failedValue) invalidValue,
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) shortPassword,
+  }) {
+    return minLength(failedValue, max);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? empty,
+    TResult Function(String failedValue)? spaces,
+    TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
+    TResult Function(String failedValue)? multiline,
+    TResult Function(double failedValue)? invalidValue,
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? shortPassword,
+    required TResult orElse(),
+  }) {
+    if (minLength != null) {
+      return minLength(failedValue, max);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(Spaces<T> value) spaces,
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
+    required TResult Function(Multiline<T> value) multiline,
+    required TResult Function(InvalidValue<T> value) invalidValue,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+  }) {
+    return minLength(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(Spaces<T> value)? spaces,
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(InvalidValue<T> value)? invalidValue,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    required TResult orElse(),
+  }) {
+    if (minLength != null) {
+      return minLength(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MinLength<T> implements ValueFailure<T> {
+  const factory MinLength({required String failedValue, required int max}) =
+      _$MinLength<T>;
+
+  String get failedValue => throw _privateConstructorUsedError;
+  int get max => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MinLengthCopyWith<T, MinLength<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -582,7 +755,6 @@ class _$MultilineCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-
 class _$Multiline<T> implements Multiline<T> {
   const _$Multiline({required this.failedValue});
 
@@ -618,6 +790,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(String failedValue) empty,
     required TResult Function(String failedValue) spaces,
     required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
     required TResult Function(String failedValue) multiline,
     required TResult Function(double failedValue) invalidValue,
     required TResult Function(String failedValue) invalidEmail,
@@ -632,6 +805,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(String failedValue)? empty,
     TResult Function(String failedValue)? spaces,
     TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
     TResult Function(String failedValue)? multiline,
     TResult Function(double failedValue)? invalidValue,
     TResult Function(String failedValue)? invalidEmail,
@@ -650,6 +824,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(Spaces<T> value) spaces,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidValue<T> value) invalidValue,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
@@ -664,6 +839,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(Spaces<T> value)? spaces,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidValue<T> value)? invalidValue,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
@@ -719,7 +895,6 @@ class _$InvalidValueCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-
 class _$InvalidValue<T> implements InvalidValue<T> {
   const _$InvalidValue({required this.failedValue});
 
@@ -755,6 +930,7 @@ class _$InvalidValue<T> implements InvalidValue<T> {
     required TResult Function(String failedValue) empty,
     required TResult Function(String failedValue) spaces,
     required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
     required TResult Function(String failedValue) multiline,
     required TResult Function(double failedValue) invalidValue,
     required TResult Function(String failedValue) invalidEmail,
@@ -769,6 +945,7 @@ class _$InvalidValue<T> implements InvalidValue<T> {
     TResult Function(String failedValue)? empty,
     TResult Function(String failedValue)? spaces,
     TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
     TResult Function(String failedValue)? multiline,
     TResult Function(double failedValue)? invalidValue,
     TResult Function(String failedValue)? invalidEmail,
@@ -787,6 +964,7 @@ class _$InvalidValue<T> implements InvalidValue<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(Spaces<T> value) spaces,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidValue<T> value) invalidValue,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
@@ -801,6 +979,7 @@ class _$InvalidValue<T> implements InvalidValue<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(Spaces<T> value)? spaces,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidValue<T> value)? invalidValue,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
@@ -856,7 +1035,6 @@ class _$InvalidEmailCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-
 class _$InvalidEmail<T> implements InvalidEmail<T> {
   const _$InvalidEmail({required this.failedValue});
 
@@ -892,6 +1070,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(String failedValue) empty,
     required TResult Function(String failedValue) spaces,
     required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
     required TResult Function(String failedValue) multiline,
     required TResult Function(double failedValue) invalidValue,
     required TResult Function(String failedValue) invalidEmail,
@@ -906,6 +1085,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(String failedValue)? empty,
     TResult Function(String failedValue)? spaces,
     TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
     TResult Function(String failedValue)? multiline,
     TResult Function(double failedValue)? invalidValue,
     TResult Function(String failedValue)? invalidEmail,
@@ -924,6 +1104,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(Spaces<T> value) spaces,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidValue<T> value) invalidValue,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
@@ -938,6 +1119,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(Spaces<T> value)? spaces,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidValue<T> value)? invalidValue,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
@@ -993,7 +1175,6 @@ class _$ShortPasswordCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-
 class _$ShortPassword<T> implements ShortPassword<T> {
   const _$ShortPassword({required this.failedValue});
 
@@ -1029,6 +1210,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(String failedValue) empty,
     required TResult Function(String failedValue) spaces,
     required TResult Function(String failedValue, int max) exceedingLength,
+    required TResult Function(String failedValue, int max) minLength,
     required TResult Function(String failedValue) multiline,
     required TResult Function(double failedValue) invalidValue,
     required TResult Function(String failedValue) invalidEmail,
@@ -1043,6 +1225,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(String failedValue)? empty,
     TResult Function(String failedValue)? spaces,
     TResult Function(String failedValue, int max)? exceedingLength,
+    TResult Function(String failedValue, int max)? minLength,
     TResult Function(String failedValue)? multiline,
     TResult Function(double failedValue)? invalidValue,
     TResult Function(String failedValue)? invalidEmail,
@@ -1061,6 +1244,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(Spaces<T> value) spaces,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(MinLength<T> value) minLength,
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidValue<T> value) invalidValue,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
@@ -1075,6 +1259,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(Spaces<T> value)? spaces,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(MinLength<T> value)? minLength,
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidValue<T> value)? invalidValue,
     TResult Function(InvalidEmail<T> value)? invalidEmail,

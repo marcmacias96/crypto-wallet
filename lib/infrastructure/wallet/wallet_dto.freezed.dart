@@ -21,7 +21,7 @@ class _$WalletDtoTearOff {
   const _$WalletDtoTearOff();
 
   _WalletDto call(
-      {@JsonKey(ignore: true)
+      {@JsonKey(ignore: false)
           String? id,
       @JsonKey(includeIfNull: false, name: 'api_code')
           required String apiCode,
@@ -31,6 +31,8 @@ class _$WalletDtoTearOff {
           String? name,
       @JsonKey(includeIfNull: false)
           required String password,
+      @JsonKey(name: 'is_default')
+          required bool isDefault,
       @JsonKey(includeIfNull: false, name: 'wallet_id')
           required String walletId}) {
     return _WalletDto(
@@ -39,6 +41,7 @@ class _$WalletDtoTearOff {
       address: address,
       name: name,
       password: password,
+      isDefault: isDefault,
       walletId: walletId,
     );
   }
@@ -53,7 +56,7 @@ const $WalletDto = _$WalletDtoTearOff();
 
 /// @nodoc
 mixin _$WalletDto {
-  @JsonKey(ignore: true)
+  @JsonKey(ignore: false)
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false, name: 'api_code')
   String get apiCode => throw _privateConstructorUsedError;
@@ -63,6 +66,8 @@ mixin _$WalletDto {
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   String get password => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_default')
+  bool get isDefault => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false, name: 'wallet_id')
   String get walletId => throw _privateConstructorUsedError;
 
@@ -77,11 +82,12 @@ abstract class $WalletDtoCopyWith<$Res> {
   factory $WalletDtoCopyWith(WalletDto value, $Res Function(WalletDto) then) =
       _$WalletDtoCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(ignore: true) String? id,
+      {@JsonKey(ignore: false) String? id,
       @JsonKey(includeIfNull: false, name: 'api_code') String apiCode,
       @JsonKey(includeIfNull: false) String address,
       @JsonKey(includeIfNull: false) String? name,
       @JsonKey(includeIfNull: false) String password,
+      @JsonKey(name: 'is_default') bool isDefault,
       @JsonKey(includeIfNull: false, name: 'wallet_id') String walletId});
 }
 
@@ -100,6 +106,7 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
     Object? address = freezed,
     Object? name = freezed,
     Object? password = freezed,
+    Object? isDefault = freezed,
     Object? walletId = freezed,
   }) {
     return _then(_value.copyWith(
@@ -123,6 +130,10 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      isDefault: isDefault == freezed
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
       walletId: walletId == freezed
           ? _value.walletId
           : walletId // ignore: cast_nullable_to_non_nullable
@@ -138,11 +149,12 @@ abstract class _$WalletDtoCopyWith<$Res> implements $WalletDtoCopyWith<$Res> {
       __$WalletDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(ignore: true) String? id,
+      {@JsonKey(ignore: false) String? id,
       @JsonKey(includeIfNull: false, name: 'api_code') String apiCode,
       @JsonKey(includeIfNull: false) String address,
       @JsonKey(includeIfNull: false) String? name,
       @JsonKey(includeIfNull: false) String password,
+      @JsonKey(name: 'is_default') bool isDefault,
       @JsonKey(includeIfNull: false, name: 'wallet_id') String walletId});
 }
 
@@ -162,6 +174,7 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
     Object? address = freezed,
     Object? name = freezed,
     Object? password = freezed,
+    Object? isDefault = freezed,
     Object? walletId = freezed,
   }) {
     return _then(_WalletDto(
@@ -185,6 +198,10 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      isDefault: isDefault == freezed
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
       walletId: walletId == freezed
           ? _value.walletId
           : walletId // ignore: cast_nullable_to_non_nullable
@@ -193,12 +210,12 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
   }
 }
 
-/// @nodoc
-
 @JsonSerializable(explicitToJson: true)
+
+/// @nodoc
 class _$_WalletDto implements _WalletDto {
   const _$_WalletDto(
-      {@JsonKey(ignore: true)
+      {@JsonKey(ignore: false)
           this.id,
       @JsonKey(includeIfNull: false, name: 'api_code')
           required this.apiCode,
@@ -208,6 +225,8 @@ class _$_WalletDto implements _WalletDto {
           this.name,
       @JsonKey(includeIfNull: false)
           required this.password,
+      @JsonKey(name: 'is_default')
+          required this.isDefault,
       @JsonKey(includeIfNull: false, name: 'wallet_id')
           required this.walletId});
 
@@ -215,7 +234,7 @@ class _$_WalletDto implements _WalletDto {
       _$_$_WalletDtoFromJson(json);
 
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(ignore: false)
   final String? id;
   @override
   @JsonKey(includeIfNull: false, name: 'api_code')
@@ -230,12 +249,15 @@ class _$_WalletDto implements _WalletDto {
   @JsonKey(includeIfNull: false)
   final String password;
   @override
+  @JsonKey(name: 'is_default')
+  final bool isDefault;
+  @override
   @JsonKey(includeIfNull: false, name: 'wallet_id')
   final String walletId;
 
   @override
   String toString() {
-    return 'WalletDto(id: $id, apiCode: $apiCode, address: $address, name: $name, password: $password, walletId: $walletId)';
+    return 'WalletDto(id: $id, apiCode: $apiCode, address: $address, name: $name, password: $password, isDefault: $isDefault, walletId: $walletId)';
   }
 
   @override
@@ -255,6 +277,9 @@ class _$_WalletDto implements _WalletDto {
             (identical(other.password, password) ||
                 const DeepCollectionEquality()
                     .equals(other.password, password)) &&
+            (identical(other.isDefault, isDefault) ||
+                const DeepCollectionEquality()
+                    .equals(other.isDefault, isDefault)) &&
             (identical(other.walletId, walletId) ||
                 const DeepCollectionEquality()
                     .equals(other.walletId, walletId)));
@@ -268,6 +293,7 @@ class _$_WalletDto implements _WalletDto {
       const DeepCollectionEquality().hash(address) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(isDefault) ^
       const DeepCollectionEquality().hash(walletId);
 
   @JsonKey(ignore: true)
@@ -283,7 +309,7 @@ class _$_WalletDto implements _WalletDto {
 
 abstract class _WalletDto implements WalletDto {
   const factory _WalletDto(
-      {@JsonKey(ignore: true)
+      {@JsonKey(ignore: false)
           String? id,
       @JsonKey(includeIfNull: false, name: 'api_code')
           required String apiCode,
@@ -293,6 +319,8 @@ abstract class _WalletDto implements WalletDto {
           String? name,
       @JsonKey(includeIfNull: false)
           required String password,
+      @JsonKey(name: 'is_default')
+          required bool isDefault,
       @JsonKey(includeIfNull: false, name: 'wallet_id')
           required String walletId}) = _$_WalletDto;
 
@@ -300,7 +328,7 @@ abstract class _WalletDto implements WalletDto {
       _$_WalletDto.fromJson;
 
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(ignore: false)
   String? get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(includeIfNull: false, name: 'api_code')
@@ -314,6 +342,9 @@ abstract class _WalletDto implements WalletDto {
   @override
   @JsonKey(includeIfNull: false)
   String get password => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'is_default')
+  bool get isDefault => throw _privateConstructorUsedError;
   @override
   @JsonKey(includeIfNull: false, name: 'wallet_id')
   String get walletId => throw _privateConstructorUsedError;

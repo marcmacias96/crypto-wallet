@@ -5,98 +5,86 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:flutter/material.dart' as _i2;
 
-import '../pages/auth/sign_in/sign_in_page.dart' as _i4;
-import '../pages/auth/sign_up/sign_up_page.dart' as _i5;
-import '../pages/contacts/contact_create/contact_create_page.dart' as _i10;
-import '../pages/contacts/contact_list/contact_list_page.dart' as _i11;
-import '../pages/home/home_page.dart' as _i6;
-import '../pages/splash/splash.dart' as _i3;
-import '../pages/transactions/history/history_page.dart' as _i12;
-import '../pages/transactions/recieve/recieve_page.dart' as _i13;
-import '../pages/transactions/send/send_page.dart' as _i14;
-import '../pages/wallet/wallet_form/wallet_form_page.dart' as _i9;
-import '../pages/welcome/welcome1_page.dart' as _i7;
-import '../pages/welcome/welcome2_page.dart' as _i8;
+import '../pages/auth/sign_in/sign_in_page.dart' as _i3;
+import '../pages/auth/sign_up/sign_up_page.dart' as _i4;
+import '../pages/contacts/contact_create/contact_create_page.dart' as _i9;
+import '../pages/contacts/contact_list/contact_list_page.dart' as _i10;
+import '../pages/home/home_page.dart' as _i5;
+import '../pages/splash/splash.dart' as _i2;
+import '../pages/transactions/history/history_page.dart' as _i11;
+import '../pages/transactions/recieve/recieve_page.dart' as _i12;
+import '../pages/transactions/send/send_page.dart' as _i13;
+import '../pages/wallet/wallet_form/wallet_form_page.dart' as _i8;
+import '../pages/welcome/welcome1_page.dart' as _i6;
+import '../pages/welcome/welcome2_page.dart' as _i7;
 
 class AppRouter extends _i1.RootStackRouter {
-  AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+  AppRouter();
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i3.SplashPage();
-        }),
-    SignInRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i4.SignInPage();
-        },
-        fullscreenDialog: true),
-    SignUpRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i5.SignUpPage();
-        },
-        fullscreenDialog: true),
-    HomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i6.HomePage();
-        },
-        fullscreenDialog: true),
-    Welcome1Route.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i7.Welcome1Page();
-        },
-        fullscreenDialog: true),
-    Welcome2Route.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i8.Welcome2Page();
-        },
-        fullscreenDialog: true),
-    WalletFormRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i9.WalletFormPage();
-        },
-        fullscreenDialog: true),
-    ContactCreateRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i10.ContactCreatePage();
-        },
-        fullscreenDialog: true),
-    ContactListRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i11.ContactListPage();
-        },
-        fullscreenDialog: true),
-    HistoryRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i12.HistoryPage();
-        },
-        fullscreenDialog: true),
-    RecieveRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i13.RecievePage();
-        },
-        fullscreenDialog: true),
-    SendRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i14.SendPage();
-        },
-        fullscreenDialog: true)
+    SplashRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: const _i2.SplashPage());
+    },
+    SignInRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry, child: const _i3.SignInPage(), fullscreenDialog: true);
+    },
+    SignUpRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry, child: const _i4.SignUpPage(), fullscreenDialog: true);
+    },
+    HomeRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry, child: const _i5.HomePage(), fullscreenDialog: true);
+    },
+    Welcome1Route.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: const _i6.Welcome1Page(),
+          fullscreenDialog: true);
+    },
+    Welcome2Route.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: const _i7.Welcome2Page(),
+          fullscreenDialog: true);
+    },
+    WalletFormRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: const _i8.WalletFormPage(),
+          fullscreenDialog: true);
+    },
+    ContactCreateRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: const _i9.ContactCreatePage(),
+          fullscreenDialog: true);
+    },
+    ContactListRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: const _i10.ContactListPage(),
+          fullscreenDialog: true);
+    },
+    HistoryRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: const _i11.HistoryPage(),
+          fullscreenDialog: true);
+    },
+    RecieveRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: const _i12.RecievePage(),
+          fullscreenDialog: true);
+    },
+    SendRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry, child: const _i13.SendPage(), fullscreenDialog: true);
+    }
   };
 
   @override

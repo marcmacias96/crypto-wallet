@@ -9,7 +9,7 @@ class AddContacts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 0.35.sh,
+      height: 0.25.sh,
       //width: 3.sw,
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -17,7 +17,8 @@ class AddContacts extends StatelessWidget {
             end: Alignment.bottomRight,
             colors: [
               Theme.of(context).primaryColor,
-              Color.fromRGBO(9, 126, 234, 100)]),
+              Color.fromRGBO(9, 126, 234, 100)
+            ]),
       ),
 
       child: Row(

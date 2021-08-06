@@ -28,7 +28,7 @@ class FormWalletForm extends StatelessWidget {
           }, (_) {
             context.read<AuthBloc>().add(AuthEvent.authCheckRequested());
             context.router
-                .pushAndPopUntil(SplashRoute(), predicate: (_) => false);
+                .pushAndRemoveUntil(SplashRoute(), predicate: (_) => false);
           });
         });
       },
