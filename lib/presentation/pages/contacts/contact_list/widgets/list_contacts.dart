@@ -1,4 +1,8 @@
+import 'package:crypto_wallet/aplication/contact/contact_list_bloc/contact_list_bloc.dart';
+import 'package:crypto_wallet/domain/contacts/contact.dart';
+import 'package:crypto_wallet/presentation/pages/contacts/contact_list/widgets/contact_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'description_contact.dart';
@@ -8,65 +12,34 @@ class ListContacts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-      ),
-      margin: EdgeInsets.only(
-        top: 0.30.sh,
-      ),
-      child: Container(
-        margin:EdgeInsets.only(
-        top: 0.03.sh,
-        left: 10.w,
+    return BlocConsumer<ContactListBloc, ContactListState>(builder: (context,state){
+      return Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30), topRight: Radius.circular(30)),
         ),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Table(
-                columnWidths: {0: FractionColumnWidth(0.25)},
-              children: [
-                TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
-                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
-                ]),
-                TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
-                  DescriptionContact(address: '12993333333', name: 'ODALIS VALENCIA',),
-                ]),
-                TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
-                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
-                ]),
-                TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
-                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
-                ]),
-                TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
-                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
-                ]),
-                TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
-                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
-                ]),
-                TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
-                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
-                ]),
-                TableRow( children: [
-                  Icon(Icons.account_circle,color:Color.fromRGBO(9, 126, 234, 100),size: 65,),
-                  DescriptionContact(address: '12993333333', name: 'MARCO MACIAS',),
-                ]),
-              ],
-              )
-
-
-            ]
+        margin: EdgeInsets.only(
+          top: 0.30.sh,
         ),
-      ),
-    );
+        child: Container(
+          margin:EdgeInsets.only(
+            top: 0.03.sh,
+            left: 10.w,
+          ),
+          child: ListView.separated(
+              itemBuilder: (context,index){
+                return ContactItem(
+                    name: state.contacts[index].name.getOrCrash(),
+                    address: state.contacts[index].address,);
+              },
+              separatorBuilder:(context,index) {
+                return SizedBox(height: 10,);
+              } ,
+              itemCount: state.contacts.size,),
+        ),
+      );
+    } ,
+        listener:(context, state) {} );
   }
 }

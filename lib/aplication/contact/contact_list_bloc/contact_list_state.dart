@@ -10,7 +10,7 @@ class ContactListState with _$ContactListState {
   }) = _ContactListState;
 
   factory ContactListState.initial() => ContactListState(
-      hasMore: false,
+      hasMore: true,
       isLoading: true,
       loadFailureOrSuccessOption: none(),
       contacts: KtList<Contact>.empty());

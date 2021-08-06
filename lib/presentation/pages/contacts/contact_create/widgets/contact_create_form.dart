@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../aplication/contact/contact_form_bloc/contact_form_bloc.dart';
+import '../../../../core/utils.dart';
 import '../../../../routes/router.gr.dart';
 import '../../../auth/widgets/custom_button.dart';
 
@@ -14,62 +17,96 @@ class ContactCreateForm extends StatelessWidget {
   Widget build(BuildContext context) {
     String qrCodeResult = "";
     TextEditingController controlador = TextEditingController();
-    return Form(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 40.h),
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextField(
-                decoration: InputDecoration(hintText: 'Nombre'),
-                style: TextStyle(color: Colors.black),
-              ),
-              SizedBox(
-                height: 50.h,
-              ),
-              Row(
-                //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: 270,
-                    child: TextField(
-                      controller: controlador,
-                      decoration: InputDecoration(hintText: 'Wallet address'),
-                      style: TextStyle(color: Colors.black),
-                    ),
+    return BlocConsumer<ContactFormBloc, ContactFormState>(
+      listener:(context, state) {
+        state.saveFailureOrSuccessOption.fold(() {}, (either) {
+            either.fold((failure) {
+              Utils.showSnackBar(
+                  failure.maybeMap(
+                    userNameAlreadyExits:(_) => "Nombre de usuario ya en uso" ,
+                    doesNotExist: (_) => "No existe dirección" ,
+                    insufficientPermissions: (_) => "Permisos insuficientes",
+                    unableToUpdate: (_) => "No se puede actualizar" ,
+                    noInternet:(_) => "No tiene conexión" ,
+                    orElse: () => "Error inesperado",
                   ),
-                  IconButton(onPressed:() async {
-                    String codeSanner;
-                    try {
-                    codeSanner = await FlutterBarcodeScanner.scanBarcode(
-                        "#ff6666", "Cancel", false, ScanMode.DEFAULT);
-                    }on PlatformException {
-                      codeSanner = 'Failed to get platform version.';
-                    }
-                    controlador.text = codeSanner;
-                    } , icon: Icon (Icons.qr_code))
+                  context,
+                  color: Colors.red);
+            },(type) {});
+        });
+      } ,
+      builder:(context, state) {
+        return Form(
+          autovalidateMode: state.showErrorMessages
+              ? AutovalidateMode.always
+              : AutovalidateMode.disabled,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 40.h),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(hintText: 'Nombre'),
+                    style: TextStyle(color: Colors.black),
+                    autocorrect: false,
+                    onChanged: (value) => context.read<ContactFormBloc>().add(
+                        ContactFormEvent.nameChanged(value)),
+
+                  ),
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  Row(
+                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: 270,
+                        child: TextFormField(
+                          controller: controlador,
+                          decoration: InputDecoration(hintText: 'Wallet address'),
+                          style: TextStyle(color: Colors.black),
+                          autocorrect: false,
+                          onChanged: (value) => context.read<ContactFormBloc>().add(
+                              ContactFormEvent.addressChanged(value)),
+                        ),
+                      ),
+                      IconButton(onPressed:() async {
+                        String codeSanner;
+                        try {
+                          codeSanner = await FlutterBarcodeScanner.scanBarcode(
+                              "#ff6666", "Cancel", false, ScanMode.DEFAULT);
+                        }on PlatformException {
+                          codeSanner = 'Failed to get platform version.';
+                        }
+                        controlador.text = codeSanner;
+                      } , icon: Icon (Icons.qr_code))
                     ],
-              ),
-              SizedBox(
+                  ),
+                  SizedBox(
                     height: 90.h,
-                    ),
-                    CustomButton(
-                    text: 'Guardar',
-                    textcolor: Colors.white,
-                    buttoncolor: Theme.of(context).primaryColor,
-                    onTap: () {  }
+                  ),
+                  CustomButton(
+                      text: 'Guardar',
+                      textcolor: Colors.white,
+                      buttoncolor: Theme.of(context).primaryColor,
+                      onTap: () => context.read<ContactFormBloc>().add(
+                        ContactFormEvent.save()
+                      )
+                  ),
+                  CustomButton(
+                    text: 'Cancelar',
+                    textcolor: Colors.black,
+                    buttoncolor: Colors.white,
+                    onTap:  () => context.router.navigate(ContactListRoute()),
+                  )
+                ],
               ),
-              CustomButton(
-                text: 'Cancelar',
-                textcolor: Colors.black,
-                buttoncolor: Colors.white,
-                onTap:  () => context.router.navigate(ContactListRoute()),
-              )
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      } ,
+      
     );
   }
 }
