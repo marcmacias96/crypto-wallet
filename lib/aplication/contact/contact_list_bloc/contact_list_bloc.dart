@@ -52,13 +52,11 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
             );
           },
           (contacts) async* {
-            var actualContacs = state.contacts.toMutableList();
-            actualContacs.addAll(contacts.asIterable());
             yield state.copyWith(
               isLoading: false,
               hasMore: contacts.size >= _limit,
               loadFailureOrSuccessOption: none(),
-              contacts: actualContacs,
+              contacts: contacts,
             );
           },
         );
