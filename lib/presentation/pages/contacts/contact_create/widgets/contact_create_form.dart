@@ -122,6 +122,8 @@ class ContactCreateForm extends StatelessWidget {
                               codeSanner = 'Failed to get platform version.';
                             }
                             controlador.text = codeSanner;
+                            context.read<ContactFormBloc>().add(
+                                ContactFormEvent.addressChanged(codeSanner));
                           },
                           icon: Icon(Icons.qr_code))
                     ],

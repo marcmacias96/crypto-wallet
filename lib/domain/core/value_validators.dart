@@ -52,10 +52,12 @@ Either<ValueFailure<String>, String> validateMinStringLength(
   String input,
   int minLength,
 ) {
-  var leg = input.length;
   if (input.length == minLength) {
     return right(input);
   } else {
+    if (input.isEmpty) {
+      return right(input);
+    }
     return left(ValueFailure.minLength(
       failedValue: input,
       max: minLength,
