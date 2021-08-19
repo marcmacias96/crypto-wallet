@@ -1,5 +1,6 @@
-import 'package:crypto_wallet/domain/coin/coin.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../domain/coin/coin.dart';
 
 part 'coin_dto.freezed.dart';
 part 'coin_dto.g.dart';

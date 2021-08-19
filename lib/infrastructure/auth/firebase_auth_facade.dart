@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crypto_wallet/utils/user_preference.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as _auth;
 import 'package:flutter/services.dart';
@@ -12,6 +11,7 @@ import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/user.dart';
 import '../../domain/auth/value_objects.dart';
 import '../../domain/core/firestore_failure.dart';
+import '../../utils/user_preference.dart';
 import '../core/firestore_helpers.dart';
 import 'firebase_user_mapper.dart';
 import 'user_dto.dart';

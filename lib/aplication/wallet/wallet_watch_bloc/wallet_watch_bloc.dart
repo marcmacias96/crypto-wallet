@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:crypto_wallet/domain/wallet/i_wallet_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/core/firestore_failure.dart';
+import '../../../domain/wallet/i_wallet_repository.dart';
 import '../../../domain/wallet/wallet.dart';
 
 part 'wallet_watch_bloc.freezed.dart';

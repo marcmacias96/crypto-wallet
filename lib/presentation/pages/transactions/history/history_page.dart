@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../aplication/auth/auth_bloc.dart';
 import '../../../routes/router.gr.dart';
-import '../../home/widgets/balance_home.dart';
 import '../../home/widgets/bottom_navigation_bar.dart';
 import '../../home/widgets/circle_image_home.dart';
 import '../../home/widgets/title_home.dart';

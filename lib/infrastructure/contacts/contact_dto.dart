@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crypto_wallet/domain/contacts/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/contacts/contact.dart';
+import '../../domain/contacts/value_objects.dart';
 import '../../domain/core/value_objects.dart';
 
 part 'contact_dto.freezed.dart';
