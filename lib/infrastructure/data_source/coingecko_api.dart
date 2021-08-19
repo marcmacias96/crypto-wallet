@@ -7,8 +7,8 @@ class CoingeckoApi {
 
   static Future<List<Map<String, dynamic>>> getCoinsMarkets() async {
     const list =
-    // ignore: lines_longer_than_80_chars
-        'bitcoin,ethereum,tether,cardano,binancecoin,xrp,dogecoin,usd-coin,polkadot,chainlink';
+        // ignore: lines_longer_than_80_chars
+        'bitcoin,ethereum,tether,cardano,binancecoin,xrp,dogecoin,usd-coin,polkadot,uniswap';
     final response = await http.get(Uri.https(
         _api, '/api/v3/coins/markets', {'vs_currency': 'usd', 'ids': list}));
     if (response.statusCode == 200) {

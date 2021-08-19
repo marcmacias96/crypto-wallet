@@ -5,16 +5,17 @@ class DescriptionTable extends StatelessWidget {
   final String currency;
   final String value;
 
-  const DescriptionTable({Key? key,
+  const DescriptionTable({
+    Key? key,
     required this.currency,
     required this.value,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       child: Column(
-        crossAxisAlignment:CrossAxisAlignment.start ,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: 10.h,
@@ -25,17 +26,15 @@ class DescriptionTable extends StatelessWidget {
             style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: 40.sp
-            ),
+                fontSize: 40.sp),
           ),
           Text(
-            r'$'+ value,
+            r'$' + value,
             textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: Colors.black26,
                 fontWeight: FontWeight.bold,
-                fontSize: 30.sp
-            ),
+                fontSize: 30.sp),
           ),
         ],
       ),

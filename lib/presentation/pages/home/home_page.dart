@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:crypto_wallet/aplication/coin_list_bloc/coin_list_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,11 +43,19 @@ class HomePage extends StatelessWidget {
           ),
         ),
         body: SingleChildScrollView(
-          child: BlocProvider(
-            create: (context) => getIt<WalletWatchBloc>()
-              ..add(
-                WalletWatchEvent.watchStarted(),
-              ),
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                  create: (context) => getIt<WalletWatchBloc>()
+                    ..add(
+                      WalletWatchEvent.watchStarted(),
+                    )),
+              BlocProvider(
+                  create: (context) => getIt<CoinListBloc>()
+                    ..add(
+                      CoinListEvent.fetchStarted(),
+                    ))
+            ],
             child: BlocBuilder<WalletWatchBloc, WalletWatchState>(
                 builder: (context, state) {
               return state.map(

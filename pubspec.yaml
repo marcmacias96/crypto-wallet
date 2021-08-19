@@ -50,4 +50,5 @@ flutter:
 
   assets:
     - assets/img/
+    - assets/img/coin/
     - assets/animations/
