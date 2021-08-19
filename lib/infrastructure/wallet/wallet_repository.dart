@@ -1,20 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crypto_wallet/domain/wallet/wallet_failure.dart';
-import 'package:crypto_wallet/domain/wallet_response/wallet_response.dart';
-import 'package:crypto_wallet/infrastructure/wallet/blockchain_api/blockchain_api.dart';
-import 'package:crypto_wallet/infrastructure/wallet_response/walletresponsedto.dart';
-import 'package:crypto_wallet/utils/user_preference.dart';
 import 'package:dartz/dartz.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/core/firestore_failure.dart';
 import '../../domain/wallet/i_wallet_repository.dart';
 import '../../domain/wallet/wallet.dart';
+import '../../domain/wallet/wallet_failure.dart';
+import '../../domain/wallet_response/wallet_response.dart';
 import '../../injection.dart';
+import '../../utils/user_preference.dart';
 import '../auth/user_dto.dart';
 import '../core/firestore_helpers.dart';
+import '../wallet_response/walletresponsedto.dart';
+import 'blockchain_api/blockchain_api.dart';
 import 'wallet_dto.dart';
 
 @LazySingleton(as: IWalletRepository)

@@ -1,7 +1,9 @@
 import 'dart:convert';
-import 'package:crypto_wallet/domain/wallet/wallet_failure.dart';
+
 import 'package:http/http.dart' as http;
+
 import '../../../domain/wallet/wallet.dart';
+import '../../../domain/wallet/wallet_failure.dart';
 
 class BlockchainApi {
   static const _api = 'localhost:3000';

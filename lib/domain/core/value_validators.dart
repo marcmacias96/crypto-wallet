@@ -1,5 +1,6 @@
-import 'package:crypto_wallet/domain/wallet/value_converter.dart';
 import 'package:dartz/dartz.dart';
+
+import '../wallet/value_converter.dart';
 import 'value_failures.dart';
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {

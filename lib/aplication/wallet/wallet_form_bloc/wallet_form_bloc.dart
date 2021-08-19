@@ -1,6 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:crypto_wallet/domain/wallet/wallet_failure.dart';
-import 'package:crypto_wallet/domain/wallet_response/wallet_response.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -11,6 +9,8 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/wallet/i_wallet_repository.dart';
 import '../../../domain/wallet/value_objects.dart';
 import '../../../domain/wallet/wallet.dart';
+import '../../../domain/wallet/wallet_failure.dart';
+import '../../../domain/wallet_response/wallet_response.dart';
 
 part 'wallet_form_bloc.freezed.dart';
 part 'wallet_form_event.dart';
