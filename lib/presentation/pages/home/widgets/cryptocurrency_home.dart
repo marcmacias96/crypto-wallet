@@ -1,12 +1,10 @@
-import 'package:crypto_wallet/presentation/core/widgets/loading.dart';
-import 'package:crypto_wallet/presentation/pages/home/widgets/coin_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../aplication/coin_list_bloc/coin_list_bloc.dart';
-import 'description_table.dart';
-import 'image_table.dart';
+import '../../../core/widgets/loading.dart';
+import 'coin_item.dart';
 
 class CryptocurrencyHome extends StatelessWidget {
   const CryptocurrencyHome({Key? key}) : super(key: key);

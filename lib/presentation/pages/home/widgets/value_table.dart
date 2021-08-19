@@ -14,7 +14,7 @@ class ValueTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        //alignment: Alignment.centerRight,
+        alignment: Alignment.topRight,
         margin: EdgeInsets.only(
           right: 40.w,
         ),

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'description_table.dart';
 import 'image_table.dart';
-import 'utils.dart';
 import 'value_table.dart';
 
 class CoinItem extends StatelessWidget {
@@ -22,22 +21,22 @@ class CoinItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var utils = Utils;
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 40.w),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ImageTable(imageSrc: "assets/img/coin/$image.png"),
-            SizedBox(
-              width: 20.w,
-            ),
-            DescriptionTable(currency: currecy, value: value),
-            SizedBox(
-              width: 50.w,
-            ),
-            ValueTable(value: price),
-          ],
-        ));
+      padding: EdgeInsets.symmetric(horizontal: 30.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ImageTable(imageSrc: "assets/img/coin/$image.png"),
+          SizedBox(
+            width: 20.w,
+          ),
+          DescriptionTable(currency: currecy, value: value),
+          Spacer(
+            flex: 3,
+          ),
+          ValueTable(value: price),
+        ],
+      ),
+    );
   }
 }
