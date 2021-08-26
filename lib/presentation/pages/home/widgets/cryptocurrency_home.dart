@@ -36,6 +36,7 @@ class CryptocurrencyHome extends StatelessWidget {
             Container(
               height: 0.5.sh,
               child: ListView.separated(
+                  padding: EdgeInsets.only(bottom: 50.h),
                   itemBuilder: (context, index) {
                     return CoinItem(
                         image: success.coins[index].id,
