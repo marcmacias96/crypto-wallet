@@ -61,11 +61,10 @@ class HomePage extends StatelessWidget {
               return state.map(
                 initial: (_) => Container(),
                 loadInProgress: (_) => Center(
-                  child: LoadingWidget(),
+                  child: Container(),
                 ),
                 loadSuccess: (success) => SingleChildScrollView(
-                  child: Stack(
-                    alignment: Alignment.topLeft,
+                  child: Column(
                     children: [
                       BalanceHome(
                         wallet: success.wallet,

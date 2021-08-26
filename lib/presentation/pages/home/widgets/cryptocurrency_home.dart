@@ -19,7 +19,7 @@ class CryptocurrencyHome extends StatelessWidget {
         ),
         loadSuccess: (success) => Container(
           margin: EdgeInsets.only(
-            top: 0.30.sh,
+            top: 30.h,
             left: 50.w,
             right: 50.w,
           ),
