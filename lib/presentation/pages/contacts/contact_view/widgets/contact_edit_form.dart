@@ -80,7 +80,7 @@ class _ContactEditFormState extends State<ContactEditForm> {
               Row(
                 children: [
                   SizedBox(
-                    width: 0.73.sw,
+                    width: 0.70.sw,
                     child: TextFormField(
                       controller: addresscontroler,
                       decoration: InputDecoration(hintText: 'Wallet address'),

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_route/auto_route.dart';
 import '../../../../../aplication/contact/contact_form_bloc/contact_form_bloc.dart';
+import '../../../../routes/router.gr.dart';
 
 class TopContactView extends StatelessWidget {
   final bool isEditing;
@@ -37,7 +38,9 @@ class TopContactView extends StatelessWidget {
             isEditing
                 ? Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () => context.read<ContactFormBloc>().add(
+                            ContactFormEvent.isEditing(),
+                          ),
                       icon: Icon(
                         Icons.arrow_back,
                         color: Colors.white,
@@ -49,7 +52,8 @@ class TopContactView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () =>
+                              context.router.navigate(ContactListRoute()),
                           icon: Icon(
                             Icons.arrow_back,
                             color: Colors.white,
