@@ -8,7 +8,7 @@ import '../../../../routes/router.gr.dart';
 import '../../../auth/widgets/custom_button.dart';
 
 String dropdownValue = '';
-List<String> country = [
+var _coins = [
   "America",
   "Brazil",
   "Canada",
@@ -32,11 +32,11 @@ class FormRecieve extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          DropdownButton(
-            items: country.map((itemsname) {
-              return DropdownMenuItem(
-                value: itemsname,
-                child: Text(itemsname),
+          DropdownButton<String>(
+            items: _coins.map((coinItem) {
+              return DropdownMenuItem<String>(
+                value: coinItem,
+                child: Text(coinItem),
               );
             }).toList(),
             onChanged: (newvalue) {},

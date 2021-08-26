@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../aplication/contact/contact_list_bloc/contact_list_bloc.dart';
+import '../../../../routes/router.gr.dart';
 import 'contact_item.dart';
 import 'text_contact_zero.dart';
 
@@ -34,12 +36,15 @@ class ListContacts extends StatelessWidget {
                         child: Container(
                           height: 0.745.sh,
                           child: ListView.separated(
-                            itemBuilder: (context, index) {
+                            itemBuilder: (context2, index) {
                               return ContactItem(
-                                name: state.contacts[index].name.getOrCrash(),
-                                address:
-                                    state.contacts[index].address.getOrCrash(),
-                              );
+                                  name: state.contacts[index].name.getOrCrash(),
+                                  address: state.contacts[index].address
+                                      .getOrCrash(),
+                                  onTap: () =>
+                                      context.router.navigate(ContactViewRoute(
+                                        contact: state.contacts[index],
+                                      )));
                             },
                             separatorBuilder: (context, index) {
                               return SizedBox(

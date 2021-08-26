@@ -23,15 +23,10 @@ class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
   Stream<ContactFormState> mapEventToState(ContactFormEvent gEvent) async* {
     yield* gEvent.map(
       initialized: (e) async* {
-        yield e.contact.fold(
-          () => state.copyWith(
-            contact: state.contact.copyWith(address: Address(e.address)),
-            saveFailureOrSuccessOption: none(),
-          ),
-          (contact) => state.copyWith(
-            isEditing: true,
-            saveFailureOrSuccessOption: none(),
-          ),
+        yield state.copyWith(
+          isEditing: false,
+          contact: e.contact,
+          saveFailureOrSuccessOption: none(),
         );
       },
       nameChanged: (e) async* {
@@ -62,6 +57,12 @@ class ContactFormBloc extends Bloc<ContactFormEvent, ContactFormState> {
           isSaving: false,
           showErrorMessages: true,
           saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+        );
+      },
+      isEditing: (e) async* {
+        yield state.copyWith(
+          isEditing: !state.isEditing,
+          saveFailureOrSuccessOption: none(),
         );
       },
     );
