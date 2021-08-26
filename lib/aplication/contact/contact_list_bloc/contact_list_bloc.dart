@@ -17,7 +17,7 @@ part 'contact_list_state.dart';
 @injectable
 class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
   final IContactRepository _contactRepository;
-  final _limit = 20;
+  final _limit = 20000;
   ContactListBloc(this._contactRepository) : super(ContactListState.initial());
   StreamSubscription<Either<FirestoreFailure, KtList<Contact>>>?
       _contactStreamSubscription;
