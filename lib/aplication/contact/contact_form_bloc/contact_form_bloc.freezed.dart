@@ -41,6 +41,12 @@ class _$ContactFormEventTearOff {
   IsEditing isEditing() {
     return const IsEditing();
   }
+
+  Delete delete(Contact contact) {
+    return Delete(
+      contact,
+    );
+  }
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ mixin _$ContactFormEvent {
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
     required TResult Function() isEditing,
+    required TResult Function(Contact contact) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +71,7 @@ mixin _$ContactFormEvent {
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
     TResult Function()? isEditing,
+    TResult Function(Contact contact)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +82,7 @@ mixin _$ContactFormEvent {
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
     required TResult Function(IsEditing value) isEditing,
+    required TResult Function(Delete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +92,7 @@ mixin _$ContactFormEvent {
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
     TResult Function(IsEditing value)? isEditing,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -183,6 +193,7 @@ class _$Initialized implements Initialized {
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
     required TResult Function() isEditing,
+    required TResult Function(Contact contact) delete,
   }) {
     return initialized(contact);
   }
@@ -195,6 +206,7 @@ class _$Initialized implements Initialized {
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
     TResult Function()? isEditing,
+    TResult Function(Contact contact)? delete,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -211,6 +223,7 @@ class _$Initialized implements Initialized {
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
     required TResult Function(IsEditing value) isEditing,
+    required TResult Function(Delete value) delete,
   }) {
     return initialized(this);
   }
@@ -223,6 +236,7 @@ class _$Initialized implements Initialized {
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
     TResult Function(IsEditing value)? isEditing,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -310,6 +324,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
     required TResult Function() isEditing,
+    required TResult Function(Contact contact) delete,
   }) {
     return nameChanged(name);
   }
@@ -322,6 +337,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
     TResult Function()? isEditing,
+    TResult Function(Contact contact)? delete,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -338,6 +354,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
     required TResult Function(IsEditing value) isEditing,
+    required TResult Function(Delete value) delete,
   }) {
     return nameChanged(this);
   }
@@ -350,6 +367,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
     TResult Function(IsEditing value)? isEditing,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -437,6 +455,7 @@ class _$AddressChanged implements AddressChanged {
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
     required TResult Function() isEditing,
+    required TResult Function(Contact contact) delete,
   }) {
     return addressChanged(address);
   }
@@ -449,6 +468,7 @@ class _$AddressChanged implements AddressChanged {
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
     TResult Function()? isEditing,
+    TResult Function(Contact contact)? delete,
     required TResult orElse(),
   }) {
     if (addressChanged != null) {
@@ -465,6 +485,7 @@ class _$AddressChanged implements AddressChanged {
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
     required TResult Function(IsEditing value) isEditing,
+    required TResult Function(Delete value) delete,
   }) {
     return addressChanged(this);
   }
@@ -477,6 +498,7 @@ class _$AddressChanged implements AddressChanged {
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
     TResult Function(IsEditing value)? isEditing,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (addressChanged != null) {
@@ -536,6 +558,7 @@ class _$Save implements Save {
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
     required TResult Function() isEditing,
+    required TResult Function(Contact contact) delete,
   }) {
     return save();
   }
@@ -548,6 +571,7 @@ class _$Save implements Save {
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
     TResult Function()? isEditing,
+    TResult Function(Contact contact)? delete,
     required TResult orElse(),
   }) {
     if (save != null) {
@@ -564,6 +588,7 @@ class _$Save implements Save {
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
     required TResult Function(IsEditing value) isEditing,
+    required TResult Function(Delete value) delete,
   }) {
     return save(this);
   }
@@ -576,6 +601,7 @@ class _$Save implements Save {
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
     TResult Function(IsEditing value)? isEditing,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (save != null) {
@@ -630,6 +656,7 @@ class _$IsEditing implements IsEditing {
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
     required TResult Function() isEditing,
+    required TResult Function(Contact contact) delete,
   }) {
     return isEditing();
   }
@@ -642,6 +669,7 @@ class _$IsEditing implements IsEditing {
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
     TResult Function()? isEditing,
+    TResult Function(Contact contact)? delete,
     required TResult orElse(),
   }) {
     if (isEditing != null) {
@@ -658,6 +686,7 @@ class _$IsEditing implements IsEditing {
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
     required TResult Function(IsEditing value) isEditing,
+    required TResult Function(Delete value) delete,
   }) {
     return isEditing(this);
   }
@@ -670,6 +699,7 @@ class _$IsEditing implements IsEditing {
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
     TResult Function(IsEditing value)? isEditing,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (isEditing != null) {
@@ -684,6 +714,142 @@ abstract class IsEditing implements ContactFormEvent {
 }
 
 /// @nodoc
+abstract class $DeleteCopyWith<$Res> {
+  factory $DeleteCopyWith(Delete value, $Res Function(Delete) then) =
+      _$DeleteCopyWithImpl<$Res>;
+  $Res call({Contact contact});
+
+  $ContactCopyWith<$Res> get contact;
+}
+
+/// @nodoc
+class _$DeleteCopyWithImpl<$Res> extends _$ContactFormEventCopyWithImpl<$Res>
+    implements $DeleteCopyWith<$Res> {
+  _$DeleteCopyWithImpl(Delete _value, $Res Function(Delete) _then)
+      : super(_value, (v) => _then(v as Delete));
+
+  @override
+  Delete get _value => super._value as Delete;
+
+  @override
+  $Res call({
+    Object? contact = freezed,
+  }) {
+    return _then(Delete(
+      contact == freezed
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as Contact,
+    ));
+  }
+
+  @override
+  $ContactCopyWith<$Res> get contact {
+    return $ContactCopyWith<$Res>(_value.contact, (value) {
+      return _then(_value.copyWith(contact: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$Delete implements Delete {
+  const _$Delete(this.contact);
+
+  @override
+  final Contact contact;
+
+  @override
+  String toString() {
+    return 'ContactFormEvent.delete(contact: $contact)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Delete &&
+            (identical(other.contact, contact) ||
+                const DeepCollectionEquality().equals(other.contact, contact)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(contact);
+
+  @JsonKey(ignore: true)
+  @override
+  $DeleteCopyWith<Delete> get copyWith =>
+      _$DeleteCopyWithImpl<Delete>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Contact contact) initialized,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String address) addressChanged,
+    required TResult Function() save,
+    required TResult Function() isEditing,
+    required TResult Function(Contact contact) delete,
+  }) {
+    return delete(contact);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Contact contact)? initialized,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String address)? addressChanged,
+    TResult Function()? save,
+    TResult Function()? isEditing,
+    TResult Function(Contact contact)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(contact);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(Save value) save,
+    required TResult Function(IsEditing value) isEditing,
+    required TResult Function(Delete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(Save value)? save,
+    TResult Function(IsEditing value)? isEditing,
+    TResult Function(Delete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Delete implements ContactFormEvent {
+  const factory Delete(Contact contact) = _$Delete;
+
+  Contact get contact => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DeleteCopyWith<Delete> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$ContactFormStateTearOff {
   const _$ContactFormStateTearOff();
 
@@ -691,6 +857,7 @@ class _$ContactFormStateTearOff {
       {required Contact contact,
       required bool isSaving,
       required bool isEditing,
+      required bool isDeleting,
       required bool showErrorMessages,
       required Option<Either<FirestoreFailure, Unit>>
           saveFailureOrSuccessOption}) {
@@ -698,6 +865,7 @@ class _$ContactFormStateTearOff {
       contact: contact,
       isSaving: isSaving,
       isEditing: isEditing,
+      isDeleting: isDeleting,
       showErrorMessages: showErrorMessages,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption,
     );
@@ -712,6 +880,7 @@ mixin _$ContactFormState {
   Contact get contact => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
+  bool get isDeleting => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   Option<Either<FirestoreFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -730,6 +899,7 @@ abstract class $ContactFormStateCopyWith<$Res> {
       {Contact contact,
       bool isSaving,
       bool isEditing,
+      bool isDeleting,
       bool showErrorMessages,
       Option<Either<FirestoreFailure, Unit>> saveFailureOrSuccessOption});
 
@@ -750,6 +920,7 @@ class _$ContactFormStateCopyWithImpl<$Res>
     Object? contact = freezed,
     Object? isSaving = freezed,
     Object? isEditing = freezed,
+    Object? isDeleting = freezed,
     Object? showErrorMessages = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
@@ -765,6 +936,10 @@ class _$ContactFormStateCopyWithImpl<$Res>
       isEditing: isEditing == freezed
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDeleting: isDeleting == freezed
+          ? _value.isDeleting
+          : isDeleting // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
@@ -796,6 +971,7 @@ abstract class _$ContactFormStateCopyWith<$Res>
       {Contact contact,
       bool isSaving,
       bool isEditing,
+      bool isDeleting,
       bool showErrorMessages,
       Option<Either<FirestoreFailure, Unit>> saveFailureOrSuccessOption});
 
@@ -819,6 +995,7 @@ class __$ContactFormStateCopyWithImpl<$Res>
     Object? contact = freezed,
     Object? isSaving = freezed,
     Object? isEditing = freezed,
+    Object? isDeleting = freezed,
     Object? showErrorMessages = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
@@ -834,6 +1011,10 @@ class __$ContactFormStateCopyWithImpl<$Res>
       isEditing: isEditing == freezed
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDeleting: isDeleting == freezed
+          ? _value.isDeleting
+          : isDeleting // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
@@ -853,6 +1034,7 @@ class _$_ContactFormState implements _ContactFormState {
       {required this.contact,
       required this.isSaving,
       required this.isEditing,
+      required this.isDeleting,
       required this.showErrorMessages,
       required this.saveFailureOrSuccessOption});
 
@@ -863,13 +1045,15 @@ class _$_ContactFormState implements _ContactFormState {
   @override
   final bool isEditing;
   @override
+  final bool isDeleting;
+  @override
   final bool showErrorMessages;
   @override
   final Option<Either<FirestoreFailure, Unit>> saveFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'ContactFormState(contact: $contact, isSaving: $isSaving, isEditing: $isEditing, showErrorMessages: $showErrorMessages, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'ContactFormState(contact: $contact, isSaving: $isSaving, isEditing: $isEditing, isDeleting: $isDeleting, showErrorMessages: $showErrorMessages, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -885,6 +1069,9 @@ class _$_ContactFormState implements _ContactFormState {
             (identical(other.isEditing, isEditing) ||
                 const DeepCollectionEquality()
                     .equals(other.isEditing, isEditing)) &&
+            (identical(other.isDeleting, isDeleting) ||
+                const DeepCollectionEquality()
+                    .equals(other.isDeleting, isDeleting)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
@@ -901,6 +1088,7 @@ class _$_ContactFormState implements _ContactFormState {
       const DeepCollectionEquality().hash(contact) ^
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(isEditing) ^
+      const DeepCollectionEquality().hash(isDeleting) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
@@ -915,6 +1103,7 @@ abstract class _ContactFormState implements ContactFormState {
       {required Contact contact,
       required bool isSaving,
       required bool isEditing,
+      required bool isDeleting,
       required bool showErrorMessages,
       required Option<Either<FirestoreFailure, Unit>>
           saveFailureOrSuccessOption}) = _$_ContactFormState;
@@ -925,6 +1114,8 @@ abstract class _ContactFormState implements ContactFormState {
   bool get isSaving => throw _privateConstructorUsedError;
   @override
   bool get isEditing => throw _privateConstructorUsedError;
+  @override
+  bool get isDeleting => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override

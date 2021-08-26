@@ -38,15 +38,45 @@ class ContactRepository implements IContactRepository {
   }
 
   @override
-  Future<Either<FirestoreFailure, Unit>> dalete(Contact contact) {
-    // TODO: implement dalete
-    throw UnimplementedError();
+  Future<Either<FirestoreFailure, Unit>> dalete(Contact contact) async {
+    try {
+      final batch = _firestore.batch();
+      final userDoc = await _firestore.userDocument();
+      final contactDto = ContactDto.fromDomain(contact);
+      final walletRef =
+          userDoc.walletCollection.doc(UserPreference.getWalletId());
+      final contactRef = walletRef.contactCollection.doc(contactDto.id);
+      batch.delete(contactRef);
+      batch.commit();
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.code == 'permission-denied') {
+        return left(const FirestoreFailure.insufficientPermissions());
+      } else {
+        return left(const FirestoreFailure.unexpected());
+      }
+    }
   }
 
   @override
-  Future<Either<FirestoreFailure, Unit>> update(Contact contact) {
-    // TODO: implement update
-    throw UnimplementedError();
+  Future<Either<FirestoreFailure, Unit>> update(Contact contact) async {
+    try {
+      final batch = _firestore.batch();
+      final userDoc = await _firestore.userDocument();
+      final contactDto = ContactDto.fromDomain(contact);
+      final walletRef =
+          userDoc.walletCollection.doc(UserPreference.getWalletId());
+      final contactRef = walletRef.contactCollection.doc(contactDto.id);
+      batch.update(contactRef, contactDto.toJson());
+      batch.commit();
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.code == 'permission-denied') {
+        return left(const FirestoreFailure.insufficientPermissions());
+      } else {
+        return left(const FirestoreFailure.unexpected());
+      }
+    }
   }
 
   @override

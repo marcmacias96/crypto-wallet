@@ -8,4 +8,5 @@ class ContactFormEvent with _$ContactFormEvent {
       AddressChanged;
   const factory ContactFormEvent.save() = Save;
   const factory ContactFormEvent.isEditing() = IsEditing;
+  const factory ContactFormEvent.delete(Contact contact) = Delete;
 }
