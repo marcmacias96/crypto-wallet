@@ -16,9 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ContactFormEventTearOff {
   const _$ContactFormEventTearOff();
 
-  Initialized initialized(String address, Option<Contact> contact) {
+  Initialized initialized(Contact contact) {
     return Initialized(
-      address,
       contact,
     );
   }
@@ -38,6 +37,10 @@ class _$ContactFormEventTearOff {
   Save save() {
     return const Save();
   }
+
+  IsEditing isEditing() {
+    return const IsEditing();
+  }
 }
 
 /// @nodoc
@@ -47,19 +50,20 @@ const $ContactFormEvent = _$ContactFormEventTearOff();
 mixin _$ContactFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String address, Option<Contact> contact)
-        initialized,
+    required TResult Function(Contact contact) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
+    required TResult Function() isEditing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String address, Option<Contact> contact)? initialized,
+    TResult Function(Contact contact)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
+    TResult Function()? isEditing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +73,7 @@ mixin _$ContactFormEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
+    required TResult Function(IsEditing value) isEditing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +82,7 @@ mixin _$ContactFormEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
+    TResult Function(IsEditing value)? isEditing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,7 +110,9 @@ abstract class $InitializedCopyWith<$Res> {
   factory $InitializedCopyWith(
           Initialized value, $Res Function(Initialized) then) =
       _$InitializedCopyWithImpl<$Res>;
-  $Res call({String address, Option<Contact> contact});
+  $Res call({Contact contact});
+
+  $ContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -120,52 +128,47 @@ class _$InitializedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? address = freezed,
     Object? contact = freezed,
   }) {
     return _then(Initialized(
-      address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
       contact == freezed
           ? _value.contact
           : contact // ignore: cast_nullable_to_non_nullable
-              as Option<Contact>,
+              as Contact,
     ));
+  }
+
+  @override
+  $ContactCopyWith<$Res> get contact {
+    return $ContactCopyWith<$Res>(_value.contact, (value) {
+      return _then(_value.copyWith(contact: value));
+    });
   }
 }
 
 /// @nodoc
 class _$Initialized implements Initialized {
-  const _$Initialized(this.address, this.contact);
+  const _$Initialized(this.contact);
 
   @override
-  final String address;
-  @override
-  final Option<Contact> contact;
+  final Contact contact;
 
   @override
   String toString() {
-    return 'ContactFormEvent.initialized(address: $address, contact: $contact)';
+    return 'ContactFormEvent.initialized(contact: $contact)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is Initialized &&
-            (identical(other.address, address) ||
-                const DeepCollectionEquality()
-                    .equals(other.address, address)) &&
             (identical(other.contact, contact) ||
                 const DeepCollectionEquality().equals(other.contact, contact)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(address) ^
-      const DeepCollectionEquality().hash(contact);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(contact);
 
   @JsonKey(ignore: true)
   @override
@@ -175,26 +178,27 @@ class _$Initialized implements Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String address, Option<Contact> contact)
-        initialized,
+    required TResult Function(Contact contact) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
+    required TResult Function() isEditing,
   }) {
-    return initialized(address, contact);
+    return initialized(contact);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String address, Option<Contact> contact)? initialized,
+    TResult Function(Contact contact)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
+    TResult Function()? isEditing,
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized(address, contact);
+      return initialized(contact);
     }
     return orElse();
   }
@@ -206,6 +210,7 @@ class _$Initialized implements Initialized {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
+    required TResult Function(IsEditing value) isEditing,
   }) {
     return initialized(this);
   }
@@ -217,6 +222,7 @@ class _$Initialized implements Initialized {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
+    TResult Function(IsEditing value)? isEditing,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -227,11 +233,9 @@ class _$Initialized implements Initialized {
 }
 
 abstract class Initialized implements ContactFormEvent {
-  const factory Initialized(String address, Option<Contact> contact) =
-      _$Initialized;
+  const factory Initialized(Contact contact) = _$Initialized;
 
-  String get address => throw _privateConstructorUsedError;
-  Option<Contact> get contact => throw _privateConstructorUsedError;
+  Contact get contact => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $InitializedCopyWith<Initialized> get copyWith =>
       throw _privateConstructorUsedError;
@@ -301,11 +305,11 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String address, Option<Contact> contact)
-        initialized,
+    required TResult Function(Contact contact) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
+    required TResult Function() isEditing,
   }) {
     return nameChanged(name);
   }
@@ -313,10 +317,11 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String address, Option<Contact> contact)? initialized,
+    TResult Function(Contact contact)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
+    TResult Function()? isEditing,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -332,6 +337,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
+    required TResult Function(IsEditing value) isEditing,
   }) {
     return nameChanged(this);
   }
@@ -343,6 +349,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
+    TResult Function(IsEditing value)? isEditing,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -425,11 +432,11 @@ class _$AddressChanged implements AddressChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String address, Option<Contact> contact)
-        initialized,
+    required TResult Function(Contact contact) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
+    required TResult Function() isEditing,
   }) {
     return addressChanged(address);
   }
@@ -437,10 +444,11 @@ class _$AddressChanged implements AddressChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String address, Option<Contact> contact)? initialized,
+    TResult Function(Contact contact)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
+    TResult Function()? isEditing,
     required TResult orElse(),
   }) {
     if (addressChanged != null) {
@@ -456,6 +464,7 @@ class _$AddressChanged implements AddressChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
+    required TResult Function(IsEditing value) isEditing,
   }) {
     return addressChanged(this);
   }
@@ -467,6 +476,7 @@ class _$AddressChanged implements AddressChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
+    TResult Function(IsEditing value)? isEditing,
     required TResult orElse(),
   }) {
     if (addressChanged != null) {
@@ -521,11 +531,11 @@ class _$Save implements Save {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String address, Option<Contact> contact)
-        initialized,
+    required TResult Function(Contact contact) initialized,
     required TResult Function(String name) nameChanged,
     required TResult Function(String address) addressChanged,
     required TResult Function() save,
+    required TResult Function() isEditing,
   }) {
     return save();
   }
@@ -533,10 +543,11 @@ class _$Save implements Save {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String address, Option<Contact> contact)? initialized,
+    TResult Function(Contact contact)? initialized,
     TResult Function(String name)? nameChanged,
     TResult Function(String address)? addressChanged,
     TResult Function()? save,
+    TResult Function()? isEditing,
     required TResult orElse(),
   }) {
     if (save != null) {
@@ -552,6 +563,7 @@ class _$Save implements Save {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(AddressChanged value) addressChanged,
     required TResult Function(Save value) save,
+    required TResult Function(IsEditing value) isEditing,
   }) {
     return save(this);
   }
@@ -563,6 +575,7 @@ class _$Save implements Save {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(AddressChanged value)? addressChanged,
     TResult Function(Save value)? save,
+    TResult Function(IsEditing value)? isEditing,
     required TResult orElse(),
   }) {
     if (save != null) {
@@ -574,6 +587,100 @@ class _$Save implements Save {
 
 abstract class Save implements ContactFormEvent {
   const factory Save() = _$Save;
+}
+
+/// @nodoc
+abstract class $IsEditingCopyWith<$Res> {
+  factory $IsEditingCopyWith(IsEditing value, $Res Function(IsEditing) then) =
+      _$IsEditingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$IsEditingCopyWithImpl<$Res> extends _$ContactFormEventCopyWithImpl<$Res>
+    implements $IsEditingCopyWith<$Res> {
+  _$IsEditingCopyWithImpl(IsEditing _value, $Res Function(IsEditing) _then)
+      : super(_value, (v) => _then(v as IsEditing));
+
+  @override
+  IsEditing get _value => super._value as IsEditing;
+}
+
+/// @nodoc
+class _$IsEditing implements IsEditing {
+  const _$IsEditing();
+
+  @override
+  String toString() {
+    return 'ContactFormEvent.isEditing()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is IsEditing);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Contact contact) initialized,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String address) addressChanged,
+    required TResult Function() save,
+    required TResult Function() isEditing,
+  }) {
+    return isEditing();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Contact contact)? initialized,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String address)? addressChanged,
+    TResult Function()? save,
+    TResult Function()? isEditing,
+    required TResult orElse(),
+  }) {
+    if (isEditing != null) {
+      return isEditing();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(AddressChanged value) addressChanged,
+    required TResult Function(Save value) save,
+    required TResult Function(IsEditing value) isEditing,
+  }) {
+    return isEditing(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(AddressChanged value)? addressChanged,
+    TResult Function(Save value)? save,
+    TResult Function(IsEditing value)? isEditing,
+    required TResult orElse(),
+  }) {
+    if (isEditing != null) {
+      return isEditing(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class IsEditing implements ContactFormEvent {
+  const factory IsEditing() = _$IsEditing;
 }
 
 /// @nodoc
