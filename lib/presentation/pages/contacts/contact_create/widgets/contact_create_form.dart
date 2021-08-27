@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+//import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -112,12 +112,12 @@ class ContactCreateForm extends StatelessWidget {
                           onPressed: () async {
                             String codeSanner;
                             try {
-                              codeSanner =
-                                  await FlutterBarcodeScanner.scanBarcode(
-                                      "#ff6666",
-                                      "Cancel",
-                                      false,
-                                      ScanMode.DEFAULT);
+                              codeSanner = '';
+                              // await FlutterBarcodeScanner.scanBarcode(
+                              //     "#ff6666",
+                              //     "Cancel",
+                              //     false,
+                              //     ScanMode.DEFAULT);
                             } on PlatformException {
                               codeSanner = 'Failed to get platform version.';
                             }
