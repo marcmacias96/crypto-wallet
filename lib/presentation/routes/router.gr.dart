@@ -5,22 +5,23 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:flutter/material.dart' as _i15;
+import 'package:flutter/material.dart' as _i16;
 
-import '../../domain/contacts/contact.dart' as _i16;
-import '../pages/auth/sign_in/sign_in_page.dart' as _i3;
-import '../pages/auth/sign_up/sign_up_page.dart' as _i4;
-import '../pages/contacts/contact_create/contact_create_page.dart' as _i9;
-import '../pages/contacts/contact_list/contact_list_page.dart' as _i11;
-import '../pages/contacts/contact_view/contact_view_page.dart' as _i10;
-import '../pages/home/home_page.dart' as _i5;
+import '../../domain/contacts/contact.dart' as _i17;
+import '../pages/auth/sign_in/sign_in_page.dart' as _i4;
+import '../pages/auth/sign_up/sign_up_page.dart' as _i5;
+import '../pages/contacts/contact_create/contact_create_page.dart' as _i10;
+import '../pages/contacts/contact_list/contact_list_page.dart' as _i12;
+import '../pages/contacts/contact_view/contact_view_page.dart' as _i11;
+import '../pages/home/home_page.dart' as _i6;
+import '../pages/layout/layout_page.dart' as _i3;
 import '../pages/splash/splash.dart' as _i2;
-import '../pages/transactions/history/history_page.dart' as _i12;
-import '../pages/transactions/recieve/recieve_page.dart' as _i13;
-import '../pages/transactions/send/send_page.dart' as _i14;
-import '../pages/wallet/wallet_form/wallet_form_page.dart' as _i8;
-import '../pages/welcome/welcome1_page.dart' as _i6;
-import '../pages/welcome/welcome2_page.dart' as _i7;
+import '../pages/transactions/history/history_page.dart' as _i13;
+import '../pages/transactions/recieve/recieve_page.dart' as _i14;
+import '../pages/transactions/send/send_page.dart' as _i15;
+import '../pages/wallet/wallet_form/wallet_form_page.dart' as _i9;
+import '../pages/welcome/welcome1_page.dart' as _i7;
+import '../pages/welcome/welcome2_page.dart' as _i8;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter();
@@ -30,76 +31,77 @@ class AppRouter extends _i1.RootStackRouter {
     SplashRoute.name: (entry) {
       return _i1.MaterialPageX(entry: entry, child: const _i2.SplashPage());
     },
+    LayoutRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: const _i3.LayoutPage());
+    },
     SignInRoute.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry, child: const _i3.SignInPage(), fullscreenDialog: true);
+          entry: entry, child: const _i4.SignInPage(), fullscreenDialog: true);
     },
     SignUpRoute.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry, child: const _i4.SignUpPage(), fullscreenDialog: true);
+          entry: entry, child: const _i5.SignUpPage(), fullscreenDialog: true);
     },
     HomeRoute.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry, child: const _i5.HomePage(), fullscreenDialog: true);
+          entry: entry, child: const _i6.HomePage(), fullscreenDialog: true);
     },
     Welcome1Route.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i6.Welcome1Page(),
+          child: const _i7.Welcome1Page(),
           fullscreenDialog: true);
     },
     Welcome2Route.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i7.Welcome2Page(),
+          child: const _i8.Welcome2Page(),
           fullscreenDialog: true);
     },
     WalletFormRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i8.WalletFormPage(),
+          child: const _i9.WalletFormPage(),
           fullscreenDialog: true);
     },
     ContactCreateRoute.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry,
-          child: const _i9.ContactCreatePage(),
-          fullscreenDialog: true);
+          entry: entry, child: const _i10.ContactCreatePage());
     },
     ContactViewRoute.name: (entry) {
       var args = entry.routeData.argsAs<ContactViewRouteArgs>();
       return _i1.MaterialPageX(
           entry: entry,
-          child: _i10.ContactViewPage(key: args.key, contact: args.contact),
-          fullscreenDialog: true);
+          child: _i11.ContactViewPage(key: args.key, contact: args.contact));
     },
     ContactListRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i11.ContactListPage(),
+          child: const _i12.ContactListPage(),
           fullscreenDialog: true);
     },
     HistoryRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i12.HistoryPage(),
+          child: const _i13.HistoryPage(),
           fullscreenDialog: true);
     },
     RecieveRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i13.RecievePage(),
+          child: const _i14.RecievePage(),
           fullscreenDialog: true);
     },
     SendRoute.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry, child: const _i14.SendPage(), fullscreenDialog: true);
+          entry: entry, child: const _i15.SendPage(), fullscreenDialog: true);
     }
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(LayoutRoute.name, path: '/layout-page'),
         _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
         _i1.RouteConfig(SignUpRoute.name, path: '/sign-up-page'),
         _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
@@ -119,6 +121,12 @@ class SplashRoute extends _i1.PageRouteInfo {
   const SplashRoute() : super(name, path: '/');
 
   static const String name = 'SplashRoute';
+}
+
+class LayoutRoute extends _i1.PageRouteInfo {
+  const LayoutRoute() : super(name, path: '/layout-page');
+
+  static const String name = 'LayoutRoute';
 }
 
 class SignInRoute extends _i1.PageRouteInfo {
@@ -164,7 +172,7 @@ class ContactCreateRoute extends _i1.PageRouteInfo {
 }
 
 class ContactViewRoute extends _i1.PageRouteInfo<ContactViewRouteArgs> {
-  ContactViewRoute({_i15.Key? key, required _i16.Contact contact})
+  ContactViewRoute({_i16.Key? key, required _i17.Contact contact})
       : super(name,
             path: '/contact-view-page',
             args: ContactViewRouteArgs(key: key, contact: contact));
@@ -175,9 +183,9 @@ class ContactViewRoute extends _i1.PageRouteInfo<ContactViewRouteArgs> {
 class ContactViewRouteArgs {
   const ContactViewRouteArgs({this.key, required this.contact});
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
-  final _i16.Contact contact;
+  final _i17.Contact contact;
 }
 
 class ContactListRoute extends _i1.PageRouteInfo {

@@ -11,33 +11,36 @@ class ActionsTransactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
-          top: 0.27.sh,
-          right:50.w,
-          left: 50.w
-      ),
-      child:Column(
+        margin: EdgeInsets.only(top: 10.h, right: 50.w, left: 50.w),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ButtonMedium(
+                  icon: Icon(
+                    Icons.send,
+                    color: Colors.white,
+                  ),
                   text: 'Enviar',
                   textcolor: Colors.white,
                   buttoncolor: Theme.of(context).primaryColor,
-                  onTap: ()=> context.router.navigate(SendRoute()),
+                  onTap: () => context.router.navigate(SendRoute()),
                 ),
                 ButtonMedium(
+                  icon: Icon(
+                    Icons.qr_code,
+                    color: Colors.white,
+                  ),
                   text: 'Recibir',
                   textcolor: Colors.white,
                   buttoncolor: Theme.of(context).primaryColor,
-                  onTap: ()=> context.router.navigate(RecieveRoute()),
+                  onTap: () => context.router.navigate(RecieveRoute()),
                 ),
               ],
             ),
           ],
-        )
-    );
+        ));
   }
 }

@@ -76,10 +76,9 @@ class ContactCreateForm extends StatelessWidget {
                     height: 50.h,
                   ),
                   Row(
-                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       SizedBox(
-                        width: 270,
+                        width: 0.723.sw,
                         child: TextFormField(
                           controller: controlador,
                           decoration:
@@ -109,6 +108,7 @@ class ContactCreateForm extends StatelessWidget {
                         ),
                       ),
                       IconButton(
+                          padding: EdgeInsets.zero,
                           onPressed: () async {
                             String codeSanner;
                             try {
@@ -142,7 +142,7 @@ class ContactCreateForm extends StatelessWidget {
                     text: 'Cancelar',
                     textcolor: Colors.black,
                     buttoncolor: Colors.white,
-                    onTap: () => context.router.navigate(ContactListRoute()),
+                    onTap: () => context.router.pop(),
                   )
                 ],
               ),
