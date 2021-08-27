@@ -25,7 +25,7 @@ class DescriptionContact extends StatelessWidget {
               fontSize: 45.sp),
         ),
         Container(
-          width: 0.6.sw,
+          width: 0.65.sw,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Text(

@@ -1,63 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'description_table_history.dart';
-import 'value_table_history.dart';
+import 'transaction_item.dart';
 
 class HistoryList extends StatelessWidget {
   const HistoryList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        top: 0.37.sh,
-        left: 50.w,
-        right: 50.w,
-      ),
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Ultimos Movimientos',
-              style: Theme.of(context).textTheme.headline4!.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 40.sp
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Container(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: 50.w,
+              ),
+              child: Text(
+                'Ultimos Movimientos',
+                style: Theme.of(context).textTheme.headline4!.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40.sp),
               ),
             ),
-            SizedBox(height: 10.h),
-            Table(
-              columnWidths: {1: FractionColumnWidth(0.3)},
-              children: [
-                TableRow( children: [
-                  DescriptionTableHistory(date: '22/07/2021', contact: 'ODALIS VALENCIA' ),
-                  ValueTableHistory(value: '5,00', signo: '+', valuecolor: Colors.green, monto: '56,00',),
-                ]),
-                TableRow( children: [
-                  DescriptionTableHistory(date: '22/07/2021', contact: 'MARCO MACIAS' ),
-                  ValueTableHistory(value: '5,00', signo: '-', valuecolor: Colors.red, monto: '51,00',),
-                ]),
-                TableRow( children: [
-                  DescriptionTableHistory(date: '22/07/2021', contact: 'ODALIS VALENCIA' ),
-                  ValueTableHistory(value: '5,00', signo: '+', valuecolor: Colors.green, monto: '56,00',),
-                ]),
-                TableRow( children: [
-                  DescriptionTableHistory(date: '22/07/2021', contact: 'MARCO MACIAS' ),
-                  ValueTableHistory(value: '5,00', signo: '-', valuecolor: Colors.red, monto: '51,00',),
-                ]),
-                TableRow( children: [
-                  DescriptionTableHistory(date: '22/07/2021', contact: 'ODALIS VALENCIA' ),
-                  ValueTableHistory(value: '5,00', signo: '+', valuecolor: Colors.green, monto: '56,00',),
-                ]),
-                TableRow( children: [
-                  DescriptionTableHistory(date: '22/07/2021', contact: 'MARCO MACIAS' ),
-                  ValueTableHistory(value: '5,00', signo: '-', valuecolor: Colors.red, monto: '51,00',),
-                ]),
-
-              ],
-            ),
-
-          ]
+            SizedBox(height: 30.h),
+            Container(
+              constraints: BoxConstraints(
+                maxHeight: 0.42.sh,
+              ),
+              child: ListView.separated(
+                padding: EdgeInsets.only(
+                  bottom: 45.h + ScreenUtil().bottomBarHeight,
+                  left: 50.w,
+                  right: 60.w,
+                ),
+                itemBuilder: (context, index) {
+                  return TransactionItem();
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(height: 10.h);
+                },
+                itemCount: 15,
+              ),
+            )
+          ]),
+        ),
       ),
     );
   }

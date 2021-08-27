@@ -21,7 +21,7 @@ class ValueTable extends StatelessWidget {
         child: Text(Utils.getPriceChange(value),
             textAlign: TextAlign.end,
             style: TextStyle(
-                fontSize: 50.sp,
+                fontSize: 40.sp,
                 fontWeight: FontWeight.bold,
                 color: value >= 0 ? Colors.green : Colors.redAccent)));
   }

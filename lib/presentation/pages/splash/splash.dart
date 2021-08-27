@@ -17,11 +17,11 @@ class SplashPage extends StatelessWidget {
         state.map(
           initial: (_) => {},
           authenticated: (_) => context.router
-              .pushAndRemoveUntil(HomeRoute(), predicate: (e) => false),
+              .pushAndRemoveUntil(LayoutRoute(), predicate: (e) => false),
           withOutWallet: (_) => context.router
-              .pushAndRemoveUntil(HomeRoute(), predicate: (e) => false),
+              .pushAndRemoveUntil(WalletFormRoute(), predicate: (e) => false),
           unauthenticated: (_) => context.router.replace(
-            WalletFormRoute(),
+            SignInRoute(),
           ),
           modeFailure: (_) {},
         );

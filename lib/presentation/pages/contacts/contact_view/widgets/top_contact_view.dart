@@ -1,11 +1,11 @@
-import 'package:crypto_wallet/domain/contacts/contact.dart';
-import 'package:crypto_wallet/presentation/pages/auth/widgets/custom_button.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:auto_route/auto_route.dart';
+
 import '../../../../../aplication/contact/contact_form_bloc/contact_form_bloc.dart';
-import '../../../../routes/router.gr.dart';
+import '../../../../../domain/contacts/contact.dart';
+import '../../../auth/widgets/custom_button.dart';
 
 class TopContactView extends StatelessWidget {
   final bool isEditing;
@@ -18,7 +18,6 @@ class TopContactView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 0.35.sh,
-      width: 3.sw,
       decoration: BoxDecoration(
         gradient: LinearGradient(
             begin: Alignment.topLeft,
@@ -28,89 +27,74 @@ class TopContactView extends StatelessWidget {
               Color.fromRGBO(9, 126, 234, 100)
             ]),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30.h,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppBar(
+            leading: IconButton(
+              onPressed: () {
+                if (isEditing) {
+                  context
+                      .read<ContactFormBloc>()
+                      .add(ContactFormEvent.isEditing());
+                } else {
+                  context.router.pop();
+                }
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: 25,
+              ),
             ),
-            isEditing
-                ? Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                    IconButton(
-                      onPressed: () => context.read<ContactFormBloc>().add(
-                            ContactFormEvent.isEditing(),
-                          ),
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 25,
-                      ),
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            actions: [
+              IconButton(
+                onPressed: () => context.read<ContactFormBloc>().add(
+                      ContactFormEvent.isEditing(),
                     ),
-                  ])
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                        IconButton(
-                          onPressed: () =>
-                              context.router.navigate(ContactListRoute()),
-                          icon: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 25,
-                          ),
-                        ),
-                        Spacer(
-                          flex: 3,
-                        ),
-                        IconButton(
-                          onPressed: () => context.read<ContactFormBloc>().add(
-                                ContactFormEvent.isEditing(),
-                              ),
-                          icon: Icon(
-                            Icons.edit,
-                            color: Colors.white,
-                            size: 25,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () => showModalBottomSheet(
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            builder: (ctx) {
-                              return DeleteDialog(
-                                onAcept: () => {
-                                  context
-                                      .read<ContactFormBloc>()
-                                      .add(ContactFormEvent.delete(contact)),
-                                  context.router.pop(),
-                                },
-                                onCancel: () => context.router.pop(),
-                              );
-                            },
-                          ),
-                          icon: Icon(
-                            Icons.delete,
-                            color: Colors.white,
-                            size: 25,
-                          ),
-                        ),
-                      ]),
-            SizedBox(
-              height: 30.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.account_circle,
+                icon: Icon(
+                  Icons.edit,
                   color: Colors.white,
-                  size: 150,
+                  size: 25,
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+              IconButton(
+                onPressed: () => showModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  builder: (ctx) {
+                    return DeleteDialog(
+                      onAcept: () => {
+                        context
+                            .read<ContactFormBloc>()
+                            .add(ContactFormEvent.delete(contact)),
+                        context.router.pop(),
+                      },
+                      onCancel: () => context.router.pop(),
+                    );
+                  },
+                ),
+                icon: Icon(
+                  Icons.delete,
+                  color: Colors.white,
+                  size: 25,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.account_circle,
+                color: Colors.white,
+                size: 150,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

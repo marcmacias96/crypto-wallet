@@ -86,8 +86,7 @@ class ContactRepository implements IContactRepository {
       final reference = userDoc.walletCollection
           .doc(UserPreference.getWalletId())
           .contactCollection
-          .orderBy('name')
-          .limit(limit);
+          .orderBy('name');
 
       yield* reference.snapshots().map((snapShot) {
         if (snapShot.size > 0) {

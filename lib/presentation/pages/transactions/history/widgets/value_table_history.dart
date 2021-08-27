@@ -6,42 +6,37 @@ class ValueTableHistory extends StatelessWidget {
   final String signo;
   final Color valuecolor;
   final String monto;
-  const ValueTableHistory({Key? key,
-    required this.value,
-    required this.signo,
-    required this.valuecolor,
-    required this.monto
-  }) : super(key: key);
+  const ValueTableHistory(
+      {Key? key,
+      required this.value,
+      required this.signo,
+      required this.valuecolor,
+      required this.monto})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
-        right:40.w,
-      ),
       child: Column(
-        crossAxisAlignment:CrossAxisAlignment.end ,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text(
-            signo+value,
+            signo + value,
             style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: valuecolor,
                 fontWeight: FontWeight.bold,
-                fontSize: 40.sp
-            ),
+                fontSize: 35.sp),
           ),
           SizedBox(
             height: 5.h,
           ),
           Text(
-            r'$'+monto,
+            r'$' + monto,
             style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: Colors.black26,
                 fontWeight: FontWeight.bold,
-                fontSize: 30.sp
-            ),
+                fontSize: 30.sp),
           ),
-
         ],
       ),
     );

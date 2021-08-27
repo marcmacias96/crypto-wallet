@@ -25,7 +25,7 @@ class DescriptionTable extends StatelessWidget {
             textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: Colors.black,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 fontSize: 40.sp),
           ),
           Text(

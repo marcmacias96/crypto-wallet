@@ -16,8 +16,7 @@ class ListContacts extends StatelessWidget {
     return BlocConsumer<ContactListBloc, ContactListState>(
         builder: (context, state) {
           return Container(
-              height: 0.745.sh,
-              margin: EdgeInsets.only(top: 0.2.sh),
+              margin: EdgeInsets.only(top: 0.15.sh),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -26,54 +25,56 @@ class ListContacts extends StatelessWidget {
               ),
               width: double.infinity,
               child: Container(
-                  margin: EdgeInsets.only(
-                    left: 10.w,
-                    right: 10.w,
-                  ),
                   child: Column(children: [
-                    if (state.contacts.size > 0)
-                      Visibility(
-                        child: Container(
-                          height: 0.745.sh,
-                          child: ListView.separated(
-                            itemBuilder: (context2, index) {
-                              return ContactItem(
-                                  name: state.contacts[index].name.getOrCrash(),
-                                  address: state.contacts[index].address
-                                      .getOrCrash(),
-                                  onTap: () =>
-                                      context.router.navigate(ContactViewRoute(
-                                        contact: state.contacts[index],
-                                      )));
-                            },
-                            separatorBuilder: (context, index) {
-                              return SizedBox(
-                                height: 10,
-                              );
-                            },
-                            itemCount: state.contacts.size,
-                          ),
+                if (state.contacts.size > 0)
+                  Visibility(
+                    child: Container(
+                      height: 0.85.sh,
+                      child: ListView.separated(
+                        padding: EdgeInsets.only(
+                          bottom: ScreenUtil().bottomBarHeight + 10.h,
+                          top: 20.h,
+                          left: 10.w,
+                          right: 10.w,
                         ),
-                      )
-                    else
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: 0.20.sh,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.contacts,
-                              color: Colors.black12,
-                              size: 90,
-                            ),
-                            TextContactZero(title: 'No tiene contactos')
-                          ],
-                        ),
+                        itemBuilder: (context2, index) {
+                          return ContactItem(
+                              name: state.contacts[index].name.getOrCrash(),
+                              address:
+                                  state.contacts[index].address.getOrCrash(),
+                              onTap: () =>
+                                  context.router.navigate(ContactViewRoute(
+                                    contact: state.contacts[index],
+                                  )));
+                        },
+                        separatorBuilder: (context, index) {
+                          return SizedBox(
+                            height: 10,
+                          );
+                        },
+                        itemCount: state.contacts.size,
                       ),
-                  ])));
+                    ),
+                  )
+                else
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: 0.20.sh,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.contacts,
+                          color: Colors.black12,
+                          size: 90,
+                        ),
+                        TextContactZero(title: 'No tiene contactos')
+                      ],
+                    ),
+                  ),
+              ])));
         },
         listener: (context, state) {});
   }
