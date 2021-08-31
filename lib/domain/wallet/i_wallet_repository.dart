@@ -7,7 +7,8 @@ import 'wallet_failure.dart';
 
 abstract class IWalletRepository {
   Future<Either<FirestoreFailure, Unit>> saveOnFirestore(Wallet wallet);
-  Future<Either<WalletFailure, WalletResponse>> create(Wallet wallet);
+  Future<WalletResponse> createWallet(String mnemonic);
+  Future<AddressResponse> createAddress(Wallet wallet);
   Future<Either<FirestoreFailure, Unit>> update(Wallet wallet);
   Future<Either<FirestoreFailure, Unit>> delete(Wallet wallet);
   Future<Either<FirestoreFailure, Wallet>> watch();

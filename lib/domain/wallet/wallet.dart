@@ -9,25 +9,22 @@ part 'wallet.freezed.dart';
 
 @freezed
 class Wallet with _$Wallet {
-  const factory Wallet(
-      {required UniqueId id,
-      required WalletId walletId,
-      Name? name,
-      required String address,
-      required Password password,
-      required String apiCode}) = _Wallet;
+  const Wallet._();
+  const factory Wallet({
+    required UniqueId id,
+    required String walletId,
+    Name? name,
+    required double balance,
+    required String address,
+    required String mnemonic,
+  }) = _Wallet;
 
   factory Wallet.empty() => Wallet(
-      id: UniqueId(),
-      walletId: WalletId(''),
-      apiCode: '12345',
-      name: Name(''),
-      address: '',
-      password: Password(''));
-}
-
-extension UserX on Wallet {
-  Option<ValueFailure<dynamic>> get failureOption {
-    return walletId.failureOrUnit.fold(some, (r) => none());
-  }
+        id: UniqueId(),
+        walletId: '',
+        name: Name(''),
+        address: '',
+        mnemonic: '',
+        balance: 0.0,
+      );
 }

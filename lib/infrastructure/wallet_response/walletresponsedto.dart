@@ -8,25 +8,55 @@ part 'walletresponsedto.g.dart';
 
 @freezed
 class WalletResponseDto with _$WalletResponseDto {
+  const WalletResponseDto._();
   factory WalletResponseDto({
-    @JsonKey(includeIfNull: false) required String guid,
-    @JsonKey(includeIfNull: false) required String address,
-    @JsonKey(includeIfNull: false) required String label,
+    @JsonKey(includeIfNull: false) required String mnemonic,
+    @JsonKey(includeIfNull: false) required String xpub,
   }) = _WalletResponseDto;
 
   factory WalletResponseDto.fromDomain(Wallet wallet) {
     return WalletResponseDto(
-        guid: wallet.walletId.getOrCrash(),
-        address: wallet.address,
-        label: wallet.name!.getOrCrash());
+      xpub: wallet.walletId,
+      mnemonic: wallet.address,
+    );
   }
 
   factory WalletResponseDto.fromJson(Map<String, dynamic> json) =>
       _$WalletResponseDtoFromJson(json);
+
+  WalletResponse toDomain() {
+    return WalletResponse(mnemonic: mnemonic, xpub: xpub);
+  }
 }
 
-extension WalletDtoX on WalletResponseDto {
-  WalletResponse toDomain() {
-    return WalletResponse(address: address, guid: guid, label: label);
+@freezed
+class AddressResponseDto with _$AddressResponseDto {
+  const AddressResponseDto._();
+  factory AddressResponseDto({
+    @JsonKey(includeIfNull: false) required String address,
+  }) = _AddressResponseDto;
+
+  factory AddressResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$AddressResponseDtoFromJson(json);
+
+  AddressResponse toDomain() {
+    return AddressResponse(address: address);
+  }
+}
+
+@freezed
+class WalletBalanceDto with _$WalletBalanceDto {
+  const WalletBalanceDto._();
+  factory WalletBalanceDto({
+    @JsonKey(includeIfNull: false) required String incoming,
+    @JsonKey(includeIfNull: false) required String outgoing,
+  }) = _WalletBalanceDto;
+
+  factory WalletBalanceDto.fromJson(Map<String, dynamic> json) =>
+      _$WalletBalanceDtoFromJson(json);
+
+  BalanceResponse toDomain() {
+    return BalanceResponse(
+        incoming: double.parse(incoming), outgoing: double.parse(outgoing));
   }
 }

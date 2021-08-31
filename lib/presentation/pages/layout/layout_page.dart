@@ -34,7 +34,7 @@ class LayoutPage extends StatelessWidget {
         return Scaffold(
           body: PageView(
             controller: state.controller,
-            children: LayoutPage.list,
+            children: list,
           ),
           bottomNavigationBar: BottonNavigationBar(
             onTap: (index) {

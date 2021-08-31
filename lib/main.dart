@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
@@ -17,6 +18,7 @@ Future<void> main() async {
   await Firebase.initializeApp();
   Hive.init((await getApplicationDocumentsDirectory()).path);
   await Hive.openBox('preferences');
+  await dotenv.load(fileName: ".env");
   runApp(MyApp());
 }
 

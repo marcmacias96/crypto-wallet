@@ -22,12 +22,14 @@ class BodyWalletForm extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: BlocProvider(
-            create: (context) => getIt<WalletFormBloc>(),
+            create: (context) =>
+                getIt<WalletFormBloc>()..add(WalletFormEvent.createWallet()),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 LoginTitle(title: 'Terminar Registro'),
-                WalletSubtitle(subtitle: 'Ingresando los datos de tu billetera  virtual'),
+                WalletSubtitle(
+                    subtitle: 'Ingresando los datos de tu billetera  virtual'),
                 FormWalletForm()
               ],
             ),

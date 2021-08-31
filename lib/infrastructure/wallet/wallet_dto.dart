@@ -10,34 +10,27 @@ part 'wallet_dto.g.dart';
 
 @freezed
 class WalletDto with _$WalletDto {
+  const WalletDto._();
+
   @JsonSerializable(explicitToJson: true)
-  const factory WalletDto(
-      {@JsonKey(ignore: false)
-          String? id,
-      @JsonKey(includeIfNull: false, name: 'api_code')
-          required String apiCode,
-      @JsonKey(
-        includeIfNull: false,
-      )
-          required String address,
-      @JsonKey(includeIfNull: false)
-          String? name,
-      @JsonKey(includeIfNull: false)
-          required String password,
-      @JsonKey(name: 'is_default')
-          required bool isDefault,
-      @JsonKey(includeIfNull: false, name: 'wallet_id')
-          required String walletId}) = _WalletDto;
+  const factory WalletDto({
+    @JsonKey(ignore: false) required String id,
+    @JsonKey(includeIfNull: false) required String address,
+    @JsonKey(includeIfNull: false) String? name,
+    @JsonKey(includeIfNull: false) required String mnemonic,
+    @JsonKey(name: 'is_default') required bool isDefault,
+    @JsonKey(includeIfNull: false, name: 'wallet_id') required String walletId,
+  }) = _WalletDto;
 
   factory WalletDto.fromDomain(Wallet wallet) {
     return WalletDto(
-        isDefault: true,
-        id: wallet.id.getOrCrash(),
-        walletId: wallet.walletId.getOrCrash(),
-        name: wallet.name!.getOrCrash(),
-        password: wallet.password.encrypt().getOrCrash(),
-        address: wallet.address,
-        apiCode: wallet.apiCode);
+      isDefault: true,
+      id: wallet.id.getOrCrash(),
+      walletId: wallet.walletId,
+      name: wallet.name!.getOrCrash(),
+      mnemonic: wallet.mnemonic,
+      address: wallet.address,
+    );
   }
 
   factory WalletDto.fromJson(Map<String, dynamic> json) =>
@@ -46,16 +39,14 @@ class WalletDto with _$WalletDto {
   factory WalletDto.fromFirestore(DocumentSnapshot doc) =>
       WalletDto.fromJson(doc.data() as Map<String, dynamic>)
           .copyWith(id: doc.id);
-}
 
-extension WalletDtoX on WalletDto {
   Wallet toDomain() {
     return Wallet(
-        id: UniqueId.fromUniqueString(id ?? ''),
-        walletId: WalletId(walletId),
+        id: UniqueId.fromUniqueString(id),
+        walletId: walletId,
         name: Name(name!),
-        password: Password(password).decrypt(),
-        apiCode: apiCode,
-        address: address);
+        mnemonic: mnemonic,
+        address: address,
+        balance: 0.0);
   }
 }

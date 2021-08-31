@@ -68,63 +68,6 @@ class FormWalletForm extends StatelessWidget {
                               ),
                           (_) => null),
                 ),
-                Visibility(
-                  visible: false,
-                  child: TextFormField(
-                    autocorrect: false,
-                    onChanged: (value) => context
-                        .read<WalletFormBloc>()
-                        .add(WalletFormEvent.idWalletChanged(value)),
-                    decoration: InputDecoration(hintText: 'ID Wallet'),
-                    style: TextStyle(color: Colors.black),
-                    keyboardType: TextInputType.text,
-                    validator: (_) => context
-                        .read<WalletFormBloc>()
-                        .state
-                        .wallet
-                        .walletId
-                        .value
-                        .fold(
-                            (f) => f.maybeMap(
-                                  multiline: (_) =>
-                                      'No se permiten saltos de linea',
-                                  spaces: (_) => 'No se permiten espacios',
-                                  exceedingLength: (_) =>
-                                      'No se permiten más de 30 caracteres',
-                                  empty: (_) => 'Ingrese un ID',
-                                  orElse: () => null,
-                                ),
-                            (_) => null),
-                  ),
-                ),
-                SizedBox(
-                  height: 50.h,
-                ),
-                TextFormField(
-                  autocorrect: false,
-                  onChanged: (value) => context
-                      .read<WalletFormBloc>()
-                      .add(WalletFormEvent.passwordChanged(value)),
-                  decoration: InputDecoration(hintText: 'ID Wallet'),
-                  style: TextStyle(color: Colors.black),
-                  keyboardType: TextInputType.text,
-                  validator: (_) => context
-                      .read<WalletFormBloc>()
-                      .state
-                      .wallet
-                      .password
-                      .value
-                      .fold(
-                          (f) => f.maybeMap(
-                                multiline: (_) =>
-                                    'No se permiten saltos de linea',
-                                shortPassword: (_) =>
-                                    'El ID Wallet debe tener mas de 6 digitos',
-                                empty: (_) => 'Ingrese un ID Wallet',
-                                orElse: () => null,
-                              ),
-                          (_) => null),
-                ),
                 SizedBox(
                   height: 60.h,
                 ),
@@ -134,13 +77,13 @@ class FormWalletForm extends StatelessWidget {
                   buttoncolor: Theme.of(context).primaryColor,
                   onTap: () => context
                       .read<WalletFormBloc>()
-                      .add(WalletFormEvent.createWallet()),
+                      .add(WalletFormEvent.createAddress()),
                 ),
                 CustomButton(
                   text: 'Cancelar',
                   textcolor: Colors.black,
                   buttoncolor: Colors.white,
-                  onTap: () => context.router.navigate(Welcome1Route()),
+                  onTap: () => context.router.pop(),
                 )
               ],
             ),
