@@ -25,11 +25,8 @@ class UserDto with _$UserDto {
 
   factory UserDto.fromDomain(User user) {
     return UserDto(
-      name: user.name.getOrCrash(),
-      email: user.email.getOrCrash()
-    );
+        name: user.name.getOrCrash(), email: user.email.getOrCrash());
   }
-
 }
 
 extension UserX on UserDto {

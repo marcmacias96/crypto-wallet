@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/core/value_objects.dart';
-import '../../domain/wallet/value_objects.dart';
 import '../../domain/wallet/wallet.dart';
 
 part 'wallet_dto.freezed.dart';

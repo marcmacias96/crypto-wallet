@@ -8,10 +8,7 @@ import 'package:bip39/bip39.dart' as bip39;
 import '../../../domain/core/firestore_failure.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/wallet/i_wallet_repository.dart';
-import '../../../domain/wallet/value_objects.dart';
 import '../../../domain/wallet/wallet.dart';
-import '../../../domain/wallet/wallet_failure.dart';
-import '../../../domain/wallet_response/wallet_response.dart';
 
 part 'wallet_form_bloc.freezed.dart';
 part 'wallet_form_event.dart';

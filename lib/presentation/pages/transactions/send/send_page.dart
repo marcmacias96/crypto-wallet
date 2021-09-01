@@ -10,9 +10,7 @@ class SendPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         alignment: Alignment.topCenter,
-        children: [
-          BodySend()
-        ],
+        children: [BodySend()],
       ),
     );
   }

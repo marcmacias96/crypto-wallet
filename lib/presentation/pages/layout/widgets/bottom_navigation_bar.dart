@@ -1,6 +1,7 @@
-import 'package:crypto_wallet/aplication/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../aplication/auth/auth_bloc.dart';
 
 class BottonNavigationBar extends StatelessWidget {
   final Function onTap;

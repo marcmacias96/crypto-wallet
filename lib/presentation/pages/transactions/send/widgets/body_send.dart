@@ -19,11 +19,7 @@ class BodySend extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TransactionTitle(title: 'Enviar'),
-              FormSend ()
-
-            ],
+            children: [TransactionTitle(title: 'Enviar'), FormSend()],
           ),
         ),
       ),

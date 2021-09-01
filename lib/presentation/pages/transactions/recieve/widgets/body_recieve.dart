@@ -19,11 +19,7 @@ class BodyRecieve extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TransactionTitle(title: 'Recibir'),
-              FormRecieve ()
-
-            ],
+            children: [TransactionTitle(title: 'Recibir'), FormRecieve()],
           ),
         ),
       ),

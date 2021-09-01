@@ -15,9 +15,8 @@ class AppWidget extends StatelessWidget {
       designSize: Size(750, 1334),
       builder: () {
         return BlocProvider(
-          create: (context) => getIt<AuthBloc>()..add(
-              const AuthEvent.authCheckRequested()
-          ),
+          create: (context) =>
+              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
             routerDelegate: _appRouter.delegate(),

@@ -19,15 +19,17 @@ class BodyContactCreate extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                LoginTitle(title: 'Crear Contacto'),
-                WalletSubtitle(subtitle: 'Agregar un nuevo contacto a tu lista de contactos'),
-                ContactCreateForm()
-              ],
-            ),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              LoginTitle(title: 'Crear Contacto'),
+              WalletSubtitle(
+                  subtitle:
+                      'Agregar un nuevo contacto a tu lista de contactos'),
+              ContactCreateForm()
+            ],
           ),
         ),
-      );
+      ),
+    );
   }
 }

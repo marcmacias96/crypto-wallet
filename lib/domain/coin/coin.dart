@@ -5,11 +5,11 @@ part 'coin.freezed.dart';
 class Coin with _$Coin {
   const factory Coin(
       {required String id,
-        required String name,
-        required String symbol,
-        required String image,
-        required double currentPrice,
-        required double priceChange,
-        @Default(0.0) double? amount,
-        @Default(0.0) double? dollars}) = _Coin;
+      required String name,
+      required String symbol,
+      required String image,
+      required double currentPrice,
+      required double priceChange,
+      @Default(0.0) double? amount,
+      @Default(0.0) double? dollars}) = _Coin;
 }

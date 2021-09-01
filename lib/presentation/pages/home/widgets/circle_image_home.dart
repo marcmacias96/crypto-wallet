@@ -4,10 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CircleImageHome extends StatelessWidget {
   final String imageSrc;
   final VoidCallback onTap;
-  const CircleImageHome({Key? key,
-    required this.imageSrc,
-    required this.onTap
-  }) : super(key: key);
+  const CircleImageHome({Key? key, required this.imageSrc, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,7 @@ class CircleImageHome extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(
           top: 25.h,
-          right:40.w,
+          right: 40.w,
         ),
         height: 90.h,
         width: 90.w,
@@ -29,9 +27,7 @@ class CircleImageHome extends StatelessWidget {
                 image: ExactAssetImage(
                   imageSrc,
                 ),
-                fit: BoxFit.contain
-            )
-        ),
+                fit: BoxFit.contain)),
       ),
     );
   }

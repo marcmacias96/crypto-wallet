@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crypto_wallet/infrastructure/wallet/tatum_api/tatum_api.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
@@ -13,8 +12,8 @@ import '../../injection.dart';
 import '../../utils/user_preference.dart';
 import '../auth/user_dto.dart';
 import '../core/firestore_helpers.dart';
+import '../data_source/tatum_api/tatum_api.dart';
 import '../wallet_response/walletresponsedto.dart';
-
 import 'wallet_dto.dart';
 
 @LazySingleton(as: IWalletRepository)

@@ -10,9 +10,7 @@ class BodyWelcome2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 1.sw,
-      margin: EdgeInsets.only(
-          top: 0.10.sh
-      ),
+      margin: EdgeInsets.only(top: 0.10.sh),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -21,7 +19,6 @@ class BodyWelcome2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
-
                 children: [
                   Icon(
                     Icons.account_balance_wallet,
@@ -43,7 +40,9 @@ class BodyWelcome2 extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 100.h,),
+          SizedBox(
+            height: 100.h,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -57,7 +56,6 @@ class BodyWelcome2 extends StatelessWidget {
                   SubtitleWelcome(subtitle: 'Recibir')
                 ],
               ),
-
               Column(
                 children: [
                   Icon(

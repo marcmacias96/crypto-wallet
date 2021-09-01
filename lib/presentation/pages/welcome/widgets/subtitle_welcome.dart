@@ -3,22 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SubtitleWelcome extends StatelessWidget {
   final String subtitle;
-  const SubtitleWelcome({Key? key,required this.subtitle}) : super(key: key);
+  const SubtitleWelcome({Key? key, required this.subtitle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-          left:50.w,
+        left: 50.w,
       ),
       child: Text(
         subtitle,
-        textAlign:  TextAlign.center,
+        textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.headline4!.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.normal,
-            fontSize: 40.sp
-        ),
+            fontSize: 40.sp),
       ),
     );
   }

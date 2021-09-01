@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomeLogo extends StatelessWidget {
-
   final String imageSrc;
   const WelcomeLogo({Key? key, required this.imageSrc}) : super(key: key);
 
@@ -13,10 +12,7 @@ class WelcomeLogo extends StatelessWidget {
       width: 160.w,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        image: DecorationImage(
-            image: ExactAssetImage(imageSrc)
-        )
-      ),
+          image: DecorationImage(image: ExactAssetImage(imageSrc))),
     );
   }
 }
