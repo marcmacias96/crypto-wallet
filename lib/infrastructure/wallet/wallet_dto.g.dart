@@ -14,6 +14,7 @@ _$_WalletDto _$_$_WalletDtoFromJson(Map<String, dynamic> json) {
     mnemonic: json['mnemonic'] as String,
     isDefault: json['is_default'] as bool,
     walletId: json['wallet_id'] as String,
+    privateKey: json['private_key'] as String,
   );
 }
 
@@ -33,5 +34,6 @@ Map<String, dynamic> _$_$_WalletDtoToJson(_$_WalletDto instance) {
   val['mnemonic'] = instance.mnemonic;
   val['is_default'] = instance.isDefault;
   val['wallet_id'] = instance.walletId;
+  val['private_key'] = instance.privateKey;
   return val;
 }

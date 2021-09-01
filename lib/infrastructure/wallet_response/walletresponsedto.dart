@@ -60,3 +60,18 @@ class WalletBalanceDto with _$WalletBalanceDto {
         incoming: double.parse(incoming), outgoing: double.parse(outgoing));
   }
 }
+
+@freezed
+class PrivateKeyDto with _$PrivateKeyDto {
+  const PrivateKeyDto._();
+  factory PrivateKeyDto({
+    @JsonKey(includeIfNull: false) required String key,
+  }) = _PrivateKeyDto;
+
+  factory PrivateKeyDto.fromJson(Map<String, dynamic> json) =>
+      _$PrivateKeyDtoFromJson(json);
+
+  PrivateKeyResponse toDomain() {
+    return PrivateKeyResponse(key: key);
+  }
+}

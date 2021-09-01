@@ -20,6 +20,8 @@ class WalletDto with _$WalletDto {
     @JsonKey(includeIfNull: false) required String mnemonic,
     @JsonKey(name: 'is_default') required bool isDefault,
     @JsonKey(includeIfNull: false, name: 'wallet_id') required String walletId,
+    @JsonKey(includeIfNull: false, name: 'private_key')
+        required String privateKey,
   }) = _WalletDto;
 
   factory WalletDto.fromDomain(Wallet wallet) {
@@ -30,6 +32,7 @@ class WalletDto with _$WalletDto {
       name: wallet.name!.getOrCrash(),
       mnemonic: wallet.mnemonic,
       address: wallet.address,
+      privateKey: wallet.privateKey,
     );
   }
 
@@ -47,6 +50,7 @@ class WalletDto with _$WalletDto {
         name: Name(name!),
         mnemonic: mnemonic,
         address: address,
+        privateKey: privateKey,
         balance: 0.0);
   }
 }

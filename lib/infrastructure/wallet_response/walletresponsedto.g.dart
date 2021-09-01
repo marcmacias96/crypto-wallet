@@ -46,3 +46,14 @@ Map<String, dynamic> _$_$_WalletBalanceDtoToJson(
       'incoming': instance.incoming,
       'outgoing': instance.outgoing,
     };
+
+_$_PrivateKeyDto _$_$_PrivateKeyDtoFromJson(Map<String, dynamic> json) {
+  return _$_PrivateKeyDto(
+    key: json['key'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_PrivateKeyDtoToJson(_$_PrivateKeyDto instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+    };

@@ -54,4 +54,23 @@ class TatumApi {
       throw WalletFailure.unexpected();
     }
   }
+
+  static Future<Map<String, dynamic>> createPrivateKey(String mnemonic) async {
+    final response = await http.post(Uri.https(_api, '/v3/bitcoin/wallet/priv'),
+        headers: {
+          'x-api-key': dotenv.env['API_CODE']!,
+          "content-type": 'application/json'
+        },
+        body: json.encode({
+          'index': 1,
+          'mnemonic': mnemonic,
+        }));
+
+    if (response.statusCode == 200) {
+      var parsed = jsonDecode(response.body);
+      return parsed;
+    } else {
+      throw WalletFailure.unexpected();
+    }
+  }
 }

@@ -550,3 +550,159 @@ abstract class _WalletBalanceDto extends WalletBalanceDto {
   _$WalletBalanceDtoCopyWith<_WalletBalanceDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+PrivateKeyDto _$PrivateKeyDtoFromJson(Map<String, dynamic> json) {
+  return _PrivateKeyDto.fromJson(json);
+}
+
+/// @nodoc
+class _$PrivateKeyDtoTearOff {
+  const _$PrivateKeyDtoTearOff();
+
+  _PrivateKeyDto call({@JsonKey(includeIfNull: false) required String key}) {
+    return _PrivateKeyDto(
+      key: key,
+    );
+  }
+
+  PrivateKeyDto fromJson(Map<String, Object> json) {
+    return PrivateKeyDto.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $PrivateKeyDto = _$PrivateKeyDtoTearOff();
+
+/// @nodoc
+mixin _$PrivateKeyDto {
+  @JsonKey(includeIfNull: false)
+  String get key => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PrivateKeyDtoCopyWith<PrivateKeyDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PrivateKeyDtoCopyWith<$Res> {
+  factory $PrivateKeyDtoCopyWith(
+          PrivateKeyDto value, $Res Function(PrivateKeyDto) then) =
+      _$PrivateKeyDtoCopyWithImpl<$Res>;
+  $Res call({@JsonKey(includeIfNull: false) String key});
+}
+
+/// @nodoc
+class _$PrivateKeyDtoCopyWithImpl<$Res>
+    implements $PrivateKeyDtoCopyWith<$Res> {
+  _$PrivateKeyDtoCopyWithImpl(this._value, this._then);
+
+  final PrivateKeyDto _value;
+  // ignore: unused_field
+  final $Res Function(PrivateKeyDto) _then;
+
+  @override
+  $Res call({
+    Object? key = freezed,
+  }) {
+    return _then(_value.copyWith(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PrivateKeyDtoCopyWith<$Res>
+    implements $PrivateKeyDtoCopyWith<$Res> {
+  factory _$PrivateKeyDtoCopyWith(
+          _PrivateKeyDto value, $Res Function(_PrivateKeyDto) then) =
+      __$PrivateKeyDtoCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(includeIfNull: false) String key});
+}
+
+/// @nodoc
+class __$PrivateKeyDtoCopyWithImpl<$Res>
+    extends _$PrivateKeyDtoCopyWithImpl<$Res>
+    implements _$PrivateKeyDtoCopyWith<$Res> {
+  __$PrivateKeyDtoCopyWithImpl(
+      _PrivateKeyDto _value, $Res Function(_PrivateKeyDto) _then)
+      : super(_value, (v) => _then(v as _PrivateKeyDto));
+
+  @override
+  _PrivateKeyDto get _value => super._value as _PrivateKeyDto;
+
+  @override
+  $Res call({
+    Object? key = freezed,
+  }) {
+    return _then(_PrivateKeyDto(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_PrivateKeyDto extends _PrivateKeyDto {
+  _$_PrivateKeyDto({@JsonKey(includeIfNull: false) required this.key})
+      : super._();
+
+  factory _$_PrivateKeyDto.fromJson(Map<String, dynamic> json) =>
+      _$_$_PrivateKeyDtoFromJson(json);
+
+  @override
+  @JsonKey(includeIfNull: false)
+  final String key;
+
+  @override
+  String toString() {
+    return 'PrivateKeyDto(key: $key)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PrivateKeyDto &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(key);
+
+  @JsonKey(ignore: true)
+  @override
+  _$PrivateKeyDtoCopyWith<_PrivateKeyDto> get copyWith =>
+      __$PrivateKeyDtoCopyWithImpl<_PrivateKeyDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_PrivateKeyDtoToJson(this);
+  }
+}
+
+abstract class _PrivateKeyDto extends PrivateKeyDto {
+  factory _PrivateKeyDto({@JsonKey(includeIfNull: false) required String key}) =
+      _$_PrivateKeyDto;
+  _PrivateKeyDto._() : super._();
+
+  factory _PrivateKeyDto.fromJson(Map<String, dynamic> json) =
+      _$_PrivateKeyDto.fromJson;
+
+  @override
+  @JsonKey(includeIfNull: false)
+  String get key => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$PrivateKeyDtoCopyWith<_PrivateKeyDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -22,7 +22,8 @@ class _$WalletTearOff {
       Name? name,
       required double balance,
       required String address,
-      required String mnemonic}) {
+      required String mnemonic,
+      required String privateKey}) {
     return _Wallet(
       id: id,
       walletId: walletId,
@@ -30,6 +31,7 @@ class _$WalletTearOff {
       balance: balance,
       address: address,
       mnemonic: mnemonic,
+      privateKey: privateKey,
     );
   }
 }
@@ -45,6 +47,7 @@ mixin _$Wallet {
   double get balance => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String get mnemonic => throw _privateConstructorUsedError;
+  String get privateKey => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WalletCopyWith<Wallet> get copyWith => throw _privateConstructorUsedError;
@@ -60,7 +63,8 @@ abstract class $WalletCopyWith<$Res> {
       Name? name,
       double balance,
       String address,
-      String mnemonic});
+      String mnemonic,
+      String privateKey});
 }
 
 /// @nodoc
@@ -79,6 +83,7 @@ class _$WalletCopyWithImpl<$Res> implements $WalletCopyWith<$Res> {
     Object? balance = freezed,
     Object? address = freezed,
     Object? mnemonic = freezed,
+    Object? privateKey = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -105,6 +110,10 @@ class _$WalletCopyWithImpl<$Res> implements $WalletCopyWith<$Res> {
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
               as String,
+      privateKey: privateKey == freezed
+          ? _value.privateKey
+          : privateKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,7 +129,8 @@ abstract class _$WalletCopyWith<$Res> implements $WalletCopyWith<$Res> {
       Name? name,
       double balance,
       String address,
-      String mnemonic});
+      String mnemonic,
+      String privateKey});
 }
 
 /// @nodoc
@@ -140,6 +150,7 @@ class __$WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
     Object? balance = freezed,
     Object? address = freezed,
     Object? mnemonic = freezed,
+    Object? privateKey = freezed,
   }) {
     return _then(_Wallet(
       id: id == freezed
@@ -166,6 +177,10 @@ class __$WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
               as String,
+      privateKey: privateKey == freezed
+          ? _value.privateKey
+          : privateKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -178,7 +193,8 @@ class _$_Wallet extends _Wallet {
       this.name,
       required this.balance,
       required this.address,
-      required this.mnemonic})
+      required this.mnemonic,
+      required this.privateKey})
       : super._();
 
   @override
@@ -193,10 +209,12 @@ class _$_Wallet extends _Wallet {
   final String address;
   @override
   final String mnemonic;
+  @override
+  final String privateKey;
 
   @override
   String toString() {
-    return 'Wallet(id: $id, walletId: $walletId, name: $name, balance: $balance, address: $address, mnemonic: $mnemonic)';
+    return 'Wallet(id: $id, walletId: $walletId, name: $name, balance: $balance, address: $address, mnemonic: $mnemonic, privateKey: $privateKey)';
   }
 
   @override
@@ -218,7 +236,10 @@ class _$_Wallet extends _Wallet {
                     .equals(other.address, address)) &&
             (identical(other.mnemonic, mnemonic) ||
                 const DeepCollectionEquality()
-                    .equals(other.mnemonic, mnemonic)));
+                    .equals(other.mnemonic, mnemonic)) &&
+            (identical(other.privateKey, privateKey) ||
+                const DeepCollectionEquality()
+                    .equals(other.privateKey, privateKey)));
   }
 
   @override
@@ -229,7 +250,8 @@ class _$_Wallet extends _Wallet {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(balance) ^
       const DeepCollectionEquality().hash(address) ^
-      const DeepCollectionEquality().hash(mnemonic);
+      const DeepCollectionEquality().hash(mnemonic) ^
+      const DeepCollectionEquality().hash(privateKey);
 
   @JsonKey(ignore: true)
   @override
@@ -244,7 +266,8 @@ abstract class _Wallet extends Wallet {
       Name? name,
       required double balance,
       required String address,
-      required String mnemonic}) = _$_Wallet;
+      required String mnemonic,
+      required String privateKey}) = _$_Wallet;
   const _Wallet._() : super._();
 
   @override
@@ -259,6 +282,8 @@ abstract class _Wallet extends Wallet {
   String get address => throw _privateConstructorUsedError;
   @override
   String get mnemonic => throw _privateConstructorUsedError;
+  @override
+  String get privateKey => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WalletCopyWith<_Wallet> get copyWith => throw _privateConstructorUsedError;

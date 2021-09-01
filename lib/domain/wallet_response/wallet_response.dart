@@ -24,3 +24,10 @@ class BalanceResponse with _$BalanceResponse {
     required double outgoing,
   }) = _BalanceResponse;
 }
+
+@freezed
+class PrivateKeyResponse with _$PrivateKeyResponse {
+  factory PrivateKeyResponse({
+    required String key,
+  }) = _PrivateKeyResponse;
+}

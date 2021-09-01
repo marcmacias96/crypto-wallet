@@ -441,3 +441,131 @@ abstract class _BalanceResponse implements BalanceResponse {
   _$BalanceResponseCopyWith<_BalanceResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$PrivateKeyResponseTearOff {
+  const _$PrivateKeyResponseTearOff();
+
+  _PrivateKeyResponse call({required String key}) {
+    return _PrivateKeyResponse(
+      key: key,
+    );
+  }
+}
+
+/// @nodoc
+const $PrivateKeyResponse = _$PrivateKeyResponseTearOff();
+
+/// @nodoc
+mixin _$PrivateKeyResponse {
+  String get key => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PrivateKeyResponseCopyWith<PrivateKeyResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PrivateKeyResponseCopyWith<$Res> {
+  factory $PrivateKeyResponseCopyWith(
+          PrivateKeyResponse value, $Res Function(PrivateKeyResponse) then) =
+      _$PrivateKeyResponseCopyWithImpl<$Res>;
+  $Res call({String key});
+}
+
+/// @nodoc
+class _$PrivateKeyResponseCopyWithImpl<$Res>
+    implements $PrivateKeyResponseCopyWith<$Res> {
+  _$PrivateKeyResponseCopyWithImpl(this._value, this._then);
+
+  final PrivateKeyResponse _value;
+  // ignore: unused_field
+  final $Res Function(PrivateKeyResponse) _then;
+
+  @override
+  $Res call({
+    Object? key = freezed,
+  }) {
+    return _then(_value.copyWith(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PrivateKeyResponseCopyWith<$Res>
+    implements $PrivateKeyResponseCopyWith<$Res> {
+  factory _$PrivateKeyResponseCopyWith(
+          _PrivateKeyResponse value, $Res Function(_PrivateKeyResponse) then) =
+      __$PrivateKeyResponseCopyWithImpl<$Res>;
+  @override
+  $Res call({String key});
+}
+
+/// @nodoc
+class __$PrivateKeyResponseCopyWithImpl<$Res>
+    extends _$PrivateKeyResponseCopyWithImpl<$Res>
+    implements _$PrivateKeyResponseCopyWith<$Res> {
+  __$PrivateKeyResponseCopyWithImpl(
+      _PrivateKeyResponse _value, $Res Function(_PrivateKeyResponse) _then)
+      : super(_value, (v) => _then(v as _PrivateKeyResponse));
+
+  @override
+  _PrivateKeyResponse get _value => super._value as _PrivateKeyResponse;
+
+  @override
+  $Res call({
+    Object? key = freezed,
+  }) {
+    return _then(_PrivateKeyResponse(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_PrivateKeyResponse implements _PrivateKeyResponse {
+  _$_PrivateKeyResponse({required this.key});
+
+  @override
+  final String key;
+
+  @override
+  String toString() {
+    return 'PrivateKeyResponse(key: $key)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PrivateKeyResponse &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(key);
+
+  @JsonKey(ignore: true)
+  @override
+  _$PrivateKeyResponseCopyWith<_PrivateKeyResponse> get copyWith =>
+      __$PrivateKeyResponseCopyWithImpl<_PrivateKeyResponse>(this, _$identity);
+}
+
+abstract class _PrivateKeyResponse implements PrivateKeyResponse {
+  factory _PrivateKeyResponse({required String key}) = _$_PrivateKeyResponse;
+
+  @override
+  String get key => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$PrivateKeyResponseCopyWith<_PrivateKeyResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}

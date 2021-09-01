@@ -32,7 +32,9 @@ class _$WalletDtoTearOff {
       @JsonKey(name: 'is_default')
           required bool isDefault,
       @JsonKey(includeIfNull: false, name: 'wallet_id')
-          required String walletId}) {
+          required String walletId,
+      @JsonKey(includeIfNull: false, name: 'private_key')
+          required String privateKey}) {
     return _WalletDto(
       id: id,
       address: address,
@@ -40,6 +42,7 @@ class _$WalletDtoTearOff {
       mnemonic: mnemonic,
       isDefault: isDefault,
       walletId: walletId,
+      privateKey: privateKey,
     );
   }
 
@@ -65,6 +68,8 @@ mixin _$WalletDto {
   bool get isDefault => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false, name: 'wallet_id')
   String get walletId => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false, name: 'private_key')
+  String get privateKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -82,7 +87,8 @@ abstract class $WalletDtoCopyWith<$Res> {
       @JsonKey(includeIfNull: false) String? name,
       @JsonKey(includeIfNull: false) String mnemonic,
       @JsonKey(name: 'is_default') bool isDefault,
-      @JsonKey(includeIfNull: false, name: 'wallet_id') String walletId});
+      @JsonKey(includeIfNull: false, name: 'wallet_id') String walletId,
+      @JsonKey(includeIfNull: false, name: 'private_key') String privateKey});
 }
 
 /// @nodoc
@@ -101,6 +107,7 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
     Object? mnemonic = freezed,
     Object? isDefault = freezed,
     Object? walletId = freezed,
+    Object? privateKey = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -127,6 +134,10 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
           ? _value.walletId
           : walletId // ignore: cast_nullable_to_non_nullable
               as String,
+      privateKey: privateKey == freezed
+          ? _value.privateKey
+          : privateKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -143,7 +154,8 @@ abstract class _$WalletDtoCopyWith<$Res> implements $WalletDtoCopyWith<$Res> {
       @JsonKey(includeIfNull: false) String? name,
       @JsonKey(includeIfNull: false) String mnemonic,
       @JsonKey(name: 'is_default') bool isDefault,
-      @JsonKey(includeIfNull: false, name: 'wallet_id') String walletId});
+      @JsonKey(includeIfNull: false, name: 'wallet_id') String walletId,
+      @JsonKey(includeIfNull: false, name: 'private_key') String privateKey});
 }
 
 /// @nodoc
@@ -163,6 +175,7 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
     Object? mnemonic = freezed,
     Object? isDefault = freezed,
     Object? walletId = freezed,
+    Object? privateKey = freezed,
   }) {
     return _then(_WalletDto(
       id: id == freezed
@@ -189,6 +202,10 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
           ? _value.walletId
           : walletId // ignore: cast_nullable_to_non_nullable
               as String,
+      privateKey: privateKey == freezed
+          ? _value.privateKey
+          : privateKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -198,12 +215,20 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
 /// @nodoc
 class _$_WalletDto extends _WalletDto {
   const _$_WalletDto(
-      {@JsonKey(ignore: false) required this.id,
-      @JsonKey(includeIfNull: false) required this.address,
-      @JsonKey(includeIfNull: false) this.name,
-      @JsonKey(includeIfNull: false) required this.mnemonic,
-      @JsonKey(name: 'is_default') required this.isDefault,
-      @JsonKey(includeIfNull: false, name: 'wallet_id') required this.walletId})
+      {@JsonKey(ignore: false)
+          required this.id,
+      @JsonKey(includeIfNull: false)
+          required this.address,
+      @JsonKey(includeIfNull: false)
+          this.name,
+      @JsonKey(includeIfNull: false)
+          required this.mnemonic,
+      @JsonKey(name: 'is_default')
+          required this.isDefault,
+      @JsonKey(includeIfNull: false, name: 'wallet_id')
+          required this.walletId,
+      @JsonKey(includeIfNull: false, name: 'private_key')
+          required this.privateKey})
       : super._();
 
   factory _$_WalletDto.fromJson(Map<String, dynamic> json) =>
@@ -227,10 +252,13 @@ class _$_WalletDto extends _WalletDto {
   @override
   @JsonKey(includeIfNull: false, name: 'wallet_id')
   final String walletId;
+  @override
+  @JsonKey(includeIfNull: false, name: 'private_key')
+  final String privateKey;
 
   @override
   String toString() {
-    return 'WalletDto(id: $id, address: $address, name: $name, mnemonic: $mnemonic, isDefault: $isDefault, walletId: $walletId)';
+    return 'WalletDto(id: $id, address: $address, name: $name, mnemonic: $mnemonic, isDefault: $isDefault, walletId: $walletId, privateKey: $privateKey)';
   }
 
   @override
@@ -252,7 +280,10 @@ class _$_WalletDto extends _WalletDto {
                     .equals(other.isDefault, isDefault)) &&
             (identical(other.walletId, walletId) ||
                 const DeepCollectionEquality()
-                    .equals(other.walletId, walletId)));
+                    .equals(other.walletId, walletId)) &&
+            (identical(other.privateKey, privateKey) ||
+                const DeepCollectionEquality()
+                    .equals(other.privateKey, privateKey)));
   }
 
   @override
@@ -263,7 +294,8 @@ class _$_WalletDto extends _WalletDto {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(mnemonic) ^
       const DeepCollectionEquality().hash(isDefault) ^
-      const DeepCollectionEquality().hash(walletId);
+      const DeepCollectionEquality().hash(walletId) ^
+      const DeepCollectionEquality().hash(privateKey);
 
   @JsonKey(ignore: true)
   @override
@@ -289,7 +321,9 @@ abstract class _WalletDto extends WalletDto {
       @JsonKey(name: 'is_default')
           required bool isDefault,
       @JsonKey(includeIfNull: false, name: 'wallet_id')
-          required String walletId}) = _$_WalletDto;
+          required String walletId,
+      @JsonKey(includeIfNull: false, name: 'private_key')
+          required String privateKey}) = _$_WalletDto;
   const _WalletDto._() : super._();
 
   factory _WalletDto.fromJson(Map<String, dynamic> json) =
@@ -313,6 +347,9 @@ abstract class _WalletDto extends WalletDto {
   @override
   @JsonKey(includeIfNull: false, name: 'wallet_id')
   String get walletId => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(includeIfNull: false, name: 'private_key')
+  String get privateKey => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WalletDtoCopyWith<_WalletDto> get copyWith =>

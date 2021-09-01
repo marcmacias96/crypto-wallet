@@ -17,6 +17,7 @@ class Wallet with _$Wallet {
     required double balance,
     required String address,
     required String mnemonic,
+    required String privateKey,
   }) = _Wallet;
 
   factory Wallet.empty() => Wallet(
@@ -26,5 +27,6 @@ class Wallet with _$Wallet {
         address: '',
         mnemonic: '',
         balance: 0.0,
+        privateKey: '',
       );
 }

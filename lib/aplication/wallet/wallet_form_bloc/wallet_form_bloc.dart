@@ -64,6 +64,8 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
         );
 
         var address = await _walletRepository.createAddress(state.wallet);
+        var privateKey =
+            await _walletRepository.createPrivateKay(state.wallet.mnemonic);
 
         yield state.copyWith(
             isSaving: true,
@@ -71,6 +73,7 @@ class WalletFormBloc extends Bloc<WalletFormEvent, WalletFormState> {
             saveFailureOrSuccessOption: none(),
             wallet: state.wallet.copyWith(
               address: address.address,
+              privateKey: privateKey.key,
             ));
 
         add(_Save());

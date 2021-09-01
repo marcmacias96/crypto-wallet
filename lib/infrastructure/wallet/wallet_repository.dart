@@ -145,4 +145,15 @@ class WalletRepository implements IWalletRepository {
       throw Exception('Error al crear la wallet');
     }
   }
+
+  @override
+  Future<PrivateKeyResponse> createPrivateKay(String mnemonic) async {
+    try {
+      final response = await TatumApi.createPrivateKey(mnemonic);
+      return PrivateKeyDto.fromJson(response).toDomain();
+    } on WalletFailure catch (e) {
+      print(e);
+      throw Exception('Error al crear private Kay');
+    }
+  }
 }

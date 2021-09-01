@@ -29,23 +29,6 @@ class FormSend extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          DropdownButton(
-            items: country.map((itemsname) {
-              return DropdownMenuItem(
-                value: itemsname,
-                child: Text(itemsname),
-              );
-            }).toList(),
-            onChanged: (newvalue) {},
-            hint: Text(
-              'Escoge la moneda',
-              style: Theme.of(context).textTheme.headline4!.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 40.sp),
-            ),
-            //value: dropdownValue,
-          ),
           SizedBox(
             height: 40.h,
           ),
@@ -65,7 +48,7 @@ class FormSend extends StatelessWidget {
             style: TextStyle(color: Colors.black, fontSize: 90.sp),
           ),
           SizedBox(
-            height: 50.h,
+            height: 150.h,
           ),
           DropdownButton(
             items: country.map((itemsname) {
@@ -97,7 +80,7 @@ class FormSend extends StatelessWidget {
             text: 'Cancelar',
             textcolor: Colors.black,
             buttoncolor: Colors.white,
-            onTap: () => context.router.navigate(HistoryRoute()),
+            onTap: () => context.router.pop(),
           )
         ],
       ),
