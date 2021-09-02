@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../routes/router.gr.dart';
 import '../../../auth/widgets/custom_button.dart';
 
 String dropdownValue = '';
@@ -57,6 +58,7 @@ class FormSend extends StatelessWidget {
               );
             }).toList(),
             onChanged: (newvalue) {},
+            onTap: () => context.router.navigate(ContactSelectRoute()),
             hint: Text(
               'Escoge el contacto',
               style: Theme.of(context).textTheme.headline4!.copyWith(

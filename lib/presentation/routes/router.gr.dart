@@ -5,20 +5,21 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:flutter/material.dart' as _i16;
+import 'package:flutter/material.dart' as _i17;
 
-import '../../domain/contacts/contact.dart' as _i17;
+import '../../domain/contacts/contact.dart' as _i18;
 import '../pages/auth/sign_in/sign_in_page.dart' as _i4;
 import '../pages/auth/sign_up/sign_up_page.dart' as _i5;
 import '../pages/contacts/contact_create/contact_create_page.dart' as _i10;
-import '../pages/contacts/contact_list/contact_list_page.dart' as _i12;
+import '../pages/contacts/contact_list/contact_list_page.dart' as _i13;
 import '../pages/contacts/contact_view/contact_view_page.dart' as _i11;
 import '../pages/home/home_page.dart' as _i6;
 import '../pages/layout/layout_page.dart' as _i3;
 import '../pages/splash/splash.dart' as _i2;
-import '../pages/transactions/history/history_page.dart' as _i13;
-import '../pages/transactions/recieve/recieve_page.dart' as _i14;
-import '../pages/transactions/send/send_page.dart' as _i15;
+import '../pages/transactions/history/history_page.dart' as _i14;
+import '../pages/transactions/recieve/recieve_page.dart' as _i15;
+import '../pages/transactions/send/select/contact_select_page.dart' as _i12;
+import '../pages/transactions/send/send_page.dart' as _i16;
 import '../pages/wallet/wallet_form/wallet_form_page.dart' as _i9;
 import '../pages/welcome/welcome1_page.dart' as _i7;
 import '../pages/welcome/welcome2_page.dart' as _i8;
@@ -74,27 +75,31 @@ class AppRouter extends _i1.RootStackRouter {
           entry: entry,
           child: _i11.ContactViewPage(key: args.key, contact: args.contact));
     },
+    ContactSelectRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry, child: const _i12.ContactSelectPage());
+    },
     ContactListRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i12.ContactListPage(),
+          child: const _i13.ContactListPage(),
           fullscreenDialog: true);
     },
     HistoryRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i13.HistoryPage(),
+          child: const _i14.HistoryPage(),
           fullscreenDialog: true);
     },
     RecieveRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry,
-          child: const _i14.RecievePage(),
+          child: const _i15.RecievePage(),
           fullscreenDialog: true);
     },
     SendRoute.name: (entry) {
       return _i1.MaterialPageX(
-          entry: entry, child: const _i15.SendPage(), fullscreenDialog: true);
+          entry: entry, child: const _i16.SendPage(), fullscreenDialog: true);
     }
   };
 
@@ -110,6 +115,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(WalletFormRoute.name, path: '/wallet-form-page'),
         _i1.RouteConfig(ContactCreateRoute.name, path: '/contact-create-page'),
         _i1.RouteConfig(ContactViewRoute.name, path: '/contact-view-page'),
+        _i1.RouteConfig(ContactSelectRoute.name, path: '/contact-select-page'),
         _i1.RouteConfig(ContactListRoute.name, path: '/contact-list-page'),
         _i1.RouteConfig(HistoryRoute.name, path: '/history-page'),
         _i1.RouteConfig(RecieveRoute.name, path: '/recieve-page'),
@@ -172,7 +178,7 @@ class ContactCreateRoute extends _i1.PageRouteInfo {
 }
 
 class ContactViewRoute extends _i1.PageRouteInfo<ContactViewRouteArgs> {
-  ContactViewRoute({_i16.Key? key, required _i17.Contact contact})
+  ContactViewRoute({_i17.Key? key, required _i18.Contact contact})
       : super(name,
             path: '/contact-view-page',
             args: ContactViewRouteArgs(key: key, contact: contact));
@@ -183,9 +189,15 @@ class ContactViewRoute extends _i1.PageRouteInfo<ContactViewRouteArgs> {
 class ContactViewRouteArgs {
   const ContactViewRouteArgs({this.key, required this.contact});
 
-  final _i16.Key? key;
+  final _i17.Key? key;
 
-  final _i17.Contact contact;
+  final _i18.Contact contact;
+}
+
+class ContactSelectRoute extends _i1.PageRouteInfo {
+  const ContactSelectRoute() : super(name, path: '/contact-select-page');
+
+  static const String name = 'ContactSelectRoute';
 }
 
 class ContactListRoute extends _i1.PageRouteInfo {

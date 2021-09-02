@@ -10,6 +10,7 @@ import '../pages/layout/layout_page.dart';
 import '../pages/splash/splash.dart';
 import '../pages/transactions/history/history_page.dart';
 import '../pages/transactions/recieve/recieve_page.dart';
+import '../pages/transactions/send/select/contact_select_page.dart';
 import '../pages/transactions/send/send_page.dart';
 import '../pages/wallet/wallet_form/wallet_form_page.dart';
 import '../pages/welcome/welcome1_page.dart';
@@ -26,6 +27,7 @@ import '../pages/welcome/welcome2_page.dart';
   MaterialRoute(page: WalletFormPage, fullscreenDialog: true),
   MaterialRoute(page: ContactCreatePage),
   MaterialRoute(page: ContactViewPage),
+  MaterialRoute(page: ContactSelectPage),
   MaterialRoute(page: ContactListPage, fullscreenDialog: true),
   MaterialRoute(page: HistoryPage, fullscreenDialog: true),
   MaterialRoute(page: RecievePage, fullscreenDialog: true),
