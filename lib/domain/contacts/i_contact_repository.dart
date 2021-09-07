@@ -10,4 +10,5 @@ abstract class IContactRepository {
   Future<Either<FirestoreFailure, Unit>> create(Contact contact);
   Future<Either<FirestoreFailure, Unit>> update(Contact contact);
   Future<Either<FirestoreFailure, Unit>> dalete(Contact contact);
+  Stream<Either<FirestoreFailure, KtList<Contact>>> search(String name);
 }

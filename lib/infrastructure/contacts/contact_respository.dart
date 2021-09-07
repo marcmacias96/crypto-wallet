@@ -116,4 +116,43 @@ class ContactRepository implements IContactRepository {
           FirestoreFailure.unexpected());
     }
   }
+
+  @override
+  Stream<Either<FirestoreFailure, KtList<Contact>>> search(String name) async* {
+    try {
+      final userDoc = await _firestore.userDocument();
+      final reference = userDoc.walletCollection
+          .doc(UserPreference.getWalletId())
+          .contactCollection
+          .orderBy('name')
+          .where('name', isEqualTo: name);
+
+      yield* reference.snapshots().map((snapShot) {
+        if (snapShot.size > 0) {
+          final contacts = snapShot.docs
+              .map((doc) => ContactDto.fromFirestore(doc).toDomain())
+              .toImmutableList();
+          return right<FirestoreFailure, KtList<Contact>>(contacts);
+        } else {
+          if (snapShot.metadata.isFromCache) {
+            return left<FirestoreFailure, KtList<Contact>>(
+                FirestoreFailure.noInternet());
+          }
+          return left<FirestoreFailure, KtList<Contact>>(
+              FirestoreFailure.doesNotExist());
+        }
+      }).onErrorReturnWith((e, _) {
+        if (e is FirebaseException && e.code == 'permission-denied') {
+          return left<FirestoreFailure, KtList<Contact>>(
+              FirestoreFailure.insufficientPermissions());
+        } else {
+          return left<FirestoreFailure, KtList<Contact>>(
+              const FirestoreFailure.unexpected());
+        }
+      });
+    } on FirebaseException catch (_) {
+      yield left<FirestoreFailure, KtList<Contact>>(
+          FirestoreFailure.unexpected());
+    }
+  }
 }

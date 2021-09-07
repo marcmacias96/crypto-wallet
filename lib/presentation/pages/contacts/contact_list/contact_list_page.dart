@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../aplication/contact/contact_list_bloc/contact_list_bloc.dart';
 import '../../../../injection.dart';
 import '../../../routes/router.gr.dart';
-import 'widgets/contact_list_header.dart';
+import '../../transactions/send/select/widgets/select_header.dart';
 import 'widgets/list_contacts.dart';
 
 class ContactListPage extends StatelessWidget {
@@ -23,7 +23,7 @@ class ContactListPage extends StatelessWidget {
           child: Container(
             child: Stack(
               children: [
-                ContactListHeader(),
+                SelectHeader(),
                 ListContacts(),
               ],
             ),

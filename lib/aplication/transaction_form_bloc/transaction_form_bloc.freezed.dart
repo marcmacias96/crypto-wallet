@@ -13,6 +13,142 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$TransactionFormEventTearOff {
+  const _$TransactionFormEventTearOff();
+
+  SendBitcoin sendBitcoin() {
+    return const SendBitcoin();
+  }
+}
+
+/// @nodoc
+const $TransactionFormEvent = _$TransactionFormEventTearOff();
+
+/// @nodoc
+mixin _$TransactionFormEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() sendBitcoin,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? sendBitcoin,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SendBitcoin value) sendBitcoin,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SendBitcoin value)? sendBitcoin,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TransactionFormEventCopyWith<$Res> {
+  factory $TransactionFormEventCopyWith(TransactionFormEvent value,
+          $Res Function(TransactionFormEvent) then) =
+      _$TransactionFormEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$TransactionFormEventCopyWithImpl<$Res>
+    implements $TransactionFormEventCopyWith<$Res> {
+  _$TransactionFormEventCopyWithImpl(this._value, this._then);
+
+  final TransactionFormEvent _value;
+  // ignore: unused_field
+  final $Res Function(TransactionFormEvent) _then;
+}
+
+/// @nodoc
+abstract class $SendBitcoinCopyWith<$Res> {
+  factory $SendBitcoinCopyWith(
+          SendBitcoin value, $Res Function(SendBitcoin) then) =
+      _$SendBitcoinCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SendBitcoinCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res>
+    implements $SendBitcoinCopyWith<$Res> {
+  _$SendBitcoinCopyWithImpl(
+      SendBitcoin _value, $Res Function(SendBitcoin) _then)
+      : super(_value, (v) => _then(v as SendBitcoin));
+
+  @override
+  SendBitcoin get _value => super._value as SendBitcoin;
+}
+
+/// @nodoc
+class _$SendBitcoin implements SendBitcoin {
+  const _$SendBitcoin();
+
+  @override
+  String toString() {
+    return 'TransactionFormEvent.sendBitcoin()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SendBitcoin);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() sendBitcoin,
+  }) {
+    return sendBitcoin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? sendBitcoin,
+    required TResult orElse(),
+  }) {
+    if (sendBitcoin != null) {
+      return sendBitcoin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SendBitcoin value) sendBitcoin,
+  }) {
+    return sendBitcoin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SendBitcoin value)? sendBitcoin,
+    required TResult orElse(),
+  }) {
+    if (sendBitcoin != null) {
+      return sendBitcoin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendBitcoin implements TransactionFormEvent {
+  const factory SendBitcoin() = _$SendBitcoin;
+}
+
+/// @nodoc
 class _$TransactionFormStateTearOff {
   const _$TransactionFormStateTearOff();
 
@@ -222,140 +358,4 @@ abstract class _TransactionFormState implements TransactionFormState {
   @JsonKey(ignore: true)
   _$TransactionFormStateCopyWith<_TransactionFormState> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-class _$TransactionFormEventTearOff {
-  const _$TransactionFormEventTearOff();
-
-  SendBitcoin sendBitcoin() {
-    return const SendBitcoin();
-  }
-}
-
-/// @nodoc
-const $TransactionFormEvent = _$TransactionFormEventTearOff();
-
-/// @nodoc
-mixin _$TransactionFormEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() sendBitcoin,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? sendBitcoin,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SendBitcoin value) sendBitcoin,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SendBitcoin value)? sendBitcoin,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TransactionFormEventCopyWith<$Res> {
-  factory $TransactionFormEventCopyWith(TransactionFormEvent value,
-          $Res Function(TransactionFormEvent) then) =
-      _$TransactionFormEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$TransactionFormEventCopyWithImpl<$Res>
-    implements $TransactionFormEventCopyWith<$Res> {
-  _$TransactionFormEventCopyWithImpl(this._value, this._then);
-
-  final TransactionFormEvent _value;
-  // ignore: unused_field
-  final $Res Function(TransactionFormEvent) _then;
-}
-
-/// @nodoc
-abstract class $SendBitcoinCopyWith<$Res> {
-  factory $SendBitcoinCopyWith(
-          SendBitcoin value, $Res Function(SendBitcoin) then) =
-      _$SendBitcoinCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$SendBitcoinCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res>
-    implements $SendBitcoinCopyWith<$Res> {
-  _$SendBitcoinCopyWithImpl(
-      SendBitcoin _value, $Res Function(SendBitcoin) _then)
-      : super(_value, (v) => _then(v as SendBitcoin));
-
-  @override
-  SendBitcoin get _value => super._value as SendBitcoin;
-}
-
-/// @nodoc
-class _$SendBitcoin implements SendBitcoin {
-  const _$SendBitcoin();
-
-  @override
-  String toString() {
-    return 'TransactionFormEvent.sendBitcoin()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SendBitcoin);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() sendBitcoin,
-  }) {
-    return sendBitcoin();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? sendBitcoin,
-    required TResult orElse(),
-  }) {
-    if (sendBitcoin != null) {
-      return sendBitcoin();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SendBitcoin value) sendBitcoin,
-  }) {
-    return sendBitcoin(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SendBitcoin value)? sendBitcoin,
-    required TResult orElse(),
-  }) {
-    if (sendBitcoin != null) {
-      return sendBitcoin(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SendBitcoin implements TransactionFormEvent {
-  const factory SendBitcoin() = _$SendBitcoin;
 }

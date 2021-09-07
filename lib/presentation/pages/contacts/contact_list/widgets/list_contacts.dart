@@ -16,7 +16,7 @@ class ListContacts extends StatelessWidget {
     return BlocConsumer<ContactListBloc, ContactListState>(
         builder: (context, state) {
           return Container(
-              margin: EdgeInsets.only(top: 0.15.sh),
+              margin: EdgeInsets.only(top: 0.32.sh),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(

@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:crypto_wallet/aplication/contact/contact_form_bloc/contact_form_bloc.dart';
+import 'package:crypto_wallet/aplication/contact/contact_list_bloc/contact_list_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SelectHeader extends StatelessWidget {
   const SelectHeader({Key? key}) : super(key: key);
@@ -76,11 +79,15 @@ class SelectHeader extends StatelessWidget {
                       width: 10.h,
                     ),
                     Expanded(
-                      child: TextField(
+                      child: TextFormField(
                         decoration: InputDecoration(
                             hintText: "Buscar contacto",
                             border: InputBorder.none),
                         style: TextStyle(color: Colors.black),
+                        maxLength: 20,
+                        onChanged: (value) => context
+                            .read<ContactListBloc>()
+                            .add(ContactListEvent.searchChange(value)),
                       ),
                     ),
                   ],

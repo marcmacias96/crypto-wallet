@@ -62,6 +62,25 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
         );
       },
       delete: (e) async* {},
+      searchChange: (e) async* {
+        yield state.copyWith(
+          isLoading: true,
+          loadFailureOrSuccessOption: none(),
+        );
+        if (e.name.isNotEmpty) {
+          await _contactStreamSubscription?.cancel();
+          _contactStreamSubscription =
+              _contactRepository.search(e.name).listen((faliureOrContacts) {
+            add(_ContactsRecived(faliureOrContacts));
+          });
+        } else {
+          await _contactStreamSubscription?.cancel();
+          _contactStreamSubscription =
+              _contactRepository.watchAll(_limit).listen((faliureOrContacts) {
+            add(_ContactsRecived(faliureOrContacts));
+          });
+        }
+      },
     );
   }
 
