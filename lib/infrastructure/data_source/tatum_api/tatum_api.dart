@@ -1,11 +1,10 @@
 import 'dart:convert';
 
-import 'package:crypto_wallet/domain/transaction/transaction_failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:kt_dart/kt.dart';
+import 'package:http/http.dart' as http;
 
+import '../../../domain/transaction/transaction_failure.dart';
 import '../../../domain/wallet/wallet.dart';
 import '../../../domain/wallet/wallet_failure.dart';
 

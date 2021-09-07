@@ -1,5 +1,6 @@
-import 'package:crypto_wallet/domain/contacts/contact.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../contacts/contact.dart';
 
 part 'transaction.freezed.dart';
 
