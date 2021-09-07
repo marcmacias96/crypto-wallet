@@ -4,14 +4,17 @@ part of 'contact_list_bloc.dart';
 class ContactListState with _$ContactListState {
   const factory ContactListState({
     required KtList<Contact> contacts,
+    required KtList<Contact> contactsFiltered,
     required bool isLoading,
-    required bool hasMore,
+    required bool isSearching,
     required Option<FirestoreFailure> loadFailureOrSuccessOption,
   }) = _ContactListState;
 
   factory ContactListState.initial() => ContactListState(
-      hasMore: true,
-      isLoading: true,
-      loadFailureOrSuccessOption: none(),
-      contacts: KtList<Contact>.empty());
+        isSearching: false,
+        isLoading: true,
+        loadFailureOrSuccessOption: none(),
+        contacts: KtList<Contact>.empty(),
+        contactsFiltered: KtList<Contact>.empty(),
+      );
 }

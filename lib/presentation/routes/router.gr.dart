@@ -76,8 +76,11 @@ class AppRouter extends _i1.RootStackRouter {
           child: _i11.ContactViewPage(key: args.key, contact: args.contact));
     },
     ContactSelectRoute.name: (entry) {
+      var args = entry.routeData.argsAs<ContactSelectRouteArgs>();
       return _i1.MaterialPageX(
-          entry: entry, child: const _i12.ContactSelectPage());
+          entry: entry,
+          child:
+              _i12.ContactSelectPage(key: args.key, onSelect: args.onSelect));
     },
     ContactListRoute.name: (entry) {
       return _i1.MaterialPageX(
@@ -194,10 +197,21 @@ class ContactViewRouteArgs {
   final _i18.Contact contact;
 }
 
-class ContactSelectRoute extends _i1.PageRouteInfo {
-  const ContactSelectRoute() : super(name, path: '/contact-select-page');
+class ContactSelectRoute extends _i1.PageRouteInfo<ContactSelectRouteArgs> {
+  ContactSelectRoute({_i17.Key? key, required Function onSelect})
+      : super(name,
+            path: '/contact-select-page',
+            args: ContactSelectRouteArgs(key: key, onSelect: onSelect));
 
   static const String name = 'ContactSelectRoute';
+}
+
+class ContactSelectRouteArgs {
+  const ContactSelectRouteArgs({this.key, required this.onSelect});
+
+  final _i17.Key? key;
+
+  final Function onSelect;
 }
 
 class ContactListRoute extends _i1.PageRouteInfo {

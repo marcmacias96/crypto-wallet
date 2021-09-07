@@ -22,7 +22,7 @@ class SelectHeader extends StatelessWidget {
             ]),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AppBar(
             leading: IconButton(
@@ -46,8 +46,6 @@ class SelectHeader extends StatelessWidget {
             ),
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 height: 120.h,
@@ -61,8 +59,11 @@ class SelectHeader extends StatelessWidget {
               ),
               Container(
                 height: 80.h,
-                width: 600.w,
-                margin: EdgeInsets.only(top: 0.02.sh, left: 0.045.sh),
+                margin: EdgeInsets.only(
+                  top: 0.02.sh,
+                  left: 0.045.sh,
+                  right: 0.045.sh,
+                ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     color: Colors.white),
@@ -81,6 +82,7 @@ class SelectHeader extends StatelessWidget {
                     Expanded(
                       child: TextFormField(
                         decoration: InputDecoration(
+                            counterText: '',
                             hintText: "Buscar contacto",
                             border: InputBorder.none),
                         style: TextStyle(color: Colors.black),

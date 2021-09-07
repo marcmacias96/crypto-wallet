@@ -10,13 +10,11 @@ import '../../../../routes/router.gr.dart';
 import 'contact_item.dart';
 import 'text_contact_zero.dart';
 
-class ListContacts extends StatelessWidget {
-  final Function onSelect;
+class ListContactsFiltered extends StatelessWidget {
   final KtList<Contact> contacts;
-  const ListContacts({
+  const ListContactsFiltered({
     Key? key,
     required this.contacts,
-    required this.onSelect,
   }) : super(key: key);
 
   @override
@@ -46,7 +44,11 @@ class ListContacts extends StatelessWidget {
                     return ContactItem(
                       name: contacts[index].name.getOrCrash(),
                       address: contacts[index].address.getOrCrash(),
-                      onTap: () => onSelect(contacts[index]),
+                      onTap: () => context.router.navigate(
+                        ContactViewRoute(
+                          contact: contacts[index],
+                        ),
+                      ),
                     );
                   },
                   separatorBuilder: (context, index) {

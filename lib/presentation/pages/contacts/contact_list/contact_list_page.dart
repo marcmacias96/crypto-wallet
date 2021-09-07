@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:crypto_wallet/presentation/pages/contacts/contact_view/contact_view_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../aplication/contact/contact_list_bloc/contact_list_bloc.dart';
@@ -20,13 +21,22 @@ class ContactListPage extends StatelessWidget {
             ContactListEvent.watchStarted(),
           ),
         child: SingleChildScrollView(
-          child: Container(
-            child: Stack(
-              children: [
-                SelectHeader(),
-                ListContacts(),
-              ],
-            ),
+          child: BlocBuilder<ContactListBloc, ContactListState>(
+            builder: (context, state) {
+              return Stack(
+                children: [
+                  SelectHeader(),
+                  ListContacts(
+                    onSelect: (contact) => context.router.navigate(
+                      ContactViewRoute(contact: contact),
+                    ),
+                    contacts: state.isSearching
+                        ? state.contactsFiltered
+                        : state.contacts,
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

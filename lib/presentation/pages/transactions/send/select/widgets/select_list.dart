@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:auto_route/auto_route.dart';
 import '../../../../../../aplication/contact/contact_list_bloc/contact_list_bloc.dart';
 import '../../../../contacts/contact_list/widgets/contact_item.dart';
 import '../../../../contacts/contact_list/widgets/text_contact_zero.dart';
 import 'select_header.dart';
 
 class SelectList extends StatelessWidget {
-  const SelectList({Key? key}) : super(key: key);
+  final Function onSelect;
+  const SelectList({Key? key, required this.onSelect}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +41,11 @@ class SelectList extends StatelessWidget {
                           ),
                           itemBuilder: (context2, index) {
                             return ContactItem(
-                                name: state.contacts[index].name.getOrCrash(),
-                                address:
-                                    state.contacts[index].address.getOrCrash(),
-                                onTap: () {});
+                              name: state.contacts[index].name.getOrCrash(),
+                              address:
+                                  state.contacts[index].address.getOrCrash(),
+                              onTap: () => onSelect(state.contacts[index]),
+                            );
                           },
                           separatorBuilder: (context, index) {
                             return SizedBox(
