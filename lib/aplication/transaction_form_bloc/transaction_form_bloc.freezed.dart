@@ -16,9 +16,26 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TransactionFormEventTearOff {
   const _$TransactionFormEventTearOff();
 
+  Initialized initialized() {
+    return const Initialized();
+  }
+
+  _WalletRecived walletRecived(
+      Either<FirestoreFailure, Wallet> faliureOrWallet) {
+    return _WalletRecived(
+      faliureOrWallet,
+    );
+  }
+
   SetContact setContact(Contact contact) {
     return SetContact(
       contact,
+    );
+  }
+
+  ValueChanged valueChanged(double value) {
+    return ValueChanged(
+      value,
     );
   }
 
@@ -34,26 +51,40 @@ const $TransactionFormEvent = _$TransactionFormEventTearOff();
 mixin _$TransactionFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)
+        walletRecived,
     required TResult Function(Contact contact) setContact,
+    required TResult Function(double value) valueChanged,
     required TResult Function() sendBitcoin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)?
+        walletRecived,
     TResult Function(Contact contact)? setContact,
+    TResult Function(double value)? valueChanged,
     TResult Function()? sendBitcoin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WalletRecived value) walletRecived,
     required TResult Function(SetContact value) setContact,
+    required TResult Function(ValueChanged value) valueChanged,
     required TResult Function(SendBitcoin value) sendBitcoin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WalletRecived value)? walletRecived,
     TResult Function(SetContact value)? setContact,
+    TResult Function(ValueChanged value)? valueChanged,
     TResult Function(SendBitcoin value)? sendBitcoin,
     required TResult orElse(),
   }) =>
@@ -75,6 +106,253 @@ class _$TransactionFormEventCopyWithImpl<$Res>
   final TransactionFormEvent _value;
   // ignore: unused_field
   final $Res Function(TransactionFormEvent) _then;
+}
+
+/// @nodoc
+abstract class $InitializedCopyWith<$Res> {
+  factory $InitializedCopyWith(
+          Initialized value, $Res Function(Initialized) then) =
+      _$InitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InitializedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res>
+    implements $InitializedCopyWith<$Res> {
+  _$InitializedCopyWithImpl(
+      Initialized _value, $Res Function(Initialized) _then)
+      : super(_value, (v) => _then(v as Initialized));
+
+  @override
+  Initialized get _value => super._value as Initialized;
+}
+
+/// @nodoc
+class _$Initialized with DiagnosticableTreeMixin implements Initialized {
+  const _$Initialized();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TransactionFormEvent.initialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TransactionFormEvent.initialized'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Initialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)
+        walletRecived,
+    required TResult Function(Contact contact) setContact,
+    required TResult Function(double value) valueChanged,
+    required TResult Function() sendBitcoin,
+  }) {
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)?
+        walletRecived,
+    TResult Function(Contact contact)? setContact,
+    TResult Function(double value)? valueChanged,
+    TResult Function()? sendBitcoin,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WalletRecived value) walletRecived,
+    required TResult Function(SetContact value) setContact,
+    required TResult Function(ValueChanged value) valueChanged,
+    required TResult Function(SendBitcoin value) sendBitcoin,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WalletRecived value)? walletRecived,
+    TResult Function(SetContact value)? setContact,
+    TResult Function(ValueChanged value)? valueChanged,
+    TResult Function(SendBitcoin value)? sendBitcoin,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Initialized implements TransactionFormEvent {
+  const factory Initialized() = _$Initialized;
+}
+
+/// @nodoc
+abstract class _$WalletRecivedCopyWith<$Res> {
+  factory _$WalletRecivedCopyWith(
+          _WalletRecived value, $Res Function(_WalletRecived) then) =
+      __$WalletRecivedCopyWithImpl<$Res>;
+  $Res call({Either<FirestoreFailure, Wallet> faliureOrWallet});
+}
+
+/// @nodoc
+class __$WalletRecivedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res>
+    implements _$WalletRecivedCopyWith<$Res> {
+  __$WalletRecivedCopyWithImpl(
+      _WalletRecived _value, $Res Function(_WalletRecived) _then)
+      : super(_value, (v) => _then(v as _WalletRecived));
+
+  @override
+  _WalletRecived get _value => super._value as _WalletRecived;
+
+  @override
+  $Res call({
+    Object? faliureOrWallet = freezed,
+  }) {
+    return _then(_WalletRecived(
+      faliureOrWallet == freezed
+          ? _value.faliureOrWallet
+          : faliureOrWallet // ignore: cast_nullable_to_non_nullable
+              as Either<FirestoreFailure, Wallet>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_WalletRecived with DiagnosticableTreeMixin implements _WalletRecived {
+  const _$_WalletRecived(this.faliureOrWallet);
+
+  @override
+  final Either<FirestoreFailure, Wallet> faliureOrWallet;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TransactionFormEvent.walletRecived(faliureOrWallet: $faliureOrWallet)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TransactionFormEvent.walletRecived'))
+      ..add(DiagnosticsProperty('faliureOrWallet', faliureOrWallet));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WalletRecived &&
+            (identical(other.faliureOrWallet, faliureOrWallet) ||
+                const DeepCollectionEquality()
+                    .equals(other.faliureOrWallet, faliureOrWallet)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(faliureOrWallet);
+
+  @JsonKey(ignore: true)
+  @override
+  _$WalletRecivedCopyWith<_WalletRecived> get copyWith =>
+      __$WalletRecivedCopyWithImpl<_WalletRecived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)
+        walletRecived,
+    required TResult Function(Contact contact) setContact,
+    required TResult Function(double value) valueChanged,
+    required TResult Function() sendBitcoin,
+  }) {
+    return walletRecived(faliureOrWallet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)?
+        walletRecived,
+    TResult Function(Contact contact)? setContact,
+    TResult Function(double value)? valueChanged,
+    TResult Function()? sendBitcoin,
+    required TResult orElse(),
+  }) {
+    if (walletRecived != null) {
+      return walletRecived(faliureOrWallet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WalletRecived value) walletRecived,
+    required TResult Function(SetContact value) setContact,
+    required TResult Function(ValueChanged value) valueChanged,
+    required TResult Function(SendBitcoin value) sendBitcoin,
+  }) {
+    return walletRecived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WalletRecived value)? walletRecived,
+    TResult Function(SetContact value)? setContact,
+    TResult Function(ValueChanged value)? valueChanged,
+    TResult Function(SendBitcoin value)? sendBitcoin,
+    required TResult orElse(),
+  }) {
+    if (walletRecived != null) {
+      return walletRecived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WalletRecived implements TransactionFormEvent {
+  const factory _WalletRecived(
+      Either<FirestoreFailure, Wallet> faliureOrWallet) = _$_WalletRecived;
+
+  Either<FirestoreFailure, Wallet> get faliureOrWallet =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$WalletRecivedCopyWith<_WalletRecived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -157,7 +435,11 @@ class _$SetContact with DiagnosticableTreeMixin implements SetContact {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)
+        walletRecived,
     required TResult Function(Contact contact) setContact,
+    required TResult Function(double value) valueChanged,
     required TResult Function() sendBitcoin,
   }) {
     return setContact(contact);
@@ -166,7 +448,11 @@ class _$SetContact with DiagnosticableTreeMixin implements SetContact {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)?
+        walletRecived,
     TResult Function(Contact contact)? setContact,
+    TResult Function(double value)? valueChanged,
     TResult Function()? sendBitcoin,
     required TResult orElse(),
   }) {
@@ -179,7 +465,10 @@ class _$SetContact with DiagnosticableTreeMixin implements SetContact {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WalletRecived value) walletRecived,
     required TResult Function(SetContact value) setContact,
+    required TResult Function(ValueChanged value) valueChanged,
     required TResult Function(SendBitcoin value) sendBitcoin,
   }) {
     return setContact(this);
@@ -188,7 +477,10 @@ class _$SetContact with DiagnosticableTreeMixin implements SetContact {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WalletRecived value)? walletRecived,
     TResult Function(SetContact value)? setContact,
+    TResult Function(ValueChanged value)? valueChanged,
     TResult Function(SendBitcoin value)? sendBitcoin,
     required TResult orElse(),
   }) {
@@ -205,6 +497,143 @@ abstract class SetContact implements TransactionFormEvent {
   Contact get contact => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SetContactCopyWith<SetContact> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ValueChangedCopyWith<$Res> {
+  factory $ValueChangedCopyWith(
+          ValueChanged value, $Res Function(ValueChanged) then) =
+      _$ValueChangedCopyWithImpl<$Res>;
+  $Res call({double value});
+}
+
+/// @nodoc
+class _$ValueChangedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res>
+    implements $ValueChangedCopyWith<$Res> {
+  _$ValueChangedCopyWithImpl(
+      ValueChanged _value, $Res Function(ValueChanged) _then)
+      : super(_value, (v) => _then(v as ValueChanged));
+
+  @override
+  ValueChanged get _value => super._value as ValueChanged;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(ValueChanged(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+class _$ValueChanged with DiagnosticableTreeMixin implements ValueChanged {
+  const _$ValueChanged(this.value);
+
+  @override
+  final double value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TransactionFormEvent.valueChanged(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TransactionFormEvent.valueChanged'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ValueChanged &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  $ValueChangedCopyWith<ValueChanged> get copyWith =>
+      _$ValueChangedCopyWithImpl<ValueChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)
+        walletRecived,
+    required TResult Function(Contact contact) setContact,
+    required TResult Function(double value) valueChanged,
+    required TResult Function() sendBitcoin,
+  }) {
+    return valueChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)?
+        walletRecived,
+    TResult Function(Contact contact)? setContact,
+    TResult Function(double value)? valueChanged,
+    TResult Function()? sendBitcoin,
+    required TResult orElse(),
+  }) {
+    if (valueChanged != null) {
+      return valueChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WalletRecived value) walletRecived,
+    required TResult Function(SetContact value) setContact,
+    required TResult Function(ValueChanged value) valueChanged,
+    required TResult Function(SendBitcoin value) sendBitcoin,
+  }) {
+    return valueChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WalletRecived value)? walletRecived,
+    TResult Function(SetContact value)? setContact,
+    TResult Function(ValueChanged value)? valueChanged,
+    TResult Function(SendBitcoin value)? sendBitcoin,
+    required TResult orElse(),
+  }) {
+    if (valueChanged != null) {
+      return valueChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ValueChanged implements TransactionFormEvent {
+  const factory ValueChanged(double value) = _$ValueChanged;
+
+  double get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ValueChangedCopyWith<ValueChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -254,7 +683,11 @@ class _$SendBitcoin with DiagnosticableTreeMixin implements SendBitcoin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)
+        walletRecived,
     required TResult Function(Contact contact) setContact,
+    required TResult Function(double value) valueChanged,
     required TResult Function() sendBitcoin,
   }) {
     return sendBitcoin();
@@ -263,7 +696,11 @@ class _$SendBitcoin with DiagnosticableTreeMixin implements SendBitcoin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Either<FirestoreFailure, Wallet> faliureOrWallet)?
+        walletRecived,
     TResult Function(Contact contact)? setContact,
+    TResult Function(double value)? valueChanged,
     TResult Function()? sendBitcoin,
     required TResult orElse(),
   }) {
@@ -276,7 +713,10 @@ class _$SendBitcoin with DiagnosticableTreeMixin implements SendBitcoin {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(_WalletRecived value) walletRecived,
     required TResult Function(SetContact value) setContact,
+    required TResult Function(ValueChanged value) valueChanged,
     required TResult Function(SendBitcoin value) sendBitcoin,
   }) {
     return sendBitcoin(this);
@@ -285,7 +725,10 @@ class _$SendBitcoin with DiagnosticableTreeMixin implements SendBitcoin {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(_WalletRecived value)? walletRecived,
     TResult Function(SetContact value)? setContact,
+    TResult Function(ValueChanged value)? valueChanged,
     TResult Function(SendBitcoin value)? sendBitcoin,
     required TResult orElse(),
   }) {
@@ -308,12 +751,14 @@ class _$TransactionFormStateTearOff {
       {required bool isLoading,
       required Option<Either<TransactionFailure, Unit>> failureOrSuccess,
       Contact? contact,
-      required double value}) {
+      required double value,
+      required Wallet wallet}) {
     return _TransactionFormState(
       isLoading: isLoading,
       failureOrSuccess: failureOrSuccess,
       contact: contact,
       value: value,
+      wallet: wallet,
     );
   }
 }
@@ -328,6 +773,7 @@ mixin _$TransactionFormState {
       throw _privateConstructorUsedError;
   Contact? get contact => throw _privateConstructorUsedError;
   double get value => throw _privateConstructorUsedError;
+  Wallet get wallet => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TransactionFormStateCopyWith<TransactionFormState> get copyWith =>
@@ -343,9 +789,11 @@ abstract class $TransactionFormStateCopyWith<$Res> {
       {bool isLoading,
       Option<Either<TransactionFailure, Unit>> failureOrSuccess,
       Contact? contact,
-      double value});
+      double value,
+      Wallet wallet});
 
   $ContactCopyWith<$Res>? get contact;
+  $WalletCopyWith<$Res> get wallet;
 }
 
 /// @nodoc
@@ -363,6 +811,7 @@ class _$TransactionFormStateCopyWithImpl<$Res>
     Object? failureOrSuccess = freezed,
     Object? contact = freezed,
     Object? value = freezed,
+    Object? wallet = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -381,6 +830,10 @@ class _$TransactionFormStateCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as double,
+      wallet: wallet == freezed
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as Wallet,
     ));
   }
 
@@ -392,6 +845,13 @@ class _$TransactionFormStateCopyWithImpl<$Res>
 
     return $ContactCopyWith<$Res>(_value.contact!, (value) {
       return _then(_value.copyWith(contact: value));
+    });
+  }
+
+  @override
+  $WalletCopyWith<$Res> get wallet {
+    return $WalletCopyWith<$Res>(_value.wallet, (value) {
+      return _then(_value.copyWith(wallet: value));
     });
   }
 }
@@ -407,10 +867,13 @@ abstract class _$TransactionFormStateCopyWith<$Res>
       {bool isLoading,
       Option<Either<TransactionFailure, Unit>> failureOrSuccess,
       Contact? contact,
-      double value});
+      double value,
+      Wallet wallet});
 
   @override
   $ContactCopyWith<$Res>? get contact;
+  @override
+  $WalletCopyWith<$Res> get wallet;
 }
 
 /// @nodoc
@@ -430,6 +893,7 @@ class __$TransactionFormStateCopyWithImpl<$Res>
     Object? failureOrSuccess = freezed,
     Object? contact = freezed,
     Object? value = freezed,
+    Object? wallet = freezed,
   }) {
     return _then(_TransactionFormState(
       isLoading: isLoading == freezed
@@ -448,6 +912,10 @@ class __$TransactionFormStateCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as double,
+      wallet: wallet == freezed
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as Wallet,
     ));
   }
 }
@@ -460,7 +928,8 @@ class _$_TransactionFormState
       {required this.isLoading,
       required this.failureOrSuccess,
       this.contact,
-      required this.value});
+      required this.value,
+      required this.wallet});
 
   @override
   final bool isLoading;
@@ -470,10 +939,12 @@ class _$_TransactionFormState
   final Contact? contact;
   @override
   final double value;
+  @override
+  final Wallet wallet;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TransactionFormState(isLoading: $isLoading, failureOrSuccess: $failureOrSuccess, contact: $contact, value: $value)';
+    return 'TransactionFormState(isLoading: $isLoading, failureOrSuccess: $failureOrSuccess, contact: $contact, value: $value, wallet: $wallet)';
   }
 
   @override
@@ -484,7 +955,8 @@ class _$_TransactionFormState
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('failureOrSuccess', failureOrSuccess))
       ..add(DiagnosticsProperty('contact', contact))
-      ..add(DiagnosticsProperty('value', value));
+      ..add(DiagnosticsProperty('value', value))
+      ..add(DiagnosticsProperty('wallet', wallet));
   }
 
   @override
@@ -501,7 +973,9 @@ class _$_TransactionFormState
                 const DeepCollectionEquality()
                     .equals(other.contact, contact)) &&
             (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+                const DeepCollectionEquality().equals(other.value, value)) &&
+            (identical(other.wallet, wallet) ||
+                const DeepCollectionEquality().equals(other.wallet, wallet)));
   }
 
   @override
@@ -510,7 +984,8 @@ class _$_TransactionFormState
       const DeepCollectionEquality().hash(isLoading) ^
       const DeepCollectionEquality().hash(failureOrSuccess) ^
       const DeepCollectionEquality().hash(contact) ^
-      const DeepCollectionEquality().hash(value);
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(wallet);
 
   @JsonKey(ignore: true)
   @override
@@ -524,7 +999,8 @@ abstract class _TransactionFormState implements TransactionFormState {
       {required bool isLoading,
       required Option<Either<TransactionFailure, Unit>> failureOrSuccess,
       Contact? contact,
-      required double value}) = _$_TransactionFormState;
+      required double value,
+      required Wallet wallet}) = _$_TransactionFormState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
@@ -535,6 +1011,8 @@ abstract class _TransactionFormState implements TransactionFormState {
   Contact? get contact => throw _privateConstructorUsedError;
   @override
   double get value => throw _privateConstructorUsedError;
+  @override
+  Wallet get wallet => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TransactionFormStateCopyWith<_TransactionFormState> get copyWith =>

@@ -18,6 +18,17 @@ class FormRecieve extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Container(
+            margin: EdgeInsets.only(left: 50.w, right: 50.w, top: 50.h),
+            alignment: Alignment.center,
+            child: Text(
+              'Recibir',
+              style: Theme.of(context).textTheme.headline4!.copyWith(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 70.sp),
+            ),
+          ),
           SizedBox(
             height: 50.h,
           ),

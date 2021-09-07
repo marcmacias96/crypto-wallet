@@ -7,11 +7,13 @@ class TransactionFormState with _$TransactionFormState {
     required Option<Either<TransactionFailure, Unit>> failureOrSuccess,
     Contact? contact,
     required double value,
+    required Wallet wallet,
   }) = _TransactionFormState;
 
   factory TransactionFormState.initial() => TransactionFormState(
         isLoading: false,
         failureOrSuccess: none(),
         value: 0.0,
+        wallet: Wallet.empty(),
       );
 }

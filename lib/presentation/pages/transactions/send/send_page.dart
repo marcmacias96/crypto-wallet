@@ -12,7 +12,8 @@ class SendPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) => getIt<TransactionFormBloc>(),
+        create: (context) => getIt<TransactionFormBloc>()
+          ..add(TransactionFormEvent.initialized()),
         child: Stack(
           alignment: Alignment.topCenter,
           children: [BodySend()],

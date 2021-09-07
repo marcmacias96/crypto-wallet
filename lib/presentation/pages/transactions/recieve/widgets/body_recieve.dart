@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/transactions_title.dart';
 import 'form_recieve.dart';
 
 class BodyRecieve extends StatelessWidget {
@@ -19,7 +18,7 @@ class BodyRecieve extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [TransactionTitle(title: 'Recibir'), FormRecieve()],
+            children: [FormRecieve()],
           ),
         ),
       ),
