@@ -1,8 +1,8 @@
-import 'package:crypto_wallet/aplication/transaction_form_bloc/transaction_form_bloc.dart';
-import 'package:crypto_wallet/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../aplication/transaction_form_bloc/transaction_form_bloc.dart';
+import '../../../../injection.dart';
 import 'widgets/body_send.dart';
 
 class SendPage extends StatelessWidget {

@@ -1,12 +1,8 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:crypto_wallet/domain/contacts/contact.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../../../../aplication/contact/contact_list_bloc/contact_list_bloc.dart';
-import '../../../../routes/router.gr.dart';
+import '../../../../../domain/contacts/contact.dart';
 import 'contact_item.dart';
 import 'text_contact_zero.dart';
 

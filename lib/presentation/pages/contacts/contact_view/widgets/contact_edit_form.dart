@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 //import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_qr_code_scaner/flutter_qr_code_scaner.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../aplication/contact/contact_form_bloc/contact_form_bloc.dart';
@@ -112,9 +113,14 @@ class _ContactEditFormState extends State<ContactEditForm> {
                       onPressed: () async {
                         String codeSanner;
                         try {
-                          codeSanner = "";
-                          // await FlutterBarcodeScanner.scanBarcode(
-                          //     "#ff6666", "Cancel", false, ScanMode.DEFAULT);
+                          codeSanner = await Navigator.push(
+                            // waiting for the scan results
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  ScanView(), // open the scan view
+                            ),
+                          );
                         } on PlatformException {
                           codeSanner = 'Failed to get platform version.';
                         }

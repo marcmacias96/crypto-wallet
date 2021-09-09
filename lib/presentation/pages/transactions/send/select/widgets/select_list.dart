@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:auto_route/auto_route.dart';
 import '../../../../../../aplication/contact/contact_list_bloc/contact_list_bloc.dart';
 import '../../../../contacts/contact_list/widgets/contact_item.dart';
 import '../../../../contacts/contact_list/widgets/text_contact_zero.dart';

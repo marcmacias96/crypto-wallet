@@ -1,7 +1,7 @@
-import 'package:crypto_wallet/infrastructure/wallet/wallet_dto.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
 
+import '../../infrastructure/wallet/wallet_dto.dart';
 import 'transaction.dart';
 import 'transaction_failure.dart';
 
