@@ -1,9 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../aplication/auth/auth_bloc.dart';
 import '../../../../aplication/wallet/wallet_watch_bloc/wallet_watch_bloc.dart';
 import '../../../../utils/user_preference.dart';
+import '../../../routes/router.gr.dart';
 import 'top_account_page.dart';
 
 class BodyAccountPage extends StatelessWidget {
@@ -151,6 +154,8 @@ class BodyAccountPage extends StatelessWidget {
                                 )
                               ],
                             ),
+                            onTap: () =>
+                                context.router.navigate(InfoAppRoute()),
                           ),
                           SizedBox(
                             height: 30.h,
@@ -200,6 +205,8 @@ class BodyAccountPage extends StatelessWidget {
                                 )
                               ],
                             ),
+                            onTap: () =>
+                                context.router.navigate(ChangePasswordRoute()),
                           ),
                           SizedBox(
                             height: 30.h,
@@ -249,6 +256,12 @@ class BodyAccountPage extends StatelessWidget {
                                 )
                               ],
                             ),
+                            onTap: () {
+                              context
+                                  .read<AuthBloc>()
+                                  .add(AuthEvent.signedOut());
+                              context.router.navigate(SplashRoute());
+                            },
                           ),
                         ],
                       ),
