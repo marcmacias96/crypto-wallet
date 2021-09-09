@@ -1,7 +1,8 @@
-import 'package:crypto_wallet/presentation/pages/account/change_password/widgets/form_change_password.dart';
-import 'package:crypto_wallet/presentation/pages/account/change_password/widgets/title_chage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'form_change_password.dart';
+import 'title_chage.dart';
 
 class BodyChangePassword extends StatelessWidget {
   const BodyChangePassword({Key? key}) : super(key: key);

@@ -1,8 +1,6 @@
-import 'package:crypto_wallet/presentation/pages/welcome/widgets/title_welcome.dart';
-import 'package:crypto_wallet/presentation/pages/welcome/widgets/welcome_logo.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:auto_route/auto_route.dart';
 
 class InfoAppPage extends StatelessWidget {
   const InfoAppPage({Key? key}) : super(key: key);
@@ -100,19 +98,23 @@ class InfoAppPage extends StatelessWidget {
                             Color.fromRGBO(189, 189, 189, 100)
                           ]),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Stack(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Almacena y trasfiere bitcoin fácil y rápido',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline4!
-                              .copyWith(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 60.sp),
+                        Container(
+                          margin: EdgeInsets.only(
+                              top: 40.h, left: 40.w, right: 60.w),
+                          child: Text(
+                            'Almacena y trasfiere bitcoin fácil y rápido',
+                            textAlign: TextAlign.left,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline3!
+                                .copyWith(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 60.sp),
+                          ),
                         ),
                         Align(
                           alignment: Alignment.bottomRight,
@@ -144,6 +146,14 @@ class InfoAppPage extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 80.h, left: 50.w, right: 50.w),
+                    child: Image.asset(
+                      'assets/img/transactions.png',
+                    ),
                   ),
                 ),
                 Container(

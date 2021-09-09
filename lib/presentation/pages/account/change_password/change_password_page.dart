@@ -1,7 +1,9 @@
-import 'package:crypto_wallet/presentation/pages/account/change_password/widgets/body_change_password.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../widgets/body_account_page.dart';
+import '../../../../aplication/auth/sign_in_form/sign_in_form_bloc.dart';
+import '../../../../injection.dart';
+import 'widgets/body_change_password.dart';
 import 'widgets/top_change_password.dart';
 
 class ChangePasswordPage extends StatelessWidget {
@@ -10,9 +12,13 @@ class ChangePasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [TopChangePassword(), BodyChangePassword()],
+      resizeToAvoidBottomInset: true,
+      body: BlocProvider(
+        create: (context) => getIt<SignInFormBloc>(),
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [TopChangePassword(), BodyChangePassword()],
+          ),
         ),
       ),
     );
