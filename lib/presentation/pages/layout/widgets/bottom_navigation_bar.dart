@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../aplication/auth/auth_bloc.dart';
 
 class BottonNavigationBar extends StatelessWidget {
   final Function onTap;
@@ -37,8 +34,7 @@ class BottonNavigationBar extends StatelessWidget {
                   IconButton(
                       icon: Icon(Icons.person),
                       iconSize: 30,
-                      onPressed: () =>
-                          context.read<AuthBloc>().add(AuthEvent.signedOut())),
+                      onPressed: () => onTap(2)),
                 ]),
           )),
     );

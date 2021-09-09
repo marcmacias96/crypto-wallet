@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import '../pages/account/account_page.dart';
 
 import '../pages/auth/sign_in/sign_in_page.dart';
 import '../pages/auth/sign_up/sign_up_page.dart';
@@ -19,6 +20,7 @@ import '../pages/welcome/welcome2_page.dart';
 @MaterialAutoRouter(replaceInRouteName: 'Page,Route', routes: <AutoRoute>[
   MaterialRoute(page: SplashPage, initial: true),
   MaterialRoute(page: LayoutPage),
+  MaterialRoute(page: AccountPage),
   MaterialRoute(page: SignInPage, fullscreenDialog: true),
   MaterialRoute(page: SignUpPage, fullscreenDialog: true),
   MaterialRoute(page: HomePage, fullscreenDialog: true),

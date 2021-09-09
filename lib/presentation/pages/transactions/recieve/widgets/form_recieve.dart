@@ -43,7 +43,7 @@ class FormRecieve extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                width: 0.72.sw,
+                width: 0.70.sw,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Text(
