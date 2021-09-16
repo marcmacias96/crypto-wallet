@@ -3,12 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final Color textcolor;
+  final Color buttoncolor;
   final VoidCallback onTap;
 
-  const CustomButton({Key? key,
-    required this.text,
-    required this.onTap
-  }) : super(key: key);
+  const CustomButton(
+      {Key? key,
+      required this.text,
+      required this.onTap,
+      required this.textcolor,
+      required this.buttoncolor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,22 +21,21 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
-      child: Container(
-        height: 80.h,
+      child: Align(
         alignment: Alignment.center,
-        margin: EdgeInsets.symmetric(
-            horizontal: 50.w,
-            vertical: 30.h
-        ),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: Theme.of(context).primaryColor
-        ),
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.headline5!.copyWith(
-              color: Colors.white,
-              fontSize:45.sp
+        child: Container(
+          height: 80.h,
+          width: 500.w,
+          alignment: Alignment.center,
+          margin: EdgeInsets.symmetric(vertical: 20.h),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30), color: buttoncolor),
+          child: Text(
+            text,
+            style: Theme.of(context)
+                .textTheme
+                .headline5!
+                .copyWith(color: textcolor, fontSize: 40.sp),
           ),
         ),
       ),

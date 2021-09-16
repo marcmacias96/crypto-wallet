@@ -1,8 +1,11 @@
 import 'package:dartz/dartz.dart';
+import '../core/firestore_failure.dart';
 import 'auth_failure.dart';
+import 'user.dart';
 import 'value_objects.dart';
 
 abstract class IAuthFacade {
+  Future<Option<User>> getSignedInUser();
   Future<Either<AuthFailure, AccountType>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
@@ -13,7 +16,14 @@ abstract class IAuthFacade {
   });
   Future<Either<AuthFailure, AccountType>> signInWithGoogle();
   Future<Either<AuthFailure, AccountType>> signInWithFacebook();
-
+  Future<Either<FirestoreFailure, User>> getUser();
   Future<void> signOut();
+  bool isSignedInUser();
+  Future<Either<AuthFailure, AccountType>> changePassword({
+    required String password,
+    required String newpassword,
+    required String confirmpassword,
+  });
 }
+
 enum AccountType { old, fresh }

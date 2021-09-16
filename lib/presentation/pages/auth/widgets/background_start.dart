@@ -7,8 +7,9 @@ class BackgroundStart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-        'assets/img/brackground.png',
-      height: 0.4.sh,
+      'assets/img/brackground.png',
+      height: 0.9.sh,
+      width: 3.sw,
       fit: BoxFit.cover,
     );
   }

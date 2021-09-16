@@ -5,8 +5,8 @@ import '../../../../injection.dart';
 import '../widgets/background_start.dart';
 import 'widgets/body_login.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
+class SignInPage extends StatelessWidget {
+  const SignInPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +14,11 @@ class SignIn extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       body: BlocProvider(
         create: (context) => getIt<SignInFormBloc>(),
-        child: Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            BackgroundStart(),
-            BodyLogin()
-          ],
+        child: SingleChildScrollView(
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [BackgroundStart(), BodyLogin()],
+          ),
         ),
       ),
     );
