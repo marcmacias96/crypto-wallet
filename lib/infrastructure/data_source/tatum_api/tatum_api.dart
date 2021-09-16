@@ -79,14 +79,14 @@ class TatumApi {
   static Future<List<Map<String, dynamic>>> getTransactions(
       String address) async {
     try {
-      final response = await http.post(
+      final response = await http.get(
           Uri.https(_api, '/v3/bitcoin/transaction/address/$address', {
-            'pageSize': 10,
+            'pageSize': '10',
           }),
           headers: {'x-api-key': dotenv.env['API_CODE']!});
 
       if (response.statusCode == 200) {
-        return jsonDecode(response.body);
+        return jsonDecode(response.body).cast<Map<String, dynamic>>();
       } else {
         throw TransactionFailure.unexpected();
       }

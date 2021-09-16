@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../aplication/wallet/wallet_watch_bloc/wallet_watch_bloc.dart';
 
@@ -16,7 +17,13 @@ class BalanceHome extends StatelessWidget {
       return state.map(
         initial: (_) => Container(),
         loadInProgress: (_) => Center(
-          child: Container(),
+          child: Center(
+            child: Container(
+              child: Center(
+                  child: Lottie.asset('assets/animations/loading_wallet.json',
+                      repeat: true, height: 300.h, width: 300.w)),
+            ),
+          ),
         ),
         loadSuccess: (success) => SingleChildScrollView(
             child: Container(

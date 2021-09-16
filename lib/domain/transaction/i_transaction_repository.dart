@@ -6,7 +6,7 @@ import 'transaction.dart';
 import 'transaction_failure.dart';
 
 abstract class ITransactionRepository {
-  Future<Either<TransactionFailure, KtList<Transaction>>> getTransaction(
+  Future<Either<TransactionFailure, KtList<Transaction>>> getTransactions(
       String address);
 
   Future<Either<TransactionFailure, Unit>> sendBitcoin(

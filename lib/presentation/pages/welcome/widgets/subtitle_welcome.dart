@@ -8,9 +8,6 @@ class SubtitleWelcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
-        left: 50.w,
-      ),
       child: Text(
         subtitle,
         textAlign: TextAlign.center,

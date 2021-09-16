@@ -15,7 +15,7 @@ import 'dtos/transaction_dto.dart';
 class TransactionRepository implements ITransactionRepository {
   const TransactionRepository();
   @override
-  Future<Either<TransactionFailure, KtList<domain.Transaction>>> getTransaction(
+  Future<Either<TransactionFailure, KtList<domain.Transaction>>> getTransactions(
       String address) async {
     try {
       var response = await TatumApi.getTransactions(address);

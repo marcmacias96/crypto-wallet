@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/transaction/transaction.dart';
-import '../../../utils/utils.dart';
+import '../../../../domain/transaction/transaction.dart';
+import '../../../utils/user_preference.dart';
 import 'input.dart';
 import 'output.dart';
 
@@ -34,7 +34,9 @@ class TransactionDto with _$TransactionDto {
     return Transaction(
       to: outputs!.first.address!,
       from: inputs!.first.coin!.address!,
-      value: outputs!.first.value!.toBTC(),
+      value: outputs!.first.address! == UserPreference.getWalletAddress()
+          ? inputs!.first.coin!.value!
+          : outputs!.first.value!,
       dateTime: DateTime.fromMillisecondsSinceEpoch(time!),
     );
   }

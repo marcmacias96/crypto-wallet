@@ -21,7 +21,7 @@ class SplashPage extends StatelessWidget {
           withOutWallet: (_) => context.router
               .pushAndRemoveUntil(WalletFormRoute(), predicate: (e) => false),
           unauthenticated: (_) => context.router.replace(
-            SignInRoute(),
+            Welcome1Route(),
           ),
           modeFailure: (_) {},
         );

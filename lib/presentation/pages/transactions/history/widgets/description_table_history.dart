@@ -16,12 +16,16 @@ class DescriptionTableHistory extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            contact,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
-                color: Colors.black,
-                fontWeight: FontWeight.normal,
-                fontSize: 30.sp),
+          Container(
+            width: 400.w,
+            child: Text(
+              contact,
+              style: Theme.of(context).textTheme.headline4!.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 30.sp),
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           SizedBox(
             height: 10.h,

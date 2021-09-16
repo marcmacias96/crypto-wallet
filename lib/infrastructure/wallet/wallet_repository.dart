@@ -106,6 +106,7 @@ class WalletRepository implements IWalletRepository {
       final snapshot = await query.get();
       final walletDto = WalletDto.fromFirestore(snapshot.docs[0]);
       UserPreference.setWalletId(walletDto.id);
+      UserPreference.setWalletAddress(walletDto.address);
       var wallet = walletDto.toDomain();
 
       var response = await TatumApi.getBalance(wallet.address);

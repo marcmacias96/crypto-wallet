@@ -19,6 +19,13 @@ class _$TransactionListEventTearOff {
   FetchTransactions fetchTransactions() {
     return const FetchTransactions();
   }
+
+  _TransactionsRecived transactionsRecived(
+      Either<TransactionFailure, KtList<Transaction>> failureOrTransactions) {
+    return _TransactionsRecived(
+      failureOrTransactions,
+    );
+  }
 }
 
 /// @nodoc
@@ -29,22 +36,32 @@ mixin _$TransactionListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchTransactions,
+    required TResult Function(
+            Either<TransactionFailure, KtList<Transaction>>
+                failureOrTransactions)
+        transactionsRecived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchTransactions,
+    TResult Function(
+            Either<TransactionFailure, KtList<Transaction>>
+                failureOrTransactions)?
+        transactionsRecived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchTransactions value) fetchTransactions,
+    required TResult Function(_TransactionsRecived value) transactionsRecived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchTransactions value)? fetchTransactions,
+    TResult Function(_TransactionsRecived value)? transactionsRecived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +124,10 @@ class _$FetchTransactions implements FetchTransactions {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchTransactions,
+    required TResult Function(
+            Either<TransactionFailure, KtList<Transaction>>
+                failureOrTransactions)
+        transactionsRecived,
   }) {
     return fetchTransactions();
   }
@@ -115,6 +136,10 @@ class _$FetchTransactions implements FetchTransactions {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchTransactions,
+    TResult Function(
+            Either<TransactionFailure, KtList<Transaction>>
+                failureOrTransactions)?
+        transactionsRecived,
     required TResult orElse(),
   }) {
     if (fetchTransactions != null) {
@@ -127,6 +152,7 @@ class _$FetchTransactions implements FetchTransactions {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchTransactions value) fetchTransactions,
+    required TResult Function(_TransactionsRecived value) transactionsRecived,
   }) {
     return fetchTransactions(this);
   }
@@ -135,6 +161,7 @@ class _$FetchTransactions implements FetchTransactions {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchTransactions value)? fetchTransactions,
+    TResult Function(_TransactionsRecived value)? transactionsRecived,
     required TResult orElse(),
   }) {
     if (fetchTransactions != null) {
@@ -146,6 +173,134 @@ class _$FetchTransactions implements FetchTransactions {
 
 abstract class FetchTransactions implements TransactionListEvent {
   const factory FetchTransactions() = _$FetchTransactions;
+}
+
+/// @nodoc
+abstract class _$TransactionsRecivedCopyWith<$Res> {
+  factory _$TransactionsRecivedCopyWith(_TransactionsRecived value,
+          $Res Function(_TransactionsRecived) then) =
+      __$TransactionsRecivedCopyWithImpl<$Res>;
+  $Res call(
+      {Either<TransactionFailure, KtList<Transaction>> failureOrTransactions});
+}
+
+/// @nodoc
+class __$TransactionsRecivedCopyWithImpl<$Res>
+    extends _$TransactionListEventCopyWithImpl<$Res>
+    implements _$TransactionsRecivedCopyWith<$Res> {
+  __$TransactionsRecivedCopyWithImpl(
+      _TransactionsRecived _value, $Res Function(_TransactionsRecived) _then)
+      : super(_value, (v) => _then(v as _TransactionsRecived));
+
+  @override
+  _TransactionsRecived get _value => super._value as _TransactionsRecived;
+
+  @override
+  $Res call({
+    Object? failureOrTransactions = freezed,
+  }) {
+    return _then(_TransactionsRecived(
+      failureOrTransactions == freezed
+          ? _value.failureOrTransactions
+          : failureOrTransactions // ignore: cast_nullable_to_non_nullable
+              as Either<TransactionFailure, KtList<Transaction>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_TransactionsRecived implements _TransactionsRecived {
+  const _$_TransactionsRecived(this.failureOrTransactions);
+
+  @override
+  final Either<TransactionFailure, KtList<Transaction>> failureOrTransactions;
+
+  @override
+  String toString() {
+    return 'TransactionListEvent.transactionsRecived(failureOrTransactions: $failureOrTransactions)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _TransactionsRecived &&
+            (identical(other.failureOrTransactions, failureOrTransactions) ||
+                const DeepCollectionEquality().equals(
+                    other.failureOrTransactions, failureOrTransactions)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrTransactions);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TransactionsRecivedCopyWith<_TransactionsRecived> get copyWith =>
+      __$TransactionsRecivedCopyWithImpl<_TransactionsRecived>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchTransactions,
+    required TResult Function(
+            Either<TransactionFailure, KtList<Transaction>>
+                failureOrTransactions)
+        transactionsRecived,
+  }) {
+    return transactionsRecived(failureOrTransactions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchTransactions,
+    TResult Function(
+            Either<TransactionFailure, KtList<Transaction>>
+                failureOrTransactions)?
+        transactionsRecived,
+    required TResult orElse(),
+  }) {
+    if (transactionsRecived != null) {
+      return transactionsRecived(failureOrTransactions);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchTransactions value) fetchTransactions,
+    required TResult Function(_TransactionsRecived value) transactionsRecived,
+  }) {
+    return transactionsRecived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchTransactions value)? fetchTransactions,
+    TResult Function(_TransactionsRecived value)? transactionsRecived,
+    required TResult orElse(),
+  }) {
+    if (transactionsRecived != null) {
+      return transactionsRecived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TransactionsRecived implements TransactionListEvent {
+  const factory _TransactionsRecived(
+      Either<TransactionFailure, KtList<Transaction>>
+          failureOrTransactions) = _$_TransactionsRecived;
+
+  Either<TransactionFailure, KtList<Transaction>> get failureOrTransactions =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$TransactionsRecivedCopyWith<_TransactionsRecived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

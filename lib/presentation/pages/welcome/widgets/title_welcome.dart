@@ -11,7 +11,6 @@ class TitleWelcome extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(
         top: 80.h,
-        left: 50.w,
       ),
       child: Text(
         title,

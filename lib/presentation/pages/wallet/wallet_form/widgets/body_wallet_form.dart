@@ -15,7 +15,7 @@ class BodyWalletForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        margin: EdgeInsets.only(top: 0.29.sh),
+        margin: EdgeInsets.only(top: 0.45.sh),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(30),
@@ -28,8 +28,7 @@ class BodyWalletForm extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 LoginTitle(title: 'Terminar Registro'),
-                WalletSubtitle(
-                    subtitle: 'Ingresando los datos de tu billetera  virtual'),
+                WalletSubtitle(subtitle: 'Dale un alias a tu wallet'),
                 FormWalletForm()
               ],
             ),
