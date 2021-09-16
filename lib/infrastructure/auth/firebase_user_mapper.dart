@@ -7,9 +7,8 @@ import '../../domain/core/value_objects.dart';
 extension FirebaseUserDomainX on firebase.User {
   User toDomain() {
     return User(
-      id: UniqueId.fromUniqueString(uid),
-      email: EmailAddress(email!),
-      name: Name(displayName ?? 'no-name')
-    );
+        id: UniqueId.fromUniqueString(uid),
+        email: EmailAddress(email!),
+        name: Name(displayName ?? 'no-name'));
   }
 }

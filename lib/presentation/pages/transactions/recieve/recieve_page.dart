@@ -10,9 +10,7 @@ class RecievePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         alignment: Alignment.topCenter,
-        children: [
-          BodyRecieve()
-        ],
+        children: [BodyRecieve()],
       ),
     );
   }

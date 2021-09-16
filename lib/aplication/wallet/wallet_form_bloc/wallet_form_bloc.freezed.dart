@@ -28,24 +28,16 @@ class _$WalletFormEventTearOff {
     );
   }
 
-  IdWalletChanged idWalletChanged(String walletId) {
-    return IdWalletChanged(
-      walletId,
-    );
-  }
-
-  PasswordChanged passwordChanged(String password) {
-    return PasswordChanged(
-      password,
-    );
+  CreateAddress createAddress() {
+    return const CreateAddress();
   }
 
   CreateWallet createWallet() {
     return const CreateWallet();
   }
 
-  _Saved saved() {
-    return const _Saved();
+  _Save save() {
+    return const _Save();
   }
 }
 
@@ -58,20 +50,18 @@ mixin _$WalletFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(String walletId) idWalletChanged,
-    required TResult Function(String password) passwordChanged,
+    required TResult Function() createAddress,
     required TResult Function() createWallet,
-    required TResult Function() saved,
+    required TResult Function() save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(String walletId)? idWalletChanged,
-    TResult Function(String password)? passwordChanged,
+    TResult Function()? createAddress,
     TResult Function()? createWallet,
-    TResult Function()? saved,
+    TResult Function()? save,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,20 +69,18 @@ mixin _$WalletFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateAddress value) createAddress,
     required TResult Function(CreateWallet value) createWallet,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(_Save value) save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
-    TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateAddress value)? createAddress,
     TResult Function(CreateWallet value)? createWallet,
-    TResult Function(_Saved value)? saved,
+    TResult Function(_Save value)? save,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,10 +177,9 @@ class _$Initialized with DiagnosticableTreeMixin implements Initialized {
   TResult when<TResult extends Object?>({
     required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(String walletId) idWalletChanged,
-    required TResult Function(String password) passwordChanged,
+    required TResult Function() createAddress,
     required TResult Function() createWallet,
-    required TResult Function() saved,
+    required TResult Function() save,
   }) {
     return initialized(isNew);
   }
@@ -202,10 +189,9 @@ class _$Initialized with DiagnosticableTreeMixin implements Initialized {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(String walletId)? idWalletChanged,
-    TResult Function(String password)? passwordChanged,
+    TResult Function()? createAddress,
     TResult Function()? createWallet,
-    TResult Function()? saved,
+    TResult Function()? save,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -219,10 +205,9 @@ class _$Initialized with DiagnosticableTreeMixin implements Initialized {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateAddress value) createAddress,
     required TResult Function(CreateWallet value) createWallet,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(_Save value) save,
   }) {
     return initialized(this);
   }
@@ -232,10 +217,9 @@ class _$Initialized with DiagnosticableTreeMixin implements Initialized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
-    TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateAddress value)? createAddress,
     TResult Function(CreateWallet value)? createWallet,
-    TResult Function(_Saved value)? saved,
+    TResult Function(_Save value)? save,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -328,10 +312,9 @@ class _$NameChanged with DiagnosticableTreeMixin implements NameChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(String walletId) idWalletChanged,
-    required TResult Function(String password) passwordChanged,
+    required TResult Function() createAddress,
     required TResult Function() createWallet,
-    required TResult Function() saved,
+    required TResult Function() save,
   }) {
     return nameChanged(name);
   }
@@ -341,10 +324,9 @@ class _$NameChanged with DiagnosticableTreeMixin implements NameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(String walletId)? idWalletChanged,
-    TResult Function(String password)? passwordChanged,
+    TResult Function()? createAddress,
     TResult Function()? createWallet,
-    TResult Function()? saved,
+    TResult Function()? save,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -358,10 +340,9 @@ class _$NameChanged with DiagnosticableTreeMixin implements NameChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateAddress value) createAddress,
     required TResult Function(CreateWallet value) createWallet,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(_Save value) save,
   }) {
     return nameChanged(this);
   }
@@ -371,10 +352,9 @@ class _$NameChanged with DiagnosticableTreeMixin implements NameChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
-    TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateAddress value)? createAddress,
     TResult Function(CreateWallet value)? createWallet,
-    TResult Function(_Saved value)? saved,
+    TResult Function(_Save value)? save,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -394,88 +374,58 @@ abstract class NameChanged implements WalletFormEvent {
 }
 
 /// @nodoc
-abstract class $IdWalletChangedCopyWith<$Res> {
-  factory $IdWalletChangedCopyWith(
-          IdWalletChanged value, $Res Function(IdWalletChanged) then) =
-      _$IdWalletChangedCopyWithImpl<$Res>;
-  $Res call({String walletId});
+abstract class $CreateAddressCopyWith<$Res> {
+  factory $CreateAddressCopyWith(
+          CreateAddress value, $Res Function(CreateAddress) then) =
+      _$CreateAddressCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$IdWalletChangedCopyWithImpl<$Res>
+class _$CreateAddressCopyWithImpl<$Res>
     extends _$WalletFormEventCopyWithImpl<$Res>
-    implements $IdWalletChangedCopyWith<$Res> {
-  _$IdWalletChangedCopyWithImpl(
-      IdWalletChanged _value, $Res Function(IdWalletChanged) _then)
-      : super(_value, (v) => _then(v as IdWalletChanged));
+    implements $CreateAddressCopyWith<$Res> {
+  _$CreateAddressCopyWithImpl(
+      CreateAddress _value, $Res Function(CreateAddress) _then)
+      : super(_value, (v) => _then(v as CreateAddress));
 
   @override
-  IdWalletChanged get _value => super._value as IdWalletChanged;
-
-  @override
-  $Res call({
-    Object? walletId = freezed,
-  }) {
-    return _then(IdWalletChanged(
-      walletId == freezed
-          ? _value.walletId
-          : walletId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+  CreateAddress get _value => super._value as CreateAddress;
 }
 
 /// @nodoc
-class _$IdWalletChanged
-    with DiagnosticableTreeMixin
-    implements IdWalletChanged {
-  const _$IdWalletChanged(this.walletId);
-
-  @override
-  final String walletId;
+class _$CreateAddress with DiagnosticableTreeMixin implements CreateAddress {
+  const _$CreateAddress();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WalletFormEvent.idWalletChanged(walletId: $walletId)';
+    return 'WalletFormEvent.createAddress()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'WalletFormEvent.idWalletChanged'))
-      ..add(DiagnosticsProperty('walletId', walletId));
+      ..add(DiagnosticsProperty('type', 'WalletFormEvent.createAddress'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is IdWalletChanged &&
-            (identical(other.walletId, walletId) ||
-                const DeepCollectionEquality()
-                    .equals(other.walletId, walletId)));
+    return identical(this, other) || (other is CreateAddress);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(walletId);
-
-  @JsonKey(ignore: true)
-  @override
-  $IdWalletChangedCopyWith<IdWalletChanged> get copyWith =>
-      _$IdWalletChangedCopyWithImpl<IdWalletChanged>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(String walletId) idWalletChanged,
-    required TResult Function(String password) passwordChanged,
+    required TResult Function() createAddress,
     required TResult Function() createWallet,
-    required TResult Function() saved,
+    required TResult Function() save,
   }) {
-    return idWalletChanged(walletId);
+    return createAddress();
   }
 
   @override
@@ -483,14 +433,13 @@ class _$IdWalletChanged
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(String walletId)? idWalletChanged,
-    TResult Function(String password)? passwordChanged,
+    TResult Function()? createAddress,
     TResult Function()? createWallet,
-    TResult Function()? saved,
+    TResult Function()? save,
     required TResult orElse(),
   }) {
-    if (idWalletChanged != null) {
-      return idWalletChanged(walletId);
+    if (createAddress != null) {
+      return createAddress();
     }
     return orElse();
   }
@@ -500,12 +449,11 @@ class _$IdWalletChanged
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateAddress value) createAddress,
     required TResult Function(CreateWallet value) createWallet,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(_Save value) save,
   }) {
-    return idWalletChanged(this);
+    return createAddress(this);
   }
 
   @override
@@ -513,168 +461,20 @@ class _$IdWalletChanged
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
-    TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateAddress value)? createAddress,
     TResult Function(CreateWallet value)? createWallet,
-    TResult Function(_Saved value)? saved,
+    TResult Function(_Save value)? save,
     required TResult orElse(),
   }) {
-    if (idWalletChanged != null) {
-      return idWalletChanged(this);
+    if (createAddress != null) {
+      return createAddress(this);
     }
     return orElse();
   }
 }
 
-abstract class IdWalletChanged implements WalletFormEvent {
-  const factory IdWalletChanged(String walletId) = _$IdWalletChanged;
-
-  String get walletId => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $IdWalletChangedCopyWith<IdWalletChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PasswordChangedCopyWith<$Res> {
-  factory $PasswordChangedCopyWith(
-          PasswordChanged value, $Res Function(PasswordChanged) then) =
-      _$PasswordChangedCopyWithImpl<$Res>;
-  $Res call({String password});
-}
-
-/// @nodoc
-class _$PasswordChangedCopyWithImpl<$Res>
-    extends _$WalletFormEventCopyWithImpl<$Res>
-    implements $PasswordChangedCopyWith<$Res> {
-  _$PasswordChangedCopyWithImpl(
-      PasswordChanged _value, $Res Function(PasswordChanged) _then)
-      : super(_value, (v) => _then(v as PasswordChanged));
-
-  @override
-  PasswordChanged get _value => super._value as PasswordChanged;
-
-  @override
-  $Res call({
-    Object? password = freezed,
-  }) {
-    return _then(PasswordChanged(
-      password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-class _$PasswordChanged
-    with DiagnosticableTreeMixin
-    implements PasswordChanged {
-  const _$PasswordChanged(this.password);
-
-  @override
-  final String password;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WalletFormEvent.passwordChanged(password: $password)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'WalletFormEvent.passwordChanged'))
-      ..add(DiagnosticsProperty('password', password));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is PasswordChanged &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(password);
-
-  @JsonKey(ignore: true)
-  @override
-  $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
-      _$PasswordChangedCopyWithImpl<PasswordChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(bool? isNew) initialized,
-    required TResult Function(String name) nameChanged,
-    required TResult Function(String walletId) idWalletChanged,
-    required TResult Function(String password) passwordChanged,
-    required TResult Function() createWallet,
-    required TResult Function() saved,
-  }) {
-    return passwordChanged(password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool? isNew)? initialized,
-    TResult Function(String name)? nameChanged,
-    TResult Function(String walletId)? idWalletChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function()? createWallet,
-    TResult Function()? saved,
-    required TResult orElse(),
-  }) {
-    if (passwordChanged != null) {
-      return passwordChanged(password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initialized value) initialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
-    required TResult Function(CreateWallet value) createWallet,
-    required TResult Function(_Saved value) saved,
-  }) {
-    return passwordChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initialized value)? initialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
-    TResult Function(CreateWallet value)? createWallet,
-    TResult Function(_Saved value)? saved,
-    required TResult orElse(),
-  }) {
-    if (passwordChanged != null) {
-      return passwordChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class PasswordChanged implements WalletFormEvent {
-  const factory PasswordChanged(String password) = _$PasswordChanged;
-
-  String get password => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class CreateAddress implements WalletFormEvent {
+  const factory CreateAddress() = _$CreateAddress;
 }
 
 /// @nodoc
@@ -725,10 +525,9 @@ class _$CreateWallet with DiagnosticableTreeMixin implements CreateWallet {
   TResult when<TResult extends Object?>({
     required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(String walletId) idWalletChanged,
-    required TResult Function(String password) passwordChanged,
+    required TResult Function() createAddress,
     required TResult Function() createWallet,
-    required TResult Function() saved,
+    required TResult Function() save,
   }) {
     return createWallet();
   }
@@ -738,10 +537,9 @@ class _$CreateWallet with DiagnosticableTreeMixin implements CreateWallet {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(String walletId)? idWalletChanged,
-    TResult Function(String password)? passwordChanged,
+    TResult Function()? createAddress,
     TResult Function()? createWallet,
-    TResult Function()? saved,
+    TResult Function()? save,
     required TResult orElse(),
   }) {
     if (createWallet != null) {
@@ -755,10 +553,9 @@ class _$CreateWallet with DiagnosticableTreeMixin implements CreateWallet {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateAddress value) createAddress,
     required TResult Function(CreateWallet value) createWallet,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(_Save value) save,
   }) {
     return createWallet(this);
   }
@@ -768,10 +565,9 @@ class _$CreateWallet with DiagnosticableTreeMixin implements CreateWallet {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
-    TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateAddress value)? createAddress,
     TResult Function(CreateWallet value)? createWallet,
-    TResult Function(_Saved value)? saved,
+    TResult Function(_Save value)? save,
     required TResult orElse(),
   }) {
     if (createWallet != null) {
@@ -786,39 +582,39 @@ abstract class CreateWallet implements WalletFormEvent {
 }
 
 /// @nodoc
-abstract class _$SavedCopyWith<$Res> {
-  factory _$SavedCopyWith(_Saved value, $Res Function(_Saved) then) =
-      __$SavedCopyWithImpl<$Res>;
+abstract class _$SaveCopyWith<$Res> {
+  factory _$SaveCopyWith(_Save value, $Res Function(_Save) then) =
+      __$SaveCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SavedCopyWithImpl<$Res> extends _$WalletFormEventCopyWithImpl<$Res>
-    implements _$SavedCopyWith<$Res> {
-  __$SavedCopyWithImpl(_Saved _value, $Res Function(_Saved) _then)
-      : super(_value, (v) => _then(v as _Saved));
+class __$SaveCopyWithImpl<$Res> extends _$WalletFormEventCopyWithImpl<$Res>
+    implements _$SaveCopyWith<$Res> {
+  __$SaveCopyWithImpl(_Save _value, $Res Function(_Save) _then)
+      : super(_value, (v) => _then(v as _Save));
 
   @override
-  _Saved get _value => super._value as _Saved;
+  _Save get _value => super._value as _Save;
 }
 
 /// @nodoc
-class _$_Saved with DiagnosticableTreeMixin implements _Saved {
-  const _$_Saved();
+class _$_Save with DiagnosticableTreeMixin implements _Save {
+  const _$_Save();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WalletFormEvent.saved()';
+    return 'WalletFormEvent.save()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'WalletFormEvent.saved'));
+    properties..add(DiagnosticsProperty('type', 'WalletFormEvent.save'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Saved);
+    return identical(this, other) || (other is _Save);
   }
 
   @override
@@ -829,12 +625,11 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
   TResult when<TResult extends Object?>({
     required TResult Function(bool? isNew) initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(String walletId) idWalletChanged,
-    required TResult Function(String password) passwordChanged,
+    required TResult Function() createAddress,
     required TResult Function() createWallet,
-    required TResult Function() saved,
+    required TResult Function() save,
   }) {
-    return saved();
+    return save();
   }
 
   @override
@@ -842,14 +637,13 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool? isNew)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(String walletId)? idWalletChanged,
-    TResult Function(String password)? passwordChanged,
+    TResult Function()? createAddress,
     TResult Function()? createWallet,
-    TResult Function()? saved,
+    TResult Function()? save,
     required TResult orElse(),
   }) {
-    if (saved != null) {
-      return saved();
+    if (save != null) {
+      return save();
     }
     return orElse();
   }
@@ -859,12 +653,11 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) initialized,
     required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(IdWalletChanged value) idWalletChanged,
-    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(CreateAddress value) createAddress,
     required TResult Function(CreateWallet value) createWallet,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(_Save value) save,
   }) {
-    return saved(this);
+    return save(this);
   }
 
   @override
@@ -872,21 +665,20 @@ class _$_Saved with DiagnosticableTreeMixin implements _Saved {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? initialized,
     TResult Function(NameChanged value)? nameChanged,
-    TResult Function(IdWalletChanged value)? idWalletChanged,
-    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(CreateAddress value)? createAddress,
     TResult Function(CreateWallet value)? createWallet,
-    TResult Function(_Saved value)? saved,
+    TResult Function(_Save value)? save,
     required TResult orElse(),
   }) {
-    if (saved != null) {
-      return saved(this);
+    if (save != null) {
+      return save(this);
     }
     return orElse();
   }
 }
 
-abstract class _Saved implements WalletFormEvent {
-  const factory _Saved() = _$_Saved;
+abstract class _Save implements WalletFormEvent {
+  const factory _Save() = _$_Save;
 }
 
 /// @nodoc

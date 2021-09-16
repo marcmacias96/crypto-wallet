@@ -16,9 +16,7 @@ class ImageTable extends StatelessWidget {
               image: ExactAssetImage(
                 imageSrc,
               ),
-              fit: BoxFit.contain
-          )
-      ),
+              fit: BoxFit.contain)),
     );
   }
 }

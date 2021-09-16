@@ -27,6 +27,12 @@ class _$ContactListEventTearOff {
     );
   }
 
+  SearchChange searchChange(String name) {
+    return SearchChange(
+      name,
+    );
+  }
+
   Delete delete() {
     return const Delete();
   }
@@ -43,6 +49,7 @@ mixin _$ContactListEvent {
     required TResult Function(
             Either<FirestoreFailure, KtList<Contact>> failureOrContacts)
         contactsRecived,
+    required TResult Function(String name) searchChange,
     required TResult Function() delete,
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +59,7 @@ mixin _$ContactListEvent {
     TResult Function(
             Either<FirestoreFailure, KtList<Contact>> failureOrContacts)?
         contactsRecived,
+    TResult Function(String name)? searchChange,
     TResult Function()? delete,
     required TResult orElse(),
   }) =>
@@ -60,6 +68,7 @@ mixin _$ContactListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) watchStarted,
     required TResult Function(_ContactsRecived value) contactsRecived,
+    required TResult Function(SearchChange value) searchChange,
     required TResult Function(Delete value) delete,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +76,7 @@ mixin _$ContactListEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? watchStarted,
     TResult Function(_ContactsRecived value)? contactsRecived,
+    TResult Function(SearchChange value)? searchChange,
     TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) =>
@@ -133,6 +143,7 @@ class _$Initialized implements Initialized {
     required TResult Function(
             Either<FirestoreFailure, KtList<Contact>> failureOrContacts)
         contactsRecived,
+    required TResult Function(String name) searchChange,
     required TResult Function() delete,
   }) {
     return watchStarted();
@@ -145,6 +156,7 @@ class _$Initialized implements Initialized {
     TResult Function(
             Either<FirestoreFailure, KtList<Contact>> failureOrContacts)?
         contactsRecived,
+    TResult Function(String name)? searchChange,
     TResult Function()? delete,
     required TResult orElse(),
   }) {
@@ -159,6 +171,7 @@ class _$Initialized implements Initialized {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) watchStarted,
     required TResult Function(_ContactsRecived value) contactsRecived,
+    required TResult Function(SearchChange value) searchChange,
     required TResult Function(Delete value) delete,
   }) {
     return watchStarted(this);
@@ -169,6 +182,7 @@ class _$Initialized implements Initialized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? watchStarted,
     TResult Function(_ContactsRecived value)? contactsRecived,
+    TResult Function(SearchChange value)? searchChange,
     TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
@@ -253,6 +267,7 @@ class _$_ContactsRecived implements _ContactsRecived {
     required TResult Function(
             Either<FirestoreFailure, KtList<Contact>> failureOrContacts)
         contactsRecived,
+    required TResult Function(String name) searchChange,
     required TResult Function() delete,
   }) {
     return contactsRecived(failureOrContacts);
@@ -265,6 +280,7 @@ class _$_ContactsRecived implements _ContactsRecived {
     TResult Function(
             Either<FirestoreFailure, KtList<Contact>> failureOrContacts)?
         contactsRecived,
+    TResult Function(String name)? searchChange,
     TResult Function()? delete,
     required TResult orElse(),
   }) {
@@ -279,6 +295,7 @@ class _$_ContactsRecived implements _ContactsRecived {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) watchStarted,
     required TResult Function(_ContactsRecived value) contactsRecived,
+    required TResult Function(SearchChange value) searchChange,
     required TResult Function(Delete value) delete,
   }) {
     return contactsRecived(this);
@@ -289,6 +306,7 @@ class _$_ContactsRecived implements _ContactsRecived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? watchStarted,
     TResult Function(_ContactsRecived value)? contactsRecived,
+    TResult Function(SearchChange value)? searchChange,
     TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
@@ -308,6 +326,133 @@ abstract class _ContactsRecived implements ContactListEvent {
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ContactsRecivedCopyWith<_ContactsRecived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SearchChangeCopyWith<$Res> {
+  factory $SearchChangeCopyWith(
+          SearchChange value, $Res Function(SearchChange) then) =
+      _$SearchChangeCopyWithImpl<$Res>;
+  $Res call({String name});
+}
+
+/// @nodoc
+class _$SearchChangeCopyWithImpl<$Res>
+    extends _$ContactListEventCopyWithImpl<$Res>
+    implements $SearchChangeCopyWith<$Res> {
+  _$SearchChangeCopyWithImpl(
+      SearchChange _value, $Res Function(SearchChange) _then)
+      : super(_value, (v) => _then(v as SearchChange));
+
+  @override
+  SearchChange get _value => super._value as SearchChange;
+
+  @override
+  $Res call({
+    Object? name = freezed,
+  }) {
+    return _then(SearchChange(
+      name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SearchChange implements SearchChange {
+  const _$SearchChange(this.name);
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'ContactListEvent.searchChange(name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SearchChange &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+
+  @JsonKey(ignore: true)
+  @override
+  $SearchChangeCopyWith<SearchChange> get copyWith =>
+      _$SearchChangeCopyWithImpl<SearchChange>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchStarted,
+    required TResult Function(
+            Either<FirestoreFailure, KtList<Contact>> failureOrContacts)
+        contactsRecived,
+    required TResult Function(String name) searchChange,
+    required TResult Function() delete,
+  }) {
+    return searchChange(name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchStarted,
+    TResult Function(
+            Either<FirestoreFailure, KtList<Contact>> failureOrContacts)?
+        contactsRecived,
+    TResult Function(String name)? searchChange,
+    TResult Function()? delete,
+    required TResult orElse(),
+  }) {
+    if (searchChange != null) {
+      return searchChange(name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) watchStarted,
+    required TResult Function(_ContactsRecived value) contactsRecived,
+    required TResult Function(SearchChange value) searchChange,
+    required TResult Function(Delete value) delete,
+  }) {
+    return searchChange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? watchStarted,
+    TResult Function(_ContactsRecived value)? contactsRecived,
+    TResult Function(SearchChange value)? searchChange,
+    TResult Function(Delete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (searchChange != null) {
+      return searchChange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchChange implements ContactListEvent {
+  const factory SearchChange(String name) = _$SearchChange;
+
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SearchChangeCopyWith<SearchChange> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -351,6 +496,7 @@ class _$Delete implements Delete {
     required TResult Function(
             Either<FirestoreFailure, KtList<Contact>> failureOrContacts)
         contactsRecived,
+    required TResult Function(String name) searchChange,
     required TResult Function() delete,
   }) {
     return delete();
@@ -363,6 +509,7 @@ class _$Delete implements Delete {
     TResult Function(
             Either<FirestoreFailure, KtList<Contact>> failureOrContacts)?
         contactsRecived,
+    TResult Function(String name)? searchChange,
     TResult Function()? delete,
     required TResult orElse(),
   }) {
@@ -377,6 +524,7 @@ class _$Delete implements Delete {
   TResult map<TResult extends Object?>({
     required TResult Function(Initialized value) watchStarted,
     required TResult Function(_ContactsRecived value) contactsRecived,
+    required TResult Function(SearchChange value) searchChange,
     required TResult Function(Delete value) delete,
   }) {
     return delete(this);
@@ -387,6 +535,7 @@ class _$Delete implements Delete {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initialized value)? watchStarted,
     TResult Function(_ContactsRecived value)? contactsRecived,
+    TResult Function(SearchChange value)? searchChange,
     TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
@@ -407,13 +556,15 @@ class _$ContactListStateTearOff {
 
   _ContactListState call(
       {required KtList<Contact> contacts,
+      required KtList<Contact> contactsFiltered,
       required bool isLoading,
-      required bool hasMore,
+      required bool isSearching,
       required Option<FirestoreFailure> loadFailureOrSuccessOption}) {
     return _ContactListState(
       contacts: contacts,
+      contactsFiltered: contactsFiltered,
       isLoading: isLoading,
-      hasMore: hasMore,
+      isSearching: isSearching,
       loadFailureOrSuccessOption: loadFailureOrSuccessOption,
     );
   }
@@ -425,8 +576,9 @@ const $ContactListState = _$ContactListStateTearOff();
 /// @nodoc
 mixin _$ContactListState {
   KtList<Contact> get contacts => throw _privateConstructorUsedError;
+  KtList<Contact> get contactsFiltered => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get hasMore => throw _privateConstructorUsedError;
+  bool get isSearching => throw _privateConstructorUsedError;
   Option<FirestoreFailure> get loadFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -442,8 +594,9 @@ abstract class $ContactListStateCopyWith<$Res> {
       _$ContactListStateCopyWithImpl<$Res>;
   $Res call(
       {KtList<Contact> contacts,
+      KtList<Contact> contactsFiltered,
       bool isLoading,
-      bool hasMore,
+      bool isSearching,
       Option<FirestoreFailure> loadFailureOrSuccessOption});
 }
 
@@ -459,8 +612,9 @@ class _$ContactListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? contacts = freezed,
+    Object? contactsFiltered = freezed,
     Object? isLoading = freezed,
-    Object? hasMore = freezed,
+    Object? isSearching = freezed,
     Object? loadFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -468,13 +622,17 @@ class _$ContactListStateCopyWithImpl<$Res>
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
               as KtList<Contact>,
+      contactsFiltered: contactsFiltered == freezed
+          ? _value.contactsFiltered
+          : contactsFiltered // ignore: cast_nullable_to_non_nullable
+              as KtList<Contact>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasMore: hasMore == freezed
-          ? _value.hasMore
-          : hasMore // ignore: cast_nullable_to_non_nullable
+      isSearching: isSearching == freezed
+          ? _value.isSearching
+          : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
       loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
           ? _value.loadFailureOrSuccessOption
@@ -493,8 +651,9 @@ abstract class _$ContactListStateCopyWith<$Res>
   @override
   $Res call(
       {KtList<Contact> contacts,
+      KtList<Contact> contactsFiltered,
       bool isLoading,
-      bool hasMore,
+      bool isSearching,
       Option<FirestoreFailure> loadFailureOrSuccessOption});
 }
 
@@ -512,8 +671,9 @@ class __$ContactListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? contacts = freezed,
+    Object? contactsFiltered = freezed,
     Object? isLoading = freezed,
-    Object? hasMore = freezed,
+    Object? isSearching = freezed,
     Object? loadFailureOrSuccessOption = freezed,
   }) {
     return _then(_ContactListState(
@@ -521,13 +681,17 @@ class __$ContactListStateCopyWithImpl<$Res>
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
               as KtList<Contact>,
+      contactsFiltered: contactsFiltered == freezed
+          ? _value.contactsFiltered
+          : contactsFiltered // ignore: cast_nullable_to_non_nullable
+              as KtList<Contact>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      hasMore: hasMore == freezed
-          ? _value.hasMore
-          : hasMore // ignore: cast_nullable_to_non_nullable
+      isSearching: isSearching == freezed
+          ? _value.isSearching
+          : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
       loadFailureOrSuccessOption: loadFailureOrSuccessOption == freezed
           ? _value.loadFailureOrSuccessOption
@@ -541,22 +705,25 @@ class __$ContactListStateCopyWithImpl<$Res>
 class _$_ContactListState implements _ContactListState {
   const _$_ContactListState(
       {required this.contacts,
+      required this.contactsFiltered,
       required this.isLoading,
-      required this.hasMore,
+      required this.isSearching,
       required this.loadFailureOrSuccessOption});
 
   @override
   final KtList<Contact> contacts;
   @override
+  final KtList<Contact> contactsFiltered;
+  @override
   final bool isLoading;
   @override
-  final bool hasMore;
+  final bool isSearching;
   @override
   final Option<FirestoreFailure> loadFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'ContactListState(contacts: $contacts, isLoading: $isLoading, hasMore: $hasMore, loadFailureOrSuccessOption: $loadFailureOrSuccessOption)';
+    return 'ContactListState(contacts: $contacts, contactsFiltered: $contactsFiltered, isLoading: $isLoading, isSearching: $isSearching, loadFailureOrSuccessOption: $loadFailureOrSuccessOption)';
   }
 
   @override
@@ -566,12 +733,15 @@ class _$_ContactListState implements _ContactListState {
             (identical(other.contacts, contacts) ||
                 const DeepCollectionEquality()
                     .equals(other.contacts, contacts)) &&
+            (identical(other.contactsFiltered, contactsFiltered) ||
+                const DeepCollectionEquality()
+                    .equals(other.contactsFiltered, contactsFiltered)) &&
             (identical(other.isLoading, isLoading) ||
                 const DeepCollectionEquality()
                     .equals(other.isLoading, isLoading)) &&
-            (identical(other.hasMore, hasMore) ||
+            (identical(other.isSearching, isSearching) ||
                 const DeepCollectionEquality()
-                    .equals(other.hasMore, hasMore)) &&
+                    .equals(other.isSearching, isSearching)) &&
             (identical(other.loadFailureOrSuccessOption,
                     loadFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -583,8 +753,9 @@ class _$_ContactListState implements _ContactListState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(contacts) ^
+      const DeepCollectionEquality().hash(contactsFiltered) ^
       const DeepCollectionEquality().hash(isLoading) ^
-      const DeepCollectionEquality().hash(hasMore) ^
+      const DeepCollectionEquality().hash(isSearching) ^
       const DeepCollectionEquality().hash(loadFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -596,17 +767,20 @@ class _$_ContactListState implements _ContactListState {
 abstract class _ContactListState implements ContactListState {
   const factory _ContactListState(
           {required KtList<Contact> contacts,
+          required KtList<Contact> contactsFiltered,
           required bool isLoading,
-          required bool hasMore,
+          required bool isSearching,
           required Option<FirestoreFailure> loadFailureOrSuccessOption}) =
       _$_ContactListState;
 
   @override
   KtList<Contact> get contacts => throw _privateConstructorUsedError;
   @override
+  KtList<Contact> get contactsFiltered => throw _privateConstructorUsedError;
+  @override
   bool get isLoading => throw _privateConstructorUsedError;
   @override
-  bool get hasMore => throw _privateConstructorUsedError;
+  bool get isSearching => throw _privateConstructorUsedError;
   @override
   Option<FirestoreFailure> get loadFailureOrSuccessOption =>
       throw _privateConstructorUsedError;

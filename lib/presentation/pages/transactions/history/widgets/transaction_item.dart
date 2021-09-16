@@ -4,7 +4,14 @@ import 'description_table_history.dart';
 import 'value_table_history.dart';
 
 class TransactionItem extends StatelessWidget {
-  const TransactionItem({Key? key}) : super(key: key);
+  final String address, date, value, sign;
+  const TransactionItem({
+    Key? key,
+    required this.address,
+    required this.date,
+    required this.value,
+    required this.sign,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +19,11 @@ class TransactionItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DescriptionTableHistory(date: '22/07/2021', contact: 'ODALIS VALENCIA'),
+        DescriptionTableHistory(date: date, contact: address),
         ValueTableHistory(
-          value: '5,00',
-          signo: '+',
-          valuecolor: Colors.green,
-          monto: '56,00',
+          value: value,
+          signo: sign,
+          valuecolor: sign == '+' ? Colors.green : Colors.red,
         ),
       ],
     );

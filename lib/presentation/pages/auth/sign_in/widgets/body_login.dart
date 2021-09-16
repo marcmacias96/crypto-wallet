@@ -4,7 +4,6 @@ import '../../widgets/login_title.dart';
 import 'signin_form.dart';
 
 class BodyLogin extends StatelessWidget {
-
   const BodyLogin({Key? key}) : super(key: key);
 
   @override

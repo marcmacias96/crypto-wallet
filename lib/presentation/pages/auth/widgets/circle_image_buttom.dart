@@ -5,11 +5,9 @@ class CircleImageButton extends StatelessWidget {
   final String imageSrc;
   final VoidCallback onTap;
 
-  const CircleImageButton({
-    Key? key,
-    required this.imageSrc,
-    required this.onTap
-  }) : super(key: key);
+  const CircleImageButton(
+      {Key? key, required this.imageSrc, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +20,9 @@ class CircleImageButton extends StatelessWidget {
             shape: BoxShape.circle,
             image: DecorationImage(
                 image: ExactAssetImage(
-                   imageSrc,
+                  imageSrc,
                 ),
-              fit: BoxFit.contain
-            )
-        ),
+                fit: BoxFit.contain)),
       ),
     );
   }

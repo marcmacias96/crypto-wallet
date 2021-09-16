@@ -4,50 +4,33 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-import '../../../../routes/router.gr.dart';
+import '../../../../../utils/user_preference.dart';
 import '../../../auth/widgets/custom_button.dart';
-
-String dropdownValue = '';
-var _coins = [
-  "America",
-  "Brazil",
-  "Canada",
-  "India",
-  "Mongalia",
-  "USA",
-  "China",
-  "Russia",
-  "Germany"
-];
 
 class FormRecieve extends StatelessWidget {
   const FormRecieve({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var qrData = "https://github.com/marcmacias96/crypto-wallet";
-    return Form(
-        child: Padding(
+    var qrData = UserPreference.getWalletId();
+    return Padding(
       padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 50.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          DropdownButton<String>(
-            items: _coins.map((coinItem) {
-              return DropdownMenuItem<String>(
-                value: coinItem,
-                child: Text(coinItem),
-              );
-            }).toList(),
-            onChanged: (newvalue) {},
-            hint: Text(
-              'Escoge la moneda',
+          Container(
+            margin: EdgeInsets.only(left: 50.w, right: 50.w, top: 50.h),
+            alignment: Alignment.center,
+            child: Text(
+              'Recibir',
               style: Theme.of(context).textTheme.headline4!.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 40.sp),
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 70.sp),
             ),
-            //value: dropdownValue,
+          ),
+          SizedBox(
+            height: 50.h,
           ),
           QrImage(
             //plce where the QR Image will be shown
@@ -57,9 +40,10 @@ class FormRecieve extends StatelessWidget {
             height: 50.h,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                width: 270,
+                width: 0.70.sw,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Text(
@@ -72,6 +56,7 @@ class FormRecieve extends StatelessWidget {
                 ),
               ),
               IconButton(
+                  padding: EdgeInsets.zero,
                   onPressed: () {
                     Clipboard.setData(ClipboardData(text: qrData));
                     // ignore: deprecated_member_use
@@ -83,22 +68,16 @@ class FormRecieve extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 30.h,
+            height: 150.h,
           ),
           CustomButton(
             text: 'Hecho',
             textcolor: Colors.white,
             buttoncolor: Theme.of(context).primaryColor,
-            onTap: () {},
+            onTap: () => context.router.pop(),
           ),
-          CustomButton(
-            text: 'Cancelar',
-            textcolor: Colors.black,
-            buttoncolor: Colors.white,
-            onTap: () => context.router.navigate(HistoryRoute()),
-          )
         ],
       ),
-    ));
+    );
   }
 }

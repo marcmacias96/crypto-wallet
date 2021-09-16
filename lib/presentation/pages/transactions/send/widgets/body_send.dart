@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/transactions_title.dart';
 import 'form_send.dart';
 
 class BodySend extends StatelessWidget {
@@ -19,11 +18,7 @@ class BodySend extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TransactionTitle(title: 'Enviar'),
-              FormSend ()
-
-            ],
+            children: [FormSend()],
           ),
         ),
       ),

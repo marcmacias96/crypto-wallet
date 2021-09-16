@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../aplication/contact/contact_list_bloc/contact_list_bloc.dart';
 import '../../../../injection.dart';
 import '../../../routes/router.gr.dart';
-import 'widgets/contact_list_header.dart';
+import '../../transactions/send/select/widgets/select_header.dart';
 import 'widgets/list_contacts.dart';
 
 class ContactListPage extends StatelessWidget {
@@ -20,13 +21,22 @@ class ContactListPage extends StatelessWidget {
             ContactListEvent.watchStarted(),
           ),
         child: SingleChildScrollView(
-          child: Container(
-            child: Stack(
-              children: [
-                ContactListHeader(),
-                ListContacts(),
-              ],
-            ),
+          child: BlocBuilder<ContactListBloc, ContactListState>(
+            builder: (context, state) {
+              return Stack(
+                children: [
+                  SelectHeader(),
+                  ListContacts(
+                    onSelect: (contact) => context.router.navigate(
+                      ContactViewRoute(contact: contact),
+                    ),
+                    contacts: state.isSearching
+                        ? state.contactsFiltered
+                        : state.contacts,
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

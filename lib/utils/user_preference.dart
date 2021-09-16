@@ -20,4 +20,14 @@ class UserPreference {
     final box = Hive.box('preferences');
     return box.get('wallet_id');
   }
+
+  static void setWalletAddress(String address) {
+    final box = Hive.box('preferences');
+    box.put('address', address);
+  }
+
+  static String getWalletAddress() {
+    final box = Hive.box('preferences');
+    return box.get('address');
+  }
 }

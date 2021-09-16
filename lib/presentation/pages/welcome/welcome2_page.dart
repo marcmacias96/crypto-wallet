@@ -14,11 +14,10 @@ class Welcome2Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image:DecorationImage(
-          image:AssetImage ('assets/img/brackground.png'),
-          fit: BoxFit.cover,
-        )
-      ),
+          image: DecorationImage(
+        image: AssetImage('assets/img/brackground.png'),
+        fit: BoxFit.cover,
+      )),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -28,8 +27,7 @@ class Welcome2Page extends StatelessWidget {
               child: Container(
                 //width: 1.sw,
                 margin: EdgeInsets.only(
-                    top: 0.05.sh,
-
+                  top: 0.05.sh,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -37,33 +35,35 @@ class Welcome2Page extends StatelessWidget {
                   children: [
                     TitleWelcome(title: 'Te permite realizar transacciones'),
                     BodyWelcome2(),
-                    SizedBox(height: 100.h,),
+                    SizedBox(
+                      height: 100.h,
+                    ),
                     CustomButton(
                       text: 'Registrarse',
                       textcolor: Theme.of(context).primaryColor,
-                      buttoncolor: Colors.white, 
-                      onTap: ()=> context.router.navigate(SignUpRoute()),
-
+                      buttoncolor: Colors.white,
+                      onTap: () => context.router.navigate(SignUpRoute()),
                     ),
-                    SizedBox(height: 50.h,),
+                    SizedBox(
+                      height: 50.h,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Si tienes una cuenta  ",
-                          style: TextStyle(
-                              color: Colors.white54,
-                              fontSize: 40.sp
-                          ),
+                        Text(
+                          "Si tienes una cuenta  ",
+                          style:
+                              TextStyle(color: Colors.white54, fontSize: 40.sp),
                         ),
                         InkWell(
-                          onTap:()=> context.router.navigate(SignInRoute()) ,
-                          child: Text("Iniciar Ahora",
+                          onTap: () => context.router.navigate(SignInRoute()),
+                          child: Text(
+                            "Iniciar Ahora",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 40.sp
-                            ),
+                                fontSize: 40.sp),
                           ),
                         )
                       ],

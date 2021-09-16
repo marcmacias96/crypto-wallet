@@ -35,7 +35,7 @@ class AppTheme {
   );
 
   static final TextTheme lightTextTheme = TextTheme(
-    //Saludo en welcome
+      //Saludo en welcome
       headline4: _headLine4Dark,
 
       //Titulo login
@@ -63,7 +63,7 @@ class AppTheme {
       color: Colors.black, fontSize: 36.sp, fontWeight: FontWeight.w700);
 
   static final TextStyle _headLine5Light =
-  _headLine6Light.copyWith(fontSize: 56.sp, fontWeight: FontWeight.bold);
+      _headLine6Light.copyWith(fontSize: 56.sp, fontWeight: FontWeight.bold);
 
   static final TextStyle _headLine4Dark = _headLine5Light.copyWith(
       letterSpacing: 1, fontSize: 56.sp, color: Colors.white);
@@ -80,10 +80,8 @@ class AppTheme {
       fontWeight: FontWeight.w400, color: Colors.white, fontSize: 36.sp);
 
   static final TextStyle _captionLight =
-  _bodyText2Light.copyWith(color: Colors.white);
+      _bodyText2Light.copyWith(color: Colors.white);
 
   static final TextStyle _buttonLight =
-  _buttonDark.copyWith(color: AppTheme.greyAccent);
+      _buttonDark.copyWith(color: AppTheme.greyAccent);
 }
-
-

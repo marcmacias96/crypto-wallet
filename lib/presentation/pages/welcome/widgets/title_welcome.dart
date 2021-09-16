@@ -10,19 +10,16 @@ class TitleWelcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-          top: 80.h,
-          left:50.w,
+        top: 80.h,
       ),
-
       child: Text(
         title,
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.headline4!.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 70.sp,
-
-        ),
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 70.sp,
+            ),
       ),
     );
   }

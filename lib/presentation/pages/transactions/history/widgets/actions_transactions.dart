@@ -20,7 +20,7 @@ class ActionsTransactions extends StatelessWidget {
               children: [
                 ButtonMedium(
                   icon: Icon(
-                    Icons.send,
+                    Icons.north_east,
                     color: Colors.white,
                   ),
                   text: 'Enviar',
