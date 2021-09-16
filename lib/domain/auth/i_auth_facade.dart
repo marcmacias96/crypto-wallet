@@ -19,6 +19,11 @@ abstract class IAuthFacade {
   Future<Either<FirestoreFailure, User>> getUser();
   Future<void> signOut();
   bool isSignedInUser();
+  Future<Either<AuthFailure, AccountType>> changePassword({
+    required String password,
+    required String newpassword,
+    required String confirmpassword,
+  });
 }
 
 enum AccountType { old, fresh }

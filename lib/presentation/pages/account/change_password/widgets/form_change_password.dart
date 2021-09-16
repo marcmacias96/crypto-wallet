@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../aplication/auth/sign_in_form/sign_in_form_bloc.dart';
+import '../../../../../aplication/auth/change_password_form/change_password_form_bloc.dart';
 import '../../../../core/utils.dart';
 import '../../../../routes/router.gr.dart';
 import '../../../auth/widgets/custom_button.dart';
@@ -13,16 +13,19 @@ class FormChangePassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignInFormBloc, SignInFormState>(
+    return BlocConsumer<ChangePasswordFormBloc, ChangePasswordFormState>(
+      listenWhen: (p, c) =>
+          p.changeFailureOrSuccessOption != c.changeFailureOrSuccessOption ||
+          p.isSubmitting != c.isSubmitting,
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(() {}, (either) {
+        state.changeFailureOrSuccessOption.fold(() {}, (either) {
           either.fold((failure) {
             Utils.showSnackBar(
                 failure.maybeMap(
                   cancelledByUser: (_) => "Acción cancelada",
                   serverError: (_) => "Error en el servidor",
                   invalidEmailAndPasswordCombination: (_) =>
-                      "Email o contraseña invalida",
+                      "contraseña invalida",
                   orElse: () => "Error inesperado",
                 ),
                 context,
@@ -31,9 +34,16 @@ class FormChangePassword extends StatelessWidget {
             context.router.navigate(AccountRoute());
           });
         });
+        if (state.isSubmitting) {
+          Utils.showSnackBar("Cargando..", context, progress: true);
+        }
       },
+      buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
       builder: (context, state) {
         return Form(
+          autovalidateMode: state.showErrorMessages
+              ? AutovalidateMode.always
+              : AutovalidateMode.disabled,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 50.h),
             child: Column(
@@ -44,6 +54,21 @@ class FormChangePassword extends StatelessWidget {
                   autocorrect: false,
                   obscureText: true,
                   style: TextStyle(color: Colors.black),
+                  onChanged: (value) =>
+                      context.read<ChangePasswordFormBloc>().add(
+                            ChangePasswordFormEvent.passwordChanged(value),
+                          ),
+                  validator: (_) => context
+                      .read<ChangePasswordFormBloc>()
+                      .state
+                      .password
+                      .value
+                      .fold(
+                          (f) => f.maybeMap(
+                                shortPassword: (_) => 'Contraseña incorrecta ',
+                                orElse: () => null,
+                              ),
+                          (_) => null),
                 ),
                 SizedBox(
                   height: 50.h,
@@ -53,6 +78,22 @@ class FormChangePassword extends StatelessWidget {
                   autocorrect: false,
                   obscureText: true,
                   style: TextStyle(color: Colors.black),
+                  onChanged: (value) =>
+                      context.read<ChangePasswordFormBloc>().add(
+                            ChangePasswordFormEvent.newpasswordChanged(value),
+                          ),
+                  validator: (_) => context
+                      .read<ChangePasswordFormBloc>()
+                      .state
+                      .newpassword
+                      .value
+                      .fold(
+                          (f) => f.maybeMap(
+                                shortPassword: (_) =>
+                                    'La contraseña debe tener minimo 6 caracteres',
+                                orElse: () => null,
+                              ),
+                          (_) => null),
                 ),
                 SizedBox(
                   height: 50.h,
@@ -62,15 +103,35 @@ class FormChangePassword extends StatelessWidget {
                   autocorrect: false,
                   obscureText: true,
                   style: TextStyle(color: Colors.black),
+                  onChanged: (value) => context
+                      .read<ChangePasswordFormBloc>()
+                      .add(
+                        ChangePasswordFormEvent.confirmpasswordChanged(value),
+                      ),
+                  validator: (_) => context
+                      .read<ChangePasswordFormBloc>()
+                      .state
+                      .confirmpassword
+                      .value
+                      .fold(
+                          (f) => f.maybeMap(
+                                shortPassword: (_) =>
+                                    'La contraseña debe tener minimo 6 caracteres',
+                                orElse: () => null,
+                              ),
+                          (_) => null),
                 ),
                 SizedBox(
                   height: 400.h,
                 ),
                 CustomButton(
-                    text: 'Cambiar Contraseña',
-                    textcolor: Colors.white,
-                    buttoncolor: Theme.of(context).primaryColor,
-                    onTap: () {})
+                  text: 'Cambiar Contraseña',
+                  textcolor: Colors.white,
+                  buttoncolor: Theme.of(context).primaryColor,
+                  onTap: () => context
+                      .read<ChangePasswordFormBloc>()
+                      .add(ChangePasswordFormEvent.changePasswordPressed()),
+                )
               ],
             ),
           ),

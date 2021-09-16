@@ -162,4 +162,30 @@ class FirebaseAuthFacade implements IAuthFacade {
     }
     return false;
   }
+
+  @override
+  Future<Either<AuthFailure, AccountType>> changePassword(
+      {required String password,
+      required String newpassword,
+      required String confirmpassword}) async {
+    final user = await _firebaseAuth.currentUser;
+
+    final authCredential = _auth.EmailAuthProvider.credential(
+      email: user!.email!,
+      password: password,
+    );
+
+    try {
+      final authResult =
+          await user.reauthenticateWithCredential(authCredential);
+      if (authResult.user != null) {
+        await user.updatePassword(newpassword);
+        return right(AccountType.old);
+      }
+      return left(const AuthFailure.serverError());
+    } on _auth.FirebaseAuthException catch (e) {
+      print(e);
+      return left(const AuthFailure.serverError());
+    }
+  }
 }

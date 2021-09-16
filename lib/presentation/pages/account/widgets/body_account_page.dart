@@ -14,7 +14,7 @@ class BodyAccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var walletID = UserPreference.getUserId();
+    var walletID = UserPreference.getWalletId();
     return BlocBuilder<WalletWatchBloc, WalletWatchState>(
         builder: (context, state) {
       return state.map(
@@ -81,7 +81,7 @@ class BodyAccountPage extends StatelessWidget {
                                 Theme.of(context).textTheme.caption!.copyWith(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 35.sp,
+                                      fontSize: 30.sp,
                                     ),
                           ),
                         ],

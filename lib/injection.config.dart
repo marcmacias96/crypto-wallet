@@ -12,10 +12,12 @@ import 'package:google_sign_in/google_sign_in.dart' as _i6;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'aplication/auth/auth_bloc.dart' as _i22;
+import 'aplication/auth/change_password_form/change_password_form_bloc.dart'
+    as _i23;
 import 'aplication/auth/sign_in_form/sign_in_form_bloc.dart' as _i18;
-import 'aplication/coin_list_bloc/coin_list_bloc.dart' as _i23;
-import 'aplication/contact/contact_form_bloc/contact_form_bloc.dart' as _i24;
-import 'aplication/contact/contact_list_bloc/contact_list_bloc.dart' as _i25;
+import 'aplication/coin_list_bloc/coin_list_bloc.dart' as _i24;
+import 'aplication/contact/contact_form_bloc/contact_form_bloc.dart' as _i25;
+import 'aplication/contact/contact_list_bloc/contact_list_bloc.dart' as _i26;
 import 'aplication/layout/layout_cubit.dart' as _i17;
 import 'aplication/transaction_form_bloc/transaction_form_bloc.dart' as _i19;
 import 'aplication/wallet/wallet_form_bloc/wallet_form_bloc.dart' as _i20;
@@ -28,7 +30,7 @@ import 'domain/wallet/i_wallet_repository.dart' as _i15;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i8;
 import 'infrastructure/coin/coin_repository.dart' as _i10;
 import 'infrastructure/contacts/contact_respository.dart' as _i12;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i26;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i27;
 import 'infrastructure/transactions/transaction_repository.dart' as _i14;
 import 'infrastructure/wallet/wallet_repository.dart'
     as _i16; // ignore_for_file: unnecessary_lambdas
@@ -69,13 +71,15 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i21.WalletWatchBloc>(
       () => _i21.WalletWatchBloc(get<_i15.IWalletRepository>()));
   gh.factory<_i22.AuthBloc>(() => _i22.AuthBloc(get<_i7.IAuthFacade>()));
-  gh.factory<_i23.CoinListBloc>(
-      () => _i23.CoinListBloc(get<_i9.ICoinRepository>()));
-  gh.factory<_i24.ContactFormBloc>(
-      () => _i24.ContactFormBloc(get<_i11.IContactRepository>()));
-  gh.factory<_i25.ContactListBloc>(
-      () => _i25.ContactListBloc(get<_i11.IContactRepository>()));
+  gh.factory<_i23.ChangePasswordFormBloc>(
+      () => _i23.ChangePasswordFormBloc(get<_i7.IAuthFacade>()));
+  gh.factory<_i24.CoinListBloc>(
+      () => _i24.CoinListBloc(get<_i9.ICoinRepository>()));
+  gh.factory<_i25.ContactFormBloc>(
+      () => _i25.ContactFormBloc(get<_i11.IContactRepository>()));
+  gh.factory<_i26.ContactListBloc>(
+      () => _i26.ContactListBloc(get<_i11.IContactRepository>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i26.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i27.FirebaseInjectableModule {}
